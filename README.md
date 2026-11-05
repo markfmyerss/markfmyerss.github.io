@@ -1,6 +1,6 @@
-# NFL Favorites Sorter — AFC North & East
+# NFL Favorites Sorter — AFC North, East & South
 
-Compare your favorite active-roster players from the Baltimore Ravens, Cincinnati Bengals, Pittsburgh Steelers Cleveland Browns, Buffalo Bills, Miami Dolphins, New England Patriots and New York Jets. This ranks personal preference, not statistics or playing ability.
+Compare your favorite active-roster players from the Baltimore Ravens, Cincinnati Bengals, Pittsburgh Steelers Cleveland Browns, Buffalo Bills, Miami Dolphins, New England Patriots and New York Jets, Houston Texans, Indianapolis Colts, Jacksonville Jaguars and Tennessee Titans. This ranks personal preference, not statistics or playing ability.
 
 Live: https://markfmyerss.github.io/nfl-favorites-sorter/
 
@@ -17,6 +17,6 @@ No build or dependencies. Serve this directory with any static server. GitHub Pa
 
 `index.html`, `styles.css`, `data.js`, and `app.js` form the application. Keep these files together. `tests.cjs` exercises sorting, save isolation, migration, undo, malformed storage and portrait coverage and fallback with a minimal DOM fixture; run with `node tests.cjs` (Node 18+). Browser QA results and remaining limits are reported separately.
 
-See [DATA-SOURCES.md](DATA-SOURCES.md) for verification date, active-roster scope, position mapping, palettes and image permissions. Rosters are dated snapshots, not live data. All eight teams’ players have official team/NFL headshot sources, with jersey illustrations as load-error fallbacks.
+See [DATA-SOURCES.md](DATA-SOURCES.md) for verification date, active-roster scope, position mapping, palettes and image permissions. Rosters are dated snapshots, not live data. All twelve teams’ players have official team/NFL headshot sources, with jersey illustrations as load-error fallbacks.
 
-AFC East data is ingested on GitHub’s runner by `scripts/expand-afc-east.cjs` once. Existing team snapshots are retained. Browser QA, screenshots and image checks run on GitHub; no local development download is required.
+AFC South data is ingested on GitHub’s runner by `scripts/expand-afc-south.cjs` once. Existing team snapshots are retained. Browser QA, screenshots and image checks run on GitHub; no local development download is required.

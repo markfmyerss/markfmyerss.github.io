@@ -9,3 +9,5 @@
 .division-button[aria-pressed=true]{background:#30303a;color:#fff;border-color:#555560}
 #division-summary{font-size:.75rem;color:#aaaab7}
 @media(max-width:480px){.division-row{gap:10px}#division-picker{width:100%}.division-button{flex:1}#division-summary{font-size:.7rem}}
+
+@media(max-width:480px){.division-button{min-width:0;padding:11px 8px;font-size:.74rem;white-space:nowrap}}

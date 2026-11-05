@@ -128,7 +128,7 @@ function selectDivision(division) {
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 for(const team of Object.keys(TEAM_INFO))$('team').add(new Option(team,team));
-for(const division of ['AFC North','AFC East']){const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);$('division-picker').append(b);}
+for(const division of [...new Set(Object.keys(TEAM_INFO).map(divisionFor))]){const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);$('division-picker').append(b);}
 for(const pos of positions)$('position').add(new Option(pos==='ALL'?'All positions':pos,pos));
 $('team').value='Baltimore Ravens';
 try{const selection=JSON.parse(read('nfl-sorter-selection'));if(TEAM_INFO[selection?.team])$('team').value=selection.team;if(positions.includes(selection?.pos))$('position').value=selection.pos;}catch{}
