@@ -163,6 +163,62 @@ const TEAM_INFO = {
       "ink": "#101014"
     },
     "division": "AFC South"
+  },
+  "Denver Broncos": {
+    "name": "Denver Broncos",
+    "code": "DEN",
+    "nickname": "Broncos",
+    "singular": "Bronco",
+    "source": "https://www.denverbroncos.com/team/players-roster/",
+    "colors": {
+      "primary": "#FB4F14",
+      "accent": "#002244",
+      "highlight": "#ffb08e",
+      "ink": "#101014"
+    },
+    "division": "AFC West"
+  },
+  "Kansas City Chiefs": {
+    "name": "Kansas City Chiefs",
+    "code": "KC",
+    "nickname": "Chiefs",
+    "singular": "Chief",
+    "source": "https://www.chiefs.com/team/players-roster/",
+    "colors": {
+      "primary": "#E31837",
+      "accent": "#FFB81C",
+      "highlight": "#FFB81C",
+      "ink": "#101014"
+    },
+    "division": "AFC West"
+  },
+  "Las Vegas Raiders": {
+    "name": "Las Vegas Raiders",
+    "code": "LV",
+    "nickname": "Raiders",
+    "singular": "Raider",
+    "source": "https://www.raiders.com/team/players-roster/",
+    "colors": {
+      "primary": "#000000",
+      "accent": "#A5ACAF",
+      "highlight": "#d2d7da",
+      "ink": "#101014"
+    },
+    "division": "AFC West"
+  },
+  "Los Angeles Chargers": {
+    "name": "Los Angeles Chargers",
+    "code": "LAC",
+    "nickname": "Chargers",
+    "singular": "Charger",
+    "source": "https://www.chargers.com/team/players-roster/",
+    "colors": {
+      "primary": "#0080C6",
+      "accent": "#FFC20E",
+      "highlight": "#FFC20E",
+      "ink": "#101014"
+    },
+    "division": "AFC West"
   }
 };
 const ROSTERS = {
@@ -5881,6 +5937,1926 @@ const ROSTERS = {
       "id": "TEN-kevin-winston-jr",
       "profile": "https://www.tennesseetitans.com/team/players-roster/kevin-winston-jr/"
     }
+  ],
+  "Denver Broncos": [
+    {
+      "name": "Kris Abrams-Draine",
+      "number": "31",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Denver Broncos",
+      "id": "DEN-kris-abrams-draine",
+      "profile": "https://www.denverbroncos.com/team/players-roster/kris-abrams-draine/"
+    },
+    {
+      "name": "Nate Adkins",
+      "number": "45",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Denver Broncos",
+      "id": "DEN-nate-adkins",
+      "profile": "https://www.denverbroncos.com/team/players-roster/nate-adkins/"
+    },
+    {
+      "name": "Zach Allen",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Denver Broncos",
+      "id": "DEN-zach-allen",
+      "profile": "https://www.denverbroncos.com/team/players-roster/zach-allen/"
+    },
+    {
+      "name": "Tycen Anderson",
+      "number": "6",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Denver Broncos",
+      "id": "DEN-tycen-anderson",
+      "profile": "https://www.denverbroncos.com/team/players-roster/tycen-anderson/"
+    },
+    {
+      "name": "Jahdae Barron",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Denver Broncos",
+      "id": "DEN-jahdae-barron",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jahdae-barron/"
+    },
+    {
+      "name": "Dallen Bentley",
+      "number": "89",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Denver Broncos",
+      "id": "DEN-dallen-bentley",
+      "profile": "https://www.denverbroncos.com/team/players-roster/dallen-bentley/"
+    },
+    {
+      "name": "Garett Bolles",
+      "number": "72",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Denver Broncos",
+      "id": "DEN-garett-bolles",
+      "profile": "https://www.denverbroncos.com/team/players-roster/garett-bolles/"
+    },
+    {
+      "name": "Nik Bonitto",
+      "number": "15",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Denver Broncos",
+      "id": "DEN-nik-bonitto",
+      "profile": "https://www.denverbroncos.com/team/players-roster/nik-bonitto/"
+    },
+    {
+      "name": "Kage Casey",
+      "number": "78",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Denver Broncos",
+      "id": "DEN-kage-casey",
+      "profile": "https://www.denverbroncos.com/team/players-roster/kage-casey/"
+    },
+    {
+      "name": "Jonah Coleman",
+      "number": "20",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Denver Broncos",
+      "id": "DEN-jonah-coleman",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jonah-coleman/"
+    },
+    {
+      "name": "Jonathon Cooper",
+      "number": "0",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Denver Broncos",
+      "id": "DEN-jonathon-cooper",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jonathon-cooper/"
+    },
+    {
+      "name": "Jeremy Crawshaw",
+      "number": "16",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Denver Broncos",
+      "id": "DEN-jeremy-crawshaw",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jeremy-crawshaw/"
+    },
+    {
+      "name": "J.K. Dobbins",
+      "number": "27",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Denver Broncos",
+      "id": "DEN-j-k-dobbins",
+      "profile": "https://www.denverbroncos.com/team/players-roster/j-k-dobbins/"
+    },
+    {
+      "name": "Sam Ehlinger",
+      "number": "4",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Denver Broncos",
+      "id": "DEN-sam-ehlinger",
+      "profile": "https://www.denverbroncos.com/team/players-roster/sam-ehlinger/"
+    },
+    {
+      "name": "Evan Engram",
+      "number": "1",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Denver Broncos",
+      "id": "DEN-evan-engram",
+      "profile": "https://www.denverbroncos.com/team/players-roster/evan-engram/"
+    },
+    {
+      "name": "Alex Forsyth",
+      "number": "54",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Denver Broncos",
+      "id": "DEN-alex-forsyth",
+      "profile": "https://www.denverbroncos.com/team/players-roster/alex-forsyth/"
+    },
+    {
+      "name": "Mitchell Fraboni",
+      "number": "48",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Denver Broncos",
+      "id": "DEN-mitchell-fraboni",
+      "profile": "https://www.denverbroncos.com/team/players-roster/mitchell-fraboni/"
+    },
+    {
+      "name": "Troy Franklin",
+      "number": "11",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Denver Broncos",
+      "id": "DEN-troy-franklin",
+      "profile": "https://www.denverbroncos.com/team/players-roster/troy-franklin/"
+    },
+    {
+      "name": "Talanoa Hufanga",
+      "number": "9",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Denver Broncos",
+      "id": "DEN-talanoa-hufanga",
+      "profile": "https://www.denverbroncos.com/team/players-roster/talanoa-hufanga/"
+    },
+    {
+      "name": "Lil'Jordan Humphrey",
+      "number": "5",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Denver Broncos",
+      "id": "DEN-lil-jordan-humphrey",
+      "profile": "https://www.denverbroncos.com/team/players-roster/lil-jordan-humphrey/"
+    },
+    {
+      "name": "Jordan Jackson",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Denver Broncos",
+      "id": "DEN-jordan-jackson",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jordan-jackson/"
+    },
+    {
+      "name": "Brandon Jones",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Denver Broncos",
+      "id": "DEN-brandon-jones",
+      "profile": "https://www.denverbroncos.com/team/players-roster/brandon-jones/"
+    },
+    {
+      "name": "D.J. Jones",
+      "number": "93",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Denver Broncos",
+      "id": "DEN-d-j-jones",
+      "profile": "https://www.denverbroncos.com/team/players-roster/d-j-jones/"
+    },
+    {
+      "name": "Sai'vion Jones",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Denver Broncos",
+      "id": "DEN-sai-vion-jones",
+      "profile": "https://www.denverbroncos.com/team/players-roster/sai-vion-jones/"
+    },
+    {
+      "name": "Devon Key",
+      "number": "26",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Denver Broncos",
+      "id": "DEN-devon-key",
+      "profile": "https://www.denverbroncos.com/team/players-roster/devon-key/"
+    },
+    {
+      "name": "Wil Lutz",
+      "number": "3",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Denver Broncos",
+      "id": "DEN-wil-lutz",
+      "profile": "https://www.denverbroncos.com/team/players-roster/wil-lutz/"
+    },
+    {
+      "name": "Mike McGlinchey",
+      "number": "69",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Denver Broncos",
+      "id": "DEN-mike-mcglinchey",
+      "profile": "https://www.denverbroncos.com/team/players-roster/mike-mcglinchey/"
+    },
+    {
+      "name": "Ja'Quan McMillian",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Denver Broncos",
+      "id": "DEN-ja-quan-mcmillian",
+      "profile": "https://www.denverbroncos.com/team/players-roster/ja-quan-mcmillian/"
+    },
+    {
+      "name": "Quinn Meinerz",
+      "number": "77",
+      "position": "OL",
+      "rosterPosition": "G/C",
+      "team": "Denver Broncos",
+      "id": "DEN-quinn-meinerz",
+      "profile": "https://www.denverbroncos.com/team/players-roster/quinn-meinerz/"
+    },
+    {
+      "name": "Marvin Mims Jr.",
+      "number": "19",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Denver Broncos",
+      "id": "DEN-marvin-mims-jr",
+      "profile": "https://www.denverbroncos.com/team/players-roster/marvin-mims-jr/"
+    },
+    {
+      "name": "Riley Moss",
+      "number": "21",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Denver Broncos",
+      "id": "DEN-riley-moss",
+      "profile": "https://www.denverbroncos.com/team/players-roster/riley-moss/"
+    },
+    {
+      "name": "Bo Nix",
+      "number": "10",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Denver Broncos",
+      "id": "DEN-bo-nix",
+      "profile": "https://www.denverbroncos.com/team/players-roster/bo-nix/"
+    },
+    {
+      "name": "Tyler Onyedim",
+      "number": "98",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Denver Broncos",
+      "id": "DEN-tyler-onyedim",
+      "profile": "https://www.denverbroncos.com/team/players-roster/tyler-onyedim/"
+    },
+    {
+      "name": "Alex Palczewski",
+      "number": "63",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Denver Broncos",
+      "id": "DEN-alex-palczewski",
+      "profile": "https://www.denverbroncos.com/team/players-roster/alex-palczewski/"
+    },
+    {
+      "name": "Matt Peart",
+      "number": "79",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Denver Broncos",
+      "id": "DEN-matt-peart",
+      "profile": "https://www.denverbroncos.com/team/players-roster/matt-peart/"
+    },
+    {
+      "name": "Ben Powers",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Denver Broncos",
+      "id": "DEN-ben-powers",
+      "profile": "https://www.denverbroncos.com/team/players-roster/ben-powers/"
+    },
+    {
+      "name": "Adam Prentice",
+      "number": "46",
+      "position": "RB",
+      "rosterPosition": "FB",
+      "team": "Denver Broncos",
+      "id": "DEN-adam-prentice",
+      "profile": "https://www.denverbroncos.com/team/players-roster/adam-prentice/"
+    },
+    {
+      "name": "Taylor Rapp",
+      "number": "30",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Denver Broncos",
+      "id": "DEN-taylor-rapp",
+      "profile": "https://www.denverbroncos.com/team/players-roster/taylor-rapp/"
+    },
+    {
+      "name": "Karene Reid",
+      "number": "47",
+      "position": "LB",
+      "rosterPosition": "ILB",
+      "team": "Denver Broncos",
+      "id": "DEN-karene-reid",
+      "profile": "https://www.denverbroncos.com/team/players-roster/karene-reid/"
+    },
+    {
+      "name": "Malcolm Roach",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Denver Broncos",
+      "id": "DEN-malcolm-roach",
+      "profile": "https://www.denverbroncos.com/team/players-roster/malcolm-roach/"
+    },
+    {
+      "name": "Que Robinson",
+      "number": "51",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Denver Broncos",
+      "id": "DEN-que-robinson",
+      "profile": "https://www.denverbroncos.com/team/players-roster/que-robinson/"
+    },
+    {
+      "name": "Alex Singleton",
+      "number": "49",
+      "position": "LB",
+      "rosterPosition": "ILB",
+      "team": "Denver Broncos",
+      "id": "DEN-alex-singleton",
+      "profile": "https://www.denverbroncos.com/team/players-roster/alex-singleton/"
+    },
+    {
+      "name": "JL Skinner",
+      "number": "34",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Denver Broncos",
+      "id": "DEN-jl-skinner",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jl-skinner/"
+    },
+    {
+      "name": "Jarrett Stidham",
+      "number": "8",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Denver Broncos",
+      "id": "DEN-jarrett-stidham",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jarrett-stidham/"
+    },
+    {
+      "name": "Justin Strnad",
+      "number": "40",
+      "position": "LB",
+      "rosterPosition": "ILB",
+      "team": "Denver Broncos",
+      "id": "DEN-justin-strnad",
+      "profile": "https://www.denverbroncos.com/team/players-roster/justin-strnad/"
+    },
+    {
+      "name": "Pat Surtain II",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Denver Broncos",
+      "id": "DEN-patrick-surtain-ii",
+      "profile": "https://www.denverbroncos.com/team/players-roster/patrick-surtain-ii/"
+    },
+    {
+      "name": "Courtland Sutton",
+      "number": "14",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Denver Broncos",
+      "id": "DEN-courtland-sutton",
+      "profile": "https://www.denverbroncos.com/team/players-roster/courtland-sutton/"
+    },
+    {
+      "name": "Dondrea Tillman",
+      "number": "92",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Denver Broncos",
+      "id": "DEN-dondrea-tillman",
+      "profile": "https://www.denverbroncos.com/team/players-roster/dondrea-tillman/"
+    },
+    {
+      "name": "Adam Trautman",
+      "number": "82",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Denver Broncos",
+      "id": "DEN-adam-trautman",
+      "profile": "https://www.denverbroncos.com/team/players-roster/adam-trautman/"
+    },
+    {
+      "name": "Jordan Turner",
+      "number": "55",
+      "position": "LB",
+      "rosterPosition": "ILB",
+      "team": "Denver Broncos",
+      "id": "DEN-jordan-turner",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jordan-turner/"
+    },
+    {
+      "name": "Eyioma Uwazurike",
+      "number": "96",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Denver Broncos",
+      "id": "DEN-eyioma-uwazurike",
+      "profile": "https://www.denverbroncos.com/team/players-roster/eyioma-uwazurike/"
+    },
+    {
+      "name": "Jaylen Waddle",
+      "number": "17",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Denver Broncos",
+      "id": "DEN-jaylen-waddle",
+      "profile": "https://www.denverbroncos.com/team/players-roster/jaylen-waddle/"
+    },
+    {
+      "name": "Luke Wattenberg",
+      "number": "60",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Denver Broncos",
+      "id": "DEN-luke-wattenberg",
+      "profile": "https://www.denverbroncos.com/team/players-roster/luke-wattenberg/"
+    }
+  ],
+  "Kansas City Chiefs": [
+    {
+      "name": "Cyrus Allen",
+      "number": "13",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Kansas City Chiefs",
+      "id": "KC-cyrus-allen",
+      "profile": "https://www.chiefs.com/team/players-roster/cyrus-allen/"
+    },
+    {
+      "name": "Felix Anudike-Uzomah",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-felix-anudike-uzomah",
+      "profile": "https://www.chiefs.com/team/players-roster/felix-anudike-uzomah/"
+    },
+    {
+      "name": "Matt Araiza",
+      "number": "14",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Kansas City Chiefs",
+      "id": "KC-matt-araiza",
+      "profile": "https://www.chiefs.com/team/players-roster/matt-araiza/"
+    },
+    {
+      "name": "Andrew Armstrong",
+      "number": "85",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Kansas City Chiefs",
+      "id": "KC-andrew-armstrong",
+      "profile": "https://www.chiefs.com/team/players-roster/andrew-armstrong/"
+    },
+    {
+      "name": "Jeffrey Bassa",
+      "number": "31",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jeffrey-bassa",
+      "profile": "https://www.chiefs.com/team/players-roster/jeffrey-bassa/"
+    },
+    {
+      "name": "Kahlil Benson",
+      "number": "70",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Kansas City Chiefs",
+      "id": "KC-kahlil-benson-2",
+      "profile": "https://www.chiefs.com/team/players-roster/kahlil-benson-2/"
+    },
+    {
+      "name": "Nick Bolton",
+      "number": "32",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-nick-bolton",
+      "profile": "https://www.chiefs.com/team/players-roster/nick-bolton/"
+    },
+    {
+      "name": "Jake Briningstool",
+      "number": "88",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jake-briningstool",
+      "profile": "https://www.chiefs.com/team/players-roster/jake-briningstool/"
+    },
+    {
+      "name": "Harrison Butker",
+      "number": "7",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Kansas City Chiefs",
+      "id": "KC-harrison-butker",
+      "profile": "https://www.chiefs.com/team/players-roster/harrison-butker/"
+    },
+    {
+      "name": "Mike Caliendo",
+      "number": "66",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Kansas City Chiefs",
+      "id": "KC-mike-caliendo",
+      "profile": "https://www.chiefs.com/team/players-roster/mike-caliendo/"
+    },
+    {
+      "name": "Jadon Canady",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jadon-canady",
+      "profile": "https://www.chiefs.com/team/players-roster/jadon-canady/"
+    },
+    {
+      "name": "Jack Cochrane",
+      "number": "43",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jack-cochrane",
+      "profile": "https://www.chiefs.com/team/players-roster/jack-cochrane/"
+    },
+    {
+      "name": "Chamarri Conner",
+      "number": "27",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-chamarri-conner",
+      "profile": "https://www.chiefs.com/team/players-roster/chamarri-conner/"
+    },
+    {
+      "name": "Mansoor Delane",
+      "number": "5",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-mansoor-delane",
+      "profile": "https://www.chiefs.com/team/players-roster/mansoor-delane/"
+    },
+    {
+      "name": "Bryson Eason",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Kansas City Chiefs",
+      "id": "KC-bryson-eason",
+      "profile": "https://www.chiefs.com/team/players-roster/bryson-eason/"
+    },
+    {
+      "name": "Joshua Ezeudu",
+      "number": "73",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Kansas City Chiefs",
+      "id": "KC-joshua-ezeudu",
+      "profile": "https://www.chiefs.com/team/players-roster/joshua-ezeudu/"
+    },
+    {
+      "name": "Justin Fields",
+      "number": "6",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-justin-fields",
+      "profile": "https://www.chiefs.com/team/players-roster/justin-fields/"
+    },
+    {
+      "name": "Kristian Fulton",
+      "number": "8",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-kristian-fulton",
+      "profile": "https://www.chiefs.com/team/players-roster/kristian-fulton/"
+    },
+    {
+      "name": "Ashton Gillotte",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-ashton-gillotte",
+      "profile": "https://www.chiefs.com/team/players-roster/ashton-gillotte/"
+    },
+    {
+      "name": "Alohi Gilman",
+      "number": "17",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Kansas City Chiefs",
+      "id": "KC-alohi-gilman",
+      "profile": "https://www.chiefs.com/team/players-roster/alohi-gilman/"
+    },
+    {
+      "name": "Noah Gray",
+      "number": "83",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-noah-gray",
+      "profile": "https://www.chiefs.com/team/players-roster/noah-gray/"
+    },
+    {
+      "name": "Jaden Hicks",
+      "number": "21",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jaden-hicks",
+      "profile": "https://www.chiefs.com/team/players-roster/jaden-hicks/"
+    },
+    {
+      "name": "Creed Humphrey",
+      "number": "52",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Kansas City Chiefs",
+      "id": "KC-creed-humphrey",
+      "profile": "https://www.chiefs.com/team/players-roster/creed-humphrey/"
+    },
+    {
+      "name": "Emmett Johnson",
+      "number": "10",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-emmett-johnson",
+      "profile": "https://www.chiefs.com/team/players-roster/emmett-johnson/"
+    },
+    {
+      "name": "Chris Jones",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Kansas City Chiefs",
+      "id": "KC-chris-jones",
+      "profile": "https://www.chiefs.com/team/players-roster/chris-jones/"
+    },
+    {
+      "name": "George Karlaftis",
+      "number": "56",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-george-karlaftis",
+      "profile": "https://www.chiefs.com/team/players-roster/george-karlaftis/"
+    },
+    {
+      "name": "Travis Kelce",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-travis-kelce",
+      "profile": "https://www.chiefs.com/team/players-roster/travis-kelce/"
+    },
+    {
+      "name": "Patrick Mahomes",
+      "number": "15",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-patrick-mahomes",
+      "profile": "https://www.chiefs.com/team/players-roster/patrick-mahomes/"
+    },
+    {
+      "name": "Cooper McDonald",
+      "number": "44",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-cooper-mcdonald",
+      "profile": "https://www.chiefs.com/team/players-roster/cooper-mcdonald/"
+    },
+    {
+      "name": "Jaylon Moore",
+      "number": "77",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jaylon-moore",
+      "profile": "https://www.chiefs.com/team/players-roster/jaylon-moore/"
+    },
+    {
+      "name": "Hunter Nourzad",
+      "number": "64",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Kansas City Chiefs",
+      "id": "KC-hunter-nourzad",
+      "profile": "https://www.chiefs.com/team/players-roster/hunter-nourzad/"
+    },
+    {
+      "name": "Garrett Nussmeier",
+      "number": "19",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-garrett-nussmeier",
+      "profile": "https://www.chiefs.com/team/players-roster/garrett-nussmeier/"
+    },
+    {
+      "name": "Xavier Nwankpa",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Kansas City Chiefs",
+      "id": "KC-xavier-nwankpa",
+      "profile": "https://www.chiefs.com/team/players-roster/xavier-nwankpa/"
+    },
+    {
+      "name": "Jaydn Ott",
+      "number": "34",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jaydn-ott",
+      "profile": "https://www.chiefs.com/team/players-roster/jaydn-ott/"
+    },
+    {
+      "name": "Diego Pounds",
+      "number": "61",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Kansas City Chiefs",
+      "id": "KC-diego-pounds",
+      "profile": "https://www.chiefs.com/team/players-roster/diego-pounds/"
+    },
+    {
+      "name": "Jack Pyburn",
+      "number": "54",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jack-pyburn",
+      "profile": "https://www.chiefs.com/team/players-roster/jack-pyburn/"
+    },
+    {
+      "name": "Nikko Remigio",
+      "number": "81",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Kansas City Chiefs",
+      "id": "KC-nikko-remigio",
+      "profile": "https://www.chiefs.com/team/players-roster/nikko-remigio/"
+    },
+    {
+      "name": "Rashee Rice",
+      "number": "4",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Kansas City Chiefs",
+      "id": "KC-rashee-rice",
+      "profile": "https://www.chiefs.com/team/players-roster/rashee-rice/"
+    },
+    {
+      "name": "Chris Roland-Wallace",
+      "number": "30",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-christian-roland-wallace",
+      "profile": "https://www.chiefs.com/team/players-roster/christian-roland-wallace/"
+    },
+    {
+      "name": "Jalen Royals",
+      "number": "11",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jalen-royals",
+      "profile": "https://www.chiefs.com/team/players-roster/jalen-royals/"
+    },
+    {
+      "name": "Trey Smith",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Kansas City Chiefs",
+      "id": "KC-trey-smith",
+      "profile": "https://www.chiefs.com/team/players-roster/trey-smith/"
+    },
+    {
+      "name": "Melvin Smith",
+      "number": "39",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-melvin-smith-jr",
+      "profile": "https://www.chiefs.com/team/players-roster/melvin-smith-jr/"
+    },
+    {
+      "name": "Kingsley Suamataia",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Kansas City Chiefs",
+      "id": "KC-kingsley-suamataia",
+      "profile": "https://www.chiefs.com/team/players-roster/kingsley-suamataia/"
+    },
+    {
+      "name": "R Mason Thomas",
+      "number": "51",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-r-mason-thomas",
+      "profile": "https://www.chiefs.com/team/players-roster/r-mason-thomas/"
+    },
+    {
+      "name": "Khyiris Tonga",
+      "number": "92",
+      "position": "DL",
+      "rosterPosition": "NT",
+      "team": "Kansas City Chiefs",
+      "id": "KC-khyiris-tonga",
+      "profile": "https://www.chiefs.com/team/players-roster/khyiris-tonga/"
+    },
+    {
+      "name": "Drue Tranquill",
+      "number": "23",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-drue-tranquill",
+      "profile": "https://www.chiefs.com/team/players-roster/drue-tranquill/"
+    },
+    {
+      "name": "Ben VanSumeren",
+      "number": "47",
+      "position": "RB",
+      "rosterPosition": "FB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-ben-vansumeren",
+      "profile": "https://www.chiefs.com/team/players-roster/ben-vansumeren/"
+    },
+    {
+      "name": "Kenneth Walker",
+      "number": "9",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-kenneth-walker-iii",
+      "profile": "https://www.chiefs.com/team/players-roster/kenneth-walker-iii/"
+    },
+    {
+      "name": "Jared Wiley",
+      "number": "12",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Kansas City Chiefs",
+      "id": "KC-jared-wiley",
+      "profile": "https://www.chiefs.com/team/players-roster/jared-wiley/"
+    },
+    {
+      "name": "Nohl Williams",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Kansas City Chiefs",
+      "id": "KC-nohl-williams",
+      "profile": "https://www.chiefs.com/team/players-roster/nohl-williams/"
+    },
+    {
+      "name": "James Winchester",
+      "number": "41",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Kansas City Chiefs",
+      "id": "KC-james-winchester",
+      "profile": "https://www.chiefs.com/team/players-roster/james-winchester/"
+    },
+    {
+      "name": "Peter Woods",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Kansas City Chiefs",
+      "id": "KC-peter-woods",
+      "profile": "https://www.chiefs.com/team/players-roster/peter-woods/"
+    },
+    {
+      "name": "Xavier Worthy",
+      "number": "1",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Kansas City Chiefs",
+      "id": "KC-xavier-worthy",
+      "profile": "https://www.chiefs.com/team/players-roster/xavier-worthy/"
+    }
+  ],
+  "Las Vegas Raiders": [
+    {
+      "name": "Jack Bech",
+      "number": "18",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-jack-bech",
+      "profile": "https://www.raiders.com/team/players-roster/jack-bech/"
+    },
+    {
+      "name": "Malik Benson",
+      "number": "19",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-malik-benson",
+      "profile": "https://www.raiders.com/team/players-roster/malik-benson/"
+    },
+    {
+      "name": "Thomas Booker IV",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Las Vegas Raiders",
+      "id": "LV-thomas-booker",
+      "profile": "https://www.raiders.com/team/players-roster/thomas-booker/"
+    },
+    {
+      "name": "Brock Bowers",
+      "number": "89",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Las Vegas Raiders",
+      "id": "LV-brock-bowers",
+      "profile": "https://www.raiders.com/team/players-roster/brock-bowers/"
+    },
+    {
+      "name": "Spencer Burford",
+      "number": "70",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Las Vegas Raiders",
+      "id": "LV-spencer-burford",
+      "profile": "https://www.raiders.com/team/players-roster/spencer-burford/"
+    },
+    {
+      "name": "Adam Butler",
+      "number": "69",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Las Vegas Raiders",
+      "id": "LV-adam-butler",
+      "profile": "https://www.raiders.com/team/players-roster/adam-butler/"
+    },
+    {
+      "name": "Bryce Cabeldue",
+      "number": "77",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Las Vegas Raiders",
+      "id": "LV-bryce-cabeldue",
+      "profile": "https://www.raiders.com/team/players-roster/bryce-cabeldue/"
+    },
+    {
+      "name": "Jeremy Chinn",
+      "number": "11",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Las Vegas Raiders",
+      "id": "LV-jeremy-chinn",
+      "profile": "https://www.raiders.com/team/players-roster/jeremy-chinn/"
+    },
+    {
+      "name": "AJ Cole",
+      "number": "6",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Las Vegas Raiders",
+      "id": "LV-a-j-cole",
+      "profile": "https://www.raiders.com/team/players-roster/a-j-cole/"
+    },
+    {
+      "name": "Kirk Cousins",
+      "number": "8",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-kirk-cousins",
+      "profile": "https://www.raiders.com/team/players-roster/kirk-cousins/"
+    },
+    {
+      "name": "Maxx Crosby",
+      "number": "98",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Las Vegas Raiders",
+      "id": "LV-maxx-crosby",
+      "profile": "https://www.raiders.com/team/players-roster/maxx-crosby/"
+    },
+    {
+      "name": "Nakobe Dean",
+      "number": "17",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-nakobe-dean",
+      "profile": "https://www.raiders.com/team/players-roster/nakobe-dean/"
+    },
+    {
+      "name": "Tommy Eichenberg",
+      "number": "44",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-tommy-eichenberg",
+      "profile": "https://www.raiders.com/team/players-roster/tommy-eichenberg/"
+    },
+    {
+      "name": "Folorunso Fatukasi",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Las Vegas Raiders",
+      "id": "LV-folorunso-fatukasi",
+      "profile": "https://www.raiders.com/team/players-roster/folorunso-fatukasi/"
+    },
+    {
+      "name": "Matt Gay",
+      "number": "14",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Las Vegas Raiders",
+      "id": "LV-matt-gay",
+      "profile": "https://www.raiders.com/team/players-roster/matt-gay/"
+    },
+    {
+      "name": "DJ Glaze",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Las Vegas Raiders",
+      "id": "LV-dj-glaze",
+      "profile": "https://www.raiders.com/team/players-roster/dj-glaze/"
+    },
+    {
+      "name": "Charles Grant",
+      "number": "60",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Las Vegas Raiders",
+      "id": "LV-charles-grant",
+      "profile": "https://www.raiders.com/team/players-roster/charles-grant/"
+    },
+    {
+      "name": "Tonka Hemingway",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Las Vegas Raiders",
+      "id": "LV-tonka-hemingway",
+      "profile": "https://www.raiders.com/team/players-roster/tonka-hemingway/"
+    },
+    {
+      "name": "Connor Heyward",
+      "number": "34",
+      "position": "RB",
+      "rosterPosition": "FB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-connor-heyward",
+      "profile": "https://www.raiders.com/team/players-roster/connor-heyward/"
+    },
+    {
+      "name": "Ashton Jeanty",
+      "number": "2",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-ashton-jeanty",
+      "profile": "https://www.raiders.com/team/players-roster/ashton-jeanty/"
+    },
+    {
+      "name": "Dalton Johnson",
+      "number": "43",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Las Vegas Raiders",
+      "id": "LV-dalton-johnson",
+      "profile": "https://www.raiders.com/team/players-roster/dalton-johnson/"
+    },
+    {
+      "name": "Taron Johnson",
+      "number": "3",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-taron-johnson",
+      "profile": "https://www.raiders.com/team/players-roster/taron-johnson/"
+    },
+    {
+      "name": "Malcolm Koonce",
+      "number": "51",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Las Vegas Raiders",
+      "id": "LV-malcolm-koonce",
+      "profile": "https://www.raiders.com/team/players-roster/malcolm-koonce/"
+    },
+    {
+      "name": "Dylan Laube",
+      "number": "23",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-dylan-laube",
+      "profile": "https://www.raiders.com/team/players-roster/dylan-laube/"
+    },
+    {
+      "name": "Cody Lindenberg",
+      "number": "55",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-cody-lindenberg",
+      "profile": "https://www.raiders.com/team/players-roster/cody-lindenberg/"
+    },
+    {
+      "name": "Tyler Linderbaum",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Las Vegas Raiders",
+      "id": "LV-tyler-linderbaum",
+      "profile": "https://www.raiders.com/team/players-roster/tyler-linderbaum/"
+    },
+    {
+      "name": "Darrell Luter Jr.",
+      "number": "25",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-darrell-luter-jr",
+      "profile": "https://www.raiders.com/team/players-roster/darrell-luter-jr/"
+    },
+    {
+      "name": "Hezekiah Masses",
+      "number": "35",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-hezekiah-masses",
+      "profile": "https://www.raiders.com/team/players-roster/hezekiah-masses/"
+    },
+    {
+      "name": "Michael Mayer",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Las Vegas Raiders",
+      "id": "LV-michael-mayer",
+      "profile": "https://www.raiders.com/team/players-roster/michael-mayer/"
+    },
+    {
+      "name": "Tristin McCollum",
+      "number": "27",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Las Vegas Raiders",
+      "id": "LV-tristin-mccollum",
+      "profile": "https://www.raiders.com/team/players-roster/tristin-mccollum/"
+    },
+    {
+      "name": "Jermod McCoy",
+      "number": "28",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-jermod-mccoy",
+      "profile": "https://www.raiders.com/team/players-roster/jermod-mccoy/"
+    },
+    {
+      "name": "Fernando Mendoza",
+      "number": "15",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-fernando-mendoza",
+      "profile": "https://www.raiders.com/team/players-roster/fernando-mendoza/"
+    },
+    {
+      "name": "Kolton Miller",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Las Vegas Raiders",
+      "id": "LV-kolton-miller",
+      "profile": "https://www.raiders.com/team/players-roster/kolton-miller/"
+    },
+    {
+      "name": "Jalen Nailor",
+      "number": "9",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-jalen-nailor",
+      "profile": "https://www.raiders.com/team/players-roster/jalen-nailor/"
+    },
+    {
+      "name": "Aidan O'Connell",
+      "number": "12",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-aidan-o-connell",
+      "profile": "https://www.raiders.com/team/players-roster/aidan-o-connell/"
+    },
+    {
+      "name": "Segun Olubi",
+      "number": "50",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-segun-olubi",
+      "profile": "https://www.raiders.com/team/players-roster/segun-olubi/"
+    },
+    {
+      "name": "Kwity Paye",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Las Vegas Raiders",
+      "id": "LV-kwity-paye",
+      "profile": "https://www.raiders.com/team/players-roster/kwity-paye/"
+    },
+    {
+      "name": "JJ Pegues",
+      "number": "92",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Las Vegas Raiders",
+      "id": "LV-jj-pegues",
+      "profile": "https://www.raiders.com/team/players-roster/jj-pegues/"
+    },
+    {
+      "name": "Isaiah Pola-Mao",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Las Vegas Raiders",
+      "id": "LV-isaiah-pola-mao",
+      "profile": "https://www.raiders.com/team/players-roster/isaiah-pola-mao/"
+    },
+    {
+      "name": "Darien Porter",
+      "number": "26",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-darien-porter",
+      "profile": "https://www.raiders.com/team/players-roster/darien-porter/"
+    },
+    {
+      "name": "Jackson Powers-Johnson",
+      "number": "58",
+      "position": "OL",
+      "rosterPosition": "G/C",
+      "team": "Las Vegas Raiders",
+      "id": "LV-jackson-powers-johnson",
+      "profile": "https://www.raiders.com/team/players-roster/jackson-powers-johnson/"
+    },
+    {
+      "name": "Caleb Rogers",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Las Vegas Raiders",
+      "id": "LV-caleb-rogers",
+      "profile": "https://www.raiders.com/team/players-roster/caleb-rogers/"
+    },
+    {
+      "name": "Eric Stokes",
+      "number": "5",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-eric-stokes",
+      "profile": "https://www.raiders.com/team/players-roster/eric-stokes/"
+    },
+    {
+      "name": "Treydan Stukes",
+      "number": "31",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Las Vegas Raiders",
+      "id": "LV-treydan-stukes",
+      "profile": "https://www.raiders.com/team/players-roster/treydan-stukes/"
+    },
+    {
+      "name": "Ian Thomas",
+      "number": "80",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Las Vegas Raiders",
+      "id": "LV-ian-thomas",
+      "profile": "https://www.raiders.com/team/players-roster/ian-thomas/"
+    },
+    {
+      "name": "Dont'e Thornton Jr.",
+      "number": "10",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-dont-e-thornton-jr",
+      "profile": "https://www.raiders.com/team/players-roster/dont-e-thornton-jr/"
+    },
+    {
+      "name": "Tre Tucker",
+      "number": "1",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-tre-tucker",
+      "profile": "https://www.raiders.com/team/players-roster/tre-tucker/"
+    },
+    {
+      "name": "Quay Walker",
+      "number": "7",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-quay-walker",
+      "profile": "https://www.raiders.com/team/players-roster/quay-walker/"
+    },
+    {
+      "name": "Alex Ward",
+      "number": "47",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Las Vegas Raiders",
+      "id": "LV-alex-ward",
+      "profile": "https://www.raiders.com/team/players-roster/alex-ward/"
+    },
+    {
+      "name": "Mike Washington Jr.",
+      "number": "4",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Las Vegas Raiders",
+      "id": "LV-mike-washington-jr",
+      "profile": "https://www.raiders.com/team/players-roster/mike-washington-jr/"
+    },
+    {
+      "name": "Cody White",
+      "number": "82",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-cody-white",
+      "profile": "https://www.raiders.com/team/players-roster/cody-white/"
+    },
+    {
+      "name": "Dareke Young",
+      "number": "81",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Las Vegas Raiders",
+      "id": "LV-dareke-young",
+      "profile": "https://www.raiders.com/team/players-roster/dareke-young/"
+    },
+    {
+      "name": "Trey Zuhn III",
+      "number": "66",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Las Vegas Raiders",
+      "id": "LV-trey-zuhn-iii",
+      "profile": "https://www.raiders.com/team/players-roster/trey-zuhn-iii/"
+    }
+  ],
+  "Los Angeles Chargers": [
+    {
+      "name": "Joe Alt",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-joe-alt",
+      "profile": "https://www.chargers.com/team/players-roster/joe-alt/"
+    },
+    {
+      "name": "Kayode Awosika",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-kayode-awosika",
+      "profile": "https://www.chargers.com/team/players-roster/kayode-awosika/"
+    },
+    {
+      "name": "Nick Barrett",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-nick-barrett",
+      "profile": "https://www.chargers.com/team/players-roster/nick-barrett/"
+    },
+    {
+      "name": "Travis Burke",
+      "number": "77",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-travis-burke",
+      "profile": "https://www.chargers.com/team/players-roster/travis-burke/"
+    },
+    {
+      "name": "Jamaree Caldwell",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-jamaree-caldwell",
+      "profile": "https://www.chargers.com/team/players-roster/jamaree-caldwell/"
+    },
+    {
+      "name": "Derius Davis",
+      "number": "12",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-derius-davis",
+      "profile": "https://www.chargers.com/team/players-roster/derius-davis/"
+    },
+    {
+      "name": "Cameron Dicker",
+      "number": "11",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-cameron-dicker",
+      "profile": "https://www.chargers.com/team/players-roster/cameron-dicker/"
+    },
+    {
+      "name": "Bud Dupree",
+      "number": "48",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-bud-dupree",
+      "profile": "https://www.chargers.com/team/players-roster/bud-dupree/"
+    },
+    {
+      "name": "Troy Dye",
+      "number": "43",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-troy-dye",
+      "profile": "https://www.chargers.com/team/players-roster/troy-dye/"
+    },
+    {
+      "name": "Justin Eboigbe",
+      "number": "92",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-justin-eboigbe",
+      "profile": "https://www.chargers.com/team/players-roster/justin-eboigbe/"
+    },
+    {
+      "name": "Oronde Gadsden",
+      "number": "86",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-oronde-gadsden-ii",
+      "profile": "https://www.chargers.com/team/players-roster/oronde-gadsden-ii/"
+    },
+    {
+      "name": "Omarion Hampton",
+      "number": "8",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-omarion-hampton-x9967",
+      "profile": "https://www.chargers.com/team/players-roster/omarion-hampton-x9967/"
+    },
+    {
+      "name": "Alex Harkey",
+      "number": "73",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-alex-harkey",
+      "profile": "https://www.chargers.com/team/players-roster/alex-harkey/"
+    },
+    {
+      "name": "Tre' Harris",
+      "number": "9",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-tre-harris",
+      "profile": "https://www.chargers.com/team/players-roster/tre-harris/"
+    },
+    {
+      "name": "Josh Harris",
+      "number": "47",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-josh-harris",
+      "profile": "https://www.chargers.com/team/players-roster/josh-harris/"
+    },
+    {
+      "name": "Cam Hart",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-cam-hart",
+      "profile": "https://www.chargers.com/team/players-roster/cam-hart/"
+    },
+    {
+      "name": "Daiyan Henley",
+      "number": "0",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-daiyan-henley",
+      "profile": "https://www.chargers.com/team/players-roster/daiyan-henley/"
+    },
+    {
+      "name": "Justin Herbert",
+      "number": "10",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-justin-herbert",
+      "profile": "https://www.chargers.com/team/players-roster/justin-herbert/"
+    },
+    {
+      "name": "Donte Jackson",
+      "number": "26",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-donte-jackson",
+      "profile": "https://www.chargers.com/team/players-roster/donte-jackson/"
+    },
+    {
+      "name": "Tony Jefferson",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-tony-jefferson",
+      "profile": "https://www.chargers.com/team/players-roster/tony-jefferson/"
+    },
+    {
+      "name": "Quentin Johnston",
+      "number": "1",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-quentin-johnston",
+      "profile": "https://www.chargers.com/team/players-roster/quentin-johnston/"
+    },
+    {
+      "name": "Charlie Kolar",
+      "number": "88",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-charlie-kolar",
+      "profile": "https://www.chargers.com/team/players-roster/charlie-kolar/"
+    },
+    {
+      "name": "KeAndre Lambert-Smith",
+      "number": "84",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-keandre-lambert-smith",
+      "profile": "https://www.chargers.com/team/players-roster/keandre-lambert-smith/"
+    },
+    {
+      "name": "Deane Leonard",
+      "number": "33",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-deane-leonard",
+      "profile": "https://www.chargers.com/team/players-roster/deane-leonard/"
+    },
+    {
+      "name": "Khalil Mack",
+      "number": "52",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-khalil-mack",
+      "profile": "https://www.chargers.com/team/players-roster/khalil-mack/"
+    },
+    {
+      "name": "Scott Matlock",
+      "number": "44",
+      "position": "RB",
+      "rosterPosition": "FB/DL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-scott-matlock",
+      "profile": "https://www.chargers.com/team/players-roster/scott-matlock/",
+      "positions": [
+        "RB",
+        "DL"
+      ]
+    },
+    {
+      "name": "Ladd McConkey",
+      "number": "15",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-ladd-mcconkey",
+      "profile": "https://www.chargers.com/team/players-roster/ladd-mcconkey/"
+    },
+    {
+      "name": "Akheem Mesidor",
+      "number": "90",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-akheem-mesidor",
+      "profile": "https://www.chargers.com/team/players-roster/akheem-mesidor/"
+    },
+    {
+      "name": "RJ Mickens",
+      "number": "27",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-rj-mickens",
+      "profile": "https://www.chargers.com/team/players-roster/rj-mickens/"
+    },
+    {
+      "name": "Keaton Mitchell",
+      "number": "34",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-keaton-mitchell",
+      "profile": "https://www.chargers.com/team/players-roster/keaton-mitchell/"
+    },
+    {
+      "name": "Elijah Molden",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-elijah-molden",
+      "profile": "https://www.chargers.com/team/players-roster/elijah-molden/"
+    },
+    {
+      "name": "Caleb Murphy",
+      "number": "50",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-caleb-murphy",
+      "profile": "https://www.chargers.com/team/players-roster/caleb-murphy/"
+    },
+    {
+      "name": "Del'Shawn Phillips",
+      "number": "53",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-del-shawn-phillips",
+      "profile": "https://www.chargers.com/team/players-roster/del-shawn-phillips/"
+    },
+    {
+      "name": "Hayden Rucci",
+      "number": "40",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-hayden-rucci",
+      "profile": "https://www.chargers.com/team/players-roster/hayden-rucci/"
+    },
+    {
+      "name": "JK Scott",
+      "number": "16",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-jk-scott",
+      "profile": "https://www.chargers.com/team/players-roster/jk-scott/"
+    },
+    {
+      "name": "Rodney Shelley",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-rodney-shelley",
+      "profile": "https://www.chargers.com/team/players-roster/rodney-shelley/"
+    },
+    {
+      "name": "Jake Slaughter",
+      "number": "66",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-jake-slaughter",
+      "profile": "https://www.chargers.com/team/players-roster/jake-slaughter/"
+    },
+    {
+      "name": "Genesis Smith",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-genesis-smith",
+      "profile": "https://www.chargers.com/team/players-roster/genesis-smith/"
+    },
+    {
+      "name": "Jacob Spomer",
+      "number": "60",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-jacob-spomer",
+      "profile": "https://www.chargers.com/team/players-roster/jacob-spomer/"
+    },
+    {
+      "name": "Tarheeb Still",
+      "number": "4",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-tarheeb-still",
+      "profile": "https://www.chargers.com/team/players-roster/tarheeb-still/"
+    },
+    {
+      "name": "Cole Strange",
+      "number": "69",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-cole-strange",
+      "profile": "https://www.chargers.com/team/players-roster/cole-strange/"
+    },
+    {
+      "name": "Teair Tart",
+      "number": "93",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-teair-tart",
+      "profile": "https://www.chargers.com/team/players-roster/teair-tart/"
+    },
+    {
+      "name": "Branson Taylor",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-branson-taylor",
+      "profile": "https://www.chargers.com/team/players-roster/branson-taylor/"
+    },
+    {
+      "name": "Logan Taylor",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-logan-taylor",
+      "profile": "https://www.chargers.com/team/players-roster/logan-taylor/"
+    },
+    {
+      "name": "Brenen Thompson",
+      "number": "89",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-brenen-thompson",
+      "profile": "https://www.chargers.com/team/players-roster/brenen-thompson/"
+    },
+    {
+      "name": "Dalvin Tomlinson",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-dalvin-tomlinson",
+      "profile": "https://www.chargers.com/team/players-roster/dalvin-tomlinson/"
+    },
+    {
+      "name": "Tuli Tuipulotu",
+      "number": "45",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-tuli-tuipulotu",
+      "profile": "https://www.chargers.com/team/players-roster/tuli-tuipulotu/"
+    },
+    {
+      "name": "DJ Uiagalelei",
+      "number": "7",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-dj-uiagalelei",
+      "profile": "https://www.chargers.com/team/players-roster/dj-uiagalelei/"
+    },
+    {
+      "name": "Kimani Vidal",
+      "number": "28",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-kimani-vidal",
+      "profile": "https://www.chargers.com/team/players-roster/kimani-vidal/"
+    },
+    {
+      "name": "Marlowe Wax",
+      "number": "58",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-marlowe-wax",
+      "profile": "https://www.chargers.com/team/players-roster/marlowe-wax/"
+    },
+    {
+      "name": "Isas Waxter",
+      "number": "37",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-isas-waxter",
+      "profile": "https://www.chargers.com/team/players-roster/isas-waxter/"
+    },
+    {
+      "name": "Theo Wease Jr.",
+      "number": "82",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-theo-wease-jr",
+      "profile": "https://www.chargers.com/team/players-roster/theo-wease-jr/"
+    },
+    {
+      "name": "Kendall Williamson",
+      "number": "32",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Los Angeles Chargers",
+      "id": "LAC-kendall-williamson",
+      "profile": "https://www.chargers.com/team/players-roster/kendall-williamson/"
+    }
   ]
 };
 const HEADSHOTS = {
@@ -8411,5 +10387,853 @@ const HEADSHOTS = {
   "TEN-kevin-winston-jr": {
     "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/titans/s1s6krvgvtibxpbosyks.jpg",
     "source": "https://www.tennesseetitans.com/team/players-roster/"
+  },
+  "DEN-kris-abrams-draine": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/alshljvwlbqt84wtuuqg.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-nate-adkins": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/mzpkjvshpjxxjlpetszj.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-zach-allen": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/z3mtm4egrjn5hmtpwema.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-tycen-anderson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/o2aanz8ftp5zwua2h2xd.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jahdae-barron": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/qdqxkewta1vyl4c2prq7.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-dallen-bentley": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/zkbvp8vlx2cl4j8xvnit.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-garett-bolles": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/zi3px7rnplwdes28d6ug.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-nik-bonitto": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/cx8l4mbalembshvo9ipi.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-kage-casey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/w0bfcbuinnopg2qdfn9p.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jonah-coleman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/jjqwotcary6qye5wzrpq.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jonathon-cooper": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/edyqotxwd8g9jxxw3tou.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jeremy-crawshaw": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/ouuaz8pkijf4g0ap9hzg.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-j-k-dobbins": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/kphy6fdd4fkdlihflamm.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-sam-ehlinger": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/egavevoqydifjse7fheu.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-evan-engram": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/tjcco9qdp4pz0ztfvj8x.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-alex-forsyth": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/yiojw9dhnubzc5lyzz6i.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-mitchell-fraboni": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/xkp4g7zgisduf4vz4md1.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-troy-franklin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/hxjzsfr5gik9fg1syq0x.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-talanoa-hufanga": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/mpuu17gryp9dgrq72vhd.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-lil-jordan-humphrey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/r8wdamwvvxiqiipf6f2h.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jordan-jackson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/wewia105difmpcfb00cc.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-brandon-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/xxsf6ktbdvrtegiyc2wg.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-d-j-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/naiev5i5kmwp1jjyaa5o.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-sai-vion-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/yaqvtdbaztcdvukgxanw.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-devon-key": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/nq00voej8nlnumq8slnw.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-wil-lutz": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/qfiuwv75ccjc8rvq3ed0.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-mike-mcglinchey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/uexa7qm48a3lnlecgxfk.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-ja-quan-mcmillian": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/o5wcdlhkvii6uqfceedf.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-quinn-meinerz": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/uamdta2mk8dzfvctquor.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-marvin-mims-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/onmq9hiiuzuinbkvuiu8.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-riley-moss": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/upyxrnp0smhauseaolkp.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-bo-nix": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/imtqyrhdz95h3r2sc408.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-tyler-onyedim": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/qiu0wsbe0bspcl4kkwxl.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-alex-palczewski": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/a7eet1nhedafcy2tdzrc.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-matt-peart": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/pigro9ic7jz6nl9idscj.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-ben-powers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/sx9egr6xg63jvfi88snk.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-adam-prentice": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/wgvg6sgby0rbnvdgtfre.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-taylor-rapp": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/twqio2pfia1sheadjj4x.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-karene-reid": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/vjjziv5lrfoqhrgmy8a8.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-malcolm-roach": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/rc5le1k4oqso0xx0ishm.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-que-robinson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/wfva4tpccyhbwgt726in.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-alex-singleton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/y1xciumfuzymptq3llb9.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jl-skinner": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/k5ukfzvtnargjlcgfls0.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jarrett-stidham": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/vdptm08uua4p83l9or1a.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-justin-strnad": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/ynemoeojv4hf6epjnt2v.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-patrick-surtain-ii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/dhiwgkmcexpfwkn4yd7m.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-courtland-sutton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/qucedokwzgaga6qfld6z.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-dondrea-tillman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/sejkrtcxay0jq9ouxsqq.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-adam-trautman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/qp6sq4alab0oycjfqrkm.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jordan-turner": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/broxlxy9ga5tcqtremow.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-eyioma-uwazurike": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/zh9px1dkzstps5123lqe.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-jaylen-waddle": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/hpbrx4cq6aopnurfggnn.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "DEN-luke-wattenberg": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/broncos/etvwi1hyqh0vrul0uufz.jpg",
+    "source": "https://www.denverbroncos.com/team/players-roster/"
+  },
+  "KC-cyrus-allen": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/ieiivbvrqbmi35jet2jg.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-felix-anudike-uzomah": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/mrarxrgamwju00kcnggf.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-matt-araiza": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/pi1edgrzu9r8aupa0ber.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-andrew-armstrong": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/oi9yjxageqaeniqximj3.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jeffrey-bassa": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/drnidorvosaaonlvjgk5.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-kahlil-benson-2": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/u6fqocwoaydnjpk2z6iv.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-nick-bolton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/sxogdid0yobtcucptqwi.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jake-briningstool": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/vgknpy3evp7brgsm6xmv.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-harrison-butker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/nirnzvlxvmr3f7hjk03e.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-mike-caliendo": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/chiefs/capjn5frv3nllhgzu2t5.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jadon-canady": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/dktx33sthazbtappritz.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jack-cochrane": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/sgynvtim11xohshidorv.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-chamarri-conner": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/chiefs/dfiu8narzbb8pc5w4hk8.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-mansoor-delane": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/se9juoxjuvzvppf8ox3a.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-bryson-eason": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/zwcmfgph1qmsv0bcc99n.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-joshua-ezeudu": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/nbj1vlphldopkgfwpr77",
+    "source": "https://www.nfl.com/players/joshua-ezeudu/"
+  },
+  "KC-justin-fields": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/nkzcbh5q3hs8rmhshmv6.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-kristian-fulton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/awacrigzx0hqplow6agd.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-ashton-gillotte": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/xxu47ye7ljpqeofnxjow.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-alohi-gilman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/mdsjqmib6l1pbj1rjtts.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-noah-gray": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/chiefs/lgnb4vxdtl7xwbygkc3g.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jaden-hicks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/jhj0lqbdu761aqvddpgb.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-creed-humphrey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/nttq6nmv2h75wvqfowhl.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-emmett-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/p4tczv7sfoafjnkybapr.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-chris-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/phm6lhhsvr2brv9ndsyf.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-george-karlaftis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/lzv2wqsa0b5fqxsb4kk5.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-travis-kelce": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/chiefs/shcz08ej2eowvjhhwakj.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-patrick-mahomes": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/a6vwen0wtjgti32nxfmw.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-cooper-mcdonald": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/hoc4nghqyqn7euibjmpk.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jaylon-moore": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/dpc61wjdr1axf27sboky.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-hunter-nourzad": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/rzo20pok3wtgqgevxdh8.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-garrett-nussmeier": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/xkuuvvwz9p7tmkigakyz.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-xavier-nwankpa": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/ivvdk9a6ebrtypfqjmkz.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jaydn-ott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/bdskfkkx0vgma5gtsziu.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-diego-pounds": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/jsepjhs8bhdrqcovddpv.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jack-pyburn": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/xcfdgihdpv6p8mijszh1.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-nikko-remigio": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/ehqclcnk6racdbaqqr31.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-rashee-rice": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/vpfjeftdxrvtijjy9tfh.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-christian-roland-wallace": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/g8t5etaqmbc5rffhchgu.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jalen-royals": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/ajfai1hc9bclsgeyjegt.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-trey-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/qnapuvyk7ievodmbqfhe.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-melvin-smith-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/gezsgwzn521beztw7ei2.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-kingsley-suamataia": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/wsmrfkkwtosqar1ogm2f.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-r-mason-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/iqjyenw94hlndstudsmf.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-khyiris-tonga": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/xmilfs2sakhadzvamb5y.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-drue-tranquill": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/tuskpf0vjplhpuaugspi.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-ben-vansumeren": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/shd9cfyruhxubmubhinj",
+    "source": "https://www.nfl.com/players/ben-vansumeren/"
+  },
+  "KC-kenneth-walker-iii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/bc9rbps1k77hboxvvz74.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-jared-wiley": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/bmkyiwnmw3dauzqe8yfh.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-nohl-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chiefs/xi0dajcc00ek39eec8j7.png",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-james-winchester": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/riawfldgdxtavqf2sujb.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-peter-woods": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/qyzkpxzmh1wyhvvwjibl.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "KC-xavier-worthy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chiefs/y3p8wm6qhacq1qgpbxrh.jpg",
+    "source": "https://www.chiefs.com/team/players-roster/"
+  },
+  "LV-jack-bech": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/mrpd33jrbpjfkjhxyns8.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-malik-benson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779639021/raiders/wlbuz1lbadnhuuuc2ggx.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-thomas-booker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1780625966/raiders/yiemxdxxqqu4ewzkboks.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-brock-bowers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779641312/raiders/w1rha40yhicg8blru3gi.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-spencer-burford": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/dbssd2bdslhcpatbqpho.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-adam-butler": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640529/raiders/v8zgdof63ozirbzm6ur7.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-bryce-cabeldue": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1789074133/raiders/caonnnurrtn8vjiao8ce.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-jeremy-chinn": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/gmmhce3rrdkcmjxhivun.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-a-j-cole": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/ntyqa2n9ld0x356vpeyc.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-kirk-cousins": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640618/raiders/zochd9cxbegm019jjsbu.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-maxx-crosby": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779638949/raiders/ve47tan4sm8otxna04x8.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-nakobe-dean": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779641363/raiders/ik6ex2ykxvukbkdsdq1l.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-tommy-eichenberg": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/mezzbcowhdtfb6j4hiyl.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-folorunso-fatukasi": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1786817087/raiders/hz0rfgokmqsgdnkvnsr9.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-matt-gay": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1780625997/raiders/aczkkrqilklg4h3wquog.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-dj-glaze": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779641388/raiders/hdn5ufvyuuzzggmmlscm.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-charles-grant": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779639261/raiders/p9q5ufjt4k7jowlev6lo.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-tonka-hemingway": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/netfymihyft29tcrhqqo.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-connor-heyward": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779641534/raiders/pc47zhhpde27pwojjx4e.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-ashton-jeanty": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1771371892/raiders/gtwxqmjrrv2ks8adx4uh.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-dalton-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/ufrtu0rffnl9jraycafd.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-taron-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1780626409/raiders/calol689qpwjgcitxema.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-malcolm-koonce": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/klcfsi0rrp139cytm9jp.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-dylan-laube": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/cwvmrzg0tw8ts5cqpqxp.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-cody-lindenberg": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/jupoydlxczuvhwek4uc7.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-tyler-linderbaum": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779641602/raiders/fvqh06jjw5q84sgadwga.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-darrell-luter-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1788201465/raiders/kcivctzrri4ltlxrhb7l.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-hezekiah-masses": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779917080/raiders/a5nyoh0qg4npsnzpki3o.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-michael-mayer": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779639740/raiders/pguvrrbjgeslwfqrwheo.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-tristin-mccollum": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779639813/raiders/eox1xrm0cgqkbqixrbzi.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-jermod-mccoy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640675/raiders/p3fvbif1margdixl6cvf.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-fernando-mendoza": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640689/raiders/cy84prraqts7zy05g5wy.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-kolton-miller": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/rdvhcsax3j5nqhobvwog.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-jalen-nailor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/xw1hxlc5yqi6xhspivma.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-aidan-o-connell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779639941/raiders/q75svj33tsp8b0rgwphn.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-segun-olubi": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1786990987/raiders/uv35gkqly9fu42zelq7m.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-kwity-paye": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779639995/raiders/vkohn76kr0hdcg2yezf1.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-jj-pegues": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/twvj3ujzkp4dpaxcviqm.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-isaiah-pola-mao": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/xeoxjphnkcjnmtwzgxjd.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-darien-porter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640047/raiders/x93lpvg4moefwq5or74b.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-jackson-powers-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/l3t1obucjbqramnbxexa.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-caleb-rogers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640149/raiders/ngh7rimy31tqjrkhvtuu.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-eric-stokes": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779641825/raiders/pkeobaaavmbe0uk0z4kh.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-treydan-stukes": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779812407/raiders/ugi0vz1mkr2teaz8kn8y.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-ian-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/xrcqrflhjyxw6extgrgm.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-dont-e-thornton-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/raiders/kisa9tjwdrsjwq0apst3.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-tre-tucker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640068/raiders/ln7z9df4wg8jcrlw3tpp.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-quay-walker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1780626097/raiders/cdmtmgumegeearljsbej.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-alex-ward": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640443/raiders/ln10noejmcgdqwdxfq8m.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-mike-washington-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779812743/raiders/bznnjfh1h6z4r1swdk2u.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-cody-white": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1788218616/raiders/xdq7tdgpba1ovvyvoqo9.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-dareke-young": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640391/raiders/nexjf3i2sirwy5jpgnc3.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LV-trey-zuhn-iii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1779640460/raiders/fpoij4dca4uverguq4zf.jpg",
+    "source": "https://www.raiders.com/team/players-roster/"
+  },
+  "LAC-joe-alt": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783968824/chargers/dtsf929vriskdjjmegcc.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-kayode-awosika": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/d3yceaet9wlhwqqcoj0r.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-nick-barrett": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/o1zphpp4kkrgdolkg6fu.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-travis-burke": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783972217/chargers/y7ziwixkx56itiaycu18.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-jamaree-caldwell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/xi1ugdqodhhj66ne4riw.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-derius-davis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/e00gkeldimopodonebvu.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-cameron-dicker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783972556/chargers/afdo5olvt66mbantcli5.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-bud-dupree": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/iyohof1h3yxvfkbizhxz.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-troy-dye": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/rr0puo8xmlt8qwlpcyve.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-justin-eboigbe": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/p5mthtkbpkobtvm13bbj.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-oronde-gadsden-ii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783972111/chargers/wnxp8rktfkxhqu26ygqn.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-omarion-hampton-x9967": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/lb2evz7ufmqc0waxgiym.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-alex-harkey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783972599/chargers/ibwkzozzjmwrgwpdwcw4.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-tre-harris": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971701/chargers/pnpdon5cc4suuvxsinoe.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-josh-harris": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971660/chargers/zx1crh3goquc9rsimdah.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-cam-hart": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/pzezqnjar8fhknerb0sl.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-daiyan-henley": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/zmijwroayx6kk3iinxst.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-justin-herbert": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971621/chargers/mrbsprnxhbwgsqlhjps5.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-donte-jackson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971575/chargers/aoaqoncrtyiy4yh0nfa4.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-tony-jefferson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/vs12bckwrj3olxto8k7l.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-quentin-johnston": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/nqbthrrdcx89n6nx9foa.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-charlie-kolar": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/ay0cc7uopxrbdkuzp1el.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-keandre-lambert-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/uialbwxhcmosus6q8lqn.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-deane-leonard": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/cid3y9yk8o5zaxzulb2k.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-khalil-mack": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/gqvwsaiek5mnks2wfqv5.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-scott-matlock": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971442/chargers/ysjlpltjtafyikbruwqe.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-ladd-mcconkey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971399/chargers/jco6kmwoca1cthnthewg.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-akheem-mesidor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/zntrslc21gq8hawbqkxb.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-rj-mickens": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/ugttsf6dpv4pkgzf15ah.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-keaton-mitchell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/rsnakivx2aduljqagohg.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-elijah-molden": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783971347/chargers/gmwtdwg7xxo6ob8jcndm.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-caleb-murphy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chargers/stwyo47ypohdw1nh1a83.png",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-del-shawn-phillips": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/fdlvotioctgbaxl4pbf6.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-hayden-rucci": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chargers/x7rzzcbleopleog7tns4.png",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-jk-scott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783972762/chargers/fbfqpxwabqacqillwyew.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-rodney-shelley": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970909/chargers/kovjerfa1ye7govgqbyj.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-jake-slaughter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970791/chargers/klemvlfxppncslinkwk0.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-genesis-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970748/chargers/quqkyu2ol6zico3it8sz.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-jacob-spomer": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/tetwdbq9dykt1qlrrpwj.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-tarheeb-still": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/hac8p8jekiavvqqzu2oe.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-cole-strange": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/ccx8uru097ecrtcluetf.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-teair-tart": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/glwrog6x7vpup1vko8dp.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-branson-taylor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/ifcdttzp7b80d2jkzrlo.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-logan-taylor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/d4b7ojcjqcxenp5gmxfy.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-brenen-thompson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970198/chargers/rnnqpgpchaabv7ngfx46.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-dalvin-tomlinson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/lffwbisgeypwos4rs5os.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-tuli-tuipulotu": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/dnul4eguvtxtcbgva7xp.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-dj-uiagalelei": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970639/chargers/ccmuiqu67a5sxs85uplp.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-kimani-vidal": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/ptpyw8f3nicfvhsrbgqi.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-marlowe-wax": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/puscdbvamme6eodsettx.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-isas-waxter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/chargers/zkmulwmbrljkboyuodde.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-theo-wease-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/chargers/t4ffq9njpqhbi1zxq6pn.png",
+    "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "LAC-kendall-williamson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970494/chargers/at04w4uidkp9wxzjcdvw.jpg",
+    "source": "https://www.chargers.com/team/players-roster/"
   }
 };

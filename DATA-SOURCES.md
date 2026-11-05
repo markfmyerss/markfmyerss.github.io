@@ -1,6 +1,6 @@
-# Roster sources and headshots
+# AFC roster sources and headshots
 
-Official active-roster tables verified November 5, 2026:
+All 16 AFC teams are available. Official active-roster snapshots verified November 5, 2026:
 
 | Division | Team | Active players | Source |
 | --- | --- | ---: | --- |
@@ -16,12 +16,16 @@ Official active-roster tables verified November 5, 2026:
 | AFC South | Indianapolis Colts | 53 | https://www.colts.com/team/players-roster/ |
 | AFC South | Jacksonville Jaguars | 51 | https://www.jaguars.com/team/players-roster/ |
 | AFC South | Tennessee Titans | 53 | https://www.tennesseetitans.com/team/players-roster/ |
+| AFC West | Denver Broncos | 53 | https://www.denverbroncos.com/team/players-roster/ |
+| AFC West | Kansas City Chiefs | 53 | https://www.chiefs.com/team/players-roster/ |
+| AFC West | Las Vegas Raiders | 53 | https://www.raiders.com/team/players-roster/ |
+| AFC West | Los Angeles Chargers | 53 | https://www.chargers.com/team/players-roster/ |
 
-These 632 players are a dated snapshot of the published **Active** tables. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Counts reflect the source tables and may differ from 53; Jacksonville’s table lists 51. Later transactions are not automatically reflected. Each player retains an official profile URL in data.js.
+The 844 players reflect the published **Active** tables. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Counts reflect source tables and may differ from 53. This is a dated snapshot, not a live feed; later transactions are not automatically reflected. Each player retains an official profile URL in data.js.
 
 ## Headshots
 
-Every player has an individual official team/NFL image source in HEADSHOTS. 621 come from official team roster pages. 11 missing or generic thumbnails use individual NFL.com profile portraits:
+Every player has an individual official team/NFL image source recorded in HEADSHOTS. 831 come from official roster pages. 13 missing or generic thumbnails use individual NFL.com profile portraits:
 
 - Derek Barnett: https://www.nfl.com/players/derek-barnett/
 - Mekhi Blackmon: https://www.nfl.com/players/mekhi-blackmon/
@@ -34,21 +38,27 @@ Every player has an individual official team/NFL image source in HEADSHOTS. 621 
 - Emari Demercado: https://www.nfl.com/players/emari-demercado/
 - Marvin Harrison Jr.: https://www.nfl.com/players/marvin-harrison-jr/
 - Nate Thomas: https://www.nfl.com/players/nathan-thomas/
+- Joshua Ezeudu: https://www.nfl.com/players/joshua-ezeudu/
+- Ben VanSumeren: https://www.nfl.com/players/ben-vansumeren/
 
-All 632 URLs returned image content in GitHub checks. Images load directly from official servers; no image binaries are bundled. The lazy placeholder transformation is removed, matching the team sites’ image loaders. Jersey cards remain the fallback if a remote image fails.
+All 844 URLs returned image content in GitHub checks. Images load from official servers; no image binaries are bundled. The lazy placeholder transformation is removed, matching the team sites’ image loaders. Jersey cards remain the fallback for failed images.
 
-Vega Ioane is matched directly to his Ravens portrait by stable player ID. Nate Thomas matches NFL.com’s Nathan Thomas profile by verified team, number and college. Existing AFC North and East roster records, headshot records and save keys are preserved. Newer divisions’ IDs use official profile slugs.
+Vega Ioane is matched by stable ID directly to his Ravens portrait. Nate Thomas matches NFL.com’s Nathan Thomas profile by team, number and college. All twelve pre-existing teams’ roster records, headshot mappings and save keys are preserved. Newer divisions’ IDs use official profile slugs.
 
 Images remain owned by their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. URLs, availability and pictured uniforms may change. No endorsement or affiliation with the NFL or its teams is implied.
 
-## Positions and colors
+## Position filters
 
-Filters group HB/FB with RB; T/G/C and combined line positions with OL; DT/DE/NT with DL; EDGE/ILB/OLB with LB; CB/S with DB; K/P/LS with ST. Cards retain the official roster position. Travis Hunter retains WR/CB and appears once in both WR and DB filters and once in the full Jaguars roster. Existing snapshots retain their recorded groups.
+Filters group HB/FB with RB; T/G/C and combined line positions with OL; DT/DE/NT with DL; EDGE/ILB/OLB with LB; CB/S with DB; K/P/LS with ST. Cards retain official roster positions. Travis Hunter appears once in WR, once in DB and once in the full Jaguars roster. Earlier snapshots retain their recorded groups.
 
-Team palettes use Baltimore purple/gold, Cincinnati orange/black, Pittsburgh black/gold, Cleveland brown/orange, Buffalo blue/red, Miami aqua/orange, New England navy/red, New York green/white, Houston navy/red, Indianapolis blue/gray, Jacksonville teal/gold, and Tennessee navy/light blue. Brighter UI highlights support readable text. Values are recorded in TEAM_INFO, without implying team approval or a licensed style guide.
+## Colors
 
-## Development and validation
+TEAM_INFO records each team’s palette and brighter readable UI highlights. AFC West uses Denver orange/navy (#FB4F14/#002244), Kansas City red/gold (#E31837/#FFB81C), Las Vegas black/silver (#000000/#A5ACAF), and Los Angeles powder blue/gold (#0080C6/#FFC20E). Existing team palettes are preserved. These digital values do not imply team approval or a licensed style guide.
 
-Source preparation, roster retrieval, image checks, browser testing and screenshots run on GitHub. The workflow has read-only repository access and cannot commit or push. The reviewed generated snapshot is committed through GitHub repository tools. No site files or development dependencies are downloaded to the user’s Mac.
+## Development and checks
 
-The division picker shows four teams at a time and remembers the last team per division. Rankings remain separate for every team and position filter. Progress stays in the visitor’s browser. Checks cover 120 team/filter combinations, all 632 images, save isolation, migration, undo, dual positions, and browser layouts at 320, 390, 768 and 1440 pixels.
+Source preparation, roster retrieval, image checks, browser testing and screenshots run on GitHub. The workflow has read-only repository access and cannot commit or push. The reviewed generated snapshot is committed through repository tools. No site files or development dependencies are downloaded to the user’s Mac.
+
+The picker presents four divisions and four teams per division, using a two-by-two division layout on phones. It remembers each division’s last team and restores separate team/position rankings from the visitor’s browser.
+
+Checks cover 160 team/filter combinations, all 844 images, migration, state isolation, undo, dual positions, all sixteen teams in a real browser, and layouts at 320, 390, 768 and 1440 pixels.
