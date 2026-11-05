@@ -52,7 +52,7 @@ check('corrupt storage is ignored; blocked writes retain latest in-memory picks'
 });
 check('every player, including legacy saved players and Ioane, resolves an official portrait',()=>{
  const b=boot();assert.equal(b.run("headshotAliases.get(normalizedName('Vega Ioane'))"),'olaivavegaioane');
- const players=b.run('Object.values(ROSTERS).flat()');assert.equal(Object.keys(b.run('TEAM_INFO')).length,12);assert.ok(players.length>600);
+ const players=b.run('Object.values(ROSTERS).flat()');assert.equal(Object.keys(b.run('TEAM_INFO')).length,16);assert.ok(players.length>800);
  for(const p of players){const img=b.run('makePortrait('+JSON.stringify(p)+')');assert.equal(img.tagName,'img');const url=new URL(img.src);assert.equal(url.protocol,'https:');assert.ok(['static.clubs.nfl.com','static.www.nfl.com'].includes(url.hostname));assert.ok(!url.href.includes('/t_lazy/'));}
  const img=b.run("makePortrait({id:'BAL-22',name:'Vega Ioane',number:'71',team:'Baltimore Ravens'})");assert.ok(img.src.includes('cic8kmqlhwywlnlv6h5w'));let replacement;img.replaceWith=n=>replacement=n;img.onerror();assert.equal(replacement.className,'fallback');
  assert.equal(b.run("makePortrait({id:'missing',name:'Unknown',number:'?',team:'Baltimore Ravens'}).className"),'fallback');
@@ -68,7 +68,7 @@ check('division picker shows four teams, restores team choice and preserves prog
  const reloaded=boot(b.storage);assert.equal(reloaded.e('team-grid').dataset.division,'AFC East');assert.equal(reloaded.run('JSON.stringify(state)'),east);
 });
 check('South division keeps all three divisions independent across reloads',()=>{
- const b=boot();assert.equal(b.e('division-picker').children.length,3);
+ const b=boot();assert.equal(b.e('division-picker').children.length,4);
  b.run("start();choose('left')");const north=b.run('JSON.stringify(state)');
  b.run("selectDivision('AFC East');start();choose('right')");const east=b.run('JSON.stringify(state)');
  b.run("selectDivision('AFC South')");assert.equal(b.e('team').value,'Houston Texans');assert.equal(b.e('team-grid').children.length,4);
@@ -82,5 +82,14 @@ check('South division keeps all three divisions independent across reloads',()=>
 check('dual-position players appear once in each relevant filter',()=>{
  const b=boot();b.e('team').value='Jacksonville Jaguars';
  for(const pos of ['ALL','WR','DB']){b.e('position').value=pos;b.run('selectTeam();start()');assert.equal(b.run("state.players.filter(p=>p.name==='Travis Hunter').length"),1,'Hunter in '+pos);}
+});
+check('complete AFC has four divisions, four teams each, and independent West progress',()=>{
+ const b=boot();const divisions=b.e('division-picker').children.map(x=>x.dataset.division);assert.deepEqual(divisions,['AFC North','AFC East','AFC South','AFC West']);
+ const saves=new Map();
+ for(const division of divisions){b.run('selectDivision('+JSON.stringify(division)+')');assert.equal(b.e('team-grid').children.length,4);b.run("start();choose('left')");saves.set(division,b.run('JSON.stringify(state)'));}
+ for(const division of divisions){b.run('selectDivision('+JSON.stringify(division)+')');assert.equal(b.run('JSON.stringify(state)'),saves.get(division));}
+ b.e('team').value='Los Angeles Chargers';b.run("selectTeam();start();choose('right')");const saved=b.run('JSON.stringify(state)');
+ b.run("selectDivision('AFC North');selectDivision('AFC West')");assert.equal(b.e('team').value,'Los Angeles Chargers');assert.equal(b.run('JSON.stringify(state)'),saved);
+ const reloaded=boot(b.storage);assert.equal(reloaded.e('team-grid').dataset.division,'AFC West');assert.equal(reloaded.run('JSON.stringify(state)'),saved);
 });
 console.log(`${count} test groups passed`);
