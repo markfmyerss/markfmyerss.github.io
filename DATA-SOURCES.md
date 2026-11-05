@@ -19,8 +19,12 @@ Team brand palettes: Baltimore purple #241773, black, gold #9E7C0C; Cincinnati o
 
 ## Images
 
-The public build uses original CSS jersey-number illustrations. No NFL/team logos or copied player photographs are shipped, downloaded at runtime, or redistributed. Roster publication and a publicly accessible image URL do not establish permission to display a photograph.
+All 211 active-roster players have individual headshot URLs from official team/NFL servers, linked in HEADSHOTS in data.js with a source page for every player. Photos are linked remotely; no image binaries are bundled or downloaded to the development Mac. Lookup uses stable player IDs so existing saved rankings receive headshots automatically.
 
-The prior ESPN lookup fixed Vega Ioane by matching `Olaivavega Ioane`. That alias remains in app.js. Unlicensed ESPN fetching is disabled. To add portraits, first obtain public web display permission (including any remote-hosting or redistribution restrictions), record the source URL, player identity, license, attribution, permitted uses and expiration here, then add the approved name/URL to `permittedHeadshots`. Use full normalized names and review duplicate names before adding records. Broken or absent images fall back to the jersey card. No permitted portrait records have been supplied for this release.
+The four official roster pages supply 204 portraits. Seven Browns roster entries use a shared generic silhouette; those are replaced with individual NFL.com profile portraits for Derek Barnett, Mekhi Blackmon, Noah Igbinoghene, Elgton Jenkins, Jaleel McLaughlin, Toriano Pride Jr., and Sam Williams (sam-williams-4, the Mississippi defensive end). The source page for each override is recorded alongside its image. The roster pages' lazy placeholder transformation is removed, as in their own image loader.
 
-No endorsement or affiliation with the NFL, ESPN or any team is implied.
+Vega Ioane is matched directly to the Ravens portrait on his official roster row, avoiding the earlier ESPN given-name mismatch. The historical Olaivavega Ioane alias remains for compatibility.
+
+Jersey-number cards remain the fallback for failed or missing photos. Images remain owned by their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. Remote URLs, availability and uniforms may change.
+
+No endorsement or affiliation with the NFL or any team is implied.

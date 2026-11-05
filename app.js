@@ -4,8 +4,7 @@ const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST'];
 const normalizedName = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
 // Preserve the Vega Ioane fix: licensed providers may use his full given name.
 const headshotAliases = new Map([[normalizedName('Vega Ioane'), normalizedName('Olaivavega Ioane')]]);
-// Add only images with documented public display permission. See DATA-SOURCES.md.
-const permittedHeadshots = new Map();
+// Official team/NFL portrait URLs are stored separately so existing saved players get photos too.
 let state = null;
 const memory = new Map();
 const keyFor = (team, pos) => `nfl-sorter-v3:${TEAM_INFO[team].code}:${pos}`;
@@ -31,9 +30,9 @@ function makeFallback(p, small=false) {
   return d;
 }
 function makePortrait(p, small=false) {
-  const name=normalizedName(p.name); const url=permittedHeadshots.get(name)||permittedHeadshots.get(headshotAliases.get(name));
+  const url=HEADSHOTS[p.id]?.url;
   if(!url)return makeFallback(p,small);
-  const img=document.createElement('img');img.alt=p.name+' headshot';img.loading='lazy';img.referrerPolicy='no-referrer';
+  const img=document.createElement('img');img.alt=p.name+' headshot';img.loading=small?'lazy':'eager';img.decoding='async';img.referrerPolicy='no-referrer';
   img.onerror=()=>img.replaceWith(makeFallback(p,small));img.src=url;return img;
 }
 function applyTheme() {

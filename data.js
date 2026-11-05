@@ -1958,3 +1958,851 @@ const ROSTERS = {
     }
   ]
 };
+
+// Official team/NFL image sources, matched by stable player ID; no image binaries are bundled.
+const HEADSHOTS = {
+  "BAL-0": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/kdoi2q0d29sjykebdsoy.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-1": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/gxuuw0uydbylphkpbuue.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-2": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/dzatujq0glufx21m9bqv.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-3": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/rb25oqiocrf25npvzr3u.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-4": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/etssohnguv8yzxbwy9le.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-5": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/vohdbhjuokltpdr9wd4s.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-6": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/digaoc2x0okx7qb4ndmq.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-7": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/yzpltp7sqngnnyxishg7.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-8": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/legstesgxcwxevw1b4h3.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-9": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/yzxfraylx8qoiykh2idp.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-10": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/ajoxudso5vbedq2t0n8c.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-11": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/f5xiid1kix7pcf95imax.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-12": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/ldeyasslbjssgx7zrwwq.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-13": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/i8yi3utrhjosqjuztyxm.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-14": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/purax70dl4nvdc0nwjlj.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-15": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/uv7ddncikj9ersdhqhly.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-16": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/ln1uwg7hmzahsouv9nnc.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-17": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/vxrptanprdhtwbp8nfog.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-18": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/cgk222hbnu7kuwxn5xcr.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-19": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/z8o6xnmxwmjykkpk2isg.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-20": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/zsdvjoayltmalwns94sv.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-21": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/oy2aowwqjuns9vt33efv.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-22": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/cic8kmqlhwywlnlv6h5w.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-23": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/iorwqoo47rpmm0aqesb8.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-24": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/yiaoqckysmn488fmmxtj.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-25": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/v0h1jrpp6fk4sy6dlaju.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-26": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/vcapqfk84p8nfzbtfpkk.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-27": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/nvisiwyswct3ljhmmuoo.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-28": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/bjna1h2e6caraoai5air.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-29": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/xizrjclmfgfoom2zxzlm.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-30": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/ue84fsuv4cqiinykuudg.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-31": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/vdstbwdklah5tvx0utpi.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-32": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/mhovrympkrmkss6xbr5m.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-33": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/mz1rxs9tmk1hik22kni9.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-34": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/hslptrzdenj3e4cuzcxn.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-35": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/f3nhtdhqmzmaugybiaqr.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-36": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/doqdyrkbqgoacfosjms2.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-37": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/hwivmti23vnfjmbamt65.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-38": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/zmimaoz7rwv6ipkhnhtu.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-39": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/ravens/bfs6e2pb7dpoegvakg7v.jpg",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-40": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/zrbzel4eybrzs7wymn4t.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-41": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/rxpw7bz3txehte27ofht.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-42": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/ni1b8yladtzi26irshwc.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-43": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/c2cdeao4irquvdkfqepf.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-44": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/dfinsq1amvww0q6rqkn0.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-45": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/bdbne4kxclzlimjmbcac.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-46": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/zge91ad36ofozsxtumld.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-47": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/qbzladm5mdwdj5gh1c4c.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-48": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/mrq1mcupwwnp3ywj1nhy.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-49": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/i276auofic4uskfajgrl.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-50": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/jqrbdle1tkrthe6bpzao.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-51": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/z9zkig7ddulg0abgdulo.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "BAL-52": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/ravens/lqj9kbg97v7mo5zegwil.png",
+    "source": "https://www.baltimoreravens.com/team/players-roster/"
+  },
+  "CIN-0": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/x1xgdjy1buktldzc7zit.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-1": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/qnnpw1oetn64r3qvva0x.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-2": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/coedxk26unaefd6ux4ve.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-3": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/fzuzgwwqs2ihcp5nvuzg.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-4": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/fpn3rdpz6v4uspyp4gcm.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-5": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/mwluxvod3grigatj6ncj.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-6": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/r7njqvb03kvove5lznyx.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-7": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/apdzgxz7udwn8kxckc1r.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-8": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/zzgorpvejwi53sm2jd5p.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-9": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/b9xnwfp3bthagz5efzv3.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-10": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/kckfxvkyynsigktdlgyp.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-11": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/asscmygopo5oa1ts60yr.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-12": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/udadoiqqmbnvzlfc7icd.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-13": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/sm4rhrdy2hbtvn5dfesf.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-14": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/gdd3ymc0fmejps9tpe0a.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-15": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/olnybqgiyjktychbzlac.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-16": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/mjt7fwzib2cakz0bmspv.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-17": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/sucda5tlq2voyyz63stn.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-18": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/gx095yubca7mgyg2u269.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-19": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/k8a3wlqsc3dcpn28dkxw.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-20": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ywpqbezfyashvdtmucuk.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-21": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/j9f9qs4z6q0gna2l6u4z.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-22": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/wbmhqosvyao9z21fqmuy.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-23": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ohkikl4tvik5rml5mrvk.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-24": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/owy3sho23svhropqnrce.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-25": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ccrahfd5mktn2uk7dhui.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-26": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/pxkvxuze9qltdf6i0gmt.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-27": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ifj9scwez4n98s1wnqy8.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-28": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/uyy3nbd38nwpeocahp8n.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-29": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/c28lgmjtenksg1t6qbza.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-30": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/hqid0oekqbdlmsxcpqjo.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-31": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/atmf87cbzxeyiutl4lzn.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-32": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/rnnypt1obcm9rh8ljtbq.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-33": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ifdsj3hjnvywxpsxrzfm.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-34": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/sq2rxhl3giizjetrpdgp.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-35": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/kca1r1eqhnaht3rndztj.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-36": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/zig0hti7icz2ljy10rlf.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-37": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/orauhbuts0o72hjluwq0.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-38": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/qasrbjcfqbmqdjwmovt7.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-39": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/sboggovhkdswliq5zo5h.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-40": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/f9zcysetshudtaszx2uq.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-41": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/urmrzfzwkgvpjcng1jj4.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-42": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/smm3dindgypddasjon9j.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-43": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ndl42offrfks7xrgwudc.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-44": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/jzragl0w63v5mvyxp1a2.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-45": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ggy7jqkyaavssj7qzlhq.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-46": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ajbelm7e3wteo5pmo1cy.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-47": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/sxjwh6lnzof2x9za1cgv.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-48": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/duvne8h9xlnlnturxn0f.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-49": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/k0fygecn6skg2ya0qxu8.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-50": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/hpzwayyy3i2t3qio7lgf.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "CIN-51": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bengals/ggytxmpsjky3nn1qmskv.jpg",
+    "source": "https://www.bengals.com/team/players-roster/"
+  },
+  "PIT-0": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/mevccjthpsdltrmu3211.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-1": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/romtzmjzqr03why207kh.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-2": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/sbh3djzacpefbqbnhsjt.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-3": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/zpmw2p6eqzp2aporvhvp.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-4": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/kkrchzm8jorslnw2lc7z.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-5": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/wuz8pnsxx1k8d9ekgqa6.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-6": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/itzlahdbdl5tptpeiaip.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-7": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/qmfpmssbzlgpogxcybir.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-8": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/dn0f4m7nfrtswbyllrq7.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-9": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/vb8dsdbscuuqn1gvaej2.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-10": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/bkuqyhenf6nwyrzmbxvc.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-11": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/jqldnepqpkjtv5l1bchh.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-12": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/m5svufexqtunz3kehhgq.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-13": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/ultwmuw2zsp8a5b3gghr.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-14": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/mfngr9uxx1dwq82maaso.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-15": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/wiq1c6jhupzlhjt5zofi.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-16": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/ycqggssbxb88a5ipszol.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-17": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/hvjnxlwzpi1w8a4f1igq.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-18": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/vkchahqzidt9mi4brgks.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-19": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/ejx1zjbtbzowez7j7vmi.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-20": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/spk5cbkhkykb6kbuvsu0.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-21": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/emghox4cw83idyin92pg.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-22": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/guqq9r31kquafjk5emwe.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-23": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/zcppajxmhlyxvv3feino.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-24": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/ztguguyemkapom6ezgm9.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-25": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/le4mluuddxl02qbfalnv.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-26": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/qbjbvrax4cprme7nhozm.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-27": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/pcqtnlikwan4oyc6sbwd.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-28": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/yzxnn5ybhmxr2g3rrv6i.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-29": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/zwjiaxjgh68macqtpjvt.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-30": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/pzdvafuseppujsvz8xut.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-31": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/umio0ki2lujbfymsnsoa.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-32": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/xwvm1rzbpbeqcvmjfrx1.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-33": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/mzmqvxkqozy0pbohcc8z.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-34": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/abfh3iklm2pgudxtzuhf.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-35": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/gedpxux4tdrzmmois46g.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-36": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/anscy252dblwizczvyyk.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-37": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/z0ec7jqwdrk2pvprdjzy.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-38": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/jdumyasnngnpp6uwiyhw.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-39": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/zehgqjaclp66wbsrrndl.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-40": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/vdx3bqvg3wganhajiwle.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-41": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/is1igjwwc8zhm8tyqxwm.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-42": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/zfeis4sbrhvzt5bbwkmw.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-43": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/w3omgqw4xnljrm0wyuir.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-44": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/leg7uzfwherozjxlzdr1.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-45": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/njwtdqc30mdtt9i8o2fd.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-46": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/rj3cvrrpzad3qnuje4h4.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-47": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/tneajphrsj18ydxr0qv9.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-48": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/oocj7s66srbabpvjenpa.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-49": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/tbgio66sfc7aqj4u4ir1.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-50": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/ouvdx3zce3sliwxgh6r8.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-51": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/csk5b5wktoywhfkenc0p.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-52": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/sldjrz76uqzrefmatugv.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "PIT-53": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/steelers/huanbjeg7nhmakb4lavk.jpg",
+    "source": "https://www.steelers.com/team/players-roster/"
+  },
+  "CLE-0": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/vxqmn9ng4yobc4wi8erx.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-1": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/lyh9saxk0oevtehwa6g4",
+    "source": "https://www.nfl.com/players/derek-barnett/"
+  },
+  "CLE-2": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/nfmzkewxxje6op3gimbr",
+    "source": "https://www.nfl.com/players/mekhi-blackmon/"
+  },
+  "CLE-3": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/browns/ppapwc93cusazo1hijxc.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-4": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/p72vnwgvse9ludevpsat.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-5": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/smz27rdprihmreifekln.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-6": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/v9spi51g4xeurql7l709.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-7": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/lolknrcehmrqfrq6neud.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-8": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/nubcaa0vdwur2t5i7h7j.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-9": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/pwqyykf9niffajclptjl.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-10": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/dhpkiue9r6s56gppzdc8.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-11": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/j3ksvhvmioh0cq2utpbj.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-12": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/o90x1yrzl7lkdyrlo38e.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-13": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/ulgy7e5rfwfp7fztknaz.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-14": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/ts3dwtofpbxzoz2ao4t0.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-15": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/nysfh8eic0r0miuhugyz.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-16": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/amy6hnjslmrvxn9ajgpl.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-17": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/va5h5lkknuweneaszifr.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-18": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/wc5dx3gmxwhhpqizhmwf.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-19": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/yfss2s0n1vqtfxjhynqf.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-20": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/cwkdfopxqlsuiigcomzi.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-21": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/vf6p3khasac584vimrot.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-22": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/mwmygeaa8tljjey4wmxw.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-23": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/sz4rojzmshagqavymatc",
+    "source": "https://www.nfl.com/players/noah-igbinoghene/"
+  },
+  "CLE-24": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/vjdboohewgcnrbdqgrj5.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-25": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/pbdmozb7amdd9ndvhhuj",
+    "source": "https://www.nfl.com/players/elgton-jenkins/"
+  },
+  "CLE-26": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/efmkyyvl0bad48ldsrkm.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-27": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/w0y44lhhnetub3jpyalz.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-28": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/browns/bho8hf7l0ucbvxlzasyy.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-29": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/hn6ejvs1ispmlkhujker.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-30": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/r5hlesfhcqwm7ehomzhi.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-31": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/kxwkfhofrjmetceqbwh7.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-32": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/fqxfibzrwgg3xutf71fx",
+    "source": "https://www.nfl.com/players/jaleel-mclaughlin/"
+  },
+  "CLE-33": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/e0cusnmxedn2o7ywfyiq.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-34": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/vrcmpd3w14niwxgbnwrj.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-35": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/a8l2hp04k2ek5hx3j50b",
+    "source": "https://www.nfl.com/players/toriano-pride-jr/"
+  },
+  "CLE-36": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/zwbpz2z6zfv0a36ejvog.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-37": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/rzzeyywli7ezgbuggte0.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-38": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/citlogzvt5qqtlttiuyf.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-39": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/hi95bropbw4kg8ntp2le.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-40": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/yvcfvzbwozhwue8icncx.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-41": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/cq5kykgjramrtxja0wz4.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-42": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/rqzt7vtuym6b3mccygig.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-43": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/z7xyugdldzb1kri48nab.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-44": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/ysyhphqwwigrjzgmut9g.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-45": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/v1685115186/browns/mjqkxbsuygpfhqpjrbwu.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-46": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/browns/csd7twiqcbdjnvdh9rtv.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-47": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/qpzvmx4aa1af0zhkm3vw.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-48": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/zx47ct3ehructrvn23la.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-49": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/dffnhnfk8qloazleesuj",
+    "source": "https://www.nfl.com/players/sam-williams-4/"
+  },
+  "CLE-50": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/v1685730731/browns/eheqknaztbl5riom7fnq.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  },
+  "CLE-51": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/browns/zmz8pohodv53vttjiiaj.jpg",
+    "source": "https://www.clevelandbrowns.com/team/players-roster/"
+  }
+};

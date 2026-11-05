@@ -50,9 +50,11 @@ check('corrupt storage is ignored; blocked writes retain latest in-memory picks'
   b.run("start();choose('left')");const initial=storage.get('nfl-sorter-v3:BAL:ALL');b=boot(storage,true);b.run("choose('right')");assert.equal(b.e('storage-note').hidden,false);
   b.e('team').value='Pittsburgh Steelers';b.run('selectTeam()');b.e('team').value='Baltimore Ravens';b.run('selectTeam()');assert.equal(b.run('state.comparisons'),2);assert.equal(storage.get('nfl-sorter-v3:BAL:ALL'),initial);
 });
-check('Vega alias and missing or failed permitted photos use fallback correctly',()=>{
-  const b=boot();assert.equal(b.run("headshotAliases.get(normalizedName('Vega Ioane'))"),'olaivavegaioane');
-  assert.equal(b.run("makePortrait(ROSTERS['Baltimore Ravens'][22]).className"),'fallback');
-  b.run("permittedHeadshots.set('olaivavegaioane','https://example.test/permitted.png')");const img=b.run("makePortrait(ROSTERS['Baltimore Ravens'][22])");assert.equal(img.src,'https://example.test/permitted.png');let replacement;img.replaceWith=n=>replacement=n;img.onerror();assert.equal(replacement.className,'fallback');
+check('every player, including legacy saved players and Ioane, resolves an official portrait',()=>{
+ const b=boot();assert.equal(b.run("headshotAliases.get(normalizedName('Vega Ioane'))"),'olaivavegaioane');
+ const players=b.run('Object.values(ROSTERS).flat()');assert.equal(players.length,211);
+ for(const p of players){const img=b.run('makePortrait('+JSON.stringify(p)+')');assert.equal(img.tagName,'img');const url=new URL(img.src);assert.equal(url.protocol,'https:');assert.ok(['static.clubs.nfl.com','static.www.nfl.com'].includes(url.hostname));assert.ok(!url.href.includes('/t_lazy/'));}
+ const img=b.run("makePortrait({id:'BAL-22',name:'Vega Ioane',number:'71',team:'Baltimore Ravens'})");assert.ok(img.src.includes('cic8kmqlhwywlnlv6h5w'));let replacement;img.replaceWith=n=>replacement=n;img.onerror();assert.equal(replacement.className,'fallback');
+ assert.equal(b.run("makePortrait({id:'missing',name:'Unknown',number:'?',team:'Baltimore Ravens'}).className"),'fallback');
 });
 console.log(`${count} test groups passed`);

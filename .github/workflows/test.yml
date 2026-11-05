@@ -9,3 +9,4 @@ jobs:
         with:
           node-version: '22'
       - run: node tests.cjs
+      - run: node headshots-check.cjs

@@ -14,6 +14,6 @@ Live: https://markfmyerss.github.io/nfl-favorites-sorter/
 
 No build or dependencies. Serve this directory with any static server. GitHub Pages serves the root of `main`; changes to that branch trigger the existing Pages deployment.
 
-`index.html`, `styles.css`, `data.js`, and `app.js` form the application. Keep these files together. `tests.cjs` exercises sorting, save isolation, migration, undo, malformed storage and portrait fallback with a minimal DOM fixture; run with `node tests.cjs` (Node 18+). Browser QA results and remaining limits are reported separately.
+`index.html`, `styles.css`, `data.js`, and `app.js` form the application. Keep these files together. `tests.cjs` exercises sorting, save isolation, migration, undo, malformed storage and portrait coverage and fallback with a minimal DOM fixture; run with `node tests.cjs` (Node 18+). Browser QA results and remaining limits are reported separately.
 
-See [DATA-SOURCES.md](DATA-SOURCES.md) for verification date, active-roster scope, position mapping, palettes and image permissions. Rosters are dated snapshots, not live data. Jersey illustrations are the default until licensed headshots are documented.
+See [DATA-SOURCES.md](DATA-SOURCES.md) for verification date, active-roster scope, position mapping, palettes and image permissions. Rosters are dated snapshots, not live data. All 211 players have official team/NFL headshot sources, with jersey illustrations as load-error fallbacks.
