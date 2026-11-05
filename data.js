@@ -275,6 +275,62 @@ const TEAM_INFO = {
       "ink": "#101014"
     },
     "division": "NFC North"
+  },
+  "Dallas Cowboys": {
+    "name": "Dallas Cowboys",
+    "code": "DAL",
+    "nickname": "Cowboys",
+    "singular": "Cowboy",
+    "source": "https://www.dallascowboys.com/team/players-roster/",
+    "colors": {
+      "primary": "#003594",
+      "accent": "#869397",
+      "highlight": "#bdcfff",
+      "ink": "#101014"
+    },
+    "division": "NFC East"
+  },
+  "New York Giants": {
+    "name": "New York Giants",
+    "code": "NYG",
+    "nickname": "Giants",
+    "singular": "Giant",
+    "source": "https://www.giants.com/team/players-roster/",
+    "colors": {
+      "primary": "#0B2265",
+      "accent": "#A71930",
+      "highlight": "#a8c4ff",
+      "ink": "#101014"
+    },
+    "division": "NFC East"
+  },
+  "Philadelphia Eagles": {
+    "name": "Philadelphia Eagles",
+    "code": "PHI",
+    "nickname": "Eagles",
+    "singular": "Eagle",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/",
+    "colors": {
+      "primary": "#004C54",
+      "accent": "#A5ACAF",
+      "highlight": "#8bd3cf",
+      "ink": "#101014"
+    },
+    "division": "NFC East"
+  },
+  "Washington Commanders": {
+    "name": "Washington Commanders",
+    "code": "WSH",
+    "nickname": "Commanders",
+    "singular": "Commander",
+    "source": "https://www.commanders.com/team/players-roster/",
+    "colors": {
+      "primary": "#5A1414",
+      "accent": "#FFB612",
+      "highlight": "#FFB612",
+      "ink": "#101014"
+    },
+    "division": "NFC East"
   }
 };
 const ROSTERS = {
@@ -9829,6 +9885,1904 @@ const ROSTERS = {
       "id": "MIN-ben-yurosek",
       "profile": "https://www.vikings.com/team/players-roster/ben-yurosek/"
     }
+  ],
+  "Dallas Cowboys": [
+    {
+      "name": "Bryan Anger",
+      "number": "5",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Dallas Cowboys",
+      "id": "DAL-bryan-anger",
+      "profile": "https://www.dallascowboys.com/team/players-roster/bryan-anger/"
+    },
+    {
+      "name": "Brandon Aubrey",
+      "number": "17",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Dallas Cowboys",
+      "id": "DAL-brandon-aubrey",
+      "profile": "https://www.dallascowboys.com/team/players-roster/brandon-aubrey/"
+    },
+    {
+      "name": "Jaishawn Barham",
+      "number": "55",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-jaishawn-barham",
+      "profile": "https://www.dallascowboys.com/team/players-roster/jaishawn-barham/"
+    },
+    {
+      "name": "Justin Barron",
+      "number": "45",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-justin-barron",
+      "profile": "https://www.dallascowboys.com/team/players-roster/justin-barron/"
+    },
+    {
+      "name": "T.J. Bass",
+      "number": "66",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Dallas Cowboys",
+      "id": "DAL-t-j-bass",
+      "profile": "https://www.dallascowboys.com/team/players-roster/t-j-bass/"
+    },
+    {
+      "name": "Cooper Beebe",
+      "number": "56",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Dallas Cowboys",
+      "id": "DAL-cooper-beebe",
+      "profile": "https://www.dallascowboys.com/team/players-roster/cooper-beebe/"
+    },
+    {
+      "name": "Markquese Bell",
+      "number": "14",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Dallas Cowboys",
+      "id": "DAL-markquese-bell",
+      "profile": "https://www.dallascowboys.com/team/players-roster/markquese-bell/"
+    },
+    {
+      "name": "DaRon Bland",
+      "number": "26",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-daron-bland",
+      "profile": "https://www.dallascowboys.com/team/players-roster/daron-bland/"
+    },
+    {
+      "name": "Tyler Booker",
+      "number": "52",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Dallas Cowboys",
+      "id": "DAL-tyler-booker",
+      "profile": "https://www.dallascowboys.com/team/players-roster/tyler-booker/"
+    },
+    {
+      "name": "Camden Brown",
+      "number": "80",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Dallas Cowboys",
+      "id": "DAL-camden-brown",
+      "profile": "https://www.dallascowboys.com/team/players-roster/camden-brown/"
+    },
+    {
+      "name": "Alijah Clark",
+      "number": "11",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Dallas Cowboys",
+      "id": "DAL-alijah-clark",
+      "profile": "https://www.dallascowboys.com/team/players-roster/alijah-clark/"
+    },
+    {
+      "name": "Kenny Clark",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Dallas Cowboys",
+      "id": "DAL-kenny-clark-x7989",
+      "profile": "https://www.dallascowboys.com/team/players-roster/kenny-clark-x7989/"
+    },
+    {
+      "name": "Ajani Cornelius",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Dallas Cowboys",
+      "id": "DAL-ajani-cornelius",
+      "profile": "https://www.dallascowboys.com/team/players-roster/ajani-cornelius/"
+    },
+    {
+      "name": "Caleb Downs",
+      "number": "13",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-caleb-downs",
+      "profile": "https://www.dallascowboys.com/team/players-roster/caleb-downs/"
+    },
+    {
+      "name": "Cobie Durant",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-cobie-durant",
+      "profile": "https://www.dallascowboys.com/team/players-roster/cobie-durant/"
+    },
+    {
+      "name": "Donovan Ezeiruaku",
+      "number": "6",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-donovan-ezeiruaku",
+      "profile": "https://www.dallascowboys.com/team/players-roster/donovan-ezeiruaku/"
+    },
+    {
+      "name": "Jake Ferguson",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Dallas Cowboys",
+      "id": "DAL-jake-ferguson",
+      "profile": "https://www.dallascowboys.com/team/players-roster/jake-ferguson/"
+    },
+    {
+      "name": "Ryan Flournoy",
+      "number": "19",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Dallas Cowboys",
+      "id": "DAL-ryan-flournoy",
+      "profile": "https://www.dallascowboys.com/team/players-roster/ryan-flournoy/"
+    },
+    {
+      "name": "Elijah Garcia",
+      "number": "93",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Dallas Cowboys",
+      "id": "DAL-elijah-garcia",
+      "profile": "https://www.dallascowboys.com/team/players-roster/elijah-garcia/"
+    },
+    {
+      "name": "Rashan Gary",
+      "number": "7",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-rashan-gary",
+      "profile": "https://www.dallascowboys.com/team/players-roster/rashan-gary/"
+    },
+    {
+      "name": "Tyler Goodson",
+      "number": "32",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-tyler-goodson",
+      "profile": "https://www.dallascowboys.com/team/players-roster/tyler-goodson/"
+    },
+    {
+      "name": "Tyler Guyton",
+      "number": "60",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Dallas Cowboys",
+      "id": "DAL-tyler-guyton",
+      "profile": "https://www.dallascowboys.com/team/players-roster/tyler-guyton/"
+    },
+    {
+      "name": "Malik Hooker",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Dallas Cowboys",
+      "id": "DAL-malik-hooker",
+      "profile": "https://www.dallascowboys.com/team/players-roster/malik-hooker/"
+    },
+    {
+      "name": "James Houston",
+      "number": "41",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-james-houston",
+      "profile": "https://www.dallascowboys.com/team/players-roster/james-houston/"
+    },
+    {
+      "name": "Sam Howell",
+      "number": "16",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-sam-howell",
+      "profile": "https://www.dallascowboys.com/team/players-roster/sam-howell/"
+    },
+    {
+      "name": "Shemar James",
+      "number": "50",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-shemar-james",
+      "profile": "https://www.dallascowboys.com/team/players-roster/shemar-james/"
+    },
+    {
+      "name": "Broderick Jones",
+      "number": "77",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Dallas Cowboys",
+      "id": "DAL-broderick-jones",
+      "profile": "https://www.dallascowboys.com/team/players-roster/broderick-jones/"
+    },
+    {
+      "name": "CeeDee Lamb",
+      "number": "88",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Dallas Cowboys",
+      "id": "DAL-ceedee-lamb",
+      "profile": "https://www.dallascowboys.com/team/players-roster/ceedee-lamb/"
+    },
+    {
+      "name": "Malachi Lawrence",
+      "number": "57",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-malachi-lawrence",
+      "profile": "https://www.dallascowboys.com/team/players-roster/malachi-lawrence/"
+    },
+    {
+      "name": "P.J. Locke",
+      "number": "1",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Dallas Cowboys",
+      "id": "DAL-p-j-locke",
+      "profile": "https://www.dallascowboys.com/team/players-roster/p-j-locke/"
+    },
+    {
+      "name": "Hunter Luepke",
+      "number": "30",
+      "position": "RB",
+      "rosterPosition": "FB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-hunter-luepke",
+      "profile": "https://www.dallascowboys.com/team/players-roster/hunter-luepke/"
+    },
+    {
+      "name": "Von Miller",
+      "number": "40",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-von-miller",
+      "profile": "https://www.dallascowboys.com/team/players-roster/von-miller/"
+    },
+    {
+      "name": "Jonathan Mingo",
+      "number": "18",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Dallas Cowboys",
+      "id": "DAL-jonathan-mingo",
+      "profile": "https://www.dallascowboys.com/team/players-roster/jonathan-mingo/"
+    },
+    {
+      "name": "Otito Ogbonnia",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Dallas Cowboys",
+      "id": "DAL-otito-ogbonnia",
+      "profile": "https://www.dallascowboys.com/team/players-roster/otito-ogbonnia/"
+    },
+    {
+      "name": "DeMarvion Overshown",
+      "number": "0",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-demarvion-overshown",
+      "profile": "https://www.dallascowboys.com/team/players-roster/demarvion-overshown/"
+    },
+    {
+      "name": "LT Overton",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Dallas Cowboys",
+      "id": "DAL-lt-overton",
+      "profile": "https://www.dallascowboys.com/team/players-roster/lt-overton/"
+    },
+    {
+      "name": "George Pickens",
+      "number": "3",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Dallas Cowboys",
+      "id": "DAL-george-pickens",
+      "profile": "https://www.dallascowboys.com/team/players-roster/george-pickens/"
+    },
+    {
+      "name": "Joey Porter Jr.",
+      "number": "25",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-joey-porter-jr",
+      "profile": "https://www.dallascowboys.com/team/players-roster/joey-porter-jr/"
+    },
+    {
+      "name": "Dak Prescott",
+      "number": "4",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-dak-prescott",
+      "profile": "https://www.dallascowboys.com/team/players-roster/dak-prescott/"
+    },
+    {
+      "name": "Shavon Revel Jr.",
+      "number": "28",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-shavon-revel-jr",
+      "profile": "https://www.dallascowboys.com/team/players-roster/shavon-revel-jr/"
+    },
+    {
+      "name": "Luke Schoonmaker",
+      "number": "86",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Dallas Cowboys",
+      "id": "DAL-luke-schoonmaker",
+      "profile": "https://www.dallascowboys.com/team/players-roster/luke-schoonmaker/"
+    },
+    {
+      "name": "Drew Shelton",
+      "number": "67",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Dallas Cowboys",
+      "id": "DAL-drew-shelton",
+      "profile": "https://www.dallascowboys.com/team/players-roster/drew-shelton/"
+    },
+    {
+      "name": "Trent Sieg",
+      "number": "44",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Dallas Cowboys",
+      "id": "DAL-trent-sieg",
+      "profile": "https://www.dallascowboys.com/team/players-roster/trent-sieg/"
+    },
+    {
+      "name": "Tyler Smith",
+      "number": "73",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Dallas Cowboys",
+      "id": "DAL-tyler-smith",
+      "profile": "https://www.dallascowboys.com/team/players-roster/tyler-smith/"
+    },
+    {
+      "name": "Brevyn Spann-Ford",
+      "number": "89",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Dallas Cowboys",
+      "id": "DAL-brevyn-spann-ford",
+      "profile": "https://www.dallascowboys.com/team/players-roster/brevyn-spann-ford/"
+    },
+    {
+      "name": "Ameer Speed",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-ameer-speed",
+      "profile": "https://www.dallascowboys.com/team/players-roster/ameer-speed/"
+    },
+    {
+      "name": "Terence Steele",
+      "number": "78",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Dallas Cowboys",
+      "id": "DAL-terence-steele",
+      "profile": "https://www.dallascowboys.com/team/players-roster/terence-steele/"
+    },
+    {
+      "name": "Juanyeh Thomas",
+      "number": "43",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Dallas Cowboys",
+      "id": "DAL-juanyeh-thomas",
+      "profile": "https://www.dallascowboys.com/team/players-roster/juanyeh-thomas/"
+    },
+    {
+      "name": "KaVontae Turpin",
+      "number": "9",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Dallas Cowboys",
+      "id": "DAL-kavontae-turpin",
+      "profile": "https://www.dallascowboys.com/team/players-roster/kavontae-turpin/"
+    },
+    {
+      "name": "Tyrus Wheat",
+      "number": "59",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-tyrus-wheat",
+      "profile": "https://www.dallascowboys.com/team/players-roster/tyrus-wheat/"
+    },
+    {
+      "name": "Javonte Williams",
+      "number": "33",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-javonte-williams",
+      "profile": "https://www.dallascowboys.com/team/players-roster/javonte-williams/"
+    },
+    {
+      "name": "Quinnen Williams",
+      "number": "92",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Dallas Cowboys",
+      "id": "DAL-quinnen-williams",
+      "profile": "https://www.dallascowboys.com/team/players-roster/quinnen-williams/"
+    },
+    {
+      "name": "Dee Winters",
+      "number": "53",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Dallas Cowboys",
+      "id": "DAL-dee-winters",
+      "profile": "https://www.dallascowboys.com/team/players-roster/dee-winters/"
+    }
+  ],
+  "New York Giants": [
+    {
+      "name": "Paulson Adebo",
+      "number": "21",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-paulson-adebo",
+      "profile": "https://www.giants.com/team/players-roster/paulson-adebo/"
+    },
+    {
+      "name": "Darius Alexander",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "New York Giants",
+      "id": "NYG-darius-alexander",
+      "profile": "https://www.giants.com/team/players-roster/darius-alexander/"
+    },
+    {
+      "name": "Deonte Banks",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-deonte-banks",
+      "profile": "https://www.giants.com/team/players-roster/deonte-banks/"
+    },
+    {
+      "name": "Zaire Barnes",
+      "number": "46",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "New York Giants",
+      "id": "NYG-zaire-barnes",
+      "profile": "https://www.giants.com/team/players-roster/zaire-barnes/"
+    },
+    {
+      "name": "Elijah Campbell",
+      "number": "28",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "New York Giants",
+      "id": "NYG-elijah-campbell",
+      "profile": "https://www.giants.com/team/players-roster/elijah-campbell/"
+    },
+    {
+      "name": "Abdul Carter",
+      "number": "3",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "New York Giants",
+      "id": "NYG-abdul-carter",
+      "profile": "https://www.giants.com/team/players-roster/abdul-carter/"
+    },
+    {
+      "name": "J.C. Davis",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "New York Giants",
+      "id": "NYG-j-c-davis",
+      "profile": "https://www.giants.com/team/players-roster/j-c-davis/"
+    },
+    {
+      "name": "Gregory Desrosiers",
+      "number": "30",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "New York Giants",
+      "id": "NYG-gregory-desrosiers",
+      "profile": "https://www.giants.com/team/players-roster/gregory-desrosiers/"
+    },
+    {
+      "name": "Jermaine Eluemunor",
+      "number": "72",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "New York Giants",
+      "id": "NYG-jermaine-eluemunor",
+      "profile": "https://www.giants.com/team/players-roster/jermaine-eluemunor/"
+    },
+    {
+      "name": "Thomas Fidone II",
+      "number": "86",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "New York Giants",
+      "id": "NYG-thomas-fidone-ii",
+      "profile": "https://www.giants.com/team/players-roster/thomas-fidone-ii/"
+    },
+    {
+      "name": "Malachi Fields",
+      "number": "88",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "New York Giants",
+      "id": "NYG-malachi-fields",
+      "profile": "https://www.giants.com/team/players-roster/malachi-fields/"
+    },
+    {
+      "name": "Trace Ford",
+      "number": "48",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "New York Giants",
+      "id": "NYG-trace-ford",
+      "profile": "https://www.giants.com/team/players-roster/trace-ford/"
+    },
+    {
+      "name": "Shelby Harris",
+      "number": "93",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "New York Giants",
+      "id": "NYG-shelby-harris",
+      "profile": "https://www.giants.com/team/players-roster/shelby-harris/"
+    },
+    {
+      "name": "Malik Harrison",
+      "number": "54",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "New York Giants",
+      "id": "NYG-malik-harrison",
+      "profile": "https://www.giants.com/team/players-roster/malik-harrison/"
+    },
+    {
+      "name": "Jevón Holland",
+      "number": "8",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "New York Giants",
+      "id": "NYG-jevon-holland",
+      "profile": "https://www.giants.com/team/players-roster/jevon-holland/"
+    },
+    {
+      "name": "Colton Hood",
+      "number": "12",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-colton-hood",
+      "profile": "https://www.giants.com/team/players-roster/colton-hood/"
+    },
+    {
+      "name": "Bryan Hudson",
+      "number": "60",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "New York Giants",
+      "id": "NYG-bryan-hudson",
+      "profile": "https://www.giants.com/team/players-roster/bryan-hudson/"
+    },
+    {
+      "name": "Bobby Jamison-Travis",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "New York Giants",
+      "id": "NYG-bobby-jamison-travis",
+      "profile": "https://www.giants.com/team/players-roster/bobby-jamison-travis/"
+    },
+    {
+      "name": "Theo Johnson",
+      "number": "84",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "New York Giants",
+      "id": "NYG-theo-johnson",
+      "profile": "https://www.giants.com/team/players-roster/theo-johnson/"
+    },
+    {
+      "name": "Charlie Jones",
+      "number": "89",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "New York Giants",
+      "id": "NYG-charlie-jones",
+      "profile": "https://www.giants.com/team/players-roster/charlie-jones/"
+    },
+    {
+      "name": "Nic Jones",
+      "number": "31",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-nic-jones",
+      "profile": "https://www.giants.com/team/players-roster/nic-jones/"
+    },
+    {
+      "name": "Jack Kelly",
+      "number": "51",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "New York Giants",
+      "id": "NYG-jack-kelly",
+      "profile": "https://www.giants.com/team/players-roster/jack-kelly/"
+    },
+    {
+      "name": "Isaiah Likely",
+      "number": "9",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "New York Giants",
+      "id": "NYG-isaiah-likely",
+      "profile": "https://www.giants.com/team/players-roster/isaiah-likely/"
+    },
+    {
+      "name": "Chris Manhertz",
+      "number": "85",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "New York Giants",
+      "id": "NYG-chris-manhertz",
+      "profile": "https://www.giants.com/team/players-roster/chris-manhertz/"
+    },
+    {
+      "name": "Ben Mann",
+      "number": "58",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "New York Giants",
+      "id": "NYG-ben-mann",
+      "profile": "https://www.giants.com/team/players-roster/ben-mann/"
+    },
+    {
+      "name": "Francis &quot;Sisi&quot; Mauigoa",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "New York Giants",
+      "id": "NYG-francis-mauigoa",
+      "profile": "https://www.giants.com/team/players-roster/francis-mauigoa/"
+    },
+    {
+      "name": "Marcus Mbow",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "New York Giants",
+      "id": "NYG-marcus-mbow",
+      "profile": "https://www.giants.com/team/players-roster/marcus-mbow/"
+    },
+    {
+      "name": "J.J. McCarthy",
+      "number": "18",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "New York Giants",
+      "id": "NYG-j-j-mccarthy",
+      "profile": "https://www.giants.com/team/players-roster/j-j-mccarthy/"
+    },
+    {
+      "name": "Micah McFadden",
+      "number": "41",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "New York Giants",
+      "id": "NYG-micah-mcfadden",
+      "profile": "https://www.giants.com/team/players-roster/micah-mcfadden/"
+    },
+    {
+      "name": "Darnell Mooney",
+      "number": "17",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "New York Giants",
+      "id": "NYG-darnell-mooney",
+      "profile": "https://www.giants.com/team/players-roster/darnell-mooney/"
+    },
+    {
+      "name": "Malik Nabers",
+      "number": "1",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "New York Giants",
+      "id": "NYG-malik-nabers",
+      "profile": "https://www.giants.com/team/players-roster/malik-nabers/"
+    },
+    {
+      "name": "Greg Newsome II",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-greg-newsome-ii",
+      "profile": "https://www.giants.com/team/players-roster/greg-newsome-ii/"
+    },
+    {
+      "name": "Tyler Nubin",
+      "number": "27",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "New York Giants",
+      "id": "NYG-tyler-nubin",
+      "profile": "https://www.giants.com/team/players-roster/tyler-nubin/"
+    },
+    {
+      "name": "C.J. Okoye",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "New York Giants",
+      "id": "NYG-c-j-okoye",
+      "profile": "https://www.giants.com/team/players-roster/c-j-okoye/"
+    },
+    {
+      "name": "Dru Phillips",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-andru-phillips",
+      "profile": "https://www.giants.com/team/players-roster/andru-phillips/"
+    },
+    {
+      "name": "Jason Pinnock",
+      "number": "25",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "New York Giants",
+      "id": "NYG-jason-pinnock",
+      "profile": "https://www.giants.com/team/players-roster/jason-pinnock/"
+    },
+    {
+      "name": "DJ Reader",
+      "number": "98",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "New York Giants",
+      "id": "NYG-dj-reader",
+      "profile": "https://www.giants.com/team/players-roster/dj-reader/"
+    },
+    {
+      "name": "Nikko Reed",
+      "number": "35",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "New York Giants",
+      "id": "NYG-nikko-reed",
+      "profile": "https://www.giants.com/team/players-roster/nikko-reed/"
+    },
+    {
+      "name": "Arvell Reese",
+      "number": "52",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "New York Giants",
+      "id": "NYG-arvell-reese",
+      "profile": "https://www.giants.com/team/players-roster/arvell-reese/"
+    },
+    {
+      "name": "Patrick Ricard",
+      "number": "45",
+      "position": "RB",
+      "rosterPosition": "FB",
+      "team": "New York Giants",
+      "id": "NYG-patrick-ricard",
+      "profile": "https://www.giants.com/team/players-roster/patrick-ricard/"
+    },
+    {
+      "name": "Jon Runyan Jr.",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "New York Giants",
+      "id": "NYG-jon-runyan",
+      "profile": "https://www.giants.com/team/players-roster/jon-runyan/"
+    },
+    {
+      "name": "John Michael Schmitz Jr.",
+      "number": "61",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "New York Giants",
+      "id": "NYG-john-michael-schmitz",
+      "profile": "https://www.giants.com/team/players-roster/john-michael-schmitz/"
+    },
+    {
+      "name": "Josh Sills",
+      "number": "67",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "New York Giants",
+      "id": "NYG-josh-sills",
+      "profile": "https://www.giants.com/team/players-roster/josh-sills/"
+    },
+    {
+      "name": "Devin Singletary",
+      "number": "26",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "New York Giants",
+      "id": "NYG-devin-singletary",
+      "profile": "https://www.giants.com/team/players-roster/devin-singletary/"
+    },
+    {
+      "name": "Cam Skattebo",
+      "number": "44",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "New York Giants",
+      "id": "NYG-cam-skattebo",
+      "profile": "https://www.giants.com/team/players-roster/cam-skattebo/"
+    },
+    {
+      "name": "Aaron Stinnie",
+      "number": "64",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "New York Giants",
+      "id": "NYG-aaron-stinnie",
+      "profile": "https://www.giants.com/team/players-roster/aaron-stinnie/"
+    },
+    {
+      "name": "Jordan Stout",
+      "number": "15",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "New York Giants",
+      "id": "NYG-jordan-stout",
+      "profile": "https://www.giants.com/team/players-roster/jordan-stout/"
+    },
+    {
+      "name": "Kayvon Thibodeaux",
+      "number": "5",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "New York Giants",
+      "id": "NYG-kayvon-thibodeaux",
+      "profile": "https://www.giants.com/team/players-roster/kayvon-thibodeaux/"
+    },
+    {
+      "name": "Andrew Thomas",
+      "number": "78",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "New York Giants",
+      "id": "NYG-andrew-thomas",
+      "profile": "https://www.giants.com/team/players-roster/andrew-thomas/"
+    },
+    {
+      "name": "Ar'Darius Washington",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "New York Giants",
+      "id": "NYG-ar-darius-washington",
+      "profile": "https://www.giants.com/team/players-roster/ar-darius-washington/"
+    },
+    {
+      "name": "Jameis Winston",
+      "number": "19",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "New York Giants",
+      "id": "NYG-jameis-winston",
+      "profile": "https://www.giants.com/team/players-roster/jameis-winston/"
+    },
+    {
+      "name": "Dominic Zvada",
+      "number": "34",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "New York Giants",
+      "id": "NYG-dominic-zvada",
+      "profile": "https://www.giants.com/team/players-roster/dominic-zvada/"
+    }
+  ],
+  "Philadelphia Eagles": [
+    {
+      "name": "Saquon Barkley",
+      "number": "26",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-saquon-barkley",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/saquon-barkley/"
+    },
+    {
+      "name": "Zack Baun",
+      "number": "53",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-zack-baun",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/zack-baun/"
+    },
+    {
+      "name": "Markel Bell",
+      "number": "72",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-markel-bell",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/markel-bell/"
+    },
+    {
+      "name": "Jaydon Blue",
+      "number": "30",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jaydon-blue",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jaydon-blue/"
+    },
+    {
+      "name": "Hollywood Brown",
+      "number": "0",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-hollywood-brown",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/hollywood-brown/"
+    },
+    {
+      "name": "Grant Calcaterra",
+      "number": "81",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-grant-calcaterra",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/grant-calcaterra/"
+    },
+    {
+      "name": "Jihaad Campbell",
+      "number": "11",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jihaad-campbell",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jihaad-campbell/"
+    },
+    {
+      "name": "Jalen Carter",
+      "number": "98",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jalen-carter",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jalen-carter/"
+    },
+    {
+      "name": "Michael Carter II",
+      "number": "35",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-michael-carter-ii",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/michael-carter-ii/"
+    },
+    {
+      "name": "Darius Cooper",
+      "number": "80",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-darius-cooper",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/darius-cooper/"
+    },
+    {
+      "name": "Britain Covey",
+      "number": "85",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-britain-covey",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/britain-covey/"
+    },
+    {
+      "name": "Jordan Davis",
+      "number": "90",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jordan-davis",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jordan-davis/"
+    },
+    {
+      "name": "Cooper DeJean",
+      "number": "33",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-cooper-dejean",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/cooper-dejean/"
+    },
+    {
+      "name": "Landon Dickerson",
+      "number": "69",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-landon-dickerson",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/landon-dickerson/"
+    },
+    {
+      "name": "Arnold Ebiketie",
+      "number": "17",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-arnold-ebiketie",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/arnold-ebiketie/"
+    },
+    {
+      "name": "Jake Elliott",
+      "number": "4",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jake-elliott",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jake-elliott/"
+    },
+    {
+      "name": "A.J. Epenesa",
+      "number": "57",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-a-j-epenesa",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/a-j-epenesa/"
+    },
+    {
+      "name": "Marcus Epps",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-marcus-epps",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/marcus-epps/"
+    },
+    {
+      "name": "Dallas Goedert",
+      "number": "88",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-dallas-goedert",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/dallas-goedert/"
+    },
+    {
+      "name": "Jonathan Greenard",
+      "number": "52",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jonathan-greenard",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jonathan-greenard/"
+    },
+    {
+      "name": "Jalyx Hunt",
+      "number": "58",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jalyx-hunt",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jalyx-hunt/"
+    },
+    {
+      "name": "Lane Johnson",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-lane-johnson",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/lane-johnson/"
+    },
+    {
+      "name": "Fred Johnson",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-fred-johnson",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/fred-johnson/"
+    },
+    {
+      "name": "Jonathan Jones",
+      "number": "31",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jonathan-jones",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jonathan-jones/"
+    },
+    {
+      "name": "Drew Kendall",
+      "number": "66",
+      "position": "OL",
+      "rosterPosition": "C/G",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-drew-kendall",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/drew-kendall/"
+    },
+    {
+      "name": "Willie Lampkin",
+      "number": "61",
+      "position": "OL",
+      "rosterPosition": "C/G",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-willie-lampkin",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/willie-lampkin/"
+    },
+    {
+      "name": "Makai Lemon",
+      "number": "9",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-makai-lemon",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/makai-lemon/"
+    },
+    {
+      "name": "Jordan Mailata",
+      "number": "68",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jordan-mailata",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jordan-mailata/"
+    },
+    {
+      "name": "Jake Majors",
+      "number": "75",
+      "position": "OL",
+      "rosterPosition": "C/G",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jake-majors",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jake-majors/"
+    },
+    {
+      "name": "Braden Mann",
+      "number": "10",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-braden-mann",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/braden-mann/"
+    },
+    {
+      "name": "Tanner McKee",
+      "number": "16",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-tanner-mckee",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/tanner-mckee/"
+    },
+    {
+      "name": "Mac McWilliams",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-mac-mcwilliams",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/mac-mcwilliams/"
+    },
+    {
+      "name": "Joe Milton",
+      "number": "14",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-joe-milton",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/joe-milton/"
+    },
+    {
+      "name": "Quinyon Mitchell",
+      "number": "27",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-quinyon-mitchell",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/quinyon-mitchell/"
+    },
+    {
+      "name": "Smael Mondon Jr.",
+      "number": "42",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-smael-mondon",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/smael-mondon/"
+    },
+    {
+      "name": "Elijah Moore",
+      "number": "19",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-elijah-moore",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/elijah-moore/"
+    },
+    {
+      "name": "Kenny Moore II",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-kenny-moore",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/kenny-moore/"
+    },
+    {
+      "name": "Micah Morris",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-micah-morris",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/micah-morris/"
+    },
+    {
+      "name": "Andrew Mukuba",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-andrew-mukuba",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/andrew-mukuba/"
+    },
+    {
+      "name": "Johnny Mundt",
+      "number": "83",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-johnny-mundt",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/johnny-mundt/"
+    },
+    {
+      "name": "Moro Ojomo",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-moro-ojomo",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/moro-ojomo/"
+    },
+    {
+      "name": "Cole Payton",
+      "number": "18",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-cole-payton",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/cole-payton/"
+    },
+    {
+      "name": "Kelee Ringo",
+      "number": "7",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-kelee-ringo",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/kelee-ringo/"
+    },
+    {
+      "name": "Ty Robinson",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-ty-robinson",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/ty-robinson/"
+    },
+    {
+      "name": "DeVonta Smith",
+      "number": "6",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-devonta-smith",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/devonta-smith/"
+    },
+    {
+      "name": "Nolan Smith Jr.",
+      "number": "3",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-nolan-smith",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/nolan-smith/"
+    },
+    {
+      "name": "Tyler Steen",
+      "number": "56",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-tyler-steen",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/tyler-steen/"
+    },
+    {
+      "name": "Eli Stowers",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-eli-stowers",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/eli-stowers/"
+    },
+    {
+      "name": "Jeremiah Trotter Jr.",
+      "number": "54",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-jeremiah-trotter-jr",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jeremiah-trotter-jr/"
+    },
+    {
+      "name": "Rocco Underwood",
+      "number": "41",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-rocco-underwood",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/rocco-underwood/"
+    },
+    {
+      "name": "Dontayvion Wicks",
+      "number": "13",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-dontayvion-wicks",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/dontayvion-wicks/"
+    },
+    {
+      "name": "Riq Woolen",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-riq-woolen",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/riq-woolen/"
+    },
+    {
+      "name": "Byron Young",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Philadelphia Eagles",
+      "id": "PHI-byron-young",
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/byron-young/"
+    }
+  ],
+  "Washington Commanders": [
+    {
+      "name": "Nick Allegretti",
+      "number": "67",
+      "position": "OL",
+      "rosterPosition": "C/G",
+      "team": "Washington Commanders",
+      "id": "WSH-nick-allegretti",
+      "profile": "https://www.commanders.com/team/players-roster/nick-allegretti/"
+    },
+    {
+      "name": "Trey Amos",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Washington Commanders",
+      "id": "WSH-trey-amos",
+      "profile": "https://www.commanders.com/team/players-roster/trey-amos/"
+    },
+    {
+      "name": "Dorance Armstrong",
+      "number": "92",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Washington Commanders",
+      "id": "WSH-dorance-armstrong",
+      "profile": "https://www.commanders.com/team/players-roster/dorance-armstrong/"
+    },
+    {
+      "name": "Ricky Barber",
+      "number": "50",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Washington Commanders",
+      "id": "WSH-ricky-barber",
+      "profile": "https://www.commanders.com/team/players-roster/ricky-barber/"
+    },
+    {
+      "name": "John Bates",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Washington Commanders",
+      "id": "WSH-john-bates",
+      "profile": "https://www.commanders.com/team/players-roster/john-bates/"
+    },
+    {
+      "name": "Dyami Brown",
+      "number": "6",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Washington Commanders",
+      "id": "WSH-dyami-brown",
+      "profile": "https://www.commanders.com/team/players-roster/dyami-brown/"
+    },
+    {
+      "name": "Treylon Burks",
+      "number": "13",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Washington Commanders",
+      "id": "WSH-treylon-burks",
+      "profile": "https://www.commanders.com/team/players-roster/treylon-burks/"
+    },
+    {
+      "name": "Percy Butler",
+      "number": "35",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Washington Commanders",
+      "id": "WSH-percy-butler",
+      "profile": "https://www.commanders.com/team/players-roster/percy-butler/"
+    },
+    {
+      "name": "K'Lavon Chaisson",
+      "number": "45",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Washington Commanders",
+      "id": "WSH-k-lavon-chaisson",
+      "profile": "https://www.commanders.com/team/players-roster/k-lavon-chaisson/"
+    },
+    {
+      "name": "Brandon Coleman",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "T/G",
+      "team": "Washington Commanders",
+      "id": "WSH-brandon-coleman",
+      "profile": "https://www.commanders.com/team/players-roster/brandon-coleman/"
+    },
+    {
+      "name": "Josh Conerly Jr.",
+      "number": "72",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Washington Commanders",
+      "id": "WSH-josh-conerly-jr",
+      "profile": "https://www.commanders.com/team/players-roster/josh-conerly-jr/"
+    },
+    {
+      "name": "Sam Cosmi",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Washington Commanders",
+      "id": "WSH-sam-cosmi",
+      "profile": "https://www.commanders.com/team/players-roster/sam-cosmi/"
+    },
+    {
+      "name": "Nick Cross",
+      "number": "25",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Washington Commanders",
+      "id": "WSH-nick-cross",
+      "profile": "https://www.commanders.com/team/players-roster/nick-cross/"
+    },
+    {
+      "name": "Jayden Daniels",
+      "number": "5",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Washington Commanders",
+      "id": "WSH-jayden-daniels",
+      "profile": "https://www.commanders.com/team/players-roster/jayden-daniels/"
+    },
+    {
+      "name": "Stefon Diggs",
+      "number": "3",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Washington Commanders",
+      "id": "WSH-stefon-diggs",
+      "profile": "https://www.commanders.com/team/players-roster/stefon-diggs/"
+    },
+    {
+      "name": "Rasul Douglas",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Washington Commanders",
+      "id": "WSH-rasul-douglas",
+      "profile": "https://www.commanders.com/team/players-roster/rasul-douglas/"
+    },
+    {
+      "name": "Austin Ekeler",
+      "number": "30",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Washington Commanders",
+      "id": "WSH-austin-ekeler",
+      "profile": "https://www.commanders.com/team/players-roster/austin-ekeler/"
+    },
+    {
+      "name": "Matt Gulbin",
+      "number": "66",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Washington Commanders",
+      "id": "WSH-matt-gulbin",
+      "profile": "https://www.commanders.com/team/players-roster/matt-gulbin/"
+    },
+    {
+      "name": "Robert Henry Jr.",
+      "number": "34",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Washington Commanders",
+      "id": "WSH-robert-henry-jr",
+      "profile": "https://www.commanders.com/team/players-roster/robert-henry-jr/"
+    },
+    {
+      "name": "Van Jefferson",
+      "number": "12",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Washington Commanders",
+      "id": "WSH-van-jefferson",
+      "profile": "https://www.commanders.com/team/players-roster/van-jefferson/"
+    },
+    {
+      "name": "Joshua Josephs",
+      "number": "48",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Washington Commanders",
+      "id": "WSH-joshua-josephs",
+      "profile": "https://www.commanders.com/team/players-roster/joshua-josephs/"
+    },
+    {
+      "name": "Athan Kaliakmanis",
+      "number": "16",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Washington Commanders",
+      "id": "WSH-athan-kaliakmanis",
+      "profile": "https://www.commanders.com/team/players-roster/athan-kaliakmanis/"
+    },
+    {
+      "name": "Frankie Luvu",
+      "number": "4",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Washington Commanders",
+      "id": "WSH-frankie-luvu",
+      "profile": "https://www.commanders.com/team/players-roster/frankie-luvu/"
+    },
+    {
+      "name": "Jordan Magee",
+      "number": "58",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Washington Commanders",
+      "id": "WSH-jordan-magee",
+      "profile": "https://www.commanders.com/team/players-roster/jordan-magee/"
+    },
+    {
+      "name": "Marcus Mariota",
+      "number": "8",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Washington Commanders",
+      "id": "WSH-marcus-mariota",
+      "profile": "https://www.commanders.com/team/players-roster/marcus-mariota/"
+    },
+    {
+      "name": "Quan Martin",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Washington Commanders",
+      "id": "WSH-jartavius-martin",
+      "profile": "https://www.commanders.com/team/players-roster/jartavius-martin/"
+    },
+    {
+      "name": "Luke McCaffrey",
+      "number": "11",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Washington Commanders",
+      "id": "WSH-luke-mccaffrey",
+      "profile": "https://www.commanders.com/team/players-roster/luke-mccaffrey/"
+    },
+    {
+      "name": "Kain Medrano",
+      "number": "56",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Washington Commanders",
+      "id": "WSH-kain-medrano",
+      "profile": "https://www.commanders.com/team/players-roster/kain-medrano/"
+    },
+    {
+      "name": "Fabian Moreau",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Washington Commanders",
+      "id": "WSH-fabian-moreau",
+      "profile": "https://www.commanders.com/team/players-roster/fabian-moreau/"
+    },
+    {
+      "name": "Chig Okonkwo",
+      "number": "85",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Washington Commanders",
+      "id": "WSH-chig-okonkwo",
+      "profile": "https://www.commanders.com/team/players-roster/chig-okonkwo/"
+    },
+    {
+      "name": "Charles Omenihu",
+      "number": "90",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Washington Commanders",
+      "id": "WSH-charles-omenihu",
+      "profile": "https://www.commanders.com/team/players-roster/charles-omenihu/"
+    },
+    {
+      "name": "Tyler Ott",
+      "number": "69",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Washington Commanders",
+      "id": "WSH-tyler-ott",
+      "profile": "https://www.commanders.com/team/players-roster/tyler-ott/"
+    },
+    {
+      "name": "Odafe Oweh",
+      "number": "98",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Washington Commanders",
+      "id": "WSH-odafe-oweh",
+      "profile": "https://www.commanders.com/team/players-roster/odafe-oweh/"
+    },
+    {
+      "name": "Tyler Owens",
+      "number": "18",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Washington Commanders",
+      "id": "WSH-tyler-owens",
+      "profile": "https://www.commanders.com/team/players-roster/tyler-owens/"
+    },
+    {
+      "name": "Lucas Patrick",
+      "number": "63",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Washington Commanders",
+      "id": "WSH-lucas-patrick",
+      "profile": "https://www.commanders.com/team/players-roster/lucas-patrick/"
+    },
+    {
+      "name": "Chris Paul",
+      "number": "75",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Washington Commanders",
+      "id": "WSH-chris-paul",
+      "profile": "https://www.commanders.com/team/players-roster/chris-paul/"
+    },
+    {
+      "name": "Jeremy Reaves",
+      "number": "39",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Washington Commanders",
+      "id": "WSH-jeremy-reaves",
+      "profile": "https://www.commanders.com/team/players-roster/jeremy-reaves/"
+    },
+    {
+      "name": "Amik Robertson",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Washington Commanders",
+      "id": "WSH-amik-robertson",
+      "profile": "https://www.commanders.com/team/players-roster/amik-robertson/"
+    },
+    {
+      "name": "Mike Sainristil",
+      "number": "0",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Washington Commanders",
+      "id": "WSH-mike-sainristil",
+      "profile": "https://www.commanders.com/team/players-roster/mike-sainristil/"
+    },
+    {
+      "name": "Tim Settle",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Washington Commanders",
+      "id": "WSH-tim-settle",
+      "profile": "https://www.commanders.com/team/players-roster/tim-settle/"
+    },
+    {
+      "name": "Ben Sinnott",
+      "number": "82",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Washington Commanders",
+      "id": "WSH-ben-sinnott",
+      "profile": "https://www.commanders.com/team/players-roster/ben-sinnott/"
+    },
+    {
+      "name": "Drew Stevens",
+      "number": "19",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Washington Commanders",
+      "id": "WSH-drew-stevens",
+      "profile": "https://www.commanders.com/team/players-roster/drew-stevens/"
+    },
+    {
+      "name": "Sonny Styles",
+      "number": "52",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Washington Commanders",
+      "id": "WSH-sonny-styles",
+      "profile": "https://www.commanders.com/team/players-roster/sonny-styles/"
+    },
+    {
+      "name": "Tanoa Togiai",
+      "number": "62",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Washington Commanders",
+      "id": "WSH-tanoa-togiai",
+      "profile": "https://www.commanders.com/team/players-roster/tanoa-togiai/"
+    },
+    {
+      "name": "Shy Tuttle",
+      "number": "96",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Washington Commanders",
+      "id": "WSH-shy-tuttle",
+      "profile": "https://www.commanders.com/team/players-roster/shy-tuttle/"
+    },
+    {
+      "name": "Tress Way",
+      "number": "10",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Washington Commanders",
+      "id": "WSH-tress-way",
+      "profile": "https://www.commanders.com/team/players-roster/tress-way/"
+    },
+    {
+      "name": "Rachaad White",
+      "number": "1",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Washington Commanders",
+      "id": "WSH-rachaad-white",
+      "profile": "https://www.commanders.com/team/players-roster/rachaad-white/"
+    },
+    {
+      "name": "Antonio Williams",
+      "number": "14",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Washington Commanders",
+      "id": "WSH-antonio-williams",
+      "profile": "https://www.commanders.com/team/players-roster/antonio-williams/"
+    },
+    {
+      "name": "Deatrich Wise Jr.",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DE",
+      "team": "Washington Commanders",
+      "id": "WSH-deatrich-wise",
+      "profile": "https://www.commanders.com/team/players-roster/deatrich-wise/"
+    },
+    {
+      "name": "Andrew Wylie",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "T/G",
+      "team": "Washington Commanders",
+      "id": "WSH-andrew-wylie",
+      "profile": "https://www.commanders.com/team/players-roster/andrew-wylie/"
+    },
+    {
+      "name": "Colson Yankoff",
+      "number": "80",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Washington Commanders",
+      "id": "WSH-colson-yankoff",
+      "profile": "https://www.commanders.com/team/players-roster/colson-yankoff/"
+    },
+    {
+      "name": "Isaac Yiadom",
+      "number": "37",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Washington Commanders",
+      "id": "WSH-isaac-yiadom",
+      "profile": "https://www.commanders.com/team/players-roster/isaac-yiadom/"
+    }
   ]
 };
 const HEADSHOTS = {
@@ -14055,5 +16009,845 @@ const HEADSHOTS = {
   "MIN-ben-yurosek": {
     "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/kk18m4litiljhkqtl1ve.png",
     "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "DAL-bryan-anger": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/kabf5lmejex6n5uzj6lc.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-brandon-aubrey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/vxybqfe2vsjbxbbfrnng.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-jaishawn-barham": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/kp1946sakkdikgfwak7o.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-justin-barron": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/y6of9mjruimpaziahlsw.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-t-j-bass": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/vpnaz4fxqaweufnyffhx.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-cooper-beebe": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/iitipynplwwyqic0atjp.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-markquese-bell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/z01amkaviyd1xuelqjjg.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-daron-bland": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/zbitbzazn7mgpkimyzbb.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-tyler-booker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/q6nsdgec0jnh4etuxcax.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-camden-brown": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/gnrigiplr8bk1kzekx6b.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-alijah-clark": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/v2ngo9vpuoosrmwpjcvr.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-kenny-clark-x7989": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/psirdcqabkeuy4tlmfqt.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-ajani-cornelius": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/rxwfj50fsfxpspld2qo0.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-caleb-downs": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/s5r3kwwpcwsaccsryk4g.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-cobie-durant": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/rb9rss8fbgyimvv2jly9.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-donovan-ezeiruaku": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/wg4ldgg93bhqpcr7rjck.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-jake-ferguson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/ykgpam570uwsh9m1pd6o.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-ryan-flournoy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/ruwgepkbl2d5wogo60cd.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-elijah-garcia": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/wagbtilzru9xuonens8b.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-rashan-gary": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/rddjjnn15kdenzduxq04.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-tyler-goodson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/gwueb29qulmv745im3jp.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-tyler-guyton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/zfydnnzyysgz6ek4slkg.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-malik-hooker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/jfgwj35p147ppvyrqj0b.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-james-houston": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/qyfyw6fh36wzkd0ytojr.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-sam-howell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/oatmkha9129ul4r1ytgi.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-shemar-james": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/ydpssynjwtvf4fox1osy.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-broderick-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/lbpeq17kbnv5oyhrvcoz.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-ceedee-lamb": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/vxw6yyje9duzcexaddwj.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-malachi-lawrence": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/sszijbtx0rub2uqonhqm.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-p-j-locke": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/k2zv7j0suhykhann5uq3.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-hunter-luepke": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/h4oor6b9lcuatwk9smzl.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-von-miller": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/guko9g5dbs2yjhkjhogf.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-jonathan-mingo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/l66lgjazgzc4wxzvrfaj.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-otito-ogbonnia": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/fihsmudcdqjoazzghtmy.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-demarvion-overshown": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/cv7zpgflhkb07966ksok.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-lt-overton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/iubb7bnrki7x9m7gpasc.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-george-pickens": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/edssc6axazdcmvoamsao.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-joey-porter-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/b9asklkezi0kxoeekdyo.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-dak-prescott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/fpmysi5ydo3lwhzhqcaj.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-shavon-revel-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/vadgjo5o3ad0e4zgqfuw.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-luke-schoonmaker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/kwcdhxxophwhkp5rhmcq.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-drew-shelton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/tdudpxaazmupekxzktq0.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-trent-sieg": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/vfaqndfp65yf9ek6tbsg.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-tyler-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/p7t02cfwvq2pejtcrz4g.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-brevyn-spann-ford": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/ubjk2hniopqaswpagkcp.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-ameer-speed": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/ocfmgvea692b4aohldyb.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-terence-steele": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/rpkzzf0vyj1nmmhps6md.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-juanyeh-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/cowboys/ot1trracdca99nfblzrf.jpg",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-kavontae-turpin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/e0ycx3v1rcbgk0ql9ufq.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-tyrus-wheat": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/xcdauvcvp70qy0fizqmj.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-javonte-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/lnevkwbw7fxcpozmmj1i.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-quinnen-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/cnbbjgxynsnxop7eqjvz.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "DAL-dee-winters": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/cowboys/og6yzdostw4sf764wnvy.png",
+    "source": "https://www.dallascowboys.com/team/players-roster/"
+  },
+  "NYG-paulson-adebo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/qnvdhhnwsouz6wcarf3a.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-darius-alexander": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/cdobkajufxdke22shlw4.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-deonte-banks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/iwunbemmmvpttoujb4xq.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-zaire-barnes": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/rsez3cq4zhgwkymk1ume.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-elijah-campbell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/cfkzvau8vkzldusbjktc.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-abdul-carter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/ijbbtjc8wspdrobdoxx7.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-j-c-davis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/lfmr4wt0wy9yhzwktxep.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-gregory-desrosiers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/hfd1oydo3zflmdfwgad1.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jermaine-eluemunor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/toyxnbdwagpnelbvdycf.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-thomas-fidone-ii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/hws1d8benr59datnijq3.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-malachi-fields": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/yitclq2zkgnmreatgbgz.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-trace-ford": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/nhlpxl2ccgd0pn8ue3jf.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-shelby-harris": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/hdt8obitrnkcubmn3xmz.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-malik-harrison": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/mvmk05skmgruxknkzgky.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jevon-holland": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/z4miqsuh9dsvsmnvuwn0.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-colton-hood": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/hullgdc12e08gfeqwihm.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-bryan-hudson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/fttgtoulq1x9xfmsyasn.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-bobby-jamison-travis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/vong3iwqjq9f6cei0lsw.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-theo-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/e8xeeyedv6yvjw2ofndd.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-charlie-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/vmkx6y7vwqvymq9ixxib.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-nic-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/lckxkj8ibhdqdqi6fdim.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jack-kelly": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/phhvxuqlhrtmvmwy8trn.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-isaiah-likely": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/giants/fvsqvrlkfragi1fokvkv.png",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-chris-manhertz": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/vz9j2ljyppvtclx0xwb3.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-ben-mann": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/ydva5xjt0jfkyhxhjeqg.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-francis-mauigoa": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/lznveb43uxx0ffdfr7tk.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-marcus-mbow": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/whdhrbtb57djl86mqb9l.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-j-j-mccarthy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/yhhtcgpg5p6yyivunyk9.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-micah-mcfadden": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/oxw0iz0ertyuy3ljyd9u.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-darnell-mooney": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/h5hwe4ruimtxk5adh7uh.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-malik-nabers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/wtzlt46ijj1s22x88azm.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-greg-newsome-ii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/ew0aycmzktxtmd0h9qmz.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-tyler-nubin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/offvjexpkgf7kvxwl6bh.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-c-j-okoye": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/uotxgjkz4dplnsjuogrb.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-andru-phillips": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/fq5tdlobsph4dwd6lfid.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jason-pinnock": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/ppoeqqeunh2elcudfam2.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-dj-reader": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/giants/yrd1lhj5hqoibyz4z572.png",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-nikko-reed": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/xbfv3i8qibpxvs567wzi.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-arvell-reese": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/s6dassvmt3u79hfbrckt.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-patrick-ricard": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/m8htid8zekthm58rrltc.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jon-runyan": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/osfqjgiwhqijc6exgmas.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-john-michael-schmitz": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/jpcqkgcthiny1yi6rp1i.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-josh-sills": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/wpdd6jomlhjpykgybcit.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-devin-singletary": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/ugnv3lr7cvzqw95fkl3n.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-cam-skattebo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/jurqkusahcir2rnsqm92.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-aaron-stinnie": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/ihlxdnq8bda4mlfqgz1w.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jordan-stout": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/xrnfiewhnyvvflbsjr5y.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-kayvon-thibodeaux": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/abkisyp2oc0ocmpbck8q.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-andrew-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/y0odv1lhiibs88a0ryju.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-ar-darius-washington": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/givogxvjkk159ea0ci3y.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-jameis-winston": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/wtb4zpiycz6hzd9f1nbq.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "NYG-dominic-zvada": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/giants/uzu4vcxyltdkmoel2u9n.jpg",
+    "source": "https://www.giants.com/team/players-roster/"
+  },
+  "PHI-saquon-barkley": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/z4ekl4msgtokunjwjnom.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-zack-baun": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/czrsh5spxrmyk5o5pkrf.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-markel-bell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/xorbsaa6bsrgiultb0q0.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jaydon-blue": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/pryfimwhrkl4bqbxycup.webp",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-hollywood-brown": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/wxumtvlpads3mcne6wir.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-grant-calcaterra": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/iykypz43vdrtcs4foh4c.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jihaad-campbell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/aewh4ec14sdfyrjnyzpq.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jalen-carter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/fmqybn2x5b6g1pf5n2ji.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-michael-carter-ii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/hwyz8nrdatxuywtmxkez.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-darius-cooper": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/phmvgsw6yywx8quijy7c.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-britain-covey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/pxir6zgwjk5ievqbzb5g.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jordan-davis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/haa0uhbuz6npietw2stk.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-cooper-dejean": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/qwhtixkqizeozu2pilbg.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-landon-dickerson": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/v1621630551/eagles/yoinofvktcqnpus77quk.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-arnold-ebiketie": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/jia6cmwobjo9tbywt3ml",
+    "source": "https://www.nfl.com/players/arnold-ebiketie/"
+  },
+  "PHI-jake-elliott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/m3ju3lbatu2hts99v2cd.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-a-j-epenesa": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/erlpa4wxdpflmnwr53ca.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-marcus-epps": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/eagles/yfiqwb6ggpjszbs3dzoi.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-dallas-goedert": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/bqjg4pvrbej1yh6zwxdi.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jonathan-greenard": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/uyfa94ubr2gdgly4cjkd",
+    "source": "https://www.nfl.com/players/jonathan-greenard/"
+  },
+  "PHI-jalyx-hunt": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/pb3b7bbwgul1atxrp4sx.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-lane-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/exjsu8xmfmmozll4amxl.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-fred-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/otqfsfer4lzfrxiq0zni.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jonathan-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/zqjwucxlyem9kcfbsamh.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-drew-kendall": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/du3cmaaxzgakgdepkbk4.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-willie-lampkin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/rbp9xvtwpjy7phjrakxm.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-makai-lemon": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/arzgrokgiaijuqbs95wm.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jordan-mailata": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/azfaiayksnckgf1pp4z7.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jake-majors": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/xui2cbsqzprr20koxbaj.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-braden-mann": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/jnw2b6dkhgqe8d94ngni.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-tanner-mckee": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/rvtkijcjjckizrwwkqpi.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-mac-mcwilliams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/wugs3h9glhsqdu9ovq5l.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-joe-milton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/ecnadfijwhnkzqzhftpt.webp",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-quinyon-mitchell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/nhtpv924apkpwcvindk4.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-smael-mondon": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/zaqgsfczagtol3vbxgnd.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-elijah-moore": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/uivlriydudw7oonjyzdf.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-kenny-moore": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/mhemrhoiongplhqvrhdt",
+    "source": "https://www.nfl.com/players/kenny-moore/"
+  },
+  "PHI-micah-morris": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/ggdslhuergxeehybly9l.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-andrew-mukuba": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/uwctdwptmjj2ux60gr59.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-johnny-mundt": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/wzzo2o1jw69eacoftuo1.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-moro-ojomo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/i7oogxarzm2wugwexxxs.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-cole-payton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/fwzaxfnuxjggvnqmtjmr.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-kelee-ringo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/qf0vavo0dwjntfx2ptqf.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-ty-robinson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/wwrcexmwhu9adkujfm1l.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-devonta-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/uw7gpznqu7uztdhqabu6.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-nolan-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/cfjiphnt4e8zlr0zqeoa.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-tyler-steen": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/iowjgxpmcdyftf1ahw5a.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-eli-stowers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/j7na4rjgaet6skf0bylt.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-jeremiah-trotter-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/prraf8qi0tworsnbprpn.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-rocco-underwood": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/v3h5nlgtklv9eaflnayv.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-dontayvion-wicks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/iwhuroztblj7sn8mcxda.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-riq-woolen": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/eagles/ioimeuhegvo8l2ubrsaz.jpg",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "PHI-byron-young": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/eagles/t8gsn1ngsyroot1ctyo7.png",
+    "source": "https://www.philadelphiaeagles.com/team/players-roster/"
+  },
+  "WSH-nick-allegretti": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/qridh8epvpcnwekfrkh1.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-trey-amos": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/cakikr3ry1b8unf1qioy.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-dorance-armstrong": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/dqb5yyjfppgxbuar327o.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-ricky-barber": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/uicgzwkoe3ruyhfr55ws.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-john-bates": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/q96pzm7lxvlxp9zzjeh6.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-dyami-brown": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/qbdtwn6ctaf05s0cpfu2.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-treylon-burks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/k2k2plprybbxopsx8ngc.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-percy-butler": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/rrny47rmtn7zrehlglub.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-k-lavon-chaisson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/iu65aovrwwcebqmau6ca.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-brandon-coleman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/cmygn5jzfl8cn800qyd1.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-josh-conerly-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/dyvqdteihsefz37nf4e3.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-sam-cosmi": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/gpvcmo2gply2qp62blgw.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-nick-cross": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/bczitvwblhekrfrj7wm0.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-jayden-daniels": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/psqqma6s92pzitzww94n.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-stefon-diggs": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/dpmpctgbwlvgyzg3opli",
+    "source": "https://www.nfl.com/players/stefon-diggs/"
+  },
+  "WSH-rasul-douglas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/pcvhqvutl8qgwcbi8nab.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-austin-ekeler": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/awdmzpzqyhiwlbc3avlf.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-matt-gulbin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/v2ohpryzx5tdherhidwu.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-robert-henry-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/oscbhon2q1quuj2v6tbx.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-van-jefferson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/zxdib95licztm1f0hyw1.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-joshua-josephs": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/suc1mrcrdzltcndnlgva.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-athan-kaliakmanis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/nsaun5u0l95qotyzonla.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-frankie-luvu": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/qpyxyv21vz9cmwoek8tw.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-jordan-magee": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/uxzmq2j7a2nkgwfpojd4.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-marcus-mariota": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/yrqcd623a4vnbapzj7fu.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-jartavius-martin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/pcbkxkdke4izd2czsuao.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-luke-mccaffrey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/ao4jy1mzzhbz0aasdby4.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-kain-medrano": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/z5gdt0m9yxd0npehshek.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-fabian-moreau": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/commanders/heej4tgrxclkodpqcgtu.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-chig-okonkwo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/oik6cylehbppzemlxqzd.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-charles-omenihu": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/krxfcxakwpt7tpabhqyj.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-tyler-ott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/pe8cu0galddrakls7lzj.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-odafe-oweh": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/euuxyghbgkgpbp0hihoc.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-tyler-owens": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/aapr9sugc94314mwpjpv.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-lucas-patrick": {
+    "url": "https://static.www.nfl.com/image/upload/t_player_profile_landscape/f_auto/league/gntnuixjpk3nsnpmp5gz",
+    "source": "https://www.nfl.com/players/lucas-patrick/"
+  },
+  "WSH-chris-paul": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/hp42i2kpe8kp1zlp56a9.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-jeremy-reaves": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/nnjji0gwl8tvqr1cr9kf.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-amik-robertson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/y9vvk0zgumk87r5hr2tk.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-mike-sainristil": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/fvdax8hxchf90wbyw6f9.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-tim-settle": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/x1ellv5fnjn9nkhqhvnh.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-ben-sinnott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/mc7bjehv0bqiqbzcwfal.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-drew-stevens": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/aikmhy1rd3ucnqwkyoh7.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-sonny-styles": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/ghjxvgpyvvmf8da4jtvd.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-tanoa-togiai": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/n2k4tjxq1i5yvrhpeygc.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-shy-tuttle": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/mg2xhnuwboxtqvqks2yc.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-tress-way": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/awfx6rc94hg3gkyw2msq.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-rachaad-white": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/crcecnighxccx7wpl6ns.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-antonio-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/pybahdiubrqa3bxpz2ie.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-deatrich-wise": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/moata8p0cgfs1m31gtkp.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-andrew-wylie": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/lnts0ervkbbjp2icsuru.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-colson-yankoff": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/vbrqzohaapcnxfgzlfcc.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
+  },
+  "WSH-isaac-yiadom": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/commanders/to3kvql3zbfe87kxckfy.jpg",
+    "source": "https://www.commanders.com/team/players-roster/"
   }
 };

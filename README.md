@@ -1,21 +1,22 @@
-# NFL Favorites Sorter — AFC + NFC North
+# NFL Favorites Sorter — AFC + NFC North & East
 
-Rank personal favorites from all sixteen AFC teams plus the Chicago Bears, Detroit Lions, Green Bay Packers and Minnesota Vikings. This ranks preference, not statistics or playing ability.
+Rank your favorites from all sixteen AFC teams and the eight NFC North/East teams, including the Cowboys, Giants, Eagles and Commanders.
 
 Live: https://markfmyerss.github.io/nfl-favorites-sorter/
 
-- AFC/NFC conference navigation with remembered team selections.
-- Four AFC divisions and the NFC North, with four teams per division.
-- Team-colored player cards and official headshot sources for all 1,056 active-roster players.
-- Separate browser-local rankings for each team and position filter.
-- Pairwise sorting, undo, keyboard arrows, completed rankings and image exports.
-- Existing AFC data, save keys, Ravens migration and dual-position support remain intact.
+- 24 teams across six divisions, with remembered AFC/NFC selections.
+- Official active-roster snapshots and headshot sources for all 1,266 players.
+- Team-colored cards, pairwise sorting, undo, keyboard picks and copyable rankings.
+- Independent browser-local progress for every team and position filter.
+- All twenty previous teams’ metadata, players, portraits and save keys remain unchanged.
 
 ## GitHub-only development
 
-No application build is needed. GitHub Pages serves the root of main. Source preparation, data ingestion, checks, browser dependencies and screenshots stay on GitHub’s runners. The workflow has read-only repository access. scripts/expand-nfc-north.cjs retrieves missing NFC North snapshots without refreshing existing teams or pushing commits; reviewed source is committed through repository tools.
+The application is buildless; GitHub Pages serves the root of main. Source preparation, roster retrieval, browser tools, test downloads and screenshots stay on GitHub’s runners. The workflow has read-only repository access. scripts/expand-nfc-east.cjs prepares missing East data without refreshing earlier snapshots or pushing commits. Reviewed generated source is committed through repository tools.
 
-GitHub validates 200 sorting combinations, every portrait URL, conference state isolation, all twenty teams in browser flows, desktop exports, and mobile PNG saving in Chromium/WebKit. Source and image limitations are in [DATA-SOURCES.md](DATA-SOURCES.md). Rosters are dated November 5, 2026 snapshots, not a live feed.
+Checks cover 240 sorting combinations, every headshot URL, all 24 teams in browser flows, NFC mobile PNG exports, and the full desktop/mobile image-export suites.
+
+See [DATA-SOURCES.md](DATA-SOURCES.md) for official sources, the November 5, 2026 snapshot scope, position mapping, palettes and image-rights limitations. The roster is not a live transaction feed.
 
 ## Downloadable result cards
 
