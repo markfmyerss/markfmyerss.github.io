@@ -2,3 +2,10 @@
 /* Keep choices aligned when names wrap, and give long team names room on phones. */
 .player .pick-label{margin-top:auto}.player-team{margin-bottom:15px}
 @media(max-width:480px){.controls label:first-child{flex:1 1 100%}.controls label:nth-child(2){flex:1}.controls #reset{align-self:flex-end;flex:1}}
+
+.division-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:6px 0 18px}
+#division-picker{display:flex;gap:6px;padding:5px;background:#16161c;border:1px solid #36363e;border-radius:12px}
+.division-button{background:transparent;color:#b8b8c3;padding:11px 18px;font-size:.85rem;border:1px solid transparent}
+.division-button[aria-pressed=true]{background:#30303a;color:#fff;border-color:#555560}
+#division-summary{font-size:.75rem;color:#aaaab7}
+@media(max-width:480px){.division-row{gap:10px}#division-picker{width:100%}.division-button{flex:1}#division-summary{font-size:.7rem}}

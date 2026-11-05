@@ -1,30 +1,47 @@
-# Data sources and image policy
+# Roster sources and headshots
 
-Active rosters retrieved and verified on November 5, 2026 from each team's official roster table:
+Official active-roster tables retrieved and verified November 5, 2026:
 
-| Team | Players | Source |
-| --- | ---: | --- |
-| Baltimore Ravens | 53 | https://www.baltimoreravens.com/team/players-roster/ |
-| Cincinnati Bengals | 52 | https://www.bengals.com/team/players-roster/ |
-| Pittsburgh Steelers | 54 | https://www.steelers.com/team/players-roster/ |
-| Cleveland Browns | 52 | https://www.clevelandbrowns.com/team/players-roster/ |
+| Division | Team | Active players | Source |
+| --- | --- | ---: | --- |
+| AFC North | Baltimore Ravens | 53 | https://www.baltimoreravens.com/team/players-roster/ |
+| AFC North | Cincinnati Bengals | 52 | https://www.bengals.com/team/players-roster/ |
+| AFC North | Pittsburgh Steelers | 54 | https://www.steelers.com/team/players-roster/ |
+| AFC North | Cleveland Browns | 52 | https://www.clevelandbrowns.com/team/players-roster/ |
+| AFC East | Buffalo Bills | 53 | https://www.buffalobills.com/team/players-roster/ |
+| AFC East | Miami Dolphins | 53 | https://www.miamidolphins.com/team/players-roster/ |
+| AFC East | New England Patriots | 52 | https://www.patriots.com/team/players-roster/ |
+| AFC East | New York Jets | 53 | https://www.newyorkjets.com/team/players-roster/ |
 
-These are dated snapshots of the published **Active** tables, not a live feed or an assertion about game-day eligibility. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Published counts may differ from 53. Transactions after verification are not automatically reflected. Each player retains an official profile URL in data.js.
+These 422 players are a dated snapshot of the published **Active** tables. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Published counts may differ from 53. Later transactions are not automatically reflected. Each player retains an official profile URL in data.js.
 
-Position filters group HB/FB with RB; T/G/C and combined line positions with OL; DT/DE/NT with DL; ILB/OLB with LB; CB/S with DB; K/P/LS with ST; RB/WR with RB. Cards retain the original roster position. All previous Ravens IDs, names and numbers are preserved for save compatibility. New teams use snapshot IDs; refreshes must preserve existing IDs by player identity rather than by row order.
+## Headshots
 
-## Colors
+Every player has an individual official team/NFL image source in HEADSHOTS. 414 come from the official roster pages. 8 roster entries with missing or generic thumbnails use individual NFL.com profile portraits instead:
 
-Team brand palettes: Baltimore purple #241773, black, gold #9E7C0C; Cincinnati orange #FB4F14 and black; Pittsburgh black #101820 and gold #FFB612; Cleveland brown #311D00 and orange #FF3C00. Brighter UI highlights are used where necessary for readable text. These conventional digital values are cross-referenced against [Team Color Codes](https://teamcolorcodes.com/nfl-team-color-codes/); exact colors can differ across uniforms and brand editions. They are not a claim of team approval or an official licensed style guide.
+- Derek Barnett: https://www.nfl.com/players/derek-barnett/
+- Mekhi Blackmon: https://www.nfl.com/players/mekhi-blackmon/
+- Noah Igbinoghene: https://www.nfl.com/players/noah-igbinoghene/
+- Elgton Jenkins: https://www.nfl.com/players/elgton-jenkins/
+- Jaleel McLaughlin: https://www.nfl.com/players/jaleel-mclaughlin/
+- Toriano Pride Jr.: https://www.nfl.com/players/toriano-pride-jr/
+- Sam Williams: https://www.nfl.com/players/sam-williams-4/
+- Greg Dortch: https://www.nfl.com/players/greg-dortch/
 
-## Images
+All 422 URLs returned image content in GitHub checks. Images load directly from official servers; no image binaries are bundled. The lazy placeholder transformation is removed, matching the team sites’ image loaders. Jersey cards remain the fallback if a remote image fails.
 
-All 211 active-roster players have individual headshot URLs from official team/NFL servers, linked in HEADSHOTS in data.js with a source page for every player. Photos are linked remotely; no image binaries are bundled or downloaded to the development Mac. Lookup uses stable player IDs so existing saved rankings receive headshots automatically.
+Vega Ioane is matched directly to his Ravens portrait by stable player ID. Existing AFC North player records, headshot records and save keys are preserved. AFC East IDs use official profile slugs. Lookup by ID lets old saved rankings receive portraits without resetting picks.
 
-The four official roster pages supply 204 portraits. Seven Browns roster entries use a shared generic silhouette; those are replaced with individual NFL.com profile portraits for Derek Barnett, Mekhi Blackmon, Noah Igbinoghene, Elgton Jenkins, Jaleel McLaughlin, Toriano Pride Jr., and Sam Williams (sam-williams-4, the Mississippi defensive end). The source page for each override is recorded alongside its image. The roster pages' lazy placeholder transformation is removed, as in their own image loader.
+Images remain owned by their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. URLs, availability and pictured uniforms may change. No endorsement or affiliation with the NFL or its teams is implied.
 
-Vega Ioane is matched directly to the Ravens portrait on his official roster row, avoiding the earlier ESPN given-name mismatch. The historical Olaivavega Ioane alias remains for compatibility.
+## Positions and colors
 
-Jersey-number cards remain the fallback for failed or missing photos. Images remain owned by their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. Remote URLs, availability and uniforms may change.
+Filters group HB/FB with RB; T/G/C and combined line positions with OL; DT/DE/NT with DL; EDGE/ILB/OLB with LB; CB/S with DB; K/P/LS with ST; RB/WR with RB. Cards retain the official roster position.
 
-No endorsement or affiliation with the NFL or any team is implied.
+Team brand palettes use Baltimore purple/gold, Cincinnati orange/black, Pittsburgh black/gold, Cleveland brown/orange, Buffalo royal blue/red, Miami aqua/orange, New England navy/red, and New York green/white. Brighter UI highlights support readable text. Digital palette values are recorded in TEAM_INFO; they are not a claim of team approval or a licensed style guide.
+
+## Development and validation
+
+Source preparation, roster retrieval, image checks, browser testing and screenshots run on GitHub. The workflow has read-only repository access and cannot commit or push. The reviewed generated snapshot is committed through GitHub repository tools. No site files or development dependencies are downloaded to the user’s Mac.
+
+The division picker shows four teams at a time, remembers the last team in each division, and restores the selected division from the saved team. Rankings remain separate for each team and position filter. Progress is stored in the visitor’s browser.

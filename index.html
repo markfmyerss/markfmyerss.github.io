@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101014"><meta name="description" content="Rank your favorite AFC North players. Compare Ravens, Bengals, Steelers, and Browns players and save a separate personal ranking for each team."><title>NFL Favorites Sorter · AFC North</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101014"><meta name="description" content="Rank your favorite AFC North and AFC East players. Eight teams, official headshots, and separate rankings for every team."><title>NFL Favorites Sorter · AFC North &amp; East</title><link rel="stylesheet" href="styles.css?v=20261105-afc-east"></head>
 <body><main>
-<header><span class="kicker">THE AFC NORTH COLLECTION</span><h1>Four teams.<br>Your favorites.</h1><p class="lede">Choose your team. Pick the player you like more.<br>Build a ranking that’s entirely yours.</p><span class="edition">NFL FAVORITES SORTER <span>2026</span></span></header>
-<nav id="team-grid" aria-label="Choose an AFC North team"></nav>
+<header><span class="kicker">AFC NORTH + AFC EAST</span><h1>Two divisions.<br>Your favorites.</h1><p class="lede">Choose your team. Pick the player you like more.<br>Build a ranking that’s entirely yours.</p><span class="edition">NFL FAVORITES SORTER <span>2026</span></span></header>
+<div class="division-row"><nav id="division-picker" aria-label="Choose a division"></nav><span id="division-summary"></span></div><nav id="team-grid" aria-label="Choose a team"></nav>
 <section class="workspace" aria-label="Your ranking">
 <div class="controls"><label>Team<select id="team"></select></label><label>Position<select id="position"></select></label><div class="filter-info"><span id="position-count"></span><small>Each team and filter saves separately</small></div><button id="start">Start sorting →</button><button class="secondary" id="reset" disabled>Reset ranking</button></div>
 <p id="storage-note" role="status" hidden>Browser storage is unavailable. Your picks will last for this visit only.</p>
@@ -12,4 +12,4 @@
 <div class="source-line"><span id="roster-summary"></span><a id="source" target="_blank" rel="noopener noreferrer"></a></div>
 </section>
 <footer><strong>A fan’s opinion. A fan-made project.</strong><p>Independent and unaffiliated with the NFL or its teams. Active-roster snapshot verified November 5, 2026; later transactions may change team membership. Practice squad and reserve lists are excluded.</p><p>Headshots are loaded from official team and NFL servers and remain the property of their respective rights holders. Jersey cards appear if a photo is unavailable. <a href="DATA-SOURCES.md">Roster sources &amp; image policy ↗</a></p></footer>
-</main><script src="data.js?v=20261105-headshots"></script><script src="app.js?v=20261105-headshots"></script></body></html>
+</main><script src="data.js?v=20261105-afc-east"></script><script src="app.js?v=20261105-afc-east"></script></body></html>
