@@ -219,6 +219,62 @@ const TEAM_INFO = {
       "ink": "#101014"
     },
     "division": "AFC West"
+  },
+  "Chicago Bears": {
+    "name": "Chicago Bears",
+    "code": "CHI",
+    "nickname": "Bears",
+    "singular": "Bear",
+    "source": "https://www.chicagobears.com/team/players-roster/",
+    "colors": {
+      "primary": "#0B162A",
+      "accent": "#C83803",
+      "highlight": "#ffb08e",
+      "ink": "#101014"
+    },
+    "division": "NFC North"
+  },
+  "Detroit Lions": {
+    "name": "Detroit Lions",
+    "code": "DET",
+    "nickname": "Lions",
+    "singular": "Lion",
+    "source": "https://www.detroitlions.com/team/players-roster/",
+    "colors": {
+      "primary": "#0076B6",
+      "accent": "#B0B7BC",
+      "highlight": "#8fd0ff",
+      "ink": "#101014"
+    },
+    "division": "NFC North"
+  },
+  "Green Bay Packers": {
+    "name": "Green Bay Packers",
+    "code": "GB",
+    "nickname": "Packers",
+    "singular": "Packer",
+    "source": "https://www.packers.com/team/players-roster/",
+    "colors": {
+      "primary": "#203731",
+      "accent": "#FFB612",
+      "highlight": "#FFB612",
+      "ink": "#101014"
+    },
+    "division": "NFC North"
+  },
+  "Minnesota Vikings": {
+    "name": "Minnesota Vikings",
+    "code": "MIN",
+    "nickname": "Vikings",
+    "singular": "Viking",
+    "source": "https://www.vikings.com/team/players-roster/",
+    "colors": {
+      "primary": "#4F2683",
+      "accent": "#FFC62F",
+      "highlight": "#FFC62F",
+      "ink": "#101014"
+    },
+    "division": "NFC North"
   }
 };
 const ROSTERS = {
@@ -7857,6 +7913,1922 @@ const ROSTERS = {
       "id": "LAC-kendall-williamson",
       "profile": "https://www.chargers.com/team/players-roster/kendall-williamson/"
     }
+  ],
+  "Chicago Bears": [
+    {
+      "name": "Tyson Bagent",
+      "number": "17",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Chicago Bears",
+      "id": "CHI-tyson-bagent",
+      "profile": "https://www.chicagobears.com/team/players-roster/tyson-bagent/"
+    },
+    {
+      "name": "Theo Benedet",
+      "number": "79",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-theo-benedet",
+      "profile": "https://www.chicagobears.com/team/players-roster/theo-benedet/"
+    },
+    {
+      "name": "Josh Blackwell",
+      "number": "39",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-josh-blackwell",
+      "profile": "https://www.chicagobears.com/team/players-roster/josh-blackwell/"
+    },
+    {
+      "name": "Austin Booker",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-austin-booker",
+      "profile": "https://www.chicagobears.com/team/players-roster/austin-booker/"
+    },
+    {
+      "name": "Garrett Bradbury",
+      "number": "67",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-garrett-bradbury",
+      "profile": "https://www.chicagobears.com/team/players-roster/garrett-bradbury/"
+    },
+    {
+      "name": "Luther Burden III",
+      "number": "10",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Chicago Bears",
+      "id": "CHI-luther-burden-iii",
+      "profile": "https://www.chicagobears.com/team/players-roster/luther-burden-iii/"
+    },
+    {
+      "name": "Devin Bush",
+      "number": "12",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Chicago Bears",
+      "id": "CHI-devin-bush",
+      "profile": "https://www.chicagobears.com/team/players-roster/devin-bush/"
+    },
+    {
+      "name": "Stephen Carlson",
+      "number": "88",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Chicago Bears",
+      "id": "CHI-stephen-carlson",
+      "profile": "https://www.chicagobears.com/team/players-roster/stephen-carlson/"
+    },
+    {
+      "name": "Scott Daly",
+      "number": "46",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Chicago Bears",
+      "id": "CHI-scott-daly",
+      "profile": "https://www.chicagobears.com/team/players-roster/scott-daly/"
+    },
+    {
+      "name": "T.J. Edwards",
+      "number": "53",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Chicago Bears",
+      "id": "CHI-t-j-edwards",
+      "profile": "https://www.chicagobears.com/team/players-roster/t-j-edwards/"
+    },
+    {
+      "name": "Keyshaun Elliott",
+      "number": "49",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Chicago Bears",
+      "id": "CHI-keyshaun-elliott",
+      "profile": "https://www.chicagobears.com/team/players-roster/keyshaun-elliott/"
+    },
+    {
+      "name": "Neville Gallimore",
+      "number": "90",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-neville-gallimore",
+      "profile": "https://www.chicagobears.com/team/players-roster/neville-gallimore/"
+    },
+    {
+      "name": "Kyler Gordon",
+      "number": "6",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-kyler-gordon",
+      "profile": "https://www.chicagobears.com/team/players-roster/kyler-gordon/"
+    },
+    {
+      "name": "Daniel Hardy",
+      "number": "92",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-daniel-hardy",
+      "profile": "https://www.chicagobears.com/team/players-roster/daniel-hardy/"
+    },
+    {
+      "name": "Elijah Hicks",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-elijah-hicks",
+      "profile": "https://www.chicagobears.com/team/players-roster/elijah-hicks/"
+    },
+    {
+      "name": "D'Marco Jackson",
+      "number": "48",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Chicago Bears",
+      "id": "CHI-d-marco-jackson",
+      "profile": "https://www.chicagobears.com/team/players-roster/d-marco-jackson/"
+    },
+    {
+      "name": "Jonah Jackson",
+      "number": "73",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-jonah-jackson",
+      "profile": "https://www.chicagobears.com/team/players-roster/jonah-jackson/"
+    },
+    {
+      "name": "Grady Jarrett",
+      "number": "50",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-grady-jarrett",
+      "profile": "https://www.chicagobears.com/team/players-roster/grady-jarrett/"
+    },
+    {
+      "name": "Jaylon Johnson",
+      "number": "1",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-jaylon-johnson",
+      "profile": "https://www.chicagobears.com/team/players-roster/jaylon-johnson/"
+    },
+    {
+      "name": "Roschon Johnson",
+      "number": "23",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Chicago Bears",
+      "id": "CHI-roschon-johnson",
+      "profile": "https://www.chicagobears.com/team/players-roster/roschon-johnson/"
+    },
+    {
+      "name": "Logan Jones",
+      "number": "54",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-logan-jones",
+      "profile": "https://www.chicagobears.com/team/players-roster/logan-jones/"
+    },
+    {
+      "name": "Case Keenum",
+      "number": "11",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Chicago Bears",
+      "id": "CHI-case-keenum",
+      "profile": "https://www.chicagobears.com/team/players-roster/case-keenum/"
+    },
+    {
+      "name": "Cam Lewis",
+      "number": "21",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-cam-lewis",
+      "profile": "https://www.chicagobears.com/team/players-roster/cam-lewis/"
+    },
+    {
+      "name": "Colston Loveland",
+      "number": "84",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Chicago Bears",
+      "id": "CHI-colston-loveland",
+      "profile": "https://www.chicagobears.com/team/players-roster/colston-loveland/"
+    },
+    {
+      "name": "Jayden Loving",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-jayden-loving",
+      "profile": "https://www.chicagobears.com/team/players-roster/jayden-loving/"
+    },
+    {
+      "name": "James Lynch",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-james-lynch",
+      "profile": "https://www.chicagobears.com/team/players-roster/james-lynch/"
+    },
+    {
+      "name": "Jordan McFadden",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-jordan-mcfadden",
+      "profile": "https://www.chicagobears.com/team/players-roster/jordan-mcfadden/"
+    },
+    {
+      "name": "Kyle Monangai",
+      "number": "25",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Chicago Bears",
+      "id": "CHI-kyle-monangai",
+      "profile": "https://www.chicagobears.com/team/players-roster/kyle-monangai/"
+    },
+    {
+      "name": "Malik Muhammad II",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-malik-muhammad",
+      "profile": "https://www.chicagobears.com/team/players-roster/malik-muhammad/"
+    },
+    {
+      "name": "Luke Newman",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-luke-newman",
+      "profile": "https://www.chicagobears.com/team/players-roster/luke-newman/"
+    },
+    {
+      "name": "Rome Odunze",
+      "number": "15",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Chicago Bears",
+      "id": "CHI-rome-odunze",
+      "profile": "https://www.chicagobears.com/team/players-roster/rome-odunze/"
+    },
+    {
+      "name": "Clark Phillips III",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-clark-phillips-iii",
+      "profile": "https://www.chicagobears.com/team/players-roster/clark-phillips-iii/"
+    },
+    {
+      "name": "Kalif Raymond",
+      "number": "14",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Chicago Bears",
+      "id": "CHI-kalif-raymond",
+      "profile": "https://www.chicagobears.com/team/players-roster/kalif-raymond/"
+    },
+    {
+      "name": "Sam Roush",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Chicago Bears",
+      "id": "CHI-sam-roush",
+      "profile": "https://www.chicagobears.com/team/players-roster/sam-roush/"
+    },
+    {
+      "name": "Jack Sanborn",
+      "number": "57",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Chicago Bears",
+      "id": "CHI-jack-sanborn",
+      "profile": "https://www.chicagobears.com/team/players-roster/jack-sanborn/"
+    },
+    {
+      "name": "Cairo Santos",
+      "number": "8",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Chicago Bears",
+      "id": "CHI-cairo-santos",
+      "profile": "https://www.chicagobears.com/team/players-roster/cairo-santos/"
+    },
+    {
+      "name": "Noah Sewell",
+      "number": "44",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Chicago Bears",
+      "id": "CHI-noah-sewell",
+      "profile": "https://www.chicagobears.com/team/players-roster/noah-sewell/"
+    },
+    {
+      "name": "Jeffery Simmons",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-jeffery-simmons",
+      "profile": "https://www.chicagobears.com/team/players-roster/jeffery-simmons/"
+    },
+    {
+      "name": "Tyrique Stevenson Sr.",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-tyrique-stevenson",
+      "profile": "https://www.chicagobears.com/team/players-roster/tyrique-stevenson/"
+    },
+    {
+      "name": "Montez Sweat",
+      "number": "98",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-montez-sweat",
+      "profile": "https://www.chicagobears.com/team/players-roster/montez-sweat/"
+    },
+    {
+      "name": "D'Andre Swift",
+      "number": "4",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Chicago Bears",
+      "id": "CHI-d-andre-swift",
+      "profile": "https://www.chicagobears.com/team/players-roster/d-andre-swift/"
+    },
+    {
+      "name": "Tory Taylor",
+      "number": "19",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Chicago Bears",
+      "id": "CHI-tory-taylor",
+      "profile": "https://www.chicagobears.com/team/players-roster/tory-taylor/"
+    },
+    {
+      "name": "Dillon Thieneman",
+      "number": "31",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-dillon-thieneman",
+      "profile": "https://www.chicagobears.com/team/players-roster/dillon-thieneman/"
+    },
+    {
+      "name": "Skyler Thomas",
+      "number": "38",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Chicago Bears",
+      "id": "CHI-skyler-thomas",
+      "profile": "https://www.chicagobears.com/team/players-roster/skyler-thomas/"
+    },
+    {
+      "name": "Zavion Thomas",
+      "number": "13",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Chicago Bears",
+      "id": "CHI-zavion-thomas",
+      "profile": "https://www.chicagobears.com/team/players-roster/zavion-thomas/"
+    },
+    {
+      "name": "Joe Thuney",
+      "number": "62",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-joe-thuney",
+      "profile": "https://www.chicagobears.com/team/players-roster/joe-thuney/"
+    },
+    {
+      "name": "Ozzy Trapilo",
+      "number": "75",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-ozzy-trapilo",
+      "profile": "https://www.chicagobears.com/team/players-roster/ozzy-trapilo/"
+    },
+    {
+      "name": "Shemar Turner",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-shemar-turner",
+      "profile": "https://www.chicagobears.com/team/players-roster/shemar-turner/"
+    },
+    {
+      "name": "Jordan van den Berg",
+      "number": "96",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Chicago Bears",
+      "id": "CHI-jordan-van-den-berg",
+      "profile": "https://www.chicagobears.com/team/players-roster/jordan-van-den-berg/"
+    },
+    {
+      "name": "Jahdae Walker",
+      "number": "9",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Chicago Bears",
+      "id": "CHI-jahdae-walker",
+      "profile": "https://www.chicagobears.com/team/players-roster/jahdae-walker/"
+    },
+    {
+      "name": "Caleb Williams",
+      "number": "18",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Chicago Bears",
+      "id": "CHI-caleb-williams",
+      "profile": "https://www.chicagobears.com/team/players-roster/caleb-williams/"
+    },
+    {
+      "name": "Darnell Wright",
+      "number": "58",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Chicago Bears",
+      "id": "CHI-darnell-wright",
+      "profile": "https://www.chicagobears.com/team/players-roster/darnell-wright/"
+    }
+  ],
+  "Detroit Lions": [
+    {
+      "name": "Keith Abney II",
+      "number": "6",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Detroit Lions",
+      "id": "DET-keith-abney-ii",
+      "profile": "https://www.detroitlions.com/team/players-roster/keith-abney-ii/"
+    },
+    {
+      "name": "Joe Bachie",
+      "number": "35",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-joe-bachie",
+      "profile": "https://www.detroitlions.com/team/players-roster/joe-bachie/"
+    },
+    {
+      "name": "Derrick Barnes",
+      "number": "55",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-derrick-barnes",
+      "profile": "https://www.detroitlions.com/team/players-roster/derrick-barnes/"
+    },
+    {
+      "name": "Jake Bates",
+      "number": "39",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Detroit Lions",
+      "id": "DET-jake-bates",
+      "profile": "https://www.detroitlions.com/team/players-roster/jake-bates/"
+    },
+    {
+      "name": "Larry Borom",
+      "number": "79",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Detroit Lions",
+      "id": "DET-larry-borom",
+      "profile": "https://www.detroitlions.com/team/players-roster/larry-borom/"
+    },
+    {
+      "name": "Brian Branch",
+      "number": "32",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Detroit Lions",
+      "id": "DET-brian-branch",
+      "profile": "https://www.detroitlions.com/team/players-roster/brian-branch/"
+    },
+    {
+      "name": "K.J. Britt",
+      "number": "40",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-k-j-britt",
+      "profile": "https://www.detroitlions.com/team/players-roster/k-j-britt/"
+    },
+    {
+      "name": "Jack Campbell",
+      "number": "46",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-jack-campbell",
+      "profile": "https://www.detroitlions.com/team/players-roster/jack-campbell/"
+    },
+    {
+      "name": "DeAndre Carter",
+      "number": "86",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Detroit Lions",
+      "id": "DET-deandre-carter",
+      "profile": "https://www.detroitlions.com/team/players-roster/deandre-carter/"
+    },
+    {
+      "name": "Chuck Clark",
+      "number": "36",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Detroit Lions",
+      "id": "DET-chuck-clark",
+      "profile": "https://www.detroitlions.com/team/players-roster/chuck-clark/"
+    },
+    {
+      "name": "Tyler Conklin",
+      "number": "83",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Detroit Lions",
+      "id": "DET-tyler-conklin",
+      "profile": "https://www.detroitlions.com/team/players-roster/tyler-conklin/"
+    },
+    {
+      "name": "Joshua Dobbs",
+      "number": "11",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Detroit Lions",
+      "id": "DET-joshua-dobbs",
+      "profile": "https://www.detroitlions.com/team/players-roster/joshua-dobbs/"
+    },
+    {
+      "name": "Khalil Dorsey",
+      "number": "30",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Detroit Lions",
+      "id": "DET-khalil-dorsey",
+      "profile": "https://www.detroitlions.com/team/players-roster/khalil-dorsey/"
+    },
+    {
+      "name": "Jack Fox",
+      "number": "3",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Detroit Lions",
+      "id": "DET-jack-fox",
+      "profile": "https://www.detroitlions.com/team/players-roster/jack-fox/"
+    },
+    {
+      "name": "Miles Frazier",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Detroit Lions",
+      "id": "DET-miles-frazier",
+      "profile": "https://www.detroitlions.com/team/players-roster/miles-frazier/"
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "number": "0",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Detroit Lions",
+      "id": "DET-jahmyr-gibbs",
+      "profile": "https://www.detroitlions.com/team/players-roster/jahmyr-gibbs/"
+    },
+    {
+      "name": "Skyler Gill-Howard",
+      "number": "50",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Detroit Lions",
+      "id": "DET-skyler-gill-howard",
+      "profile": "https://www.detroitlions.com/team/players-roster/skyler-gill-howard/"
+    },
+    {
+      "name": "Jared Goff",
+      "number": "16",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Detroit Lions",
+      "id": "DET-jared-goff",
+      "profile": "https://www.detroitlions.com/team/players-roster/jared-goff/"
+    },
+    {
+      "name": "Thomas Harper",
+      "number": "12",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Detroit Lions",
+      "id": "DET-thomas-harper",
+      "profile": "https://www.detroitlions.com/team/players-roster/thomas-harper/"
+    },
+    {
+      "name": "Ahmed Hassanein",
+      "number": "99",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Detroit Lions",
+      "id": "DET-ahmed-hassanein",
+      "profile": "https://www.detroitlions.com/team/players-roster/ahmed-hassanein/"
+    },
+    {
+      "name": "Hogan Hatten",
+      "number": "49",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Detroit Lions",
+      "id": "DET-hogan-hatten",
+      "profile": "https://www.detroitlions.com/team/players-roster/hogan-hatten/"
+    },
+    {
+      "name": "Aidan Hutchinson",
+      "number": "97",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Detroit Lions",
+      "id": "DET-aidan-hutchinson",
+      "profile": "https://www.detroitlions.com/team/players-roster/aidan-hutchinson/"
+    },
+    {
+      "name": "Christian Izien",
+      "number": "5",
+      "position": "DB",
+      "rosterPosition": "DB",
+      "team": "Detroit Lions",
+      "id": "DET-christian-izien",
+      "profile": "https://www.detroitlions.com/team/players-roster/christian-izien/"
+    },
+    {
+      "name": "Tyler Lacy",
+      "number": "93",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Detroit Lions",
+      "id": "DET-tyler-lacy",
+      "profile": "https://www.detroitlions.com/team/players-roster/tyler-lacy/"
+    },
+    {
+      "name": "Sam LaPorta",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Detroit Lions",
+      "id": "DET-sam-laporta",
+      "profile": "https://www.detroitlions.com/team/players-roster/sam-laporta/"
+    },
+    {
+      "name": "Christian Mahogany",
+      "number": "73",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Detroit Lions",
+      "id": "DET-christian-mahogany",
+      "profile": "https://www.detroitlions.com/team/players-roster/christian-mahogany/"
+    },
+    {
+      "name": "Tay Martin",
+      "number": "17",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Detroit Lions",
+      "id": "DET-tay-martin",
+      "profile": "https://www.detroitlions.com/team/players-roster/tay-martin/"
+    },
+    {
+      "name": "Cade Mays",
+      "number": "64",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Detroit Lions",
+      "id": "DET-cade-mays",
+      "profile": "https://www.detroitlions.com/team/players-roster/cade-mays/"
+    },
+    {
+      "name": "Roger McCreary",
+      "number": "21",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Detroit Lions",
+      "id": "DET-roger-mccreary",
+      "profile": "https://www.detroitlions.com/team/players-roster/roger-mccreary/"
+    },
+    {
+      "name": "Seth McLaughlin",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Detroit Lions",
+      "id": "DET-seth-mclaughlin",
+      "profile": "https://www.detroitlions.com/team/players-roster/seth-mclaughlin/"
+    },
+    {
+      "name": "Alim McNeill",
+      "number": "54",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Detroit Lions",
+      "id": "DET-alim-mcneill",
+      "profile": "https://www.detroitlions.com/team/players-roster/alim-mcneill/"
+    },
+    {
+      "name": "Jackson Meeks",
+      "number": "13",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Detroit Lions",
+      "id": "DET-jackson-meeks",
+      "profile": "https://www.detroitlions.com/team/players-roster/jackson-meeks/"
+    },
+    {
+      "name": "Blake Miller",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Detroit Lions",
+      "id": "DET-blake-miller",
+      "profile": "https://www.detroitlions.com/team/players-roster/blake-miller/"
+    },
+    {
+      "name": "Derrick Moore",
+      "number": "8",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Detroit Lions",
+      "id": "DET-derrick-moore",
+      "profile": "https://www.detroitlions.com/team/players-roster/derrick-moore/"
+    },
+    {
+      "name": "Trevor Nowaske",
+      "number": "53",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-trevor-nowaske",
+      "profile": "https://www.detroitlions.com/team/players-roster/trevor-nowaske/"
+    },
+    {
+      "name": "Eric O'Neill",
+      "number": "66",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Detroit Lions",
+      "id": "DET-eric-o-neill",
+      "profile": "https://www.detroitlions.com/team/players-roster/eric-o-neill/"
+    },
+    {
+      "name": "Amen Ogbongbemiga",
+      "number": "57",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-amen-ogbongbemiga",
+      "profile": "https://www.detroitlions.com/team/players-roster/amen-ogbongbemiga/"
+    },
+    {
+      "name": "Levi Onwuzurike",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Detroit Lions",
+      "id": "DET-levi-onwuzurike",
+      "profile": "https://www.detroitlions.com/team/players-roster/levi-onwuzurike/"
+    },
+    {
+      "name": "Ennis Rakestraw Jr.",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Detroit Lions",
+      "id": "DET-ennis-rakestraw-jr",
+      "profile": "https://www.detroitlions.com/team/players-roster/ennis-rakestraw-jr/"
+    },
+    {
+      "name": "Tate Ratledge",
+      "number": "69",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Detroit Lions",
+      "id": "DET-tate-ratledge",
+      "profile": "https://www.detroitlions.com/team/players-roster/tate-ratledge/"
+    },
+    {
+      "name": "D.J. Reed",
+      "number": "4",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Detroit Lions",
+      "id": "DET-d-j-reed",
+      "profile": "https://www.detroitlions.com/team/players-roster/d-j-reed/"
+    },
+    {
+      "name": "Malcolm Rodriguez",
+      "number": "44",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Detroit Lions",
+      "id": "DET-malcolm-rodriguez",
+      "profile": "https://www.detroitlions.com/team/players-roster/malcolm-rodriguez/"
+    },
+    {
+      "name": "Jacob Saylors",
+      "number": "25",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Detroit Lions",
+      "id": "DET-jacob-saylors",
+      "profile": "https://www.detroitlions.com/team/players-roster/jacob-saylors/"
+    },
+    {
+      "name": "Juice Scruggs",
+      "number": "70",
+      "position": "OL",
+      "rosterPosition": "OL",
+      "team": "Detroit Lions",
+      "id": "DET-juice-scruggs",
+      "profile": "https://www.detroitlions.com/team/players-roster/juice-scruggs/"
+    },
+    {
+      "name": "Penei Sewell",
+      "number": "58",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Detroit Lions",
+      "id": "DET-penei-sewell",
+      "profile": "https://www.detroitlions.com/team/players-roster/penei-sewell/"
+    },
+    {
+      "name": "Amon-Ra St. Brown",
+      "number": "14",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Detroit Lions",
+      "id": "DET-amon-ra-st-brown",
+      "profile": "https://www.detroitlions.com/team/players-roster/amon-ra-st-brown/"
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "number": "18",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Detroit Lions",
+      "id": "DET-isaac-teslaa",
+      "profile": "https://www.detroitlions.com/team/players-roster/isaac-teslaa/"
+    },
+    {
+      "name": "Sione Vaki",
+      "number": "33",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Detroit Lions",
+      "id": "DET-sione-vaki",
+      "profile": "https://www.detroitlions.com/team/players-roster/sione-vaki/"
+    },
+    {
+      "name": "Jameson Williams",
+      "number": "1",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Detroit Lions",
+      "id": "DET-jameson-williams",
+      "profile": "https://www.detroitlions.com/team/players-roster/jameson-williams/"
+    },
+    {
+      "name": "Tyleik Williams",
+      "number": "91",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Detroit Lions",
+      "id": "DET-tyleik-williams",
+      "profile": "https://www.detroitlions.com/team/players-roster/tyleik-williams/"
+    },
+    {
+      "name": "Mekhi Wingo",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Detroit Lions",
+      "id": "DET-mekhi-wingo",
+      "profile": "https://www.detroitlions.com/team/players-roster/mekhi-wingo/"
+    },
+    {
+      "name": "DJ Wonnum",
+      "number": "98",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Detroit Lions",
+      "id": "DET-d-j-wonnum",
+      "profile": "https://www.detroitlions.com/team/players-roster/d-j-wonnum/"
+    },
+    {
+      "name": "Brock Wright",
+      "number": "89",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Detroit Lions",
+      "id": "DET-brock-wright",
+      "profile": "https://www.detroitlions.com/team/players-roster/brock-wright/"
+    },
+    {
+      "name": "Rock Ya-Sin",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Detroit Lions",
+      "id": "DET-rock-ya-sin",
+      "profile": "https://www.detroitlions.com/team/players-roster/rock-ya-sin/"
+    }
+  ],
+  "Green Bay Packers": [
+    {
+      "name": "Aaron Banks",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Green Bay Packers",
+      "id": "GB-aaron-banks",
+      "profile": "https://www.packers.com/team/players-roster/aaron-banks/"
+    },
+    {
+      "name": "Mekhi Becton Sr.",
+      "number": "74",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Green Bay Packers",
+      "id": "GB-mekhi-becton-sr",
+      "profile": "https://www.packers.com/team/players-roster/mekhi-becton-sr/"
+    },
+    {
+      "name": "Anthony Belton",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "G/T",
+      "team": "Green Bay Packers",
+      "id": "GB-anthony-belton",
+      "profile": "https://www.packers.com/team/players-roster/anthony-belton/"
+    },
+    {
+      "name": "Karl Brooks",
+      "number": "94",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Green Bay Packers",
+      "id": "GB-karl-brooks",
+      "profile": "https://www.packers.com/team/players-roster/karl-brooks/"
+    },
+    {
+      "name": "Javon Bullard",
+      "number": "7",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Green Bay Packers",
+      "id": "GB-javon-bullard",
+      "profile": "https://www.packers.com/team/players-roster/javon-bullard/"
+    },
+    {
+      "name": "Jager Burton",
+      "number": "52",
+      "position": "OL",
+      "rosterPosition": "C/G",
+      "team": "Green Bay Packers",
+      "id": "GB-jager-burton",
+      "profile": "https://www.packers.com/team/players-roster/jager-burton/"
+    },
+    {
+      "name": "Anthony Campbell",
+      "number": "93",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Green Bay Packers",
+      "id": "GB-anthony-campbell",
+      "profile": "https://www.packers.com/team/players-roster/anthony-campbell/"
+    },
+    {
+      "name": "Brandon Cisse",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Green Bay Packers",
+      "id": "GB-brandon-cisse",
+      "profile": "https://www.packers.com/team/players-roster/brandon-cisse/"
+    },
+    {
+      "name": "Brenton Cox Jr.",
+      "number": "57",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Green Bay Packers",
+      "id": "GB-brenton-cox-jr",
+      "profile": "https://www.packers.com/team/players-roster/brenton-cox-jr/"
+    },
+    {
+      "name": "Dani Dennis-Sutton",
+      "number": "51",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Green Bay Packers",
+      "id": "GB-dani-dennis-sutton",
+      "profile": "https://www.packers.com/team/players-roster/dani-dennis-sutton/"
+    },
+    {
+      "name": "Zaire Franklin",
+      "number": "44",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Green Bay Packers",
+      "id": "GB-zaire-franklin",
+      "profile": "https://www.packers.com/team/players-roster/zaire-franklin/"
+    },
+    {
+      "name": "Travis Glover",
+      "number": "79",
+      "position": "OL",
+      "rosterPosition": "G/T",
+      "team": "Green Bay Packers",
+      "id": "GB-travis-glover",
+      "profile": "https://www.packers.com/team/players-roster/travis-glover/"
+    },
+    {
+      "name": "Matthew Golden",
+      "number": "0",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Green Bay Packers",
+      "id": "GB-matthew-golden",
+      "profile": "https://www.packers.com/team/players-roster/matthew-golden/"
+    },
+    {
+      "name": "Kamal Hadden",
+      "number": "36",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Green Bay Packers",
+      "id": "GB-kamal-hadden",
+      "profile": "https://www.packers.com/team/players-roster/kamal-hadden/"
+    },
+    {
+      "name": "Ty'Ron Hopper",
+      "number": "59",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Green Bay Packers",
+      "id": "GB-ty-ron-hopper",
+      "profile": "https://www.packers.com/team/players-roster/ty-ron-hopper/"
+    },
+    {
+      "name": "Josh Jacobs",
+      "number": "8",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Green Bay Packers",
+      "id": "GB-josh-jacobs",
+      "profile": "https://www.packers.com/team/players-roster/josh-jacobs/"
+    },
+    {
+      "name": "Donovan Jennings",
+      "number": "67",
+      "position": "OL",
+      "rosterPosition": "G/T",
+      "team": "Green Bay Packers",
+      "id": "GB-donovan-jennings",
+      "profile": "https://www.packers.com/team/players-roster/donovan-jennings/"
+    },
+    {
+      "name": "Kaleb Johnson",
+      "number": "26",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Green Bay Packers",
+      "id": "GB-kaleb-johnson",
+      "profile": "https://www.packers.com/team/players-roster/kaleb-johnson/"
+    },
+    {
+      "name": "Tucker Kraft",
+      "number": "85",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Green Bay Packers",
+      "id": "GB-tucker-kraft",
+      "profile": "https://www.packers.com/team/players-roster/tucker-kraft/"
+    },
+    {
+      "name": "MarShawn Lloyd",
+      "number": "32",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Green Bay Packers",
+      "id": "GB-marshawn-lloyd",
+      "profile": "https://www.packers.com/team/players-roster/marshawn-lloyd/"
+    },
+    {
+      "name": "Jordan Love",
+      "number": "10",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Green Bay Packers",
+      "id": "GB-jordan-love",
+      "profile": "https://www.packers.com/team/players-roster/jordan-love/"
+    },
+    {
+      "name": "Chris McClellan",
+      "number": "55",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Green Bay Packers",
+      "id": "GB-chris-mcclellan",
+      "profile": "https://www.packers.com/team/players-roster/chris-mcclellan/"
+    },
+    {
+      "name": "Isaiah McDuffie",
+      "number": "58",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Green Bay Packers",
+      "id": "GB-isaiah-mcduffie",
+      "profile": "https://www.packers.com/team/players-roster/isaiah-mcduffie/"
+    },
+    {
+      "name": "Xavier McKinney",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Green Bay Packers",
+      "id": "GB-xavier-mckinney",
+      "profile": "https://www.packers.com/team/players-roster/xavier-mckinney/"
+    },
+    {
+      "name": "Bo Melton",
+      "number": "16",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Green Bay Packers",
+      "id": "GB-bo-melton",
+      "profile": "https://www.packers.com/team/players-roster/bo-melton/"
+    },
+    {
+      "name": "Jordan Morgan",
+      "number": "77",
+      "position": "OL",
+      "rosterPosition": "T/G",
+      "team": "Green Bay Packers",
+      "id": "GB-jordan-morgan",
+      "profile": "https://www.packers.com/team/players-roster/jordan-morgan/"
+    },
+    {
+      "name": "Nick Niemann",
+      "number": "31",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Green Bay Packers",
+      "id": "GB-nick-niemann",
+      "profile": "https://www.packers.com/team/players-roster/nick-niemann/"
+    },
+    {
+      "name": "Keisean Nixon",
+      "number": "25",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Green Bay Packers",
+      "id": "GB-keisean-nixon",
+      "profile": "https://www.packers.com/team/players-roster/keisean-nixon/"
+    },
+    {
+      "name": "Kitan Oladapo",
+      "number": "27",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Green Bay Packers",
+      "id": "GB-kitan-oladapo",
+      "profile": "https://www.packers.com/team/players-roster/kitan-oladapo/"
+    },
+    {
+      "name": "Matt Orzech",
+      "number": "42",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Green Bay Packers",
+      "id": "GB-matt-orzech",
+      "profile": "https://www.packers.com/team/players-roster/matt-orzech/"
+    },
+    {
+      "name": "Coleman Owen",
+      "number": "13",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Green Bay Packers",
+      "id": "GB-coleman-owen",
+      "profile": "https://www.packers.com/team/players-roster/coleman-owen/"
+    },
+    {
+      "name": "Mark Redman",
+      "number": "86",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Green Bay Packers",
+      "id": "GB-mark-redman",
+      "profile": "https://www.packers.com/team/players-roster/mark-redman/"
+    },
+    {
+      "name": "Sean Rhyan",
+      "number": "75",
+      "position": "OL",
+      "rosterPosition": "C/G",
+      "team": "Green Bay Packers",
+      "id": "GB-sean-rhyan",
+      "profile": "https://www.packers.com/team/players-roster/sean-rhyan/"
+    },
+    {
+      "name": "Jordon Riley",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Green Bay Packers",
+      "id": "GB-jordon-riley",
+      "profile": "https://www.packers.com/team/players-roster/jordon-riley/"
+    },
+    {
+      "name": "Trey Smack",
+      "number": "28",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Green Bay Packers",
+      "id": "GB-trey-smack",
+      "profile": "https://www.packers.com/team/players-roster/trey-smack/"
+    },
+    {
+      "name": "Jonnu Smith",
+      "number": "18",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Green Bay Packers",
+      "id": "GB-jonnu-smith",
+      "profile": "https://www.packers.com/team/players-roster/jonnu-smith/"
+    },
+    {
+      "name": "Barryn Sorrell",
+      "number": "99",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Green Bay Packers",
+      "id": "GB-barryn-sorrell",
+      "profile": "https://www.packers.com/team/players-roster/barryn-sorrell/"
+    },
+    {
+      "name": "Benjamin St-Juste",
+      "number": "21",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Green Bay Packers",
+      "id": "GB-benjamin-st-juste",
+      "profile": "https://www.packers.com/team/players-roster/benjamin-st-juste/"
+    },
+    {
+      "name": "Pierre Strong Jr.",
+      "number": "22",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Green Bay Packers",
+      "id": "GB-pierre-strong-jr",
+      "profile": "https://www.packers.com/team/players-roster/pierre-strong-jr/"
+    },
+    {
+      "name": "J. Michael Sturdivant",
+      "number": "87",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Green Bay Packers",
+      "id": "GB-j-michael-sturdivant",
+      "profile": "https://www.packers.com/team/players-roster/j-michael-sturdivant/"
+    },
+    {
+      "name": "Tyrod Taylor",
+      "number": "6",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Green Bay Packers",
+      "id": "GB-tyrod-taylor",
+      "profile": "https://www.packers.com/team/players-roster/tyrod-taylor/"
+    },
+    {
+      "name": "Laken Tomlinson",
+      "number": "72",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Green Bay Packers",
+      "id": "GB-laken-tomlinson",
+      "profile": "https://www.packers.com/team/players-roster/laken-tomlinson/"
+    },
+    {
+      "name": "Carrington Valentine",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Green Bay Packers",
+      "id": "GB-carrington-valentine",
+      "profile": "https://www.packers.com/team/players-roster/carrington-valentine/"
+    },
+    {
+      "name": "Lukas Van Ness",
+      "number": "90",
+      "position": "LB",
+      "rosterPosition": "EDGE",
+      "team": "Green Bay Packers",
+      "id": "GB-lukas-van-ness",
+      "profile": "https://www.packers.com/team/players-roster/lukas-van-ness/"
+    },
+    {
+      "name": "Christian Watson",
+      "number": "9",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Green Bay Packers",
+      "id": "GB-christian-watson",
+      "profile": "https://www.packers.com/team/players-roster/christian-watson/"
+    },
+    {
+      "name": "Kristian Welch",
+      "number": "54",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Green Bay Packers",
+      "id": "GB-kristian-welch",
+      "profile": "https://www.packers.com/team/players-roster/kristian-welch/"
+    },
+    {
+      "name": "Daniel Whelan",
+      "number": "19",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Green Bay Packers",
+      "id": "GB-daniel-whelan",
+      "profile": "https://www.packers.com/team/players-roster/daniel-whelan/"
+    },
+    {
+      "name": "Josh Whyle",
+      "number": "81",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Green Bay Packers",
+      "id": "GB-josh-whyle",
+      "profile": "https://www.packers.com/team/players-roster/josh-whyle/"
+    },
+    {
+      "name": "Evan Williams",
+      "number": "33",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Green Bay Packers",
+      "id": "GB-evan-williams",
+      "profile": "https://www.packers.com/team/players-roster/evan-williams/"
+    },
+    {
+      "name": "John Williams",
+      "number": "73",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Green Bay Packers",
+      "id": "GB-john-williams",
+      "profile": "https://www.packers.com/team/players-roster/john-williams/"
+    },
+    {
+      "name": "Savion Williams",
+      "number": "83",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Green Bay Packers",
+      "id": "GB-savion-williams",
+      "profile": "https://www.packers.com/team/players-roster/savion-williams/"
+    },
+    {
+      "name": "Devonte Wyatt",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DT",
+      "team": "Green Bay Packers",
+      "id": "GB-devonte-wyatt",
+      "profile": "https://www.packers.com/team/players-roster/devonte-wyatt/"
+    },
+    {
+      "name": "Kevin Zeitler",
+      "number": "70",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Green Bay Packers",
+      "id": "GB-kevin-zeitler",
+      "profile": "https://www.packers.com/team/players-roster/kevin-zeitler/"
+    }
+  ],
+  "Minnesota Vikings": [
+    {
+      "name": "Jordan Addison",
+      "number": "3",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jordan-addison",
+      "profile": "https://www.vikings.com/team/players-roster/jordan-addison/"
+    },
+    {
+      "name": "Caleb Banks",
+      "number": "95",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Minnesota Vikings",
+      "id": "MIN-caleb-banks",
+      "profile": "https://www.vikings.com/team/players-roster/caleb-banks/"
+    },
+    {
+      "name": "Gavin Bartholomew",
+      "number": "86",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Minnesota Vikings",
+      "id": "MIN-gavin-bartholomew",
+      "profile": "https://www.vikings.com/team/players-roster/gavin-bartholomew/"
+    },
+    {
+      "name": "Blake Brandel",
+      "number": "64",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Minnesota Vikings",
+      "id": "MIN-blake-brandel",
+      "profile": "https://www.vikings.com/team/players-roster/blake-brandel/"
+    },
+    {
+      "name": "Max Bredeson",
+      "number": "45",
+      "position": "RB",
+      "rosterPosition": "FB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-max-bredeson",
+      "profile": "https://www.vikings.com/team/players-roster/max-bredeson/"
+    },
+    {
+      "name": "Max Brosmer",
+      "number": "12",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-max-brosmer",
+      "profile": "https://www.vikings.com/team/players-roster/max-brosmer/"
+    },
+    {
+      "name": "Blake Cashman",
+      "number": "51",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-blake-cashman",
+      "profile": "https://www.vikings.com/team/players-roster/blake-cashman/"
+    },
+    {
+      "name": "Chaz Chambliss",
+      "number": "32",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-chaz-chambliss",
+      "profile": "https://www.vikings.com/team/players-roster/chaz-chambliss/"
+    },
+    {
+      "name": "Demond Claiborne",
+      "number": "21",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-demond-claiborne",
+      "profile": "https://www.vikings.com/team/players-roster/demond-claiborne/"
+    },
+    {
+      "name": "DeeJay Dallas",
+      "number": "31",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-deejay-dallas",
+      "profile": "https://www.vikings.com/team/players-roster/deejay-dallas/"
+    },
+    {
+      "name": "Christian Darrisaw",
+      "number": "71",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Minnesota Vikings",
+      "id": "MIN-christian-darrisaw",
+      "profile": "https://www.vikings.com/team/players-roster/christian-darrisaw/"
+    },
+    {
+      "name": "Charles Demmings",
+      "number": "20",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-charles-demmings",
+      "profile": "https://www.vikings.com/team/players-roster/charles-demmings/"
+    },
+    {
+      "name": "Andrew DePaola",
+      "number": "42",
+      "position": "ST",
+      "rosterPosition": "LS",
+      "team": "Minnesota Vikings",
+      "id": "MIN-andrew-depaola",
+      "profile": "https://www.vikings.com/team/players-roster/andrew-depaola/"
+    },
+    {
+      "name": "Tai Felton",
+      "number": "13",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Minnesota Vikings",
+      "id": "MIN-tai-felton",
+      "profile": "https://www.vikings.com/team/players-roster/tai-felton/"
+    },
+    {
+      "name": "Will Fries",
+      "number": "76",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Minnesota Vikings",
+      "id": "MIN-will-fries",
+      "profile": "https://www.vikings.com/team/players-roster/will-fries/"
+    },
+    {
+      "name": "Jake Golday",
+      "number": "41",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jake-golday",
+      "profile": "https://www.vikings.com/team/players-roster/jake-golday/"
+    },
+    {
+      "name": "T.J. Hockenson",
+      "number": "87",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Minnesota Vikings",
+      "id": "MIN-t-j-hockenson",
+      "profile": "https://www.vikings.com/team/players-roster/t-j-hockenson/"
+    },
+    {
+      "name": "Joe Huber",
+      "number": "60",
+      "position": "OL",
+      "rosterPosition": "G",
+      "team": "Minnesota Vikings",
+      "id": "MIN-joe-huber",
+      "profile": "https://www.vikings.com/team/players-roster/joe-huber/"
+    },
+    {
+      "name": "Tyrion Ingram-Dawkins",
+      "number": "90",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Minnesota Vikings",
+      "id": "MIN-tyrion-ingram-dawkins",
+      "profile": "https://www.vikings.com/team/players-roster/tyrion-ingram-dawkins/"
+    },
+    {
+      "name": "Theo Jackson",
+      "number": "26",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Minnesota Vikings",
+      "id": "MIN-theo-jackson",
+      "profile": "https://www.vikings.com/team/players-roster/theo-jackson/"
+    },
+    {
+      "name": "Justin Jefferson",
+      "number": "18",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Minnesota Vikings",
+      "id": "MIN-justin-jefferson",
+      "profile": "https://www.vikings.com/team/players-roster/justin-jefferson/"
+    },
+    {
+      "name": "Jauan Jennings",
+      "number": "14",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jauan-jennings",
+      "profile": "https://www.vikings.com/team/players-roster/jauan-jennings/"
+    },
+    {
+      "name": "Aaron Jones Sr.",
+      "number": "33",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-aaron-jones",
+      "profile": "https://www.vikings.com/team/players-roster/aaron-jones/"
+    },
+    {
+      "name": "Michael Jurgens",
+      "number": "65",
+      "position": "OL",
+      "rosterPosition": "C",
+      "team": "Minnesota Vikings",
+      "id": "MIN-michael-jurgens",
+      "profile": "https://www.vikings.com/team/players-roster/michael-jurgens/"
+    },
+    {
+      "name": "Jordan Mason",
+      "number": "27",
+      "position": "RB",
+      "rosterPosition": "RB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jordan-mason",
+      "profile": "https://www.vikings.com/team/players-roster/jordan-mason/"
+    },
+    {
+      "name": "Joshua Metellus",
+      "number": "44",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Minnesota Vikings",
+      "id": "MIN-josh-metellus",
+      "profile": "https://www.vikings.com/team/players-roster/josh-metellus/"
+    },
+    {
+      "name": "Byron Murphy Jr.",
+      "number": "7",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-byron-murphy-jr",
+      "profile": "https://www.vikings.com/team/players-roster/byron-murphy-jr/"
+    },
+    {
+      "name": "Kyler Murray",
+      "number": "1",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-kyler-murray",
+      "profile": "https://www.vikings.com/team/players-roster/kyler-murray/"
+    },
+    {
+      "name": "Brian O'Neill",
+      "number": "75",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Minnesota Vikings",
+      "id": "MIN-brian-o-neill",
+      "profile": "https://www.vikings.com/team/players-roster/brian-o-neill/"
+    },
+    {
+      "name": "Domonique Orange",
+      "number": "97",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Minnesota Vikings",
+      "id": "MIN-domonique-orange",
+      "profile": "https://www.vikings.com/team/players-roster/domonique-orange/"
+    },
+    {
+      "name": "Ivan Pace Jr.",
+      "number": "0",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-ivan-pace-jr",
+      "profile": "https://www.vikings.com/team/players-roster/ivan-pace-jr/"
+    },
+    {
+      "name": "James Pierre",
+      "number": "23",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-james-pierre",
+      "profile": "https://www.vikings.com/team/players-roster/james-pierre/"
+    },
+    {
+      "name": "Myles Price",
+      "number": "4",
+      "position": "WR",
+      "rosterPosition": "WR",
+      "team": "Minnesota Vikings",
+      "id": "MIN-myles-price",
+      "profile": "https://www.vikings.com/team/players-roster/myles-price/"
+    },
+    {
+      "name": "Jalen Redmond",
+      "number": "61",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jalen-redmond",
+      "profile": "https://www.vikings.com/team/players-roster/jalen-redmond/"
+    },
+    {
+      "name": "Will Reichard",
+      "number": "16",
+      "position": "ST",
+      "rosterPosition": "K",
+      "team": "Minnesota Vikings",
+      "id": "MIN-will-reichard",
+      "profile": "https://www.vikings.com/team/players-roster/will-reichard/"
+    },
+    {
+      "name": "Bo Richter",
+      "number": "98",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-bo-richter",
+      "profile": "https://www.vikings.com/team/players-roster/bo-richter/"
+    },
+    {
+      "name": "Isaiah Rodgers",
+      "number": "2",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-isaiah-rodgers",
+      "profile": "https://www.vikings.com/team/players-roster/isaiah-rodgers/"
+    },
+    {
+      "name": "Levi Drake Rodriguez",
+      "number": "50",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Minnesota Vikings",
+      "id": "MIN-levi-drake-rodriguez",
+      "profile": "https://www.vikings.com/team/players-roster/levi-drake-rodriguez/"
+    },
+    {
+      "name": "Harrison Smith",
+      "number": "22",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Minnesota Vikings",
+      "id": "MIN-harrison-smith",
+      "profile": "https://www.vikings.com/team/players-roster/harrison-smith/"
+    },
+    {
+      "name": "Jacob Thomas",
+      "number": "29",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jacob-thomas",
+      "profile": "https://www.vikings.com/team/players-roster/jacob-thomas/"
+    },
+    {
+      "name": "Jakobe Thomas",
+      "number": "8",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jakobe-thomas",
+      "profile": "https://www.vikings.com/team/players-roster/jakobe-thomas/"
+    },
+    {
+      "name": "Brett Thorson",
+      "number": "19",
+      "position": "ST",
+      "rosterPosition": "P",
+      "team": "Minnesota Vikings",
+      "id": "MIN-brett-thorson",
+      "profile": "https://www.vikings.com/team/players-roster/brett-thorson/"
+    },
+    {
+      "name": "Caleb Tiernan",
+      "number": "78",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Minnesota Vikings",
+      "id": "MIN-caleb-tiernan",
+      "profile": "https://www.vikings.com/team/players-roster/caleb-tiernan/"
+    },
+    {
+      "name": "Dallas Turner",
+      "number": "15",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-dallas-turner",
+      "profile": "https://www.vikings.com/team/players-roster/dallas-turner/"
+    },
+    {
+      "name": "Ryan Van Demark",
+      "number": "72",
+      "position": "OL",
+      "rosterPosition": "T",
+      "team": "Minnesota Vikings",
+      "id": "MIN-ryan-van-demark",
+      "profile": "https://www.vikings.com/team/players-roster/ryan-van-demark/"
+    },
+    {
+      "name": "Andrew Van Ginkel",
+      "number": "43",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-andrew-van-ginkel",
+      "profile": "https://www.vikings.com/team/players-roster/andrew-van-ginkel/"
+    },
+    {
+      "name": "Kyle Van Noy",
+      "number": "17",
+      "position": "LB",
+      "rosterPosition": "OLB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-kyle-van-noy",
+      "profile": "https://www.vikings.com/team/players-roster/kyle-van-noy/"
+    },
+    {
+      "name": "Zemaiah Vaughn",
+      "number": "5",
+      "position": "DB",
+      "rosterPosition": "CB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-zemaiah-vaughn",
+      "profile": "https://www.vikings.com/team/players-roster/zemaiah-vaughn/"
+    },
+    {
+      "name": "Jay Ward",
+      "number": "24",
+      "position": "DB",
+      "rosterPosition": "S",
+      "team": "Minnesota Vikings",
+      "id": "MIN-jay-ward",
+      "profile": "https://www.vikings.com/team/players-roster/jay-ward/"
+    },
+    {
+      "name": "Carson Wentz",
+      "number": "11",
+      "position": "QB",
+      "rosterPosition": "QB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-carson-wentz",
+      "profile": "https://www.vikings.com/team/players-roster/carson-wentz/"
+    },
+    {
+      "name": "Elijah Williams",
+      "number": "99",
+      "position": "DL",
+      "rosterPosition": "DL",
+      "team": "Minnesota Vikings",
+      "id": "MIN-elijah-williams",
+      "profile": "https://www.vikings.com/team/players-roster/elijah-williams/"
+    },
+    {
+      "name": "Eric Wilson",
+      "number": "55",
+      "position": "LB",
+      "rosterPosition": "LB",
+      "team": "Minnesota Vikings",
+      "id": "MIN-eric-wilson",
+      "profile": "https://www.vikings.com/team/players-roster/eric-wilson/"
+    },
+    {
+      "name": "Ben Yurosek",
+      "number": "85",
+      "position": "TE",
+      "rosterPosition": "TE",
+      "team": "Minnesota Vikings",
+      "id": "MIN-ben-yurosek",
+      "profile": "https://www.vikings.com/team/players-roster/ben-yurosek/"
+    }
   ]
 };
 const HEADSHOTS = {
@@ -11235,5 +13207,853 @@ const HEADSHOTS = {
   "LAC-kendall-williamson": {
     "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1783970494/chargers/at04w4uidkp9wxzjcdvw.jpg",
     "source": "https://www.chargers.com/team/players-roster/"
+  },
+  "CHI-tyson-bagent": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/vvgl3mwrlkvzkpd5hedw.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-theo-benedet": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715702093/bears/schpqip1idgrz8sqd3jd.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-josh-blackwell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/mni7jnt9xicqqivsecvv.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-austin-booker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/tw5nsxrfnkfwrcjluaqq.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-garrett-bradbury": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/nm1nysfhbdma0ohhfky2.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-luther-burden-iii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748530637/bears/fzjmu2cbx4rbrsmpqr8l.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-devin-bush": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1773085645/bears/t1ugn8lfgd2gkdnprdbj.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-stephen-carlson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715702666/bears/saokhofdoldcva5cqn3s.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-scott-daly": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748530931/bears/vtcr2h3mzp1jrmz9qtbc.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-t-j-edwards": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715704854/bears/nmlxd6u2z2rbubtre1kj.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-keyshaun-elliott": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/qavxtio2jpwfknsknut5.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-neville-gallimore": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1773085547/bears/loak1prmrc3fydqzzujc.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-kyler-gordon": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715705401/bears/pkmixw027khpuq57i5pz.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-daniel-hardy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531181/bears/awik0phss7hskfcamu66.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-elijah-hicks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/uouqqfbbjzbepi7t97pa.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-d-marco-jackson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1756565119/bears/vxt4frkje0rbgchzxynr.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jonah-jackson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531346/bears/rgb7cgvboahsflve2kbq.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-grady-jarrett": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531391/bears/tnizcfqa4dgulh1jf5au.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jaylon-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748625633/bears/iytqn9lvzphui3yhl21l.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-roschon-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715705206/bears/xvwlgljoimirrtjhvc7e.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-logan-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/nvgapur6mcdaiwlvrssh.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-case-keenum": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/pclk7rhqxja4hzww3w8u.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-cam-lewis": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/fycjuyy6djvvp4jre1au.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-colston-loveland": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531629/bears/kkzwvum60fc7efaepyp2.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jayden-loving": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/nm9w1uupnakvqertadx1.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-james-lynch": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1773845141/bears/honegvqydlq9pjtvtsxh.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jordan-mcfadden": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531693/bears/qbcprdycb8o5ejxnu8rj.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-kyle-monangai": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531794/bears/k4u8emc70asnvvu9tqyb.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-malik-muhammad": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/tfpj1pdubentfzhxt7db.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-luke-newman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748531890/bears/ywsswlrf6lp1rvlzhww6.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-rome-odunze": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/ukqddsrj8a3teirk3xkw.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-clark-phillips-iii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1788963654/bears/qzollwil16fkhnkml4n4.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-kalif-raymond": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1773238526/bears/zq9kvcwml6mdtgorxto8.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-sam-roush": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1778215014/bears/odvskyut2faoqek0rgfb.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jack-sanborn": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715704814/bears/qkcgxb1jpxyxuzgbxcq8.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-cairo-santos": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715705379/bears/c4akuxuichat7twcidsq.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-noah-sewell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748532153/bears/ipzvzwa859eag2bo63td.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jeffery-simmons": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1793299952/bears/hjx8blbzq5955lsztzoz.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-tyrique-stevenson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748532306/bears/vkayynx5h2mkta2ddqqt.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-montez-sweat": {
+    "url": "https://static.clubs.nfl.com/image/private/t_thumb_squared_3x/f_auto/bears/d4zm9vmyz4yuk8dndacr.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-d-andre-swift": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715702824/bears/vofadqdu8np6zfll6i9d.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-tory-taylor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715703579/bears/ncywp7mrslfquzhsn3pc.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-dillon-thieneman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1778214884/bears/ogdnyasp7asfdje8qwlm.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-skyler-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/bfgxattsctl6lzjdc3am.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-zavion-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/caecwmbhewdqznrq4phf.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-joe-thuney": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/kwz1f5uaq4hkvao5vrqa.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-ozzy-trapilo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748532559/bears/v7puty3bki9tcgwsqgws.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-shemar-turner": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1748532587/bears/jtk7iluwq3czqq3ghot3.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jordan-van-den-berg": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/alqzvuu5tqpidbw5zowx.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-jahdae-walker": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/bears/a7uznueb1ptemrqsycwj.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-caleb-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715703686/bears/tejh8jk8nrvoulnxtab4.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "CHI-darnell-wright": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/v1715704784/bears/cml0hthvtffy3p6si7e4.jpg",
+    "source": "https://www.chicagobears.com/team/players-roster/"
+  },
+  "DET-keith-abney-ii": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/tc0apvijgpvwqabgnw7l.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-joe-bachie": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/xispyiikmdoa2l5zqdi1.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-derrick-barnes": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/wc4isju7de2xfjfaltw8.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jake-bates": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/d5jvnqmvkowdwge9xk8u.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-larry-borom": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/v2osavcbxezzcc2odeom.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-brian-branch": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/ry900fmo7xcy4l7onq1q.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-k-j-britt": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/yqa772o18ihwxeeetpgj.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jack-campbell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/sxm6dsk0arrunygx9h4x.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-deandre-carter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/b987b6udryfw2fhtgtjz.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-chuck-clark": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/t2v6jqab7qqw5on1vm4q.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-tyler-conklin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/hlelq6qutilx9gga1v8a.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-joshua-dobbs": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/sxhyr4yu936vvkltqg0g.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-khalil-dorsey": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/fmqxkx4pvonejr18h7to.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jack-fox": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/jewhivxzrs8ucrft6ad4.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-miles-frazier": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/knax6zf96enpjlcelso9.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jahmyr-gibbs": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/ivhxvbkastyyzy6kbkxl.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-skyler-gill-howard": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/cmnvkuxkc6i23hl7qjp0.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jared-goff": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/fekhkvkgwlg9yrv7agvh.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-thomas-harper": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/tbxtvrareyadcu5rxob5.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-ahmed-hassanein": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/uovoloanmykrg6zqvjvy.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-hogan-hatten": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/pcoesmlsmu5ssdp2toli.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-aidan-hutchinson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/mddrwljdpesljil1ezjd.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-christian-izien": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/ycauj7xaimym0hajg6qi.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-tyler-lacy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/cigfohhayqmanrymcygc.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-sam-laporta": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/fduhrhj9xrfhnq1hsxt6.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-christian-mahogany": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/yqct5pukmstxdtcfjjzd.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-tay-martin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/eunw4ae1ytbefzvtvp4y.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-cade-mays": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/goxliy2knldzrvhzrmto.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-roger-mccreary": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/spqbi2glo9vdv6jl4938.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-seth-mclaughlin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/hkg2vcsoyzpj6hiqtzur.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-alim-mcneill": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/buinsft165kdfh8dr9qb.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jackson-meeks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/dmtpydv86admt7qfqxv0.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-blake-miller": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/y7m03orplvdcofcpq7nw.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-derrick-moore": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/qp8c4lpkpxv8lb40gmhq.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-trevor-nowaske": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/pz097ac8dohk1linlpqh.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-eric-o-neill": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/azzfsllfyq9v7ssgcke5.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-amen-ogbongbemiga": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/qadfepaghwb3rch8oqhp.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-levi-onwuzurike": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/om0gxftv2up04287von5.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-ennis-rakestraw-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/cahzcdn4d3qada0it3pf.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-tate-ratledge": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/wdvtl9xehq6io0tx2jva.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-d-j-reed": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/vdqwzj4ezh7pvces33jo.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-malcolm-rodriguez": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/zieh6u0wcb4oy7aawq11.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jacob-saylors": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/i8rp0baqpncgxrc9dd5e.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-juice-scruggs": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/pauxcjlcvatlkofjfzsk.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-penei-sewell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/iffo6hwayilnbgwzbalp.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-amon-ra-st-brown": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/subudinj6xeo67qzajiy.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-isaac-teslaa": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/xkvi1yx3reglxqqiody1.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-sione-vaki": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/t8tojler1vj7w7hnqxdw.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-jameson-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/wivymdnwfl4ipqrppuxv.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-tyleik-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/rtcbx3hmkzfqyymbgiwn.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-mekhi-wingo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/j73dnvfy9jauitzy1fx0.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-d-j-wonnum": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/liki1ossz235vcyxz8iy.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-brock-wright": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/lin9gmcxuqs07nzukucg.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "DET-rock-ya-sin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/lions/dtswoqc9gsplsqup65f2.jpg",
+    "source": "https://www.detroitlions.com/team/players-roster/"
+  },
+  "GB-aaron-banks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/xr0i9ifugjmhoxx5m19l.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-mekhi-becton-sr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/packers/hgr3cwalavmriaf7rf7o.jpg",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-anthony-belton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/odiyxay5fcbw785zxptb.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-karl-brooks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/txbm7f3alkekfw8d7ffm.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-javon-bullard": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/rklbdk0lzkgm5tuhxfwv.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-jager-burton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/q7qwo8nqpj9rsj3ogwkp.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-anthony-campbell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/mhdgvkomppxmam8xw6gr.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-brandon-cisse": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/n7vrlragtgs0koioqjyq.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-brenton-cox-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/bgnpdxj0fyzp5la116zx.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-dani-dennis-sutton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/yz1jiftodcbr0kqnnzs9.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-zaire-franklin": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/je5rnfxyjbreftoove6t.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-travis-glover": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/spiasjag6prj8zdz7w25.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-matthew-golden": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/mgqogruuyokzhkfjzdfg.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-kamal-hadden": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/nooi4ium1gkxlleadiea.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-ty-ron-hopper": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/od7kbpeiv2sjcncxzhmz.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-josh-jacobs": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/rdv0ka3c3w2suqaaful6.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-donovan-jennings": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/ah9u2nkxqfs8cwcxdkca.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-kaleb-johnson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/xeotccdwk6cjyq1ryzib.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-tucker-kraft": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/c60eghh3y1wnmr1j9jjs.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-marshawn-lloyd": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/gcsrmn72grylqwr1q74d.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-jordan-love": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/r8esz44ozxewbju7yejx.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-chris-mcclellan": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/vkcdgzzysaugbvyqy2ja.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-isaiah-mcduffie": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/mxlqr23akeacj8he3cxa.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-xavier-mckinney": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/patnti0ziqtj2lihxvoa.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-bo-melton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/qqpwr70nqutw0dztsucu.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-jordan-morgan": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/w5w7jay10ibp5lsblv0s.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-nick-niemann": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/bt9stz2urpxoz7uutwxv.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-keisean-nixon": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/cx6cmlij9p1zrj7pyii9.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-kitan-oladapo": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/vetzaizt5zgihyg66gii.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-matt-orzech": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/yyjli2bcghou4lvo2rme.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-coleman-owen": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/packers/w8yxbfjmi5bluvczklsl.jpg",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-mark-redman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/packers/awoh8o0vhkhhbzrau3c5.jpg",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-sean-rhyan": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/pig72ajmng42wm5gls90.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-jordon-riley": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/uxzsvdht365rbkezauno.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-trey-smack": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/swqm3kid9x2wvd3cay8e.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-jonnu-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/packers/iul0hmc1aksf7yoy4dhx.jpg",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-barryn-sorrell": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/lasrbczjoymqong4qpcq.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-benjamin-st-juste": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/xiz0gwgapbgbdekald5q.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-pierre-strong-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/jzoxhf7yjqwri9iitzmj.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-j-michael-sturdivant": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/xmdxfgqtvtp4vgoyq7ti.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-tyrod-taylor": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/vpdlvedm9zs3o7jdvr3u.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-laken-tomlinson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/packers/tcfhhf7wpeseaya3pdx6.jpg",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-carrington-valentine": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/kyonhznmkjezaefhuy2a.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-lukas-van-ness": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/q8cs7avqsa1nysuufxmw.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-christian-watson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/jy8wcflh368j1wg0scoc.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-kristian-welch": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/hddsf9zomxim3vp7kkpm.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-daniel-whelan": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/fahakq819xjt7olhwuud.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-josh-whyle": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/czxhrbtyhj8omqtqgqde.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-evan-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/wymdnm3kmp0tupr7g5c4.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-john-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/sjhpvtcmwthspwusditi.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-savion-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/gjtoai2qpg1n3wcyx4ww.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-devonte-wyatt": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/packers/zxjwhpl7metmkkt9dhne.png",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "GB-kevin-zeitler": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/packers/vgejfd9f74gqtywtuzxn.jpg",
+    "source": "https://www.packers.com/team/players-roster/"
+  },
+  "MIN-jordan-addison": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/yhzh8wko8i3cvfydeitm.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-caleb-banks": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/xr30s5u4plpuufjs5yv1.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-gavin-bartholomew": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/n7aexbbszumwqx3qahln.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-blake-brandel": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/m1hguggjgaktozz6uk3i.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-max-bredeson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/t3t9uu5gzdrsugnkml1h.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-max-brosmer": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/c0sczyxofpqjlcgaqyxw.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-blake-cashman": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/pf6neqphdtcqbkqyymxe.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-chaz-chambliss": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/shvizcar54sf1yf4r1rk.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-demond-claiborne": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/z48w4hpn1seq33gwzgkn.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-deejay-dallas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/vikings/lyjacbult4mkwqcxm11s.jpg",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-christian-darrisaw": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/prz60mihrtmtsykwtpas.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-charles-demmings": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/vctt8ziwjvdydfyxxgiy.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-andrew-depaola": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/o2gxdbv0rjggrwj9awcv.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-tai-felton": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/zchh5pxffxltuvvnwklj.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-will-fries": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/psvvigsvhxjauraawudh.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jake-golday": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/u3polwytosw18bzsqotq.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-t-j-hockenson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/qefnitbrva0mvtg8zy44.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-joe-huber": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/f208eseabjmrlhz4ggt2.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-tyrion-ingram-dawkins": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/tp8zrhopma02jobebyc5.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-theo-jackson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/lsijocfm1wcaavrpclvx.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-justin-jefferson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/v9svgzin3nqnqizkiqv9.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jauan-jennings": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/ndzcz7rcbf0laj5jjaui.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-aaron-jones": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/jz0xqpn5z2xwjp3ierhs.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-michael-jurgens": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/q2fv2lufci0c1xkn46eb.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jordan-mason": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/mfy9ln3b2bfedif7vwv3.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-josh-metellus": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/nxb44ncnqtnfpipuge1l.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-byron-murphy-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/bdyfx89jbqxudajdenoh.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-kyler-murray": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/hr4l8miaas8m23e7t8ps.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-brian-o-neill": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/htebgoavhq6jad5ftr9z.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-domonique-orange": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/xvilzbogxiby2uloyvwl.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-ivan-pace-jr": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/y3es2kt5a79moe3bnbzv.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-james-pierre": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/e1beguirl1poav2o8o46.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-myles-price": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/s7ucnlx3typsppsd4h7y.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jalen-redmond": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/tlnfmik7uapih4beir2r.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-will-reichard": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/ndw0pmpnsrdwoekorkdn.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-bo-richter": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/dc3jur5b01w4jc9kdogl.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-isaiah-rodgers": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/c7dospmgdahdxi38zuoy.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-levi-drake-rodriguez": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/jrs2sdko1cz3cjap2xif.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-harrison-smith": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/vikings/g6n0bxdkyncr47zv7pki.jpg",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jacob-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/xeeyqdppezduwnoygj09.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jakobe-thomas": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/sqwgn0foz2antwl2myjm.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-brett-thorson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/comektowodqd619degmb.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-caleb-tiernan": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/gis32pi8uzzj9uyxbvg9.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-dallas-turner": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/kotjifqjftm4eprregj2.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-ryan-van-demark": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/s5n0xltjudprumjs3k7t.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-andrew-van-ginkel": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/vtc20ebvzkilsjugqo8h.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-kyle-van-noy": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto/vikings/y54tfumyz1wkls0ek5h0.jpg",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-zemaiah-vaughn": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/lbgagb4mfriybnrk91in.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-jay-ward": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/undmztdvechd2e7pgbtc.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-carson-wentz": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/jfui3mfzcjwqqmj7h5ma.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-elijah-williams": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/srvcxz9uxo8ibyppie93.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-eric-wilson": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/v8qpkigowkgtmdtk7w3q.png",
+    "source": "https://www.vikings.com/team/players-roster/"
+  },
+  "MIN-ben-yurosek": {
+    "url": "https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_png/vikings/kk18m4litiljhkqtl1ve.png",
+    "source": "https://www.vikings.com/team/players-roster/"
   }
 };

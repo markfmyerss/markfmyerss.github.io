@@ -11,8 +11,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Prepare official AFC West snapshot on GitHub
-        run: node scripts/expand-afc-west.cjs
+      - name: Prepare official NFC North snapshot on GitHub
+        run: node scripts/expand-nfc-north.cjs
       - run: node tests.cjs
       - run: node headshots-check.cjs
       - name: Install browser checks on GitHub runner

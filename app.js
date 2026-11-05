@@ -104,6 +104,8 @@ function render() {
   $('progressbar').style.width=percent+'%';$('progress-track').setAttribute('aria-valuenow',percent);$('undo').disabled=!state.history?.length;
 }
 const divisionFor = team => TEAM_INFO[team].division || 'AFC North';
+const conferenceFor = team => divisionFor(team).split(' ')[0];
+const conferenceKey = conference => 'nfl-sorter-last-conference-team:'+conference;
 function teamButton(team,info) {
  const b=document.createElement('button');b.className='team-tile';b.dataset.team=team;
  b.style.setProperty('--tile-color',info.colors.highlight);
@@ -113,7 +115,14 @@ function teamButton(team,info) {
  b.onclick=()=>{$('team').value=team;selectTeam();};return b;
 }
 function renderTeamPicker() {
- const division=divisionFor($('team').value);
+ const team=$('team').value,division=divisionFor(team),conference=conferenceFor(team);
+ if(read(conferenceKey(conference))!==team)write(conferenceKey(conference),team);
+ if($('division-picker').dataset.conference!==conference){
+  const divisions=[...new Set(Object.keys(TEAM_INFO).filter(t=>conferenceFor(t)===conference).map(divisionFor))];
+  $('division-picker').replaceChildren(...divisions.map(division=>{const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);return b;}));
+  $('division-picker').dataset.conference=conference;
+ }
+ for(const b of $('conference-picker').children)b.setAttribute('aria-pressed',String(b.dataset.conference===conference));
  if($('team-grid').dataset.division!==division){
   $('team-grid').replaceChildren(...Object.entries(TEAM_INFO).filter(([team])=>divisionFor(team)===division).map(([team,info])=>teamButton(team,info)));
   $('team-grid').dataset.division=division;
@@ -121,6 +130,10 @@ function renderTeamPicker() {
  for(const b of $('division-picker').children)b.setAttribute('aria-pressed',String(b.dataset.division===division));
  $('division-summary').textContent=division+' · '+$('team-grid').children.length+' teams';
  $('team-grid').setAttribute('aria-label',division+' teams');
+}
+function selectConference(conference) {
+ const teams=Object.keys(TEAM_INFO).filter(team=>conferenceFor(team)===conference);if(!teams.length)return;
+ const previous=read(conferenceKey(conference));$('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 function selectDivision(division) {
  write('nfl-sorter-last-team:'+divisionFor($('team').value),$('team').value);
@@ -130,7 +143,7 @@ function selectDivision(division) {
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 for(const team of Object.keys(TEAM_INFO))$('team').add(new Option(team,team));
-for(const division of [...new Set(Object.keys(TEAM_INFO).map(divisionFor))]){const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);$('division-picker').append(b);}
+for(const conference of [...new Set(Object.keys(TEAM_INFO).map(conferenceFor))]){const b=document.createElement('button');b.className='conference-button';b.dataset.conference=conference;b.textContent=conference;b.onclick=()=>selectConference(conference);$('conference-picker').append(b);}
 for(const pos of positions)$('position').add(new Option(pos==='ALL'?'All positions':pos,pos));
 $('team').value='Baltimore Ravens';
 try{const selection=JSON.parse(read('nfl-sorter-selection'));if(TEAM_INFO[selection?.team])$('team').value=selection.team;if(positions.includes(selection?.pos))$('position').value=selection.pos;}catch{}

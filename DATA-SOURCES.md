@@ -1,6 +1,6 @@
-# AFC roster sources and headshots
+# NFL Favorites Sorter — roster sources and headshots
 
-All 16 AFC teams are available. Official active-roster snapshots verified November 5, 2026:
+Available: all 16 AFC teams and the four NFC North teams. Official active-roster snapshots verified November 5, 2026:
 
 | Division | Team | Active players | Source |
 | --- | --- | ---: | --- |
@@ -20,12 +20,16 @@ All 16 AFC teams are available. Official active-roster snapshots verified Novemb
 | AFC West | Kansas City Chiefs | 53 | https://www.chiefs.com/team/players-roster/ |
 | AFC West | Las Vegas Raiders | 53 | https://www.raiders.com/team/players-roster/ |
 | AFC West | Los Angeles Chargers | 53 | https://www.chargers.com/team/players-roster/ |
+| NFC North | Chicago Bears | 52 | https://www.chicagobears.com/team/players-roster/ |
+| NFC North | Detroit Lions | 54 | https://www.detroitlions.com/team/players-roster/ |
+| NFC North | Green Bay Packers | 53 | https://www.packers.com/team/players-roster/ |
+| NFC North | Minnesota Vikings | 53 | https://www.vikings.com/team/players-roster/ |
 
-The 844 players reflect the published **Active** tables. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Counts reflect source tables and may differ from 53. This is a dated snapshot, not a live feed; later transactions are not automatically reflected. Each player retains an official profile URL in data.js.
+These 1,056 players reflect the published **Active** tables. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Counts can differ from 53: Chicago lists 52 and Detroit 54. Later transactions are not automatically reflected. Each player retains an official profile URL in data.js.
 
 ## Headshots
 
-Every player has an individual official team/NFL image source recorded in HEADSHOTS. 831 come from official roster pages. 13 missing or generic thumbnails use individual NFL.com profile portraits:
+Every player has an individual official team/NFL image source in HEADSHOTS. 1043 come from official roster pages. 13 missing or generic thumbnails use individual NFL.com profile portraits:
 
 - Derek Barnett: https://www.nfl.com/players/derek-barnett/
 - Mekhi Blackmon: https://www.nfl.com/players/mekhi-blackmon/
@@ -41,28 +45,30 @@ Every player has an individual official team/NFL image source recorded in HEADSH
 - Joshua Ezeudu: https://www.nfl.com/players/joshua-ezeudu/
 - Ben VanSumeren: https://www.nfl.com/players/ben-vansumeren/
 
-All 844 URLs returned image content in GitHub checks. Images load from official servers; no image binaries are bundled. The lazy placeholder transformation is removed, matching the team sites’ image loaders. Jersey cards remain the fallback for failed images.
+All 1,056 image URLs passed GitHub checks. Images load from official servers; no image binaries are bundled. Lazy placeholder transformations are removed, matching the team sites’ image loaders. Jersey cards remain the fallback for unavailable images.
 
-Vega Ioane is matched by stable ID directly to his Ravens portrait. Nate Thomas matches NFL.com’s Nathan Thomas profile by team, number and college. All twelve pre-existing teams’ roster records, headshot mappings and save keys are preserved. Newer divisions’ IDs use official profile slugs.
+All sixteen existing AFC teams’ metadata, roster records, portrait mappings and save keys are preserved. Vega Ioane retains his direct Ravens portrait mapping. New team IDs use official profile slugs. Nate Thomas retains the verified Nathan Thomas NFL profile match.
 
-Images remain owned by their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. URLs, availability and pictured uniforms may change. No endorsement or affiliation with the NFL or its teams is implied.
+Images belong to their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. URLs, availability and pictured uniforms may change. No affiliation with the NFL or its teams is implied.
 
-## Position filters
+## Navigation and saved rankings
 
-Filters group HB/FB with RB; T/G/C and combined line positions with OL; DT/DE/NT with DL; EDGE/ILB/OLB with LB; CB/S with DB; K/P/LS with ST. Cards retain official roster positions. Travis Hunter appears once in WR, once in DB and once in the full Jaguars roster. Earlier snapshots retain their recorded groups.
+AFC and NFC buttons show the available divisions in that conference. AFC has North, East, South and West; NFC currently has North. Four teams appear per division. Each conference and division remembers its last selected team. Existing rankings remain separate for each team and position filter, stored in the visitor’s browser.
 
-## Colors
+## Positions and palettes
 
-TEAM_INFO records each team’s palette and brighter readable UI highlights. AFC West uses Denver orange/navy (#FB4F14/#002244), Kansas City red/gold (#E31837/#FFB81C), Las Vegas black/silver (#000000/#A5ACAF), and Los Angeles powder blue/gold (#0080C6/#FFC20E). Existing team palettes are preserved. These digital values do not imply team approval or a licensed style guide.
+Filters group HB/FB with RB; T/G/C and combined line positions with OL; DT/DE/NT with DL; EDGE/ILB/OLB with LB; CB/S with DB; K/P/LS with ST. Cards retain official position labels. Travis Hunter remains in both WR and DB filters, appearing once in the full Jaguars roster.
 
-## Development and checks
+New palettes: Chicago navy/orange (#0B162A/#C83803), Detroit blue/silver (#0076B6/#B0B7BC), Green Bay green/gold (#203731/#FFB612), Minnesota purple/gold (#4F2683/#FFC62F). TEAM_INFO records palette values and brighter readable UI highlights. Existing palettes are unchanged. These values do not imply team approval or a licensed style guide.
 
-Source preparation, roster retrieval, image checks, browser testing and screenshots run on GitHub. The workflow has read-only repository access and cannot commit or push. The reviewed generated snapshot is committed through repository tools. No site files or development dependencies are downloaded to the user’s Mac.
+## GitHub-only development and checks
 
-The picker presents four divisions and four teams per division, using a two-by-two division layout on phones. It remembers each division’s last team and restores separate team/position rankings from the visitor’s browser.
+Roster retrieval, source preparation, image checks, browser testing and screenshots run on GitHub. The workflow has read-only repository access and cannot commit or push. Reviewed generated source is committed through repository tools. No site files or development dependencies are downloaded to the user’s Mac.
 
-Checks cover 160 team/filter combinations, all 844 images, migration, state isolation, undo, dual positions, all sixteen teams in a real browser, and layouts at 320, 390, 768 and 1440 pixels.
+Checks cover 200 team/filter combinations, all 1,056 portraits, migration, conference/division/team isolation, reloads, undo, dual positions, all twenty teams in a browser, and 320/390/768/1440-pixel layouts. Every NFC North team also passes a mobile PNG export check. Desktop exports and iPhone-emulated Chromium/WebKit saving checks remain covered.
 
 ## User-created result images
 
-Visitors can intentionally download their own completed rankings in multiple aspect ratios and image formats. Exported cards can contain headshots loaded with cross-origin permission from the recorded sources; unavailable or cross-origin-restricted photos are replaced with jersey numbers. Images are generated in the visitor’s browser and are not uploaded to a server. Source-image rights remain with the original rights holders; generating a result card does not grant a separate image license. Development and automated test downloads remain on GitHub.
+Desktop retains nine image sizes, PNG/JPG/WebP and ZIP exports. Mobile retains only 1:1, 3:4, 4:5 and 9:16; automatic PNG; All/Top 10/Top 25; and individual page saving, with no format selector or ZIP.
+
+Images are generated in the visitor’s browser without uploading rankings. Mobile shows a real PNG for native sharing or press-and-hold saving. The actual iPhone Photos menu requires a physical-device check. Unavailable or CORS-restricted portraits fall back to jerseys. Source-image rights still belong to their original owners.
