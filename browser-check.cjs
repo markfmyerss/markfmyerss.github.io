@@ -5,8 +5,8 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
  const browser=await chromium.launch();try{
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
- assert.equal(await page.locator('.division-button').count(),2);
- for(const division of ['AFC North','AFC East']){
+ assert.equal(await page.locator('.division-button').count(),3);
+ for(const division of ['AFC North','AFC East','AFC South']){
   await page.locator('.division-button').filter({hasText:division}).click();
   assert.equal(await page.locator('.team-tile').count(),4);
   const teams=await page.locator('.team-tile').evaluateAll(bs=>bs.map(b=>b.dataset.team));
@@ -21,12 +21,12 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    console.log('PASS browser team, portraits, sorting and undo: '+team);
   }
  }
- await page.selectOption('#team','Miami Dolphins');await page.selectOption('#position','ALL');if(await page.locator('#start').isVisible())await page.click('#start');await page.click('#left');
- const saved=await page.locator('#progress').textContent();await page.reload();assert.equal(await page.locator('#progress').textContent(),saved);assert.equal(await page.locator('#division-picker [aria-pressed=true]').textContent(),'AFC East');
+ await page.selectOption('#team','Houston Texans');await page.selectOption('#position','ALL');if(await page.locator('#start').isVisible())await page.click('#start');await page.click('#left');
+ const saved=await page.locator('#progress').textContent();await page.reload();assert.equal(await page.locator('#progress').textContent(),saved);assert.equal(await page.locator('#division-picker [aria-pressed=true]').textContent(),'AFC South');
  await fs.mkdir('qa',{recursive:true});
  for(const width of [320,390,768,1440]){
   await page.setViewportSize({width,height:1000});await page.evaluate(()=>scrollTo(0,0));assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'layout overflow '+width);
-  await page.screenshot({path:'qa/afc-east-'+width+'.png',fullPage:true});console.log('PASS viewport '+width+'px');
+  await page.screenshot({path:'qa/afc-south-'+width+'.png',fullPage:true});console.log('PASS viewport '+width+'px');
  }
  assert.deepEqual(errors,[]);console.log('PASS reload and division restoration; no browser errors');
  }finally{await browser.close();await new Promise(r=>server.close(r));}

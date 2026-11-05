@@ -11,9 +11,10 @@ const keyFor = (team, pos) => `nfl-sorter-v3:${TEAM_INFO[team].code}:${pos}`;
 function read(key) { if(memory.has(key))return memory.get(key);try { return localStorage.getItem(key); } catch { return null; } }
 function write(key, value) { memory.set(key,value); try { localStorage.setItem(key,value); } catch { $('storage-note').hidden = false; } }
 function remove(key) { memory.set(key,null); try { localStorage.removeItem(key); } catch { $('storage-note').hidden=false; } }
+const matchesPosition = (p,pos) => pos==='ALL'||(p.positions||[p.position]).includes(pos);
 function valid(s, team, pos) {
   if (!s || s.team !== team || s.pos !== pos || !Array.isArray(s.players) || !s.players.length || !Array.isArray(s.stack) || !Number.isInteger(s.comparisons) || s.comparisons < 0) return false;
-  const allowed = new Set(ROSTERS[team].filter(p => pos === 'ALL' || p.position === pos).map(p=>p.id));
+  const allowed = new Set(ROSTERS[team].filter(p => matchesPosition(p,pos)).map(p=>p.id));
   const ids = s.players.map(p=>p.id);
   const listOK = items => Array.isArray(items) && items.every(p=>p && allowed.has(p.id) && p.team===team);
   if (ids.length !== allowed.size || new Set(ids).size !== ids.length || !listOK(s.players)) return false;
@@ -45,7 +46,7 @@ function applyTheme() {
   $('results-title').textContent='Your '+c.nickname+' favorites';
   $('source').href=c.source;$('source').textContent='Official '+c.nickname+' roster ↗';
   $('roster-summary').textContent=`${ROSTERS[team].length} active-roster players · Verified November 5, 2026`;
-  $('position-count').textContent=ROSTERS[team].filter(p=>$('position').value==='ALL'||p.position===$('position').value).length+' players in this filter';
+  $('position-count').textContent=ROSTERS[team].filter(p=>matchesPosition(p,$('position').value)).length+' players in this filter';
   for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
 }
 function selectTeam() { save(); write('nfl-sorter-last-team:'+divisionFor($('team').value),$('team').value); state=stored($('team').value,$('position').value);write('nfl-sorter-selection',JSON.stringify({team:$('team').value,pos:$('position').value}));if(state&&!state.done)mergeNext();else render(); }
@@ -66,7 +67,7 @@ function choose(side) {
 }
 function start() {
   if(state)return;
-  const team=$('team').value,pos=$('position').value,players=ROSTERS[team].filter(p=>pos==='ALL'||p.position===pos);
+  const team=$('team').value,pos=$('position').value,players=ROSTERS[team].filter(p=>matchesPosition(p,pos));
   if(!players.length)return;
   state={team,pos,players,history:[],stack:[{items:players,stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
 }
@@ -128,7 +129,7 @@ function selectDivision(division) {
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 for(const team of Object.keys(TEAM_INFO))$('team').add(new Option(team,team));
-for(const division of ['AFC North','AFC East']){const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);$('division-picker').append(b);}
+for(const division of [...new Set(Object.keys(TEAM_INFO).map(divisionFor))]){const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);$('division-picker').append(b);}
 for(const pos of positions)$('position').add(new Option(pos==='ALL'?'All positions':pos,pos));
 $('team').value='Baltimore Ravens';
 try{const selection=JSON.parse(read('nfl-sorter-selection'));if(TEAM_INFO[selection?.team])$('team').value=selection.team;if(positions.includes(selection?.pos))$('position').value=selection.pos;}catch{}
