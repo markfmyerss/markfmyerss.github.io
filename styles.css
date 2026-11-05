@@ -37,3 +37,8 @@
 .mobile-export .export-actions button{flex:1;min-height:46px}
 .mobile-export .export-note{font-size:.78rem}
 @media(max-width:380px){.mobile-export .export-controls{grid-template-columns:1fr}.mobile-export .export-actions button{min-width:100px}}
+
+#conference-picker{display:flex;gap:8px;margin:2px 0 18px}
+.conference-button{background:#17171d;color:#b8b8c3;border:1px solid #3d3d46;min-width:100px;padding:12px 24px;font-size:.9rem;letter-spacing:.08em}
+.conference-button[aria-pressed=true]{background:#f2f1ed;color:#141419;border-color:#f2f1ed}
+@media(max-width:600px){#conference-picker{width:100%;gap:8px}.conference-button{flex:1;min-width:0}}

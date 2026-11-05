@@ -6,7 +6,9 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  const browser=await chromium.launch();try{
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
  assert.equal(await page.locator('.division-button').count(),4);
- for(const division of ['AFC North','AFC East','AFC South','AFC West']){
+ assert.equal(await page.locator('.conference-button').count(),2);
+ for(const division of ['AFC North','AFC East','AFC South','AFC West','NFC North']){
+  const conference=division.split(' ')[0];await page.locator('.conference-button').filter({hasText:conference}).click();
   await page.locator('.division-button').filter({hasText:division}).click();
   assert.equal(await page.locator('.team-tile').count(),4);
   const teams=await page.locator('.team-tile').evaluateAll(bs=>bs.map(b=>b.dataset.team));
@@ -17,7 +19,13 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    await page.waitForFunction(()=>[...document.querySelectorAll('.portrait img')].length===2&&[...document.querySelectorAll('.portrait img')].every(i=>i.complete&&i.naturalWidth>0),{},{timeout:30000});
    const before=await page.locator('#progress').textContent();await page.click('#left');await page.click(await page.locator('#results').isVisible()?'#undo-result':'#undo');assert.equal(await page.locator('#progress').textContent(),before);
    let n=0;while(await page.locator('#sort').isVisible()){await page.click('#left');if(++n>30)throw Error('QB sorting did not finish');}
-   assert.ok(await page.locator('.rank').count()>=2);await page.click('#undo-result');assert.ok(await page.locator('#sort').isVisible());
+   assert.ok(await page.locator('.rank').count()>=2);
+   if(conference==='NFC'){
+    await page.click('#export-preview');await page.waitForFunction(()=>!document.getElementById('export-download').disabled&&document.getElementById('export-preview-image').naturalWidth===1080);
+    assert.match(await page.locator('#export-preview-image').getAttribute('src'),/^data:image\/png;base64,/);assert.ok(await page.locator('#export-type-field').isHidden());assert.ok(await page.locator('#export-all').isHidden());
+    console.log('PASS NFC mobile PNG export: '+team);
+   }
+   await page.click('#undo-result');assert.ok(await page.locator('#sort').isVisible());
    console.log('PASS browser team, portraits, sorting and undo: '+team);
   }
  }
@@ -26,7 +34,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  await fs.mkdir('qa',{recursive:true});
  for(const width of [320,390,768,1440]){
   await page.setViewportSize({width,height:1000});await page.evaluate(()=>scrollTo(0,0));assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'layout overflow '+width);
-  await page.screenshot({path:'qa/afc-west-'+width+'.png',fullPage:true});console.log('PASS viewport '+width+'px');
+  await page.screenshot({path:'qa/afc-nfc-'+width+'.png',fullPage:true});console.log('PASS viewport '+width+'px');
  }
  assert.deepEqual(errors,[]);console.log('PASS reload and division restoration; no browser errors');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
