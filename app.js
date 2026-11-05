@@ -86,6 +86,7 @@ function renderPlayer(id,p) {
 function render() {
   applyTheme();$('intro').hidden=!!state;$('sort').hidden=!state||!!state.done;$('results').hidden=!state?.done;
   $('start').hidden=!!state;$('reset').disabled=!state;
+  globalThis.ResultsExport?.setResults(state?.done?{team:state.team,pos:state.pos,players:state.sorted}:null);
   if(!state)return;
   if(state.done){
     $('rankings').replaceChildren(...state.sorted.map((p,i)=>{

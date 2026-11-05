@@ -62,3 +62,7 @@ Source preparation, roster retrieval, image checks, browser testing and screensh
 The picker presents four divisions and four teams per division, using a two-by-two division layout on phones. It remembers each division’s last team and restores separate team/position rankings from the visitor’s browser.
 
 Checks cover 160 team/filter combinations, all 844 images, migration, state isolation, undo, dual positions, all sixteen teams in a real browser, and layouts at 320, 390, 768 and 1440 pixels.
+
+## User-created result images
+
+Visitors can intentionally download their own completed rankings in multiple aspect ratios and image formats. Exported cards can contain headshots loaded with cross-origin permission from the recorded sources; unavailable or cross-origin-restricted photos are replaced with jersey numbers. Images are generated in the visitor’s browser and are not uploaded to a server. Source-image rights remain with the original rights holders; generating a result card does not grant a separate image license. Development and automated test downloads remain on GitHub.

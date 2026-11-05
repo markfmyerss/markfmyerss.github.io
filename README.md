@@ -22,3 +22,11 @@ Source preparation, data ingestion, validation and screenshots run on GitHub’s
 GitHub runs node tests.cjs (160 sorting combinations and state checks), node headshots-check.cjs (every image URL), and browser-check.cjs (all sixteen teams and four viewport sizes). Browser dependencies and screenshot artifacts remain on GitHub rather than the user’s Mac.
 
 See [DATA-SOURCES.md](DATA-SOURCES.md) for official sources, the November 5, 2026 snapshot scope, position mapping, palettes and image rights limitations. Rosters are dated snapshots, not live data.
+
+## Downloadable result cards
+
+Finished rankings include a preview and explicit image downloads. Nine size presets cover 1:1, 3:4, 4:5, 9:16, 16:9, 4:3, 3:2, 2:3 and 1200×630 link cards. PNG, JPG and WebP are available, with all players, top 10 or top 25. Long rankings paginate without dropping players; download the current page or one ZIP of every page.
+
+exports.js uses native canvas and ZIP generation, without production dependencies or a server upload. Photos use anonymous CORS loading and fall back to jersey numbers when unavailable, keeping images downloadable. Browsers without a requested encoder can fall back to PNG, with the truthful file extension shown. Nothing downloads until the visitor presses a download button.
+
+export-check.cjs verifies real downloaded bytes, all 27 size/encoding variants, player order and completeness, pagination, top ranges, ZIP CRCs, blocked photos, stale-result cancellation and responsive controls. All test downloads and screenshots stay on GitHub’s runner. A visitor’s intentional result download is distinct from the GitHub-only development workflow.
