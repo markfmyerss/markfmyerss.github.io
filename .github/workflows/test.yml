@@ -17,10 +17,12 @@ jobs:
       - run: node headshots-check.cjs
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
       - run: node browser-check.cjs
       - name: Check results image downloads
         run: node export-check.cjs
+      - name: Check mobile PNG saving in Chromium and WebKit
+        run: node mobile-export-check.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

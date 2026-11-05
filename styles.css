@@ -29,3 +29,11 @@
 .export-note{font-size:.7rem;color:#a5a8b5;line-height:1.6;margin-bottom:0!important}
 #export-status{font-size:.78rem;min-height:1.5em}
 @media(max-width:700px){.export-heading{display:block}.export-heading p{max-width:none}.export-controls{grid-template-columns:1fr 1fr}.export-controls label:first-child{grid-column:1/-1}.export-actions button{flex:1;min-width:120px;font-size:.8rem}.export-pages button{font-size:.75rem;padding:10px 12px}.export-heading h3{font-size:1.4rem}}
+
+.mobile-export .export-controls{grid-template-columns:1fr 1fr}
+.mobile-export .export-controls label:first-child{grid-column:auto}
+.mobile-export #export-type-field,.mobile-export #export-all{display:none!important}
+.mobile-export #export-preview-image{-webkit-touch-callout:default;user-select:auto;-webkit-user-select:auto;touch-action:auto}
+.mobile-export .export-actions button{flex:1;min-height:46px}
+.mobile-export .export-note{font-size:.78rem}
+@media(max-width:380px){.mobile-export .export-controls{grid-template-columns:1fr}.mobile-export .export-actions button{min-width:100px}}

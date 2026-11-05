@@ -4,7 +4,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  const server=http.createServer(async(req,res)=>{try{const file=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/$/,'/index.html').slice(1));if(!file.startsWith(process.cwd()+path.sep))throw Error('path');res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end('not found');}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
  try{
-  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[],downloads=[];
+  const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[],downloads=[];
   page.on('pageerror',e=>errors.push(e.message));page.on('download',d=>downloads.push(d));
   await page.goto(url);assert.equal(downloads.length,0);
   // Complete a small ranking through the actual controls to check integration.

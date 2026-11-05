@@ -14,8 +14,17 @@
  ];
  const TYPES={png:{mime:'image/png',extension:'png'},jpg:{mime:'image/jpeg',extension:'jpg'},webp:{mime:'image/webp',extension:'webp'}};
  const $=id=>document.getElementById(id),photoCache=new Map();
+ const mobileQuery=matchMedia('(max-width:700px), (pointer:coarse)');let mobile=mobileQuery.matches;
  let current=null,fingerprint='',revision=0,busy=false,pageIndex=0,preview=null,previewUrl=null;
- function config(){return {size:$('export-size').value,type:$('export-type').value,scope:$('export-scope').value};}
+ function config(){return {size:$('export-size').value,type:mobile?'png':$('export-type').value,scope:$('export-scope').value};}
+ function updateMode(){
+  const selected=$('export-size').value;$('export-size').replaceChildren();
+  for(const size of (mobile?SIZES.slice(0,4):SIZES))$('export-size').add(new Option(mobile?size.label:size.label+' · '+size.width+'×'+size.height,size.id));
+  $('export-size').value=(mobile?SIZES.slice(0,4):SIZES).some(s=>s.id===selected)?selected:'1x1';
+  $('export-type-field').hidden=mobile;$('export-panel').classList.toggle('mobile-export',mobile);
+  $('export-intro').textContent=mobile?'Choose an image size and how many players to include.':'Create a post, story or landscape card. Long rankings become readable pages.';
+  $('export-note').textContent=mobile?'Create your image, then tap Save image or touch and hold it. Long rankings are saved one page at a time.':'Images are created in your browser. Nothing is uploaded. Downloads start only when you choose a download button. If a photo cannot be included, its jersey number appears instead.';
+ }
  function plan(result,options){
   const size=SIZES.find(s=>s.id===options.size)||SIZES[0],W=1080,H=size.height*W/size.width,columns=size.width/size.height>=1.25?2:1;
   const header=columns===2?188:246,footer=columns===2?64:72;
@@ -102,20 +111,21 @@
   const code=TEAM_INFO[result.team].code.toLowerCase(),scope=options.scope==='all'?'all':'top-'+options.scope;
   return 'nfl-favorites-'+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'-'+String(image.index+1).padStart(2,'0')+'-of-'+String(image.pages).padStart(2,'0')+'.'+image.extension:'.zip');
  }
- function releasePreview(){if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl=null;preview=null;$('export-preview-image').removeAttribute('src');$('export-preview-image').hidden=true;}
+ function releasePreview(){if(previewUrl?.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;preview=null;$('export-preview-image').removeAttribute('src');$('export-preview-image').hidden=true;}
  function controls(){
   const pages=current?plan(current,config()).pages:1;
   for(const id of ['export-size','export-type','export-scope','export-preview'])$(id).disabled=busy||!current;
   $('export-download').disabled=busy||!preview;
-  $('export-all').disabled=busy||!current;$('export-all').hidden=pages===1;
+  $('export-type').disabled=mobile||busy||!current;
+  $('export-all').disabled=mobile||busy||!current;$('export-all').hidden=mobile||pages===1;
   $('export-all').textContent='Download all '+pages+' pages (ZIP)';
   $('export-prev').disabled=busy||!preview||pageIndex===0;$('export-next').disabled=busy||!preview||pageIndex>=pages-1;
   $('export-pages').hidden=!preview||pages===1;
   $('export-page-label').textContent='Page '+(pageIndex+1)+' of '+pages;
-  $('export-download').textContent=preview?'Download '+preview.extension.toUpperCase():'Download image';
-  $('export-preview').textContent=busy?'Creating…':'Preview image';
+  $('export-download').textContent=mobile?'Save image':preview?'Download '+preview.extension.toUpperCase():'Download image';
+  $('export-preview').textContent=busy?'Creating…':mobile?'Create image':'Preview image';
  }
- function changed(){revision++;busy=false;pageIndex=0;releasePreview();$('export-status').textContent=current?'Choose a size, file format and range, then preview.':'';controls();}
+ function changed(){revision++;busy=false;pageIndex=0;releasePreview();$('export-status').textContent=current?(mobile?'Choose a size and range, then create your image.':'Choose a size, file format and range, then preview.'):'';controls();}
  function setResults(result){
   const next=result?JSON.stringify([result.team,result.pos,result.players.map(p=>[p.id,p.name,p.number,p.position,p.rosterPosition])]):'';
   if(next===fingerprint)return;fingerprint=next;current=result?{team:result.team,pos:result.pos,players:result.players.map(p=>({...p}))}:null;changed();
@@ -125,14 +135,16 @@
   const ticket=++revision,result=current,options=config();busy=true;controls();$('export-status').textContent='Creating your results image…';
   try{
    const image=await createImage(result,options,index);if(ticket!==revision)return;
-   releasePreview();preview=image;pageIndex=index;previewUrl=URL.createObjectURL(image.blob);$('export-preview-image').src=previewUrl;$('export-preview-image').hidden=false;
-   $('export-status').textContent=image.width+' × '+image.height+' · Ranks '+image.start+'–'+image.end+' · Page '+(index+1)+' of '+image.pages+(image.missingPhotos?' · '+image.missingPhotos+' unavailable photos use jersey numbers.':'');
+   const source=mobile?await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Could not open the image.'));reader.readAsDataURL(image.blob);}):URL.createObjectURL(image.blob);
+   if(ticket!==revision){if(source.startsWith('blob:'))URL.revokeObjectURL(source);return;}
+   releasePreview();preview=image;pageIndex=index;previewUrl=source;$('export-preview-image').src=previewUrl;$('export-preview-image').hidden=false;
+   $('export-status').textContent=(mobile?'':image.width+' × '+image.height+' · ')+'Ranks '+image.start+'–'+image.end+' · Page '+(index+1)+' of '+image.pages+(image.missingPhotos?' · '+image.missingPhotos+' unavailable photos use jersey numbers.':'');
   }catch(e){if(ticket===revision)$('export-status').textContent='Could not create the image. Please try again.';console.info('Results export:',e.message);}
   finally{if(ticket===revision){busy=false;controls();}}
  }
  function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
  async function downloadAll(){
-  if(!current||busy)return;
+  if(mobile||!current||busy)return;
   const ticket=++revision,result=current,options=config(),pages=plan(result,options).pages,files=[];busy=true;controls();
   try{
    for(let i=0;i<pages;i++){
@@ -145,11 +157,24 @@
   }catch(e){if(ticket===revision)$('export-status').textContent='Could not create the download. Please try again.';console.info('Results ZIP:',e.message);}
   finally{if(ticket===revision){busy=false;controls();}}
  }
- for(const size of SIZES)$('export-size').add(new Option(size.label+' · '+size.width+'×'+size.height,size.id));
+ async function saveImage(){
+  if(!preview||!current||busy)return;
+  if(!mobile){download(preview.blob,filename(current,config(),preview));return;}
+  const file=new File([preview.blob],filename(current,config(),preview),{type:'image/png'});
+  // Call share directly from the tap, after the image is ready, to retain user activation.
+  if(navigator.share&&navigator.canShare?.({files:[file]})){
+   try{await navigator.share({files:[file],title:'My '+current.team+' favorites'});return;}
+   catch(e){if(e.name==='AbortError')return;}
+  }
+  $('export-status').textContent='Touch and hold the image, then choose Save Image or Save to Photos.';
+  $('export-preview-image').scrollIntoView({behavior:'smooth',block:'center'});
+ }
+ updateMode();
+ mobileQuery.addEventListener('change',()=>{mobile=mobileQuery.matches;updateMode();changed();});
  for(const id of ['export-size','export-type','export-scope'])$(id).addEventListener('change',changed);
  $('export-preview').onclick=()=>showPreview(0);
  $('export-prev').onclick=()=>showPreview(pageIndex-1);$('export-next').onclick=()=>showPreview(pageIndex+1);
- $('export-download').onclick=()=>{if(preview&&current)download(preview.blob,filename(current,config(),preview));};
+ $('export-download').onclick=saveImage;
  $('export-all').onclick=downloadAll;controls();
  globalThis.ResultsExport={setResults,SIZES,TYPES,plan,createImage,zip,filename};
 })();

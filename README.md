@@ -25,8 +25,12 @@ See [DATA-SOURCES.md](DATA-SOURCES.md) for official sources, the November 5, 202
 
 ## Downloadable result cards
 
-Finished rankings include a preview and explicit image downloads. Nine size presets cover 1:1, 3:4, 4:5, 9:16, 16:9, 4:3, 3:2, 2:3 and 1200×630 link cards. PNG, JPG and WebP are available, with all players, top 10 or top 25. Long rankings paginate without dropping players; download the current page or one ZIP of every page.
+Desktop offers nine image sizes, PNG/JPG/WebP, All / Top 10 / Top 25, individual pages and a ZIP for the full ranking.
 
-exports.js uses native canvas and ZIP generation, without production dependencies or a server upload. Photos use anonymous CORS loading and fall back to jersey numbers when unavailable, keeping images downloadable. Browsers without a requested encoder can fall back to PNG, with the truthful file extension shown. Nothing downloads until the visitor presses a download button.
+Phones and touch devices have a simpler interface: only 1:1, 3:4, 4:5 and 9:16; automatic PNG; and All / Top 10 / Top 25. File-format and ZIP controls are hidden and disabled. Long rankings keep Previous/Next navigation, with each page saved separately.
 
-export-check.cjs verifies real downloaded bytes, all 27 size/encoding variants, player order and completeness, pagination, top ranges, ZIP CRCs, blocked photos, stale-result cancellation and responsive controls. All test downloads and screenshots stay on GitHub’s runner. A visitor’s intentional result download is distinct from the GitHub-only development workflow.
+The mobile preview is a real PNG image with iOS image callouts enabled. Save image passes a ready PNG file to the native share sheet when supported; otherwise it directs the user to touch and hold the image for Save Image / Save to Photos. Cancelling sharing leaves the preview intact. The exact native menu is supplied by the device and browser.
+
+exports.js generates images in the visitor’s browser without uploading rankings or adding production dependencies. CORS-restricted or unavailable portraits fall back to jerseys. Development files, browser installations, screenshots and test downloads remain on GitHub.
+
+export-check.cjs checks all 27 desktop size/encoding combinations, image completeness, real downloads, ZIP CRCs and responsive controls. mobile-export-check.cjs checks the simplified flow using iPhone emulation in Chromium and WebKit, PNG data, native-share invocation, press-and-hold fallback, cancellation, pagination and viewport changes. The actual iOS Photos share sheet requires a physical-device check and is not automated.
