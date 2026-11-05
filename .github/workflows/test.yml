@@ -1,12 +1,28 @@
 name: Sorter checks
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   functionality:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Prepare official AFC East snapshot on GitHub
+        run: node scripts/expand-afc-east.cjs
       - run: node tests.cjs
       - run: node headshots-check.cjs
+      - name: Install browser checks on GitHub runner
+        run: npm install --no-save --package-lock=false @playwright/test
+      - run: npx playwright install --with-deps chromium
+      - run: node browser-check.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-screenshots
+          path: qa/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -36,6 +36,7 @@ function makePortrait(p, small=false) {
   img.onerror=()=>img.replaceWith(makeFallback(p,small));img.src=url;return img;
 }
 function applyTheme() {
+  renderTeamPicker();
   const team=$('team').value, c=TEAM_INFO[team];
   for(const [key,value] of Object.entries(c.colors))document.documentElement.style.setProperty('--'+key,value);
   document.body.dataset.team=c.code;
@@ -47,7 +48,7 @@ function applyTheme() {
   $('position-count').textContent=ROSTERS[team].filter(p=>$('position').value==='ALL'||p.position===$('position').value).length+' players in this filter';
   for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
 }
-function selectTeam() { save(); state=stored($('team').value,$('position').value);write('nfl-sorter-selection',JSON.stringify({team:$('team').value,pos:$('position').value}));if(state&&!state.done)mergeNext();else render(); }
+function selectTeam() { save(); write('nfl-sorter-last-team:'+divisionFor($('team').value),$('team').value); state=stored($('team').value,$('position').value);write('nfl-sorter-selection',JSON.stringify({team:$('team').value,pos:$('position').value}));if(state&&!state.done)mergeNext();else render(); }
 function receive(items) { const p=state.stack.at(-1);if(p.stage===1)p.left=items;else if(p.stage===2){p.right=items;p.i=0;p.j=0;p.out=[];}else throw Error('Invalid merge state'); }
 function finish(items) { state.sorted=items;state.done=true;save();render(); }
 function mergeNext() {
@@ -100,12 +101,34 @@ function render() {
   $('progress').textContent=`${state.comparisons} picks made · ${n} players · Up to ${Math.max(0,max-state.comparisons)} picks remaining`;
   $('progressbar').style.width=percent+'%';$('progress-track').setAttribute('aria-valuenow',percent);$('undo').disabled=!state.history?.length;
 }
-for(const [team,info] of Object.entries(TEAM_INFO)){
-  $('team').add(new Option(team,team));const b=document.createElement('button');b.className='team-tile';b.dataset.team=team;
-  b.style.setProperty('--tile-color',info.colors.highlight);const code=document.createElement('span');code.className='team-code';code.textContent=info.code;
-  const name=document.createElement('strong');name.textContent=info.nickname;const status=document.createElement('small');b.append(code,name,status);
-  b.onclick=()=>{$('team').value=team;selectTeam();};$('team-grid').append(b);
+const divisionFor = team => TEAM_INFO[team].division || 'AFC North';
+function teamButton(team,info) {
+ const b=document.createElement('button');b.className='team-tile';b.dataset.team=team;
+ b.style.setProperty('--tile-color',info.colors.highlight);
+ const code=document.createElement('span');code.className='team-code';code.textContent=info.code;
+ const name=document.createElement('strong');name.textContent=info.nickname;
+ const status=document.createElement('small');b.append(code,name,status);
+ b.onclick=()=>{$('team').value=team;selectTeam();};return b;
 }
+function renderTeamPicker() {
+ const division=divisionFor($('team').value);
+ if($('team-grid').dataset.division!==division){
+  $('team-grid').replaceChildren(...Object.entries(TEAM_INFO).filter(([team])=>divisionFor(team)===division).map(([team,info])=>teamButton(team,info)));
+  $('team-grid').dataset.division=division;
+ }
+ for(const b of $('division-picker').children)b.setAttribute('aria-pressed',String(b.dataset.division===division));
+ $('division-summary').textContent=division+' · '+$('team-grid').children.length+' teams';
+ $('team-grid').setAttribute('aria-label',division+' teams');
+}
+function selectDivision(division) {
+ write('nfl-sorter-last-team:'+divisionFor($('team').value),$('team').value);
+ const teams=Object.keys(TEAM_INFO).filter(team=>divisionFor(team)===division);
+ if(!teams.length)return;
+ const previous=read('nfl-sorter-last-team:'+division);
+ $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
+}
+for(const team of Object.keys(TEAM_INFO))$('team').add(new Option(team,team));
+for(const division of ['AFC North','AFC East']){const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);$('division-picker').append(b);}
 for(const pos of positions)$('position').add(new Option(pos==='ALL'?'All positions':pos,pos));
 $('team').value='Baltimore Ravens';
 try{const selection=JSON.parse(read('nfl-sorter-selection'));if(TEAM_INFO[selection?.team])$('team').value=selection.team;if(positions.includes(selection?.pos))$('position').value=selection.pos;}catch{}
