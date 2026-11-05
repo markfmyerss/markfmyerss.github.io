@@ -52,7 +52,7 @@ check('corrupt storage is ignored; blocked writes retain latest in-memory picks'
 });
 check('every player, including legacy saved players and Ioane, resolves an official portrait',()=>{
  const b=boot();assert.equal(b.run("headshotAliases.get(normalizedName('Vega Ioane'))"),'olaivavegaioane');
- const players=b.run('Object.values(ROSTERS).flat()');assert.equal(Object.keys(b.run('TEAM_INFO')).length,20);assert.ok(players.length>1000);
+ const players=b.run('Object.values(ROSTERS).flat()');assert.equal(Object.keys(b.run('TEAM_INFO')).length,24);assert.ok(players.length>1200);
  for(const p of players){const img=b.run('makePortrait('+JSON.stringify(p)+')');assert.equal(img.tagName,'img');const url=new URL(img.src);assert.equal(url.protocol,'https:');assert.ok(['static.clubs.nfl.com','static.www.nfl.com'].includes(url.hostname));assert.ok(!url.href.includes('/t_lazy/'));}
  const img=b.run("makePortrait({id:'BAL-22',name:'Vega Ioane',number:'71',team:'Baltimore Ravens'})");assert.ok(img.src.includes('cic8kmqlhwywlnlv6h5w'));let replacement;img.replaceWith=n=>replacement=n;img.onerror();assert.equal(replacement.className,'fallback');
  assert.equal(b.run("makePortrait({id:'missing',name:'Unknown',number:'?',team:'Baltimore Ravens'}).className"),'fallback');
@@ -95,12 +95,22 @@ check('complete AFC has four divisions, four teams each, and independent West pr
 check('conference switching restores AFC and NFC teams, filters and progress',()=>{
  const b=boot();assert.equal(b.e('conference-picker').children.length,2);assert.equal(b.e('division-picker').children.length,4);
  b.e('team').value='Los Angeles Chargers';b.e('position').value='QB';b.run("selectTeam();start();choose('left')");const afc=b.run('JSON.stringify(state)');
- b.run("selectConference('NFC')");assert.equal(b.e('team').value,'Chicago Bears');assert.equal(b.e('division-picker').children.length,1);assert.equal(b.e('division-picker').children[0].dataset.division,'NFC North');
+ b.run("selectConference('NFC')");assert.equal(b.e('team').value,'Chicago Bears');assert.equal(b.e('division-picker').children.length,2);assert.equal(b.e('division-picker').children[0].dataset.division,'NFC North');
  assert.deepEqual(b.e('team-grid').children.map(x=>x.dataset.team),['Chicago Bears','Detroit Lions','Green Bay Packers','Minnesota Vikings']);
  b.e('team').value='Detroit Lions';b.run("selectTeam();start();choose('right')");const nfc=b.run('JSON.stringify(state)');
  b.run("selectConference('AFC')");assert.equal(b.e('team').value,'Los Angeles Chargers');assert.equal(b.e('division-picker').children.length,4);assert.equal(b.run('JSON.stringify(state)'),afc);
  b.run("selectConference('NFC')");assert.equal(b.e('team').value,'Detroit Lions');assert.equal(b.run('JSON.stringify(state)'),nfc);
  const reloaded=boot(b.storage);assert.equal(reloaded.e('division-picker').dataset.conference,'NFC');assert.equal(reloaded.e('team').value,'Detroit Lions');assert.equal(reloaded.run('JSON.stringify(state)'),nfc);
  b.e('team').value='Buffalo Bills';b.run('selectTeam()');assert.equal(b.e('division-picker').dataset.conference,'AFC');b.run("selectConference('NFC')");assert.equal(b.run('JSON.stringify(state)'),nfc);
+});
+check('NFC East restores teams and rankings independently from North and AFC',()=>{
+ const b=boot();b.run("selectConference('NFC');selectDivision('NFC East')");
+ assert.deepEqual(b.e('team-grid').children.map(x=>x.dataset.team),['Dallas Cowboys','New York Giants','Philadelphia Eagles','Washington Commanders']);
+ b.e('team').value='Philadelphia Eagles';b.e('position').value='QB';b.run("selectTeam();start();choose('right')");const east=b.run('JSON.stringify(state)');
+ b.run("selectDivision('NFC North');start();choose('left')");const north=b.run('JSON.stringify(state)');
+ b.run("selectDivision('NFC East')");assert.equal(b.e('team').value,'Philadelphia Eagles');assert.equal(b.run('JSON.stringify(state)'),east);
+ b.run("selectConference('AFC');start();choose('left');selectConference('NFC')");assert.equal(b.e('team').value,'Philadelphia Eagles');assert.equal(b.run('JSON.stringify(state)'),east);
+ b.run("selectDivision('NFC North')");assert.equal(b.run('JSON.stringify(state)'),north);
+ b.run("selectDivision('NFC East')");const reload=boot(b.storage);assert.equal(reload.e('team').value,'Philadelphia Eagles');assert.equal(reload.run('JSON.stringify(state)'),east);
 });
 console.log(`${count} test groups passed`);
