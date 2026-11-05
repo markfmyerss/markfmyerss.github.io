@@ -22,7 +22,7 @@ async function get(url){const r=await fetch(url,{signal:AbortSignal.timeout(3000
    const position=clean(cells[2]);const p={name,number:clean(cells[1]),position:group(position),rosterPosition:position,team:spec.name,id:spec.code+'-'+profile.split('/').filter(Boolean).at(-1),profile};
    if(!['QB','RB','WR','TE','OL','DL','LB','DB','ST'].includes(p.position))throw Error('Unknown position '+position+' for '+name);
    const urls=[...cells[0].matchAll(/https:\/\/static\.clubs\.nfl\.com\/[^"\s,<>]+/g)].map(m=>m[0]);const url=(urls.find(u=>u.includes('t_thumb_squared_3x'))||urls[0])?.replace('/t_lazy/','/');
-   if(!url)throw Error('No portrait URL for '+name);players.push(p);candidates.push({p,url,generic:/alt="[^"]*(?:default|silhouette|no.image)/i.test(cells[0])});
+   players.push(p);candidates.push({p,url,generic:!url||/alt="[^"]*(?:default|silhouette|no.image)/i.test(cells[0])});
   }
   if(players.length<40||players.length>65||new Set(players.map(p=>p.id)).size!==players.length)throw Error('Suspicious roster '+spec.name+': '+players.length);
   const counts=new Map();for(const c of candidates)counts.set(c.url,(counts.get(c.url)||0)+1);
