@@ -29,7 +29,7 @@ async function get(url){const r=await fetch(url,{signal:AbortSignal.timeout(3000
   const counts=new Map();for(const c of candidates)counts.set(c.url,(counts.get(c.url)||0)+1);
   for(const c of candidates){let url=c.url,source=spec.source;try{
    if(c.generic||counts.get(url)>1){
-    const slug=({'Nate Thomas':'nathan-thomas'})[c.p.name]||c.p.name.toLowerCase().replace(/['’\.]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');const nfl='https://www.nfl.com/players/'+slug+'/';
+    const slug=({'Nate Thomas':'nathan-thomas','Kenny Moore II':'kenny-moore'})[c.p.name]||c.p.name.toLowerCase().replace(/['’\.]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');const nfl='https://www.nfl.com/players/'+slug+'/';
     const page=await get(nfl);const images=[...page.matchAll(/https:\/\/static\.www\.nfl\.com\/image\/[^"\s<>]+/g)].map(m=>m[0].replace(/&amp;/g,'&'));
     const individual=images.find(u=>/t_player_profile_(?:landscape|square)/.test(u)&&!u.includes('nsp399n4t89mwbndaoew'));
     if(!individual)throw Error('Individual portrait needed for '+c.p.name+' (team uses placeholder)');
