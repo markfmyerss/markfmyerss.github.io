@@ -37,7 +37,9 @@ const ravens=[{"name":"Rasheen Ali","number":"26","position":"RB","team":"Baltim
 // This is a best-effort integration, not a licensed image feed. Check rights before public deployment.
 const headshots=new Map();let photosReady=false;
 function normalizedName(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
-function makePortrait(p,small=false){const url=headshots.get(normalizedName(p.name));if(url){const img=document.createElement('img');img.alt=p.name+' headshot';img.loading='lazy';img.referrerPolicy='no-referrer';img.src=url;if(small){img.style.width='100%';img.style.height='100%';img.style.objectFit='contain';}img.onerror=()=>{img.replaceWith(makeFallback(p,small));};return img;}return makeFallback(p,small);}
+// ESPN lists Vega by his full given name; keep the sorter name and saved player IDs unchanged.
+const headshotAliases=new Map([[normalizedName('Vega Ioane'),normalizedName('Olaivavega Ioane')]]);
+function makePortrait(p,small=false){const key=normalizedName(p.name);const url=headshots.get(key)||headshots.get(headshotAliases.get(key));if(url){const img=document.createElement('img');img.alt=p.name+' headshot';img.loading='lazy';img.referrerPolicy='no-referrer';img.src=url;if(small){img.style.width='100%';img.style.height='100%';img.style.objectFit='contain';}img.onerror=()=>{img.replaceWith(makeFallback(p,small));};return img;}return makeFallback(p,small);}
 function makeFallback(p,small=false){const d=document.createElement('span');d.className='fallback';d.textContent='#'+p.number;if(small)d.style.fontSize='1.1rem';return d;}
 async function loadHeadshots(){try{const response=await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/roster');if(!response.ok)throw Error('headshot source unavailable');const data=await response.json();const athletes=(data.athletes||[]).flatMap(group=>group.items||[]);for(const a of athletes){if(a.fullName&&a.headshot?.href)headshots.set(normalizedName(a.fullName),a.headshot.href);}photosReady=true;if(state)render();}catch(e){console.info('Headshots unavailable; using jersey-number placeholders.',e.message);}}
 loadHeadshots();
