@@ -79,4 +79,8 @@ check('South division keeps all three divisions independent across reloads',()=>
  b.run("selectDivision('AFC South')");assert.equal(b.run('JSON.stringify(state)'),south);
  const reload=boot(b.storage);assert.equal(reload.e('team-grid').dataset.division,'AFC South');assert.equal(reload.run('JSON.stringify(state)'),south);
 });
+check('dual-position players appear once in each relevant filter',()=>{
+ const b=boot();b.e('team').value='Jacksonville Jaguars';
+ for(const pos of ['ALL','WR','DB']){b.e('position').value=pos;b.run('selectTeam();start()');assert.equal(b.run("state.players.filter(p=>p.name==='Travis Hunter').length"),1,'Hunter in '+pos);}
+});
 console.log(`${count} test groups passed`);

@@ -20,6 +20,7 @@ async function get(url){const r=await fetch(url,{signal:AbortSignal.timeout(3000
    const name=clean(cells[0].match(/class="nfl-o-roster__player-name"[^>]*>([\s\S]*?)<\/span>/)?.[1]||'');if(!name)throw Error('No player name');
    const path=cells[0].match(/href="([^"]+)"/)?.[1],profile=new URL(path,spec.source).href;
    const position=clean(cells[2]);const p={name,number:clean(cells[1]),position:group(position),rosterPosition:position,team:spec.name,id:spec.code+'-'+profile.split('/').filter(Boolean).at(-1),profile};
+   const groups=[...new Set(position.toUpperCase().split('/').map(group))];if(groups.every(g=>['QB','RB','WR','TE','OL','DL','LB','DB','ST'].includes(g))){p.position=groups[0];if(groups.length>1)p.positions=groups;}
    if(!['QB','RB','WR','TE','OL','DL','LB','DB','ST'].includes(p.position))throw Error('Unknown position '+position+' for '+name);
    const urls=[...cells[0].matchAll(/https:\/\/static\.clubs\.nfl\.com\/[^"\s,<>]+/g)].map(m=>m[0]);const url=(urls.find(u=>u.includes('t_thumb_squared_3x'))||urls[0])?.replace('/t_lazy/','/');
    players.push(p);candidates.push({p,url,generic:!url||/alt="[^"]*(?:default|silhouette|no.image)/i.test(cells[0])});
