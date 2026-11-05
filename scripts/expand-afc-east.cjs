@@ -7,7 +7,7 @@ const specs=[
  {name:'New York Jets',code:'NYJ',nickname:'Jets',singular:'Jet',source:'https://www.newyorkjets.com/team/players-roster/',colors:{primary:'#125740',accent:'#FFFFFF',highlight:'#8bdbb5',ink:'#101014'}}
 ];
 const clean=s=>s.replace(/<[^>]*>/g,'').replace(/&#x([0-9a-f]+);/gi,(_,h)=>String.fromCodePoint(parseInt(h,16))).replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).replace(/&apos;|&rsquo;/g,"'").replace(/&amp;/g,'&').replace(/&nbsp;/g,' ').trim();
-const group=pos=>({FB:'RB',HB:'RB',T:'OL',G:'OL',C:'OL',OT:'OL',OG:'OL','C/G':'OL','G/T':'OL','T/G':'OL','G/C':'OL',DT:'DL',DE:'DL',NT:'DL',EDGE:'LB',ILB:'LB',OLB:'LB',CB:'DB',S:'DB',SS:'DB',FS:'DB',K:'ST',P:'ST',LS:'ST','RB/WR':'RB'})[pos]||pos;
+const group=pos=>{pos=pos.toUpperCase();return({FB:'RB',HB:'RB',T:'OL',G:'OL',C:'OL',OT:'OL',OG:'OL','C/G':'OL','G/T':'OL','T/G':'OL','G/C':'OL',DT:'DL',DE:'DL',NT:'DL',EDGE:'LB',ILB:'LB',OLB:'LB',CB:'DB',S:'DB',SS:'DB',FS:'DB',K:'ST',P:'ST',LS:'ST','RB/WR':'RB'})[pos]||pos;};
 async function get(url){const r=await fetch(url,{signal:AbortSignal.timeout(30000)});if(!r.ok)throw Error(url+': '+r.status);return r.text();}
 (async()=>{
  const before=fs.readFileSync('data.js','utf8');const {TEAM_INFO,ROSTERS,HEADSHOTS}=vm.runInNewContext(before+';({TEAM_INFO,ROSTERS,HEADSHOTS})');
