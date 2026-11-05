@@ -1,18 +1,19 @@
-# NFL Favorites Sorter
+# NFL Favorites Sorter — AFC North
 
-An NFL player favorites ranking site, starting with the Baltimore Ravens.
+Compare your favorite active-roster players from the Baltimore Ravens, Cincinnati Bengals, Pittsburgh Steelers and Cleveland Browns. This ranks personal preference, not statistics or playing ability.
 
-## Ravens Edition v0.4
+Live: https://markfmyerss.github.io/nfl-favorites-sorter/
 
-Player-vs-player favorites comparisons, Ravens-themed matchup cards, best-effort player headshots, results rankings, undo, and browser progress saving.
+- Responsive team picker and team-colored player cards.
+- Separate browser-local rankings for every team and position filter, restored when switching or reloading.
+- Pairwise merge sorting, up to 100 undo steps, keyboard arrows, final rankings and copy/export fallback.
+- Existing `nfl-sorter-ravens-v2` rankings are copied into the new save format without deleting the original.
+- If browser storage is blocked or full, the app shows a warning and keeps working for the visit.
 
-## Publish on GitHub Pages
+## Run and deploy
 
-1. Upload the v0.4 `index.html` file to the root of this repository.
-2. Go to Settings → Pages.
-3. Under Build and deployment choose Deploy from a branch, select `main` and `/(root)`, and save.
-4. Visit https://markfmyerss.github.io/nfl-favorites-sorter/ once deployment finishes.
+No build or dependencies. Serve this directory with any static server. GitHub Pages serves the root of `main`; changes to that branch trigger the existing Pages deployment.
 
-## Image rights
+`index.html`, `styles.css`, `data.js`, and `app.js` form the application. Keep these files together. `tests.cjs` exercises sorting, save isolation, migration, undo, malformed storage and portrait fallback with a minimal DOM fixture; run with `node tests.cjs` (Node 18+). Browser QA results and remaining limits are reported separately.
 
-Player photographs and other third-party assets remain subject to their owners' rights and applicable terms. The headshot integration is best-effort.
+See [DATA-SOURCES.md](DATA-SOURCES.md) for verification date, active-roster scope, position mapping, palettes and image permissions. Rosters are dated snapshots, not live data. Jersey illustrations are the default until licensed headshots are documented.
