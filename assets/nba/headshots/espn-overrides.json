@@ -1,0 +1,46 @@
+{
+  "source": "ESPN team rosters and unmodified ESPN portrait PNGs",
+  "verified": "2026-11-06",
+  "portraits": [
+    {
+      "id": 1641759,
+      "espnId": "5106283",
+      "name": "Dillon Mitchell",
+      "team": "Boston Celtics",
+      "url": "https://a.espncdn.com/i/headshots/nba/players/full/5106283.png",
+      "source": "https://www.espn.com/nba/player/_/id/5106283/dillon-mitchell",
+      "path": "assets/nba/headshots/1641759.png",
+      "bytes": 225917,
+      "width": 600,
+      "height": 436,
+      "sha256": "6a386bc9aa16f611673cb965422af558f6aa3c742a88e17226bdd8e2eee3c83d"
+    },
+    {
+      "id": 1643022,
+      "espnId": "4683730",
+      "name": "Jaden Akins",
+      "team": "New York Knicks",
+      "url": "https://a.espncdn.com/i/headshots/nba/players/full/4683730.png",
+      "source": "https://www.espn.com/nba/player/_/id/4683730/jaden-akins",
+      "path": "assets/nba/headshots/1643022.png",
+      "bytes": 235976,
+      "width": 600,
+      "height": 436,
+      "sha256": "75e6ba595fb2137cc23ab6f32a79dfbf65dabb58f52052ad9a7499152d15cd29"
+    },
+    {
+      "id": 1643539,
+      "espnId": "5105571",
+      "name": "Henri Veesaar",
+      "team": "Atlanta Hawks",
+      "url": "https://a.espncdn.com/i/headshots/nba/players/full/5105571.png",
+      "source": "https://www.espn.com/nba/player/_/id/5105571/henri-veesaar",
+      "path": "assets/nba/headshots/1643539.png",
+      "bytes": 199077,
+      "width": 600,
+      "height": 436,
+      "sha256": "f27bd5c9694633f932d1a7428412edbcd2f608515f406236753814b0cafc719a"
+    }
+  ],
+  "rights": "Images remain the property of their respective rights holders. Public availability does not establish an independent redistribution license or endorsement."
+}

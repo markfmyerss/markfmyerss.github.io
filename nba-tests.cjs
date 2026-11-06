@@ -50,14 +50,14 @@ const ids=new Set();for(const p of players){
  assert.ok(!ids.has(p.id));ids.add(p.id);assert.equal(p.id,'NBA-'+p.nbaId);
  assert.ok(p.positions.every(v=>['G','F','C'].includes(v)));
  assert.ok(p.positions.includes(p.position));
- const url=oracle.run('NBA_HEADSHOTS['+JSON.stringify(p.id)+'].url');if(url){assert.equal(url,'assets/nba/headshots/'+p.nbaId+'.png');const image=fs.readFileSync(__dirname+'/'+url);assert.equal(image.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.equal(image.readUInt32BE(16),260);assert.equal(image.readUInt32BE(20),190);}
+ const url=oracle.run('NBA_HEADSHOTS['+JSON.stringify(p.id)+'].url');if(url){assert.equal(url,'assets/nba/headshots/'+p.nbaId+'.png');const image=fs.readFileSync(__dirname+'/'+url);assert.equal(image.subarray(0,8).toString('hex'),'89504e470d0a1a0a');const espn=[1641759,1643022,1643539].includes(p.nbaId);assert.equal(image.readUInt32BE(16),espn?600:260);assert.equal(image.readUInt32BE(20),espn?436:190);}
 }
 console.log('PASS 261 official NBA player IDs, hybrid position grouping and official portrait source hosts');
 
 const manifest=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/manifest.json','utf8'));
-assert.equal(manifest.portraits.length,84);assert.equal(manifest.fallbacks.length,2);
-for(const item of manifest.portraits){assert.equal(new URL(item.url).hostname,'cdn.nba.com');assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+item.path)).digest('hex'),item.sha256);}
-console.log('PASS 84 unmodified NBA portrait assets match their official-source hashes; two generic profiles use jersey fallbacks');
+assert.equal(manifest.portraits.length,86);assert.equal(manifest.fallbacks.length,0);
+for(const item of manifest.portraits){assert.equal(new URL(item.url).hostname,item.provider==='ESPN'?'a.espncdn.com':'cdn.nba.com');assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+item.path)).digest('hex'),item.sha256);}
+console.log('PASS all 86 Atlantic portrait assets match source hashes, including two ESPN overrides');
 
 const centralManifest=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/central-manifest.json','utf8'));
 assert.equal(centralManifest.portraits.length,87);assert.equal(centralManifest.fallbacks.length,0);
@@ -75,7 +75,7 @@ for(const team of nav.run('Object.values(NBA_CENTRAL_TEAM_INFO)')){
 console.log('PASS Central/Atlantic progress and reload isolation; 87 Central portrait hashes; official logo palettes; NFL/NBA CLE/DET/IND key isolation');
 
 const southeastManifest=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/southeast-manifest.json','utf8'));
-assert.equal(southeastManifest.portraits.length,87);assert.equal(southeastManifest.fallbacks.length,1);
+assert.equal(southeastManifest.portraits.length,88);assert.equal(southeastManifest.fallbacks.length,0);
 for(const item of southeastManifest.portraits)assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+item.path)).digest('hex'),item.sha256);
 const east=boot();east.run("selectSport('NBA')");const eastStates=new Map();
 for(const division of ['Atlantic','Central','Southeast']){east.run('selectDivision('+JSON.stringify(division)+');start();choose("left")');eastStates.set(division,east.run('JSON.stringify(state)'));}
@@ -87,3 +87,9 @@ for(const team of east.run('Object.values(NBA_SOUTHEAST_TEAM_INFO)')){
  for(const color of [team.colors.primary,team.colors.accent])if(!['#000000','#ffffff'].includes(color.toLowerCase()))assert.ok(svg.includes(color.toLowerCase()),team.name+' official logo color '+color);
 }
 console.log('PASS all three Eastern divisions restore independent progress; Southeast source hashes and logo palettes; NFL/NBA ATL/MIA isolation');
+
+const espnOverrides=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/espn-overrides.json','utf8'));
+assert.deepEqual(espnOverrides.portraits.map(p=>p.id),[1641759,1643022,1643539]);
+for(const p of espnOverrides.portraits){assert.equal(oracle.run('NBA_HEADSHOTS["NBA-'+p.id+'"].url'),p.path);assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+p.path)).digest('hex'),p.sha256);}
+assert.equal(oracle.run('Object.values(NBA_HEADSHOTS).filter(p=>!p.url).length'),0);
+console.log('PASS all 261 NBA players have hosted portraits; three ESPN override identities and hashes verified');

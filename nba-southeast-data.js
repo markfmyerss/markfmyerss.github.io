@@ -1314,10 +1314,10 @@ const NBA_SOUTHEAST_HEADSHOTS = {
     "source": "https://www.nba.com/player/1627827/dorian-finney-smith"
   },
   "NBA-1643539": {
-    "url": null,
-    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643539.png",
-    "source": "https://www.nba.com/player/1643539/henri-veesaar",
-    "unavailableReason": "Official NBA portrait endpoint returns a generic placeholder."
+    "url": "assets/nba/headshots/1643539.png",
+    "source": "https://www.espn.com/nba/player/_/id/5105571/henri-veesaar",
+    "originalUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5105571.png",
+    "provider": "ESPN"
   },
   "NBA-1642854": {
     "url": "assets/nba/headshots/1642854.png",

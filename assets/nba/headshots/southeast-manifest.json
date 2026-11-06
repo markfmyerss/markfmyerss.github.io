@@ -1,5 +1,5 @@
 {
-  "source": "Official NBA Southeast portrait thumbnails, retrieved on GitHub",
+  "source": "Official NBA Southeast portrait thumbnails, retrieved on GitHub; ESPN overrides for unavailable NBA portraits",
   "verified": "2026-11-06",
   "portraits": [
     {
@@ -610,9 +610,22 @@
       "path": "assets/nba/headshots/1643590.png",
       "bytes": 18348,
       "sha256": "cacd0dee500386ca69f8e9e5d8019764bf5191578115ab7f5d6308ea0b752d2a"
+    },
+    {
+      "id": 1643539,
+      "espnId": "5105571",
+      "name": "Henri Veesaar",
+      "team": "Atlanta Hawks",
+      "url": "https://a.espncdn.com/i/headshots/nba/players/full/5105571.png",
+      "source": "https://www.espn.com/nba/player/_/id/5105571/henri-veesaar",
+      "path": "assets/nba/headshots/1643539.png",
+      "bytes": 199077,
+      "width": 600,
+      "height": 436,
+      "sha256": "f27bd5c9694633f932d1a7428412edbcd2f608515f406236753814b0cafc719a",
+      "provider": "ESPN",
+      "verified": "2026-11-06"
     }
   ],
-  "fallbacks": [
-    "NBA-1643539"
-  ]
+  "fallbacks": []
 }

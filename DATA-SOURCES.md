@@ -118,7 +118,7 @@ Official NBA.com team-page structured roster snapshots, verified November 6, 202
 
 Player IDs, jersey numbers, names and G/F/C positions come directly from `props.pageProps.team.roster`. Hybrid labels such as F-G and C-F are retained on cards and included in both relevant filters, without duplicates in All.
 
-Headshot identities were verified against NBA.com player profiles and the official 1040×760 endpoints. For reliable display and browser image exports, 84 unmodified official 260×190 PNG thumbnails are hosted in `assets/nba/headshots/`; their NBA source URLs and SHA-256 hashes are recorded in `assets/nba/headshots/manifest.json`. All 86 original endpoints were checked. 84 returned distinct portrait images; Dillon Mitchell (1641759) and Jaden Akins (1643022) returned the same generic image at both 1040×760 and 260×190. Their entries keep the source and original URL for traceability but disable the generic image, showing a jersey fallback instead.
+Headshot identities were verified against NBA.com player profiles and the official 1040×760 endpoints. For reliable display and browser image exports, 84 unmodified official 260×190 PNG thumbnails are hosted in `assets/nba/headshots/`; their NBA source URLs and SHA-256 hashes are recorded in `assets/nba/headshots/manifest.json`. All 86 original endpoints were checked. 84 returned distinct portrait images; Dillon Mitchell (1641759) and Jaden Akins (1643022) returned the same generic image at both 1040×760 and 260×190. These two NBA placeholders are now replaced by verified ESPN team portraits; see the ESPN overrides below.
 
 The five unmodified NBA logo SVGs are hosted in `assets/nba/logos/` for reliable same-origin image exports. They were retrieved on GitHub from `https://cdn.nba.com/logos/nba/{teamId}/primary/L/logo.svg`. Primary/secondary palette values follow the visible colors in those official NBA logo assets: Celtics green/gold (#008348/#BB9753), Nets black/white, Knicks blue/orange (#1D428A/#F58426), 76ers blue/red (#1D428A/#C8102E) and Raptors red/black (#BC2126/#000000). Brighter highlights are used for readability.
 
@@ -140,7 +140,7 @@ Verified November 6, 2026 (America/New_York), after the Atlantic release. These 
 | Indiana Pacers | 17 | https://www.nba.com/team/1610612754/pacers | 1610612754 |
 | Milwaukee Bucks | 18 | https://www.nba.com/team/1610612749/bucks | 1610612749 |
 
-All 87 listed Central players have distinct official 260×190 PNG portraits, hosted alongside the Atlantic assets in `assets/nba/headshots/`. Source URLs, byte sizes and SHA-256 hashes are recorded in `central-manifest.json`. The generic-placeholder check found no Central fallbacks. The two Atlantic fallbacks remain unchanged.
+All 87 listed Central players have distinct official 260×190 PNG portraits, hosted alongside the Atlantic assets in `assets/nba/headshots/`. Source URLs, byte sizes and SHA-256 hashes are recorded in `central-manifest.json`. The generic-placeholder check found no Central fallbacks. The two Atlantic NBA placeholders are resolved by the ESPN overrides below.
 
 The five unmodified official NBA logo SVGs are hosted in `assets/nba/logos/`. Primary/secondary colors follow their visible NBA logo assets: Bulls red/black (#CD1F43/#000000), Cavaliers wine/gold (#860038/#BC945C), Pistons red/blue (#C8102E/#1D428A), Pacers navy/yellow (#0C2340/#FFD520), and Bucks green/cream (#00471A/#EDE0C5). Brighter UI highlights preserve text contrast.
 
@@ -158,8 +158,14 @@ Verified November 6, 2026 (America/New_York). Additive records in `nba-southeast
 | Orlando Magic | 17 | https://www.nba.com/team/1610612753/magic | 1610612753 |
 | Washington Wizards | 18 | https://www.nba.com/team/1610612764/wizards | 1610612764 |
 
-The 88 listed Southeast players include 87 distinct official 260×190 PNG portraits hosted in `assets/nba/headshots/`. Source URLs and SHA-256 hashes are recorded in `southeast-manifest.json`. Henri Veesaar (1643539) returns the same generic official placeholder as the previously identified missing profiles and uses a jersey card instead.
+The 88 listed Southeast players include 87 distinct official 260×190 PNG portraits hosted in `assets/nba/headshots/`. Source URLs and SHA-256 hashes are recorded in `southeast-manifest.json`. Henri Veesaar (1643539) returned a generic NBA placeholder and is now covered by the ESPN overrides below.
 
 Five unmodified official NBA logo SVGs are hosted in `assets/nba/logos/`. Palette values follow their visible colors: Hawks red/white (#E03A3E/#FFFFFF), Hornets teal/purple (#00788C/#1D1160), Heat red/gold (#961A31/#F9A11E), Magic blue/ink (#0050B5/#061922), and Wizards navy/red (#002B5C/#E21936). Brighter UI highlights preserve readability.
 
 The shared NBA G/F/C filters, single-image exports and save namespace apply to Southeast. ATL and MIA are isolated from NFL teams using those codes. Image ownership, availability and snapshot limitations above continue to apply.
+
+## ESPN portrait overrides — November 6, 2026
+
+ESPN team roster responses and visual inspection confirmed current team portraits for Dillon Mitchell (Celtics, ESPN 5106283), Jaden Akins (Knicks, ESPN 4683730), and Henri Veesaar (Hawks, ESPN 5105571). Their unmodified 600×436 PNGs are hosted alongside the NBA images for reliable cards and canvas exports. All 261 NBA players now have portraits. `assets/nba/headshots/espn-overrides.json` records the profile URLs, original image URLs, dimensions, bytes and SHA-256 hashes; division manifests include these replacements too. The roster snapshots and ranking save keys are unchanged.
+
+ESPN images remain the property of their respective rights holders. Public access does not establish an independent redistribution license or endorsement. No additional image license has been verified; failed images retain the existing jersey fallback.

@@ -27,7 +27,7 @@ Root and legacy links include Open Graph and X large-image metadata in their ini
 
 ## Sources and development
 
-[DATA-SOURCES.md](DATA-SOURCES.md) records roster sources, snapshot dates, official image sources, palette references and rights limitations. Rosters are snapshots, not live transaction feeds. Three NBA profiles currently return a generic official placeholder and use jersey cards: Dillon Mitchell, Jaden Akins and Henri Veesaar.
+[DATA-SOURCES.md](DATA-SOURCES.md) records roster sources, snapshot dates, official image sources, palette references and rights limitations. Rosters are snapshots, not live transaction feeds. All 261 NBA players have hosted portraits. Verified ESPN team headshots replace the NBA placeholders for Dillon Mitchell, Jaden Akins and Henri Veesaar; source URLs and hashes are recorded in `assets/nba/headshots/espn-overrides.json`. Image rights remain with their respective owners.
 
 All preparation, browser dependencies, screenshots and test downloads run on GitHub. NBA snapshot preparation and preview rendering use read-only workflows and produce reviewable artifacts; neither workflow pushes changes. No source or development dependencies are downloaded to the owner's Mac.
 

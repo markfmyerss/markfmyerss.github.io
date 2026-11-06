@@ -1,5 +1,5 @@
 {
-  "source": "Official NBA portrait thumbnails, retrieved on GitHub",
+  "source": "Official NBA portrait thumbnails, retrieved on GitHub; ESPN overrides for unavailable NBA portraits",
   "verified": "2026-11-06",
   "portraits": [
     {
@@ -589,10 +589,37 @@
       "bytes": 14311,
       "sha256": "da759c552f9073bee8bbb0db2e7998c7ad8f67858601db1f3f78900900f2a37e",
       "path": "assets/nba/headshots/1643589.png"
+    },
+    {
+      "id": 1641759,
+      "espnId": "5106283",
+      "name": "Dillon Mitchell",
+      "team": "Boston Celtics",
+      "url": "https://a.espncdn.com/i/headshots/nba/players/full/5106283.png",
+      "source": "https://www.espn.com/nba/player/_/id/5106283/dillon-mitchell",
+      "path": "assets/nba/headshots/1641759.png",
+      "bytes": 225917,
+      "width": 600,
+      "height": 436,
+      "sha256": "6a386bc9aa16f611673cb965422af558f6aa3c742a88e17226bdd8e2eee3c83d",
+      "provider": "ESPN",
+      "verified": "2026-11-06"
+    },
+    {
+      "id": 1643022,
+      "espnId": "4683730",
+      "name": "Jaden Akins",
+      "team": "New York Knicks",
+      "url": "https://a.espncdn.com/i/headshots/nba/players/full/4683730.png",
+      "source": "https://www.espn.com/nba/player/_/id/4683730/jaden-akins",
+      "path": "assets/nba/headshots/1643022.png",
+      "bytes": 235976,
+      "width": 600,
+      "height": 436,
+      "sha256": "75e6ba595fb2137cc23ab6f32a79dfbf65dabb58f52052ad9a7499152d15cd29",
+      "provider": "ESPN",
+      "verified": "2026-11-06"
     }
   ],
-  "fallbacks": [
-    "NBA-1641759",
-    "NBA-1643022"
-  ]
+  "fallbacks": []
 }

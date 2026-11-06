@@ -1283,10 +1283,10 @@ const NBA_HEADSHOTS = {
     "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/202331.png"
   },
   "NBA-1641759": {
-    "url": null,
-    "source": "https://www.nba.com/player/1641759/dillon-mitchell",
-    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641759.png",
-    "unavailableReason": "Official NBA image endpoints return the same generic placeholder at both checked sizes."
+    "url": "assets/nba/headshots/1641759.png",
+    "source": "https://www.espn.com/nba/player/_/id/5106283/dillon-mitchell",
+    "originalUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5106283.png",
+    "provider": "ESPN"
   },
   "NBA-1641775": {
     "url": "assets/nba/headshots/1641775.png",
@@ -1474,10 +1474,10 @@ const NBA_HEADSHOTS = {
     "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642278.png"
   },
   "NBA-1643022": {
-    "url": null,
-    "source": "https://www.nba.com/player/1643022/jaden-akins",
-    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643022.png",
-    "unavailableReason": "Official NBA image endpoints return the same generic placeholder at both checked sizes."
+    "url": "assets/nba/headshots/1643022.png",
+    "source": "https://www.espn.com/nba/player/_/id/4683730/jaden-akins",
+    "originalUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4683730.png",
+    "provider": "ESPN"
   },
   "NBA-1628969": {
     "url": "assets/nba/headshots/1628969.png",
