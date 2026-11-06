@@ -181,3 +181,7 @@ html .team-tile[aria-pressed=true]{
 
 /* Favorite actions use the team's exact primary color with contrasting text. */
 html .pick-label{background:var(--primary);color:var(--pick-ink,#fff);border:1px solid #ffffff26}
+
+/* A quiet creator credit stays visible in the full and compact headers. */
+html header .builder-credit{font-size:.72rem;line-height:1.5;font-weight:400;letter-spacing:.02em;color:#aab4c0;margin:16px 0 0}
+html header .builder-credit span{color:#c4cdd8;font-weight:600}
