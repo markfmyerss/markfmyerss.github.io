@@ -23,7 +23,8 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
     while(await page.locator('#sort').isVisible()){
      const value=Number(await page.locator('#progress-track').getAttribute('aria-valuenow'));
      assert.ok(value>=previous&&value<100);previous=value;
-     assert.match(await page.locator('#progress-track').getAttribute('aria-valuetext'),/Up to \d+ picks remaining/);
+     assert.match(await page.locator('#progress-track').getAttribute('aria-valuetext'),/^At least \d+% complete\.$/);
+     assert.doesNotMatch(await page.locator('#progress').textContent(),/remaining/i);
      await page.click('#left');if(++picks>30)throw Error('QB ranking did not complete');
     }
     assert.equal(await page.locator('body').getAttribute('data-view'),'results');

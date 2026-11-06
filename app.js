@@ -143,11 +143,11 @@ function render() {
   renderPlayer('left',f.left[f.i]);renderPlayer('right',f.right[f.j]);
   const remaining=remainingPicks();
   const percent=Math.min(99,Math.floor(100*state.comparisons/Math.max(1,state.comparisons+remaining)));
-  $('progress').textContent=`${state.comparisons} picks made · ${state.players.length} players · Up to ${remaining} picks remaining · At least ${percent}% complete`;
+  $('progress').textContent=`${state.comparisons} picks made · ${state.players.length} players · At least ${percent}% complete`;
   $('progress-estimate').textContent=percent+'%';
   $('progress-milestone').textContent=percent<35?'Finding your favorites':percent<75?'Your ranking is taking shape':'The final stretch';
   $('progressbar').style.width=percent+'%';$('progress-track').setAttribute('aria-valuenow',percent);
-  $('progress-track').setAttribute('aria-valuetext','At least '+percent+'% complete. Up to '+remaining+' picks remaining.');
+  $('progress-track').setAttribute('aria-valuetext','At least '+percent+'% complete.');
   $('undo').disabled=!state.history?.length;
 }
 const divisionFor = team => TEAM_INFO[team].division || 'AFC North';
