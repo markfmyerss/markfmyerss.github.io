@@ -52,7 +52,7 @@ check('corrupt storage is ignored; blocked writes retain latest in-memory picks'
 });
 check('every player, including legacy saved players and Ioane, resolves an official portrait',()=>{
  const b=boot();assert.equal(b.run("headshotAliases.get(normalizedName('Vega Ioane'))"),'olaivavegaioane');
- const players=b.run('Object.values(ROSTERS).flat()');assert.equal(Object.keys(b.run('TEAM_INFO')).length,28);assert.ok(players.length>1400);
+ const players=b.run('Object.values(ROSTERS).flat()');assert.equal(Object.keys(b.run('TEAM_INFO')).length,32);assert.ok(players.length>1600);
  for(const p of players){const img=b.run('makePortrait('+JSON.stringify(p)+')');assert.equal(img.tagName,'img');const url=new URL(img.src);assert.equal(url.protocol,'https:');assert.ok(['static.clubs.nfl.com','static.www.nfl.com'].includes(url.hostname));assert.ok(!url.href.includes('/t_lazy/'));}
  const img=b.run("makePortrait({id:'BAL-22',name:'Vega Ioane',number:'71',team:'Baltimore Ravens'})");assert.ok(img.src.includes('cic8kmqlhwywlnlv6h5w'));let replacement;img.replaceWith=n=>replacement=n;img.onerror();assert.equal(replacement.className,'fallback');
  assert.equal(b.run("makePortrait({id:'missing',name:'Unknown',number:'?',team:'Baltimore Ravens'}).className"),'fallback');
@@ -95,7 +95,7 @@ check('complete AFC has four divisions, four teams each, and independent West pr
 check('conference switching restores AFC and NFC teams, filters and progress',()=>{
  const b=boot();assert.equal(b.e('conference-picker').children.length,2);assert.equal(b.e('division-picker').children.length,4);
  b.e('team').value='Los Angeles Chargers';b.e('position').value='QB';b.run("selectTeam();start();choose('left')");const afc=b.run('JSON.stringify(state)');
- b.run("selectConference('NFC')");assert.equal(b.e('team').value,'Chicago Bears');assert.equal(b.e('division-picker').children.length,3);assert.equal(b.e('division-picker').children[0].dataset.division,'NFC North');
+ b.run("selectConference('NFC')");assert.equal(b.e('team').value,'Chicago Bears');assert.equal(b.e('division-picker').children.length,4);assert.equal(b.e('division-picker').children[0].dataset.division,'NFC North');
  assert.deepEqual(b.e('team-grid').children.map(x=>x.dataset.team),['Chicago Bears','Detroit Lions','Green Bay Packers','Minnesota Vikings']);
  b.e('team').value='Detroit Lions';b.run("selectTeam();start();choose('right')");const nfc=b.run('JSON.stringify(state)');
  b.run("selectConference('AFC')");assert.equal(b.e('team').value,'Los Angeles Chargers');assert.equal(b.e('division-picker').children.length,4);assert.equal(b.run('JSON.stringify(state)'),afc);
@@ -124,5 +124,20 @@ check('NFC South has four teams and restores its own progress',()=>{
 check('return specialists remain in their offensive and specialist filters',()=>{
  const b=boot();b.e('team').value='New Orleans Saints';
  for(const pos of ['ALL','WR','ST']){b.e('position').value=pos;b.run('selectTeam();start()');assert.equal(b.run("state.players.filter(p=>p.name==='Barion Brown').length"),1);}
+});
+check('complete NFL has 32 teams, two conferences and eight four-team divisions',()=>{
+ const b=boot(),teams=b.run('Object.keys(TEAM_INFO)');assert.equal(teams.length,32);
+ const counts=b.run("Object.values(TEAM_INFO).reduce((r,t)=>(r[t.division]=(r[t.division]||0)+1,r),{})");
+ assert.equal(Object.keys(counts).length,8);assert.ok(Object.values(counts).every(n=>n===4));
+ const saved=new Map();
+ for(const conference of ['AFC','NFC']){
+  b.run('selectConference('+JSON.stringify(conference)+')');assert.equal(b.e('division-picker').children.length,4);
+  const divisions=b.e('division-picker').children.map(x=>x.dataset.division);
+  for(const division of divisions){b.run('selectDivision('+JSON.stringify(division)+');start()');assert.equal(b.e('team-grid').children.length,4);if(!b.run('state.done'))b.run("choose('left')");saved.set(division,b.run('JSON.stringify(state)'));}
+ }
+ for(const [division,state] of saved){b.run('selectDivision('+JSON.stringify(division)+')');assert.equal(b.run('JSON.stringify(state)'),state);}
+ b.e('team').value='Seattle Seahawks';b.e('position').value='QB';b.run("selectTeam();start();choose('right')");const west=b.run('JSON.stringify(state)');
+ b.run("selectConference('AFC');selectConference('NFC')");assert.equal(b.e('team').value,'Seattle Seahawks');assert.equal(b.run('JSON.stringify(state)'),west);
+ const reload=boot(b.storage);assert.equal(reload.e('team').value,'Seattle Seahawks');assert.equal(reload.run('JSON.stringify(state)'),west);
 });
 console.log(`${count} test groups passed`);

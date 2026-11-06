@@ -7,7 +7,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
  assert.equal(await page.locator('.division-button').count(),4);
  assert.equal(await page.locator('.conference-button').count(),2);
- for(const division of ['AFC North','AFC East','AFC South','AFC West','NFC North','NFC East','NFC South']){
+ for(const division of ['AFC North','AFC East','AFC South','AFC West','NFC North','NFC East','NFC South','NFC West']){
   const conference=division.split(' ')[0];await page.locator('.conference-button').filter({hasText:conference}).click();
   await page.locator('.division-button').filter({hasText:division}).click();
   assert.equal(await page.locator('.team-tile').count(),4);
@@ -34,7 +34,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  await fs.mkdir('qa',{recursive:true});
  for(const width of [320,390,768,1440]){
   await page.setViewportSize({width,height:1000});await page.evaluate(()=>scrollTo(0,0));assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'layout overflow '+width);
-  await page.screenshot({path:'qa/nfc-south-'+width+'.png',fullPage:true});console.log('PASS viewport '+width+'px');
+  await page.screenshot({path:'qa/all-32-'+width+'.png',fullPage:true});console.log('PASS viewport '+width+'px');
  }
  assert.deepEqual(errors,[]);console.log('PASS reload and division restoration; no browser errors');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
