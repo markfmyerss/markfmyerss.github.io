@@ -1,11 +1,11 @@
 // Prepare only the new Central Division on GitHub; preserve the published Atlantic snapshot.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const teams={
- CHI:{name:'Chicago Bulls',code:'CHI',nickname:'Bulls',singular:'Bull',nbaId:1610612741,slug:'bulls',primary:'#CE1141',accent:'#000000',highlight:'#ffadb9'},
- CLE:{name:'Cleveland Cavaliers',code:'CLE',nickname:'Cavaliers',singular:'Cavalier',nbaId:1610612739,slug:'cavaliers',primary:'#6F263D',accent:'#FFB81C',highlight:'#FFB81C'},
+ CHI:{name:'Chicago Bulls',code:'CHI',nickname:'Bulls',singular:'Bull',nbaId:1610612741,slug:'bulls',primary:'#CD1F43',accent:'#000000',highlight:'#ffadb9'},
+ CLE:{name:'Cleveland Cavaliers',code:'CLE',nickname:'Cavaliers',singular:'Cavalier',nbaId:1610612739,slug:'cavaliers',primary:'#860038',accent:'#BC945C',highlight:'#e7c79b'},
  DET:{name:'Detroit Pistons',code:'DET',nickname:'Pistons',singular:'Piston',nbaId:1610612765,slug:'pistons',primary:'#C8102E',accent:'#1D428A',highlight:'#ffadb9'},
- IND:{name:'Indiana Pacers',code:'IND',nickname:'Pacers',singular:'Pacer',nbaId:1610612754,slug:'pacers',primary:'#002D62',accent:'#FDBB30',highlight:'#FDBB30'},
- MIL:{name:'Milwaukee Bucks',code:'MIL',nickname:'Bucks',singular:'Buck',nbaId:1610612749,slug:'bucks',primary:'#00471B',accent:'#EEE1C6',highlight:'#b6dfc1'}
+ IND:{name:'Indiana Pacers',code:'IND',nickname:'Pacers',singular:'Pacer',nbaId:1610612754,slug:'pacers',primary:'#0C2340',accent:'#FFD520',highlight:'#FFD520'},
+ MIL:{name:'Milwaukee Bucks',code:'MIL',nickname:'Bucks',singular:'Buck',nbaId:1610612749,slug:'bucks',primary:'#00471A',accent:'#EDE0C5',highlight:'#b6dfc1'}
 };
 function emit(prefix,value){const source=typeof value==='string'?value:JSON.stringify(value);for(let i=0,n=0;i<source.length;i+=8000,n++)console.log(prefix+'_CHUNK_'+String(n).padStart(4,'0')+':'+JSON.stringify(source.slice(i,i+8000)));}
 (async()=>{
