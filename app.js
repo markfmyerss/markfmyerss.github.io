@@ -64,7 +64,7 @@ function applyTheme() {
   globalThis.SiteAppearance?.setTeamColors(c.colors);
   document.body.dataset.team=c.code;
   document.body.dataset.sport=activeSport;
-  $('league-summary').textContent=activeSport==='NFL'?'ALL 32 NFL TEAMS':'NBA · ATLANTIC';
+  $('league-summary').textContent=activeSport==='NFL'?'ALL 32 NFL TEAMS':'NBA · '+divisionFor(team).toUpperCase();
   for(const b of $('sport-picker').children)b.setAttribute('aria-pressed',String(b.dataset.sport===activeSport));
   $('eyebrow').textContent=team+' · Favorites sorter';
   $('question').textContent='Who is your favorite '+c.singular+'?';

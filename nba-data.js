@@ -1248,32 +1248,39 @@ const NBA_ROSTERS = {
 };
 const NBA_HEADSHOTS = {
   "NBA-1628369": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png",
-    "source": "https://www.nba.com/player/1628369/jayson-tatum"
+    "url": "assets/nba/headshots/1628369.png",
+    "source": "https://www.nba.com/player/1628369/jayson-tatum",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1628369.png"
   },
   "NBA-1629011": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629011.png",
-    "source": "https://www.nba.com/player/1629011/mitchell-robinson"
+    "url": "assets/nba/headshots/1629011.png",
+    "source": "https://www.nba.com/player/1629011/mitchell-robinson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629011.png"
   },
   "NBA-1631199": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631199.png",
-    "source": "https://www.nba.com/player/1631199/ron-harper-jr"
+    "url": "assets/nba/headshots/1631199.png",
+    "source": "https://www.nba.com/player/1631199/ron-harper-jr",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631199.png"
   },
   "NBA-1628401": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628401.png",
-    "source": "https://www.nba.com/player/1628401/derrick-white"
+    "url": "assets/nba/headshots/1628401.png",
+    "source": "https://www.nba.com/player/1628401/derrick-white",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1628401.png"
   },
   "NBA-1630202": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630202.png",
-    "source": "https://www.nba.com/player/1630202/payton-pritchard"
+    "url": "assets/nba/headshots/1630202.png",
+    "source": "https://www.nba.com/player/1630202/payton-pritchard",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630202.png"
   },
   "NBA-1643416": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643416.png",
-    "source": "https://www.nba.com/player/1643416/chris-cenac-jr"
+    "url": "assets/nba/headshots/1643416.png",
+    "source": "https://www.nba.com/player/1643416/chris-cenac-jr",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643416.png"
   },
   "NBA-202331": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/202331.png",
-    "source": "https://www.nba.com/player/202331/paul-george"
+    "url": "assets/nba/headshots/202331.png",
+    "source": "https://www.nba.com/player/202331/paul-george",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/202331.png"
   },
   "NBA-1641759": {
     "url": null,
@@ -1282,152 +1289,189 @@ const NBA_HEADSHOTS = {
     "unavailableReason": "Official NBA image endpoints return the same generic placeholder at both checked sizes."
   },
   "NBA-1641775": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641775.png",
-    "source": "https://www.nba.com/player/1641775/jordan-walsh"
+    "url": "assets/nba/headshots/1641775.png",
+    "source": "https://www.nba.com/player/1641775/jordan-walsh",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641775.png"
   },
   "NBA-1642864": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642864.png",
-    "source": "https://www.nba.com/player/1642864/hugo-gonzalez"
+    "url": "assets/nba/headshots/1642864.png",
+    "source": "https://www.nba.com/player/1642864/hugo-gonzalez",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642864.png"
   },
   "NBA-1630573": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630573.png",
-    "source": "https://www.nba.com/player/1630573/sam-hauser"
+    "url": "assets/nba/headshots/1630573.png",
+    "source": "https://www.nba.com/player/1630573/sam-hauser",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630573.png"
   },
   "NBA-201144": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/201144.png",
-    "source": "https://www.nba.com/player/201144/mike-conley"
+    "url": "assets/nba/headshots/201144.png",
+    "source": "https://www.nba.com/player/201144/mike-conley",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/201144.png"
   },
   "NBA-1630568": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630568.png",
-    "source": "https://www.nba.com/player/1630568/luka-garza"
+    "url": "assets/nba/headshots/1630568.png",
+    "source": "https://www.nba.com/player/1630568/luka-garza",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630568.png"
   },
   "NBA-1631248": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631248.png",
-    "source": "https://www.nba.com/player/1631248/baylor-scheierman"
+    "url": "assets/nba/headshots/1631248.png",
+    "source": "https://www.nba.com/player/1631248/baylor-scheierman",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631248.png"
   },
   "NBA-1642873": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642873.png",
-    "source": "https://www.nba.com/player/1642873/amari-williams"
+    "url": "assets/nba/headshots/1642873.png",
+    "source": "https://www.nba.com/player/1642873/amari-williams",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642873.png"
   },
   "NBA-1629674": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629674.png",
-    "source": "https://www.nba.com/player/1629674/neemias-queta"
+    "url": "assets/nba/headshots/1629674.png",
+    "source": "https://www.nba.com/player/1629674/neemias-queta",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629674.png"
   },
   "NBA-1642269": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642269.png",
-    "source": "https://www.nba.com/player/1642269/devin-carter"
+    "url": "assets/nba/headshots/1642269.png",
+    "source": "https://www.nba.com/player/1642269/devin-carter",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642269.png"
   },
   "NBA-1631169": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631169.png",
-    "source": "https://www.nba.com/player/1631169/josh-minott"
+    "url": "assets/nba/headshots/1631169.png",
+    "source": "https://www.nba.com/player/1631169/josh-minott",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631169.png"
   },
   "NBA-1643414": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643414.png",
-    "source": "https://www.nba.com/player/1643414/mikel-brown-jr"
+    "url": "assets/nba/headshots/1643414.png",
+    "source": "https://www.nba.com/player/1643414/mikel-brown-jr",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643414.png"
   },
   "NBA-1631165": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631165.png",
-    "source": "https://www.nba.com/player/1631165/keon-ellis"
+    "url": "assets/nba/headshots/1631165.png",
+    "source": "https://www.nba.com/player/1631165/keon-ellis",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631165.png"
   },
   "NBA-1642874": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642874.png",
-    "source": "https://www.nba.com/player/1642874/danny-wolf"
+    "url": "assets/nba/headshots/1642874.png",
+    "source": "https://www.nba.com/player/1642874/danny-wolf",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642874.png"
   },
   "NBA-1642962": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642962.png",
-    "source": "https://www.nba.com/player/1642962/drake-powell"
+    "url": "assets/nba/headshots/1642962.png",
+    "source": "https://www.nba.com/player/1642962/drake-powell",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642962.png"
   },
   "NBA-1642856": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642856.png",
-    "source": "https://www.nba.com/player/1642856/egor-demin"
+    "url": "assets/nba/headshots/1642856.png",
+    "source": "https://www.nba.com/player/1642856/egor-demin",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642856.png"
   },
   "NBA-1643538": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643538.png",
-    "source": "https://www.nba.com/player/1643538/joshua-jefferson"
+    "url": "assets/nba/headshots/1643538.png",
+    "source": "https://www.nba.com/player/1643538/joshua-jefferson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643538.png"
   },
   "NBA-1642849": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642849.png",
-    "source": "https://www.nba.com/player/1642849/nolan-traore"
+    "url": "assets/nba/headshots/1642849.png",
+    "source": "https://www.nba.com/player/1642849/nolan-traore",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642849.png"
   },
   "NBA-1629021": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629021.png",
-    "source": "https://www.nba.com/player/1629021/moritz-wagner"
+    "url": "assets/nba/headshots/1629021.png",
+    "source": "https://www.nba.com/player/1629021/moritz-wagner",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629021.png"
   },
   "NBA-1629611": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629611.png",
-    "source": "https://www.nba.com/player/1629611/terance-mann"
+    "url": "assets/nba/headshots/1629611.png",
+    "source": "https://www.nba.com/player/1629611/terance-mann",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629611.png"
   },
   "NBA-1641761": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641761.png",
-    "source": "https://www.nba.com/player/1641761/grant-nelson"
+    "url": "assets/nba/headshots/1641761.png",
+    "source": "https://www.nba.com/player/1641761/grant-nelson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641761.png"
   },
   "NBA-1629008": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629008.png",
-    "source": "https://www.nba.com/player/1629008/michael-porter-jr"
+    "url": "assets/nba/headshots/1629008.png",
+    "source": "https://www.nba.com/player/1629008/michael-porter-jr",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629008.png"
   },
   "NBA-1630549": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630549.png",
-    "source": "https://www.nba.com/player/1630549/dayron-sharpe"
+    "url": "assets/nba/headshots/1630549.png",
+    "source": "https://www.nba.com/player/1630549/dayron-sharpe",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630549.png"
   },
   "NBA-1641730": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641730.png",
-    "source": "https://www.nba.com/player/1641730/noah-clowney"
+    "url": "assets/nba/headshots/1641730.png",
+    "source": "https://www.nba.com/player/1641730/noah-clowney",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641730.png"
   },
   "NBA-203944": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/203944.png",
-    "source": "https://www.nba.com/player/203944/julius-randle"
+    "url": "assets/nba/headshots/203944.png",
+    "source": "https://www.nba.com/player/203944/julius-randle",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/203944.png"
   },
   "NBA-1643052": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643052.png",
-    "source": "https://www.nba.com/player/1643052/chaney-johnson"
+    "url": "assets/nba/headshots/1643052.png",
+    "source": "https://www.nba.com/player/1643052/chaney-johnson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643052.png"
   },
   "NBA-1643548": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643548.png",
-    "source": "https://www.nba.com/player/1643548/tyler-bilodeau"
+    "url": "assets/nba/headshots/1643548.png",
+    "source": "https://www.nba.com/player/1643548/tyler-bilodeau",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643548.png"
   },
   "NBA-1642879": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642879.png",
-    "source": "https://www.nba.com/player/1642879/ben-saraf"
+    "url": "assets/nba/headshots/1642879.png",
+    "source": "https://www.nba.com/player/1642879/ben-saraf",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642879.png"
   },
   "NBA-203083": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/203083.png",
-    "source": "https://www.nba.com/player/203083/andre-drummond"
+    "url": "assets/nba/headshots/203083.png",
+    "source": "https://www.nba.com/player/203083/andre-drummond",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/203083.png"
   },
   "NBA-203903": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/203903.png",
-    "source": "https://www.nba.com/player/203903/jordan-clarkson"
+    "url": "assets/nba/headshots/203903.png",
+    "source": "https://www.nba.com/player/203903/jordan-clarkson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/203903.png"
   },
   "NBA-1642261": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642261.png",
-    "source": "https://www.nba.com/player/1642261/dalton-knecht"
+    "url": "assets/nba/headshots/1642261.png",
+    "source": "https://www.nba.com/player/1642261/dalton-knecht",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642261.png"
   },
   "NBA-1630540": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630540.png",
-    "source": "https://www.nba.com/player/1630540/miles-mcbride"
+    "url": "assets/nba/headshots/1630540.png",
+    "source": "https://www.nba.com/player/1630540/miles-mcbride",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630540.png"
   },
   "NBA-1628404": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628404.png",
-    "source": "https://www.nba.com/player/1628404/josh-hart"
+    "url": "assets/nba/headshots/1628404.png",
+    "source": "https://www.nba.com/player/1628404/josh-hart",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1628404.png"
   },
   "NBA-1642359": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642359.png",
-    "source": "https://www.nba.com/player/1642359/pacome-dadiet"
+    "url": "assets/nba/headshots/1642359.png",
+    "source": "https://www.nba.com/player/1642359/pacome-dadiet",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642359.png"
   },
   "NBA-1630631": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630631.png",
-    "source": "https://www.nba.com/player/1630631/jose-alvarado"
+    "url": "assets/nba/headshots/1630631.png",
+    "source": "https://www.nba.com/player/1630631/jose-alvarado",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630631.png"
   },
   "NBA-1628384": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628384.png",
-    "source": "https://www.nba.com/player/1628384/og-anunoby"
+    "url": "assets/nba/headshots/1628384.png",
+    "source": "https://www.nba.com/player/1628384/og-anunoby",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1628384.png"
   },
   "NBA-1628973": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628973.png",
-    "source": "https://www.nba.com/player/1628973/jalen-brunson"
+    "url": "assets/nba/headshots/1628973.png",
+    "source": "https://www.nba.com/player/1628973/jalen-brunson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1628973.png"
   },
   "NBA-1642278": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642278.png",
-    "source": "https://www.nba.com/player/1642278/tyler-kolek"
+    "url": "assets/nba/headshots/1642278.png",
+    "source": "https://www.nba.com/player/1642278/tyler-kolek",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642278.png"
   },
   "NBA-1643022": {
     "url": null,
@@ -1436,163 +1480,203 @@ const NBA_HEADSHOTS = {
     "unavailableReason": "Official NBA image endpoints return the same generic placeholder at both checked sizes."
   },
   "NBA-1628969": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628969.png",
-    "source": "https://www.nba.com/player/1628969/mikal-bridges"
+    "url": "assets/nba/headshots/1628969.png",
+    "source": "https://www.nba.com/player/1628969/mikal-bridges",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1628969.png"
   },
   "NBA-1626157": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626157.png",
-    "source": "https://www.nba.com/player/1626157/karl-anthony-towns"
+    "url": "assets/nba/headshots/1626157.png",
+    "source": "https://www.nba.com/player/1626157/karl-anthony-towns",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1626157.png"
   },
   "NBA-1630164": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630164.png",
-    "source": "https://www.nba.com/player/1630164/james-wiseman"
+    "url": "assets/nba/headshots/1630164.png",
+    "source": "https://www.nba.com/player/1630164/james-wiseman",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630164.png"
   },
   "NBA-1629013": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629013.png",
-    "source": "https://www.nba.com/player/1629013/landry-shamet"
+    "url": "assets/nba/headshots/1629013.png",
+    "source": "https://www.nba.com/player/1629013/landry-shamet",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629013.png"
   },
   "NBA-1642885": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642885.png",
-    "source": "https://www.nba.com/player/1642885/mohamed-diawara"
+    "url": "assets/nba/headshots/1642885.png",
+    "source": "https://www.nba.com/player/1642885/mohamed-diawara",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642885.png"
   },
   "NBA-1643589": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643589.png",
-    "source": "https://www.nba.com/player/1643589/tyler-nickel"
+    "url": "assets/nba/headshots/1643589.png",
+    "source": "https://www.nba.com/player/1643589/tyler-nickel",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643589.png"
   },
   "NBA-1630178": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630178.png",
-    "source": "https://www.nba.com/player/1630178/tyrese-maxey"
+    "url": "assets/nba/headshots/1630178.png",
+    "source": "https://www.nba.com/player/1630178/tyrese-maxey",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630178.png"
   },
   "NBA-1642889": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642889.png",
-    "source": "https://www.nba.com/player/1642889/labaron-philon-jr"
+    "url": "assets/nba/headshots/1642889.png",
+    "source": "https://www.nba.com/player/1642889/labaron-philon-jr",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642889.png"
   },
   "NBA-203484": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/203484.png",
-    "source": "https://www.nba.com/player/203484/kentavious-caldwell-pope"
+    "url": "assets/nba/headshots/203484.png",
+    "source": "https://www.nba.com/player/203484/kentavious-caldwell-pope",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/203484.png"
   },
   "NBA-1629014": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629014.png",
-    "source": "https://www.nba.com/player/1629014/anfernee-simons"
+    "url": "assets/nba/headshots/1629014.png",
+    "source": "https://www.nba.com/player/1629014/anfernee-simons",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629014.png"
   },
   "NBA-1627759": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1627759.png",
-    "source": "https://www.nba.com/player/1627759/jaylen-brown"
+    "url": "assets/nba/headshots/1627759.png",
+    "source": "https://www.nba.com/player/1627759/jaylen-brown",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1627759.png"
   },
   "NBA-1631126": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631126.png",
-    "source": "https://www.nba.com/player/1631126/caleb-love"
+    "url": "assets/nba/headshots/1631126.png",
+    "source": "https://www.nba.com/player/1631126/caleb-love",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631126.png"
   },
   "NBA-1642348": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642348.png",
-    "source": "https://www.nba.com/player/1642348/justin-edwards"
+    "url": "assets/nba/headshots/1642348.png",
+    "source": "https://www.nba.com/player/1642348/justin-edwards",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642348.png"
   },
   "NBA-1641712": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641712.png",
-    "source": "https://www.nba.com/player/1641712/rayan-rupert"
+    "url": "assets/nba/headshots/1641712.png",
+    "source": "https://www.nba.com/player/1641712/rayan-rupert",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641712.png"
   },
   "NBA-203954": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/203954.png",
-    "source": "https://www.nba.com/player/203954/joel-embiid"
+    "url": "assets/nba/headshots/203954.png",
+    "source": "https://www.nba.com/player/203954/joel-embiid",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/203954.png"
   },
   "NBA-2544": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png",
-    "source": "https://www.nba.com/player/2544/lebron-james"
+    "url": "assets/nba/headshots/2544.png",
+    "source": "https://www.nba.com/player/2544/lebron-james",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/2544.png"
   },
   "NBA-1631230": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631230.png",
-    "source": "https://www.nba.com/player/1631230/dominick-barlow"
+    "url": "assets/nba/headshots/1631230.png",
+    "source": "https://www.nba.com/player/1631230/dominick-barlow",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631230.png"
   },
   "NBA-1641737": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641737.png",
-    "source": "https://www.nba.com/player/1641737/adem-bona"
+    "url": "assets/nba/headshots/1641737.png",
+    "source": "https://www.nba.com/player/1641737/adem-bona",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641737.png"
   },
   "NBA-1631133": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631133.png",
-    "source": "https://www.nba.com/player/1631133/jabari-walker"
+    "url": "assets/nba/headshots/1631133.png",
+    "source": "https://www.nba.com/player/1631133/jabari-walker",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631133.png"
   },
   "NBA-1629731": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629731.png",
-    "source": "https://www.nba.com/player/1629731/dean-wade"
+    "url": "assets/nba/headshots/1629731.png",
+    "source": "https://www.nba.com/player/1629731/dean-wade",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629731.png"
   },
   "NBA-1630574": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630574.png",
-    "source": "https://www.nba.com/player/1630574/ariel-hukporti"
+    "url": "assets/nba/headshots/1630574.png",
+    "source": "https://www.nba.com/player/1630574/ariel-hukporti",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630574.png"
   },
   "NBA-1642845": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642845.png",
-    "source": "https://www.nba.com/player/1642845/vj-edgecombe"
+    "url": "assets/nba/headshots/1642845.png",
+    "source": "https://www.nba.com/player/1642845/vj-edgecombe",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642845.png"
   },
   "NBA-1629605": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629605.png",
-    "source": "https://www.nba.com/player/1629605/tacko-fall"
+    "url": "assets/nba/headshots/1629605.png",
+    "source": "https://www.nba.com/player/1629605/tacko-fall",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629605.png"
   },
   "NBA-1642347": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642347.png",
-    "source": "https://www.nba.com/player/1642347/jamal-shead"
+    "url": "assets/nba/headshots/1642347.png",
+    "source": "https://www.nba.com/player/1642347/jamal-shead",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642347.png"
   },
   "NBA-202695": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/202695.png",
-    "source": "https://www.nba.com/player/202695/kawhi-leonard"
+    "url": "assets/nba/headshots/202695.png",
+    "source": "https://www.nba.com/player/202695/kawhi-leonard",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/202695.png"
   },
   "NBA-1630567": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630567.png",
-    "source": "https://www.nba.com/player/1630567/scottie-barnes"
+    "url": "assets/nba/headshots/1630567.png",
+    "source": "https://www.nba.com/player/1630567/scottie-barnes",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630567.png"
   },
   "NBA-1630193": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630193.png",
-    "source": "https://www.nba.com/player/1630193/immanuel-quickley"
+    "url": "assets/nba/headshots/1630193.png",
+    "source": "https://www.nba.com/player/1630193/immanuel-quickley",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1630193.png"
   },
   "NBA-1643558": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643558.png",
-    "source": "https://www.nba.com/player/1643558/jaden-bradley"
+    "url": "assets/nba/headshots/1643558.png",
+    "source": "https://www.nba.com/player/1643558/jaden-bradley",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643558.png"
   },
   "NBA-1629628": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629628.png",
-    "source": "https://www.nba.com/player/1629628/rj-barrett"
+    "url": "assets/nba/headshots/1629628.png",
+    "source": "https://www.nba.com/player/1629628/rj-barrett",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1629628.png"
   },
   "NBA-1641755": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641755.png",
-    "source": "https://www.nba.com/player/1641755/kevin-mccullar-jr"
+    "url": "assets/nba/headshots/1641755.png",
+    "source": "https://www.nba.com/player/1641755/kevin-mccullar-jr",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641755.png"
   },
   "NBA-1642927": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642927.png",
-    "source": "https://www.nba.com/player/1642927/nate-bittle"
+    "url": "assets/nba/headshots/1642927.png",
+    "source": "https://www.nba.com/player/1642927/nate-bittle",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642927.png"
   },
   "NBA-203937": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/203937.png",
-    "source": "https://www.nba.com/player/203937/kyle-anderson"
+    "url": "assets/nba/headshots/203937.png",
+    "source": "https://www.nba.com/player/203937/kyle-anderson",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/203937.png"
   },
   "NBA-1642266": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642266.png",
-    "source": "https://www.nba.com/player/1642266/jakobe-walter"
+    "url": "assets/nba/headshots/1642266.png",
+    "source": "https://www.nba.com/player/1642266/jakobe-walter",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642266.png"
   },
   "NBA-1641869": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641869.png",
-    "source": "https://www.nba.com/player/1641869/malachi-smith"
+    "url": "assets/nba/headshots/1641869.png",
+    "source": "https://www.nba.com/player/1641869/malachi-smith",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1641869.png"
   },
   "NBA-1627751": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1627751.png",
-    "source": "https://www.nba.com/player/1627751/jakob-poeltl"
+    "url": "assets/nba/headshots/1627751.png",
+    "source": "https://www.nba.com/player/1627751/jakob-poeltl",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1627751.png"
   },
   "NBA-1643512": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643512.png",
-    "source": "https://www.nba.com/player/1643512/allen-graves"
+    "url": "assets/nba/headshots/1643512.png",
+    "source": "https://www.nba.com/player/1643512/allen-graves",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1643512.png"
   },
   "NBA-1642867": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642867.png",
-    "source": "https://www.nba.com/player/1642867/collin-murray-boyles"
+    "url": "assets/nba/headshots/1642867.png",
+    "source": "https://www.nba.com/player/1642867/collin-murray-boyles",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642867.png"
   },
   "NBA-1631218": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631218.png",
-    "source": "https://www.nba.com/player/1631218/trayce-jackson-davis"
+    "url": "assets/nba/headshots/1631218.png",
+    "source": "https://www.nba.com/player/1631218/trayce-jackson-davis",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1631218.png"
   },
   "NBA-1642918": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642918.png",
-    "source": "https://www.nba.com/player/1642918/alijah-martin"
+    "url": "assets/nba/headshots/1642918.png",
+    "source": "https://www.nba.com/player/1642918/alijah-martin",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642918.png"
   },
   "NBA-1642419": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642419.png",
-    "source": "https://www.nba.com/player/1642419/jamison-battle"
+    "url": "assets/nba/headshots/1642419.png",
+    "source": "https://www.nba.com/player/1642419/jamison-battle",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/260x190/1642419.png"
   }
 };

@@ -3,6 +3,8 @@ on:
   push:
     paths-ignore:
       - 'scripts/prepare-nba-atlantic.cjs'
+      - 'scripts/prepare-nba-images.cjs'
+      - '.github/workflows/nba-images.yml'
       - '.github/workflows/nba-snapshot.yml'
       - 'assets/link-preview.html'
       - 'scripts/render-link-preview.cjs'

@@ -50,6 +50,11 @@ const ids=new Set();for(const p of players){
  assert.ok(!ids.has(p.id));ids.add(p.id);assert.equal(p.id,'NBA-'+p.nbaId);
  assert.ok(p.positions.every(v=>['G','F','C'].includes(v)));
  assert.ok(p.positions.includes(p.position));
- const url=oracle.run('NBA_HEADSHOTS['+JSON.stringify(p.id)+'].url');if(url)assert.equal(new URL(url).hostname,'cdn.nba.com');
+ const url=oracle.run('NBA_HEADSHOTS['+JSON.stringify(p.id)+'].url');if(url){assert.equal(url,'assets/nba/headshots/'+p.nbaId+'.png');const image=fs.readFileSync(__dirname+'/'+url);assert.equal(image.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.equal(image.readUInt32BE(16),260);assert.equal(image.readUInt32BE(20),190);}
 }
 console.log('PASS 86 official NBA player IDs, hybrid position grouping and official portrait source hosts');
+
+const manifest=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/manifest.json','utf8'));
+assert.equal(manifest.portraits.length,84);assert.equal(manifest.fallbacks.length,2);
+for(const item of manifest.portraits){assert.equal(new URL(item.url).hostname,'cdn.nba.com');assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+item.path)).digest('hex'),item.sha256);}
+console.log('PASS 84 unmodified NBA portrait assets match their official-source hashes; two generic profiles use jersey fallbacks');

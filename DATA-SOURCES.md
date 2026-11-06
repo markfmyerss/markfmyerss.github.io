@@ -96,7 +96,7 @@ Cards are generated in the visitor’s browser without uploading rankings. Mobil
 
 Unmodified team logos load directly from the same NFL static logo service used on NFL team pages: `https://static.www.nfl.com/t_q-best/league/api/clubs/logos/{code}`. The Rams use `LA` and Washington uses `WAS`; ranking/save identifiers remain unchanged. Examples: [Ravens](https://www.nfl.com/teams/baltimore-ravens/), [Rams](https://www.nfl.com/teams/los-angeles-rams/), [Commanders](https://www.nfl.com/teams/washington-commanders/).
 
-The image loader uses anonymous CORS requests so a failed or restricted logo cannot taint the export canvas. If unavailable, plain team initials appear without a placeholder box. Logos are not bundled or altered. Logos and marks remain the property of the NFL and the respective teams; no independent redistribution license or team endorsement has been established.
+The image loader uses anonymous CORS requests so a failed or restricted logo cannot taint the export canvas. If unavailable, plain team initials appear without a placeholder box. NFL logo files are not bundled or altered; NBA logo assets are described below. Logos and marks remain the property of the NFL and the respective teams; no independent redistribution license or team endorsement has been established.
 
 ## GitHub-only development and validation
 
@@ -118,7 +118,7 @@ Official NBA.com team-page structured roster snapshots, verified November 6, 202
 
 Player IDs, jersey numbers, names and G/F/C positions come directly from `props.pageProps.team.roster`. Hybrid labels such as F-G and C-F are retained on cards and included in both relevant filters, without duplicates in All.
 
-Headshots use NBA.com player profiles and `https://cdn.nba.com/headshots/nba/latest/1040x760/{playerId}.png`. All 86 endpoints were checked. 84 returned distinct portrait images; Dillon Mitchell (1641759) and Jaden Akins (1643022) returned the same generic image at both 1040×760 and 260×190. Their entries keep the source and original URL for traceability but disable the generic image, showing a jersey fallback instead.
+Headshot identities were verified against NBA.com player profiles and the official 1040×760 endpoints. For reliable display and browser image exports, 84 unmodified official 260×190 PNG thumbnails are hosted in `assets/nba/headshots/`; their NBA source URLs and SHA-256 hashes are recorded in `assets/nba/headshots/manifest.json`. All 86 original endpoints were checked. 84 returned distinct portrait images; Dillon Mitchell (1641759) and Jaden Akins (1643022) returned the same generic image at both 1040×760 and 260×190. Their entries keep the source and original URL for traceability but disable the generic image, showing a jersey fallback instead.
 
 The five unmodified NBA logo SVGs are hosted in `assets/nba/logos/` for reliable same-origin image exports. They were retrieved on GitHub from `https://cdn.nba.com/logos/nba/{teamId}/primary/L/logo.svg`. Primary/secondary palette values follow the visible colors in those official NBA logo assets: Celtics green/gold (#008348/#BB9753), Nets black/white, Knicks blue/orange (#1D428A/#F58426), 76ers blue/red (#1D428A/#C8102E) and Raptors red/black (#BC2126/#000000). Brighter highlights are used for readability.
 
