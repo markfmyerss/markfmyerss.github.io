@@ -29,3 +29,11 @@ The mobile preview is a real PNG image with iOS image callouts enabled. Save ima
 exports.js generates images in the visitor’s browser without uploading rankings or adding production dependencies. CORS-restricted or unavailable portraits fall back to jerseys. Development files, browser installations, screenshots and test downloads remain on GitHub.
 
 export-check.cjs checks all 27 desktop size/encoding combinations, image completeness, real downloads, ZIP CRCs and responsive controls. mobile-export-check.cjs checks the simplified flow using iPhone emulation in Chromium and WebKit, PNG data, native-share invocation, press-and-hold fallback, cancellation, pagination and viewport changes. The actual iOS Photos share sheet requires a physical-device check and is not automated.
+
+## Link previews
+
+The root and legacy link include Open Graph metadata and X large-image card tags in their initial HTML. Both use the same static 1200×630 PNG at /assets/link-preview-v1.png, with @markfm18 creator attribution.
+
+Artwork source is assets/link-preview.html. The Render link preview workflow produces the PNG on GitHub; the reviewed binary is then committed so crawlers can load it without JavaScript or external fonts/logo requests. Preview caches are controlled by the messaging/social platform; changing a previously shared preview may take time.
+
+Metadata follows the [Open Graph protocol](https://ogp.me/) and [Apple's guidance for rich links](https://developer.apple.com/videos/play/tech-talks/205/). Platform rendering can vary; no X post or text message is sent by the checks.
