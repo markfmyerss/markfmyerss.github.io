@@ -34,6 +34,30 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'controls overflow '+width);
   }
  }
+
+ // Primary/secondary brand colors must drive team identity rather than light UI highlights.
+ const expected={
+  'New York Giants':['#0B2265','#A71930'],
+  'Philadelphia Eagles':['#004C54','#A5ACAF'],
+  'Detroit Lions':['#0076B6','#B0B7BC']
+ };
+ const backgrounds=[];
+ for(const [team,colors] of Object.entries(expected)){
+  await page.selectOption('#team',team);
+  await page.mouse.move(0,0);
+  const tile=page.locator('.team-tile[aria-pressed=true]');
+  const actual=await tile.evaluate(el=>{
+   const style=getComputedStyle(el);
+   return {primary:style.getPropertyValue('--tile-primary').trim(),accent:style.getPropertyValue('--tile-accent').trim(),background:style.backgroundImage,rail:getComputedStyle(el,'::before').backgroundImage};
+  });
+  assert.deepEqual([actual.primary,actual.accent],colors);
+  assert.match(actual.background,/linear-gradient/);
+  assert.match(actual.rail,/linear-gradient/);
+  backgrounds.push(actual.background);
+ }
+ assert.equal(new Set(backgrounds).size,3,'Giants, Eagles and Lions need distinct selection fills');
+ await page.selectOption('#team','Baltimore Ravens');
+ console.log('PASS distinct Giants, Eagles and Lions brand-color selections');
  await checkControls();
  await page.click('#start');
  await checkControls();

@@ -163,3 +163,18 @@ html #sort .progress-milestone{font-size:.75rem;color:#c2c9d3;margin:2px 0 8px}
  .results-share{align-items:stretch}
  #share-ranking{width:100%}
 }
+
+/* Team identity uses brand colors; pale highlights remain reserved for readable text. */
+html .team-tile:before{
+ width:6px;inset:0 auto 0 0;border-radius:0;
+ background:linear-gradient(to bottom,var(--tile-primary) 0 70%,var(--tile-accent) 70% 100%);
+}
+html .team-tile[aria-pressed=true]{
+ background:linear-gradient(125deg,color-mix(in srgb,var(--tile-primary) 72%,#25313f),#25313f);
+ border-color:var(--tile-color);
+ box-shadow:inset 0 -3px var(--tile-accent),0 8px 24px #0b11191c;
+}
+@media(hover:hover){
+ html .team-tile:hover{background:color-mix(in srgb,var(--tile-primary) 28%,#273340)}
+ html .team-tile[aria-pressed=true]:hover{background:linear-gradient(125deg,color-mix(in srgb,var(--tile-primary) 80%,#25313f),#2c3948)}
+}

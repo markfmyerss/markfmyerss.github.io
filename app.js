@@ -147,6 +147,8 @@ const conferenceKey = conference => 'nfl-sorter-last-conference-team:'+conferenc
 function teamButton(team,info) {
  const b=document.createElement('button');b.className='team-tile';b.dataset.team=team;
  b.style.setProperty('--tile-color',info.colors.highlight);
+ b.style.setProperty('--tile-primary',info.colors.primary);
+ b.style.setProperty('--tile-accent',info.colors.accent);
  const code=document.createElement('span');code.className='team-code';code.textContent=info.code;
  const name=document.createElement('strong');name.textContent=info.nickname;
  const status=document.createElement('small');b.append(code,name,status);
