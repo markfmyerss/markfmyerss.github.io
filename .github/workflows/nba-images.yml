@@ -1,23 +1,28 @@
-name: Prepare NBA portrait assets
+name: Verify live NBA Atlantic
 on:
   push:
-    paths:
-      - 'scripts/prepare-nba-images.cjs'
-      - '.github/workflows/nba-images.yml'
-  workflow_dispatch:
+    paths: ['.github/workflows/nba-images.yml']
 permissions:
   contents: read
 jobs:
-  portraits:
+  live:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    strategy:
-      fail-fast: false
-      matrix:
-        team: [BOS, BKN, NYK, PHI, TOR]
+    timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/prepare-nba-images.cjs "${{ matrix.team }}"
+      - name: Verify live site and NBA assets
+        run: |
+          node <<'NODE'
+          const base='https://markfmyerss.github.io/';
+          (async()=>{
+           const r=await fetch(base+'?verify=atlantic-f1ee9865',{signal:AbortSignal.timeout(20000)}),html=await r.text();
+           console.log('PUBLIC_SITE '+JSON.stringify({status:r.status,nbaScript:html.includes('nba-data.js'),sportTabs:html.includes('sport-picker'),modified:r.headers.get('last-modified')}));
+           if(!r.ok||!html.includes('nba-data.js')||!html.includes('sport-picker'))throw Error('Atlantic HTML not public yet');
+           for(const path of ['nba-data.js','assets/nba/headshots/1628369.png','assets/nba/logos/BOS.svg','assets/link-preview-v2.png']){
+            const image=await fetch(new URL(path,base),{signal:AbortSignal.timeout(20000)});console.log('PUBLIC_ASSET '+path+' '+image.status+' '+image.headers.get('content-type'));if(!image.ok)throw Error('Missing deployed asset '+path);
+           }
+           console.log('PASS ATLANTIC LIVE: sport tabs, NBA snapshot, portrait, team logo and sharing image are publicly accessible');
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          NODE
