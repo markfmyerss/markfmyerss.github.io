@@ -1,8 +1,10 @@
 /* Dim retains the Fresh design. Light and Lights Out override its surface colors. */
-.appearance-bar{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:0 0 24px;font-size:.7rem}
+.header-topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header-topline>.kicker{white-space:nowrap}
+.appearance-bar{display:flex;align-items:center;flex-shrink:0;margin:0;font-size:.65rem}
 .appearance-label{color:#b7c2d0}
-.appearance-options{display:flex;gap:2px;padding:3px;border:1px solid #ffffff25;border-radius:14px;background:#18202a}
-html .appearance-option{min-height:44px;padding:10px;font-size:.72rem;border-radius:10px;background:transparent;color:#bdc7d4;white-space:nowrap}
+.appearance-options{display:flex;gap:2px;padding:2px;border:1px solid #ffffff25;border-radius:10px;background:#18202a}
+html .appearance-option{min-height:28px;padding:4px 8px;font-size:.65rem;border-radius:7px;background:transparent;color:#bdc7d4;white-space:nowrap}
 html .appearance-option[aria-pressed=true]{background:#344252;color:#fff;border-color:#ffffff25}
 html .appearance-option:enabled:hover{transform:none}
 html[data-appearance=light]{color-scheme:light;background:#f5f1e8;color:#232b36}
@@ -98,4 +100,5 @@ html[data-appearance=black] .export-preview-wrap{background:#000}
  html[data-appearance=black] .player:hover{background:#111;border-color:var(--highlight)}
  html[data-appearance=black] .team-tile:hover{background:color-mix(in srgb,var(--tile-primary) 22%,#080808)}
 }
-@media(max-width:380px){.appearance-bar{gap:8px;justify-content:space-between}html .appearance-option{padding:10px 8px}}
+@media(min-width:761px){html header .edition{top:auto;bottom:35px}}
+@media(max-width:380px){.header-topline{gap:8px}html .appearance-option{padding:4px 6px;font-size:.6rem}}

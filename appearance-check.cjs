@@ -13,6 +13,15 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
    const page=await browser.newPage({viewport:{width:390,height:1000}}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
    assert.equal(await page.locator('html').getAttribute('data-appearance'),'dim');
+   for(const width of [320,390,768,1440]){
+    await page.setViewportSize({width,height:1000});
+    const row=await page.locator('.header-topline').evaluate(el=>{
+     const a=el.querySelector('.kicker').getBoundingClientRect(),b=el.querySelector('.appearance-bar').getBoundingClientRect();
+     return {centers:Math.abs((a.top+a.height/2)-(b.top+b.height/2)),gap:b.left-a.right,height:b.height};
+    });
+    assert.ok(row.centers<1&&row.gap>=8&&row.height<=36,'compact inline appearance controls '+width);
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   }
    await page.click('#start');await page.click('#left');
    const saved=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([k])=>k.startsWith('nfl-sorter-v3:'))));
    for(const mode of ['light','black','dim']){
