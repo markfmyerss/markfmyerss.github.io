@@ -196,3 +196,5 @@ html .results-spotlight .builder-credit{margin:0 0 18px}
 body[data-sport=NBA] #team-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media(max-width:1000px){body[data-sport=NBA] #team-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){#sport-picker{max-width:none}body[data-sport=NBA] #team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-sport=NBA] #team-grid .team-tile:last-child{grid-column:1/-1}}
+
+@media(max-width:600px){body[data-sport=NBA] #division-picker .division-button:last-child:nth-child(odd){grid-column:1/-1}}

@@ -1,11 +1,11 @@
 // Prepare only the new Southeast Division on GitHub; preserve the published Atlantic snapshot.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const teams={
- ATL:{name:'Atlanta Hawks',code:'ATL',nickname:'Hawks',singular:'Hawk',nbaId:1610612737,slug:'hawks',primary:'#E03A3E',accent:'#C1D32F',highlight:'#ffb0b4'},
- CHA:{name:'Charlotte Hornets',code:'CHA',nickname:'Hornets',singular:'Hornet',nbaId:1610612766,slug:'hornets',primary:'#1D1160',accent:'#00788C',highlight:'#82d8dc'},
- MIA:{name:'Miami Heat',code:'MIA',nickname:'Heat',singular:'Heat player',nbaId:1610612748,slug:'heat',primary:'#98002E',accent:'#F9A01B',highlight:'#ffc879'},
- ORL:{name:'Orlando Magic',code:'ORL',nickname:'Magic',singular:'Magic player',nbaId:1610612753,slug:'magic',primary:'#0077C0',accent:'#C4CED4',highlight:'#9ed7ff'},
- WAS:{name:'Washington Wizards',code:'WAS',nickname:'Wizards',singular:'Wizard',nbaId:1610612764,slug:'wizards',primary:'#002B5C',accent:'#E31837',highlight:'#a9c9ff'}
+ ATL:{name:'Atlanta Hawks',code:'ATL',nickname:'Hawks',singular:'Hawk',nbaId:1610612737,slug:'hawks',primary:'#E03A3E',accent:'#FFFFFF',highlight:'#ffb0b4'},
+ CHA:{name:'Charlotte Hornets',code:'CHA',nickname:'Hornets',singular:'Hornet',nbaId:1610612766,slug:'hornets',primary:'#00788C',accent:'#1D1160',highlight:'#82d8dc'},
+ MIA:{name:'Miami Heat',code:'MIA',nickname:'Heat',singular:'Heat player',nbaId:1610612748,slug:'heat',primary:'#961A31',accent:'#F9A11E',highlight:'#ffc879'},
+ ORL:{name:'Orlando Magic',code:'ORL',nickname:'Magic',singular:'Magic player',nbaId:1610612753,slug:'magic',primary:'#0050B5',accent:'#061922',highlight:'#9ed7ff'},
+ WAS:{name:'Washington Wizards',code:'WAS',nickname:'Wizards',singular:'Wizard',nbaId:1610612764,slug:'wizards',primary:'#002B5C',accent:'#E21936',highlight:'#a9c9ff'}
 };
 function emit(prefix,value){const source=typeof value==='string'?value:JSON.stringify(value);for(let i=0,n=0;i<source.length;i+=8000,n++)console.log(prefix+'_CHUNK_'+String(n).padStart(4,'0')+':'+JSON.stringify(source.slice(i,i+8000)));}
 (async()=>{

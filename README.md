@@ -5,7 +5,7 @@ Pick your favorite players in pairs, then share your personal ranking.
 Live: https://markfmyerss.github.io/
 
 - NFL: all 32 teams, with the existing November 5, 2026 active-roster snapshots.
-- NBA: Eastern Conference, Atlantic and Central divisions — 10 teams and 173 roster players verified November 6, 2026.
+- NBA: the full Eastern Conference — 15 teams and 261 roster players across Atlantic, Central and Southeast, verified November 6, 2026.
 - Sport, conference, division, team and position selection; separate saved rankings for every team/filter.
 - Light, Dim and Lights Out appearances; team-primary favorite buttons, headshots, undo and keyboard picks.
 - Featured top three and complete rankings saved in a single image at every export size.
@@ -27,10 +27,12 @@ Root and legacy links include Open Graph and X large-image metadata in their ini
 
 ## Sources and development
 
-[DATA-SOURCES.md](DATA-SOURCES.md) records roster sources, snapshot dates, official image sources, palette references and rights limitations. Rosters are snapshots, not live transaction feeds. Two NBA profiles currently return a generic official placeholder and use jersey cards: Dillon Mitchell and Jaden Akins.
+[DATA-SOURCES.md](DATA-SOURCES.md) records roster sources, snapshot dates, official image sources, palette references and rights limitations. Rosters are snapshots, not live transaction feeds. Three NBA profiles currently return a generic official placeholder and use jersey cards: Dillon Mitchell, Jaden Akins and Henri Veesaar.
 
 All preparation, browser dependencies, screenshots and test downloads run on GitHub. NBA snapshot preparation and preview rendering use read-only workflows and produce reviewable artifacts; neither workflow pushes changes. No source or development dependencies are downloaded to the owner's Mac.
 
-Checks cover existing NFL functionality plus NBA sport switching, all 40 NBA team/filter rankings, save isolation, appearance persistence, responsive cards, official logos, headshots/fallbacks and all image-export sizes.
+Checks cover existing NFL functionality plus NBA sport switching, all 60 NBA team/filter rankings, save isolation, appearance persistence, responsive cards, official logos, headshots/fallbacks and all image-export sizes.
 
 Central adds the Bulls, Cavaliers, Pistons, Pacers and Bucks. Its additive data file preserves the published Atlantic snapshot and all existing save keys.
+
+Southeast adds the Hawks, Hornets, Heat, Magic and Wizards through another additive data file, preserving NFL, Atlantic and Central source files and existing progress.

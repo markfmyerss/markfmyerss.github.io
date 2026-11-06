@@ -145,3 +145,21 @@ All 87 listed Central players have distinct official 260×190 PNG portraits, hos
 The five unmodified official NBA logo SVGs are hosted in `assets/nba/logos/`. Primary/secondary colors follow their visible NBA logo assets: Bulls red/black (#CD1F43/#000000), Cavaliers wine/gold (#860038/#BC945C), Pistons red/blue (#C8102E/#1D428A), Pacers navy/yellow (#0C2340/#FFD520), and Bucks green/cream (#00471A/#EDE0C5). Brighter UI highlights preserve text contrast.
 
 The shared G/F/C filter rules and NBA save namespace apply to both divisions. Cleveland, Detroit and Indianapolis NBA codes remain isolated from the NFL teams using CLE, DET and IND. Rights and snapshot limitations above continue to apply.
+
+## NBA — Eastern Conference, Southeast Division
+
+Verified November 6, 2026 (America/New_York). Additive records in `nba-southeast-data.js` complete the 15-team Eastern Conference; NFL, Atlantic and Central source files are unchanged.
+
+| Team | Roster players | Official source | Team ID |
+| --- | ---: | --- | --- |
+| Atlanta Hawks | 18 | https://www.nba.com/team/1610612737/hawks | 1610612737 |
+| Charlotte Hornets | 18 | https://www.nba.com/team/1610612766/hornets | 1610612766 |
+| Miami Heat | 17 | https://www.nba.com/team/1610612748/heat | 1610612748 |
+| Orlando Magic | 17 | https://www.nba.com/team/1610612753/magic | 1610612753 |
+| Washington Wizards | 18 | https://www.nba.com/team/1610612764/wizards | 1610612764 |
+
+The 88 listed Southeast players include 87 distinct official 260×190 PNG portraits hosted in `assets/nba/headshots/`. Source URLs and SHA-256 hashes are recorded in `southeast-manifest.json`. Henri Veesaar (1643539) returns the same generic official placeholder as the previously identified missing profiles and uses a jersey card instead.
+
+Five unmodified official NBA logo SVGs are hosted in `assets/nba/logos/`. Palette values follow their visible colors: Hawks red/white (#E03A3E/#FFFFFF), Hornets teal/purple (#00788C/#1D1160), Heat red/gold (#961A31/#F9A11E), Magic blue/ink (#0050B5/#061922), and Wizards navy/red (#002B5C/#E21936). Brighter UI highlights preserve readability.
+
+The shared NBA G/F/C filters, single-image exports and save namespace apply to Southeast. ATL and MIA are isolated from NFL teams using those codes. Image ownership, availability and snapshot limitations above continue to apply.
