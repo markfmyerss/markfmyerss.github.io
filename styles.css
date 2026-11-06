@@ -44,7 +44,7 @@
 @media(max-width:600px){#conference-picker{width:100%;gap:8px}.conference-button{flex:1;min-width:0}}
 
 /* Fresh: permanent visual design. */
-html{font-family:'DM Sans',system-ui,sans-serif;background:#171c24}
+ :root{font-family:'DM Sans',system-ui,sans-serif;background:#171c24}
 html body{
  background:radial-gradient(ellipse 115% 850px at 100% 0%,color-mix(in srgb,var(--primary) 16%,#232a34) 0%,#1b222c 48%,#151b23 100%);
  color:#f5f2e9;
