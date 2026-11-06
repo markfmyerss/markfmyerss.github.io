@@ -1,7 +1,7 @@
 name: Prepare NBA Atlantic snapshot
 on:
   push:
-    paths: ['scripts/probe-nba.cjs', '.github/workflows/nba-snapshot.yml']
+    paths: ['scripts/prepare-nba-atlantic.cjs', '.github/workflows/nba-snapshot.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/probe-nba.cjs
+      - run: node scripts/prepare-nba-atlantic.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
