@@ -184,6 +184,7 @@ html .pick-label{background:var(--primary);color:var(--pick-ink,#fff);border:1px
 
 /* A quiet creator credit stays visible in the full and compact headers. */
 html .builder-credit{font-size:.72rem;line-height:1.5;font-weight:400;letter-spacing:.02em;color:#aab4c0;margin:16px 0 0}
-html .builder-credit span{color:#c4cdd8;font-weight:600}
+html .builder-credit a{color:#c4cdd8;font-weight:600;text-decoration:none}
+html .builder-credit a:hover,html .builder-credit a:focus-visible{text-decoration:underline;text-underline-offset:3px}
 
 html .results-spotlight .builder-credit{margin:0 0 18px}
