@@ -178,3 +178,6 @@ html .team-tile[aria-pressed=true]{
  html .team-tile:hover{background:color-mix(in srgb,var(--tile-primary) 28%,#273340)}
  html .team-tile[aria-pressed=true]:hover{background:linear-gradient(125deg,color-mix(in srgb,var(--tile-primary) 80%,#25313f),#2c3948)}
 }
+
+/* Favorite actions use the team's exact primary color with contrasting text. */
+html .pick-label{background:var(--primary);color:var(--pick-ink,#fff);border:1px solid #ffffff26}

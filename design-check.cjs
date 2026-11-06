@@ -78,6 +78,16 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    if(await page.locator('#start').isVisible())await page.click('#start');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'team overflow '+team+' '+width);
    assert.match(await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundImage),/radial-gradient/);
+   const contrast=await page.locator('#left .pick-label').evaluate(el=>{
+    const css=getComputedStyle(el),hex=TEAM_INFO[document.getElementById('team').value].colors.primary;
+    const expected='rgb('+hex.slice(1).match(/../g).map(v=>parseInt(v,16)).join(', ')+')';
+    const lum=color=>color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((n,v,i)=>n+v*[.2126,.7152,.0722][i],0);
+    const bg=lum(css.backgroundColor),fg=lum(css.color);
+    return {background:css.backgroundColor,expected,ratio:(Math.max(bg,fg)+.05)/(Math.min(bg,fg)+.05)};
+   });
+   assert.equal(contrast.background,contrast.expected,'primary pick color '+team);
+   assert.ok(contrast.ratio>=4.5,'readable pick label '+team);
+
   }
   await page.evaluate(()=>scrollTo(0,0));
   await page.screenshot({path:'qa/design-fresh-'+width+'.png',fullPage:true});
@@ -94,6 +104,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  assert.ok(await normal.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
  console.log('PASS balanced control heights, spacing and alignment at 320/390/768/1024/1440 before and during sorting');
+ console.log('PASS all 32 teams use primary-colored favorite buttons with at least 4.5:1 text contrast');
  console.log('PASS permanent Fresh design despite old preferences; rankings preserved; 32 team layouts at 320/390/768/1440; font fallback; reduced motion');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});

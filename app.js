@@ -36,10 +36,19 @@ function makePortrait(p, small=false) {
   const img=document.createElement('img');img.alt=p.name+' headshot';img.loading=small?'lazy':'eager';img.decoding='async';img.referrerPolicy='no-referrer';
   img.onerror=()=>img.replaceWith(makeFallback(p,small));img.src=url;return img;
 }
+function primaryTextColor(hex) {
+  const channels=hex.replace('#','').match(/../g).map(part=>{
+    const value=parseInt(part,16)/255;
+    return value<=.04045?value/12.92:((value+.055)/1.055)**2.4;
+  });
+  const luminance=.2126*channels[0]+.7152*channels[1]+.0722*channels[2];
+  return luminance>.179?'#000000':'#FFFFFF';
+}
 function applyTheme() {
   renderTeamPicker();
   const team=$('team').value, c=TEAM_INFO[team];
   for(const [key,value] of Object.entries(c.colors))document.documentElement.style.setProperty('--'+key,value);
+  document.documentElement.style.setProperty('--pick-ink',primaryTextColor(c.colors.primary));
   document.body.dataset.team=c.code;
   $('eyebrow').textContent=team+' · Favorites sorter';
   $('question').textContent='Who is your favorite '+c.singular+'?';
