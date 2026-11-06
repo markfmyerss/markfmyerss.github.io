@@ -1,0 +1,23 @@
+name: Prepare NBA portrait assets
+on:
+  push:
+    paths:
+      - 'scripts/prepare-nba-images.cjs'
+      - '.github/workflows/nba-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  portraits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        team: [BOS, BKN, NYK, PHI, TOR]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/prepare-nba-images.cjs "${{ matrix.team }}"
