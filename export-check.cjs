@@ -17,6 +17,24 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
   assert.ok(await page.locator('#export-pages').isHidden());assert.ok(await page.locator('#export-all').isHidden());
   console.log('PASS completed ranking previews one image without automatic downloads or pagination');
 
+  const logos=await page.evaluate(async()=>{
+   const sources=[],original=CanvasRenderingContext2D.prototype.drawImage;
+   CanvasRenderingContext2D.prototype.drawImage=function(image,...args){
+    if(image.src?.includes('/clubs/logos/'))sources.push(image.src);
+    return original.call(this,image,...args);
+   };
+   try{
+    for(const team of Object.keys(TEAM_INFO)){
+     const image=await ResultsExport.createImage({team,pos:'ALL',players:ROSTERS[team].slice(0,1)},{size:'1x1',type:'png',scope:'all'});
+     if(!image.logoIncluded)throw Error('Official logo unavailable with anonymous CORS: '+team+' '+ResultsExport.logoUrl(team));
+     const bitmap=await createImageBitmap(image.blob);bitmap.close();
+    }
+   }finally{CanvasRenderingContext2D.prototype.drawImage=original;}
+   if(sources.length!==32||new Set(sources).size!==32)throw Error('Each team needs its own logo drawn');
+   if(!sources.some(s=>s.endsWith('/LA'))||!sources.some(s=>s.endsWith('/WAS')))throw Error('Incorrect official logo code aliases');
+   return sources.length;
+  });
+  assert.equal(logos,32);console.log('PASS all 32 official NFL logos load anonymously, are drawn and encode safely in PNG');
   const layout=await page.evaluate(()=>{
    let count=0;
    for(const [team,players] of Object.entries(ROSTERS))for(const size of ResultsExport.SIZES)for(const scope of ['all','10','25']){
@@ -42,6 +60,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
     const options={size:size.id,type,scope:'all'},drawn=[],credits=[],original=CanvasRenderingContext2D.prototype.fillText;
     CanvasRenderingContext2D.prototype.fillText=function(value,x,y,max){
      if(result.players.some(p=>p.name===value)){
+      if(!this.font.includes('DM Sans')||this.font.includes('Barlow'))throw Error('Export player names must use smooth DM Sans typography');
       if(this.measureText(value).width>max+.5)throw Error('Name does not fit '+value+' '+size.id);
       drawn.push(value);
      }
@@ -52,6 +71,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
     const bitmap=await createImageBitmap(image.blob);
     if(bitmap.width!==size.width||bitmap.height!==size.height)throw Error('Wrong dimensions '+size.id);
     if(image.blob.type!==ResultsExport.TYPES[type].mime||image.blob.size<2000)throw Error('Wrong/empty encoding');
+    if(!image.logoIncluded)throw Error('Missing logo in '+size.id+' '+type);
     if(image.pages!==1||JSON.stringify(image.players)!==JSON.stringify(result.players.map(p=>p.id)))throw Error('Incomplete ranking');
     if(JSON.stringify(drawn)!==JSON.stringify(result.players.map(p=>p.name)))throw Error('Missing, repeated or reordered names');
     if(credits.length!==1)throw Error('Missing creator credit');
@@ -92,10 +112,10 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    const drawn=[],original=CanvasRenderingContext2D.prototype.fillText;
    CanvasRenderingContext2D.prototype.fillText=function(value,...args){if(result.players.some(p=>p.name===value))drawn.push(value);return original.call(this,value,...args);};
    let image;try{image=await ResultsExport.createImage(result,{size:'link',type:'png',scope:'all'});}finally{CanvasRenderingContext2D.prototype.fillText=original;}
-   return {missing:image.missingPhotos,count:result.players.length,drawn,expected:result.players.map(p=>p.name),pages:image.pages};
+   return {missing:image.missingPhotos,count:result.players.length,drawn,expected:result.players.map(p=>p.name),pages:image.pages,logoIncluded:image.logoIncluded};
   });
-  assert.equal(blocked.missing,blocked.count);assert.equal(blocked.pages,1);assert.deepEqual(blocked.drawn,blocked.expected);await fallback.close();
-  console.log('PASS missing photos and blocked fonts retain the full ranking in one image');
+  assert.equal(blocked.missing,blocked.count);assert.equal(blocked.pages,1);assert.equal(blocked.logoIncluded,false);assert.deepEqual(blocked.drawn,blocked.expected);await fallback.close();
+  console.log('PASS unavailable logos, missing photos and blocked fonts retain the full ranking in one image');
 
   const cancel=await browser.newPage();await cancel.route(/https:\/\/static\.(?:clubs|www)\.nfl\.com\/.*/,async route=>{await new Promise(r=>setTimeout(r,800));await route.abort();});await cancel.goto(url);
   await cancel.evaluate(()=>{ResultsExport.setResults({team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens']});document.getElementById('export-preview').click();ResultsExport.setResults(null);});

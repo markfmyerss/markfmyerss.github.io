@@ -86,12 +86,18 @@ Rams color names and RGB values are documented in their [official media guide](h
 
 ## Export behavior
 
-Desktop offers nine image sizes, PNG/JPG/WebP, All/Top 10/Top 25 and individual-page or ZIP downloads. Mobile offers only 1:1, 3:4, 4:5 and 9:16, automatic PNG, All/Top 10/Top 25 and individual page saving; file format and ZIP controls are hidden and disabled.
+Every selected ranking fits in one image using featured top-three cards and adaptive columns. Desktop offers nine sizes, PNG/JPG/WebP and All/Top 10/Top 25. Mobile offers 1:1, 3:4, 4:5 and 9:16, automatic PNG and the same ranges. Pagination and ZIP controls stay hidden. Dense formats use smaller text; full player names are retained.
 
 Cards are generated in the visitor’s browser without uploading rankings. Mobile uses a ready PNG file for native sharing and a real PNG preview for press-and-hold saving. Actual iPhone Photos menus still need physical-device validation. Missing or CORS-restricted portraits use jerseys. Generating a card does not confer additional image rights.
+
+## Team logos in exported images
+
+Unmodified team logos load directly from the same NFL static logo service used on NFL team pages: `https://static.www.nfl.com/t_q-best/league/api/clubs/logos/{code}`. The Rams use `LA` and Washington uses `WAS`; ranking/save identifiers remain unchanged. Examples: [Ravens](https://www.nfl.com/teams/baltimore-ravens/), [Rams](https://www.nfl.com/teams/los-angeles-rams/), [Commanders](https://www.nfl.com/teams/washington-commanders/).
+
+The image loader uses anonymous CORS requests so a failed or restricted logo cannot taint the export canvas. If unavailable, plain team initials appear without a placeholder box. Logos are not bundled or altered. Logos and marks remain the property of the NFL and the respective teams; no independent redistribution license or team endorsement has been established.
 
 ## GitHub-only development and validation
 
 Roster retrieval, source preparation, checks, browser dependencies, test downloads and screenshots remain on GitHub. The workflow has read-only repository access and cannot commit or push. Generated source is reviewed before committing through repository tools. No site files or development dependencies are downloaded to the user’s Mac.
 
-Passing checks cover 320 team/position combinations, all 1,685 image URLs, both conferences and all eight divisions, state isolation and migration, undo, multi-position players, every team’s browser flow, all NFC mobile PNG exports, four viewport sizes, desktop’s 27 size/encoding variants, ZIP validity, and mobile Chromium/WebKit saving, fallback and cancellation.
+Passing checks cover 320 team/position combinations, all 1,685 image URLs, both conferences and all eight divisions, state isolation and migration, undo, multi-position players, every team’s browser flow, all NFC mobile PNG exports, four viewport sizes, desktop’s 27 size/encoding variants, complete single-image layouts, all 32 team logos, and mobile Chromium/WebKit saving, fallback and cancellation.
