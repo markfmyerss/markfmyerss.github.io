@@ -19,7 +19,7 @@ check('all teams and position filters produce the chosen preference order',()=>{
     b.e('team').value=team;b.e('position').value=pos;b.run('selectTeam();start()');
     let picks=0;while(!b.run('state.done')){
       // Prefer reverse alphabetic order: independent oracle for the final result.
-      b.run("{const f=state.stack.at(-1);choose(f.left[f.i].name.localeCompare(f.right[f.j].name)>0?'left':'right')}");assert.ok(++picks<500);
+      b.run("{const bound=remainingPicks(),f=state.stack.at(-1);choose(f.left[f.i].name.localeCompare(f.right[f.j].name)>0?'left':'right');if(remainingPicks()>bound-1)throw Error('Remaining-pick bound must decrease with every pick')}");assert.ok(++picks<500);
     }
     const actual=JSON.parse(b.run('JSON.stringify(state.sorted.map(p=>p.name))'));
     const expected=[...actual].sort((a,b)=>b.localeCompare(a));assert.deepEqual(actual,expected,team+' '+pos);

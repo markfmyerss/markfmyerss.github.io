@@ -60,10 +60,42 @@ function mergeNext() {
     f.out.push(...f.left.slice(f.i),...f.right.slice(f.j));state.stack.pop();if(state.stack.length)receive(f.out);else finish(f.out);
   }
 }
+
+function remainingPicks() {
+  if(!state||state.done)return 0;
+  const worst=n=>n<2?0:n*Math.ceil(Math.log2(n))-2**Math.ceil(Math.log2(n))+1;
+  return state.stack.reduce((total,f)=>{
+    const n=f.items.length;
+    if(f.stage===0)return total+worst(n);
+    if(f.stage===1)return total+worst(n-Math.floor(n/2))+Math.max(0,n-1);
+    if(!f.right)return total+Math.max(0,n-1);
+    const left=f.left.length-f.i,right=f.right.length-f.j;
+    return total+(left&&right?left+right-1:0);
+  },0);
+}
+function animateNextMatch() {
+  if(!state||state.done||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return;
+  for(const id of ['left','right']){
+    const card=$(id);
+    card.getAnimations?.().forEach(a=>a.cancel());
+    card.animate?.([{opacity:.6},{opacity:1}],{duration:160,easing:'ease-out'});
+  }
+}
+function renderTopThree() {
+  $('top-three').replaceChildren(...state.sorted.slice(0,3).map((p,i)=>{
+    const card=document.createElement('li');card.className='podium-card';
+    const photo=document.createElement('div');photo.className='podium-photo';photo.append(makePortrait(p));
+    const place=document.createElement('span');place.className='podium-place';place.textContent=i===0?'YOUR #1':'#'+(i+1);
+    const name=document.createElement('strong');name.className='podium-name';name.textContent=p.name;
+    const meta=document.createElement('span');meta.className='podium-meta';meta.textContent=(p.rosterPosition||p.position)+' · #'+p.number;
+    card.append(photo,place,name,meta);return card;
+  }));
+}
+
 function choose(side) {
   if(!state||state.done||!['left','right'].includes(side))return;
   state.history=state.history||[];state.history.push(JSON.stringify({...state,history:[]}));if(state.history.length>100)state.history.shift();
-  const f=state.stack.at(-1);f.out.push(side==='left'?f.left[f.i++]:f.right[f.j++]);state.comparisons++;mergeNext();
+  const f=state.stack.at(-1);f.out.push(side==='left'?f.left[f.i++]:f.right[f.j++]);state.comparisons++;mergeNext();animateNextMatch();
 }
 function start() {
   if(state)return;
@@ -84,11 +116,13 @@ function renderPlayer(id,p) {
   body.append(meta,name,team,pick);b.append(photo,body);
 }
 function render() {
+  document.body.dataset.view=!state?'intro':state.done?'results':'sorting';
   applyTheme();$('intro').hidden=!!state;$('sort').hidden=!state||!!state.done;$('results').hidden=!state?.done;
   $('start').hidden=!!state;$('reset').disabled=!state;
   globalThis.ResultsExport?.setResults(state?.done?{team:state.team,pos:state.pos,players:state.sorted}:null);
   if(!state)return;
   if(state.done){
+    renderTopThree();
     $('rankings').replaceChildren(...state.sorted.map((p,i)=>{
       const d=document.createElement('li');d.className='rank';
       const number=document.createElement('span');number.className='rank-num';number.textContent=String(i+1).padStart(2,'0');
@@ -98,10 +132,14 @@ function render() {
   }
   const f=state.stack.at(-1);if(!f||!f.right||f.i>=f.left.length||f.j>=f.right.length)return;
   renderPlayer('left',f.left[f.i]);renderPlayer('right',f.right[f.j]);
-  const n=state.players.length, max=n*Math.ceil(Math.log2(n))-2**Math.ceil(Math.log2(n))+1;
-  const percent=Math.min(99,Math.round(100*state.comparisons/Math.max(1,max)));
-  $('progress').textContent=`${state.comparisons} picks made · ${n} players · Up to ${Math.max(0,max-state.comparisons)} picks remaining`;
-  $('progressbar').style.width=percent+'%';$('progress-track').setAttribute('aria-valuenow',percent);$('undo').disabled=!state.history?.length;
+  const remaining=remainingPicks();
+  const percent=Math.min(99,Math.floor(100*state.comparisons/Math.max(1,state.comparisons+remaining)));
+  $('progress').textContent=`${state.comparisons} picks made · ${state.players.length} players · Up to ${remaining} picks remaining · At least ${percent}% complete`;
+  $('progress-estimate').textContent=percent+'%';
+  $('progress-milestone').textContent=percent<35?'Finding your favorites':percent<75?'Your ranking is taking shape':'The final stretch';
+  $('progressbar').style.width=percent+'%';$('progress-track').setAttribute('aria-valuenow',percent);
+  $('progress-track').setAttribute('aria-valuetext','At least '+percent+'% complete. Up to '+remaining+' picks remaining.');
+  $('undo').disabled=!state.history?.length;
 }
 const divisionFor = team => TEAM_INFO[team].division || 'AFC North';
 const conferenceFor = team => divisionFor(team).split(' ')[0];
@@ -152,6 +190,10 @@ try{const old=JSON.parse(read('nfl-sorter-ravens-v2'));if(!read('nfl-sorter-lega
 state=stored($('team').value,$('position').value);
 $('team').onchange=selectTeam;$('position').onchange=selectTeam;$('start').onclick=start;$('reset').onclick=reset;
 $('left').onclick=()=>choose('left');$('right').onclick=()=>choose('right');$('undo').onclick=undo;$('undo-result').onclick=undo;
+$('share-ranking').onclick=()=>{
+  $('export-heading').focus({preventScroll:true});
+  $('export-panel').scrollIntoView({behavior:globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'instant':'smooth',block:'start'});
+};
 $('again').onclick=()=>{reset();if(!state)start();};
 $('copy').onclick=async()=>{if(!state?.done)return;const s=`My ${state.team} favorites (${state.pos})\n`+state.sorted.map((p,i)=>`${i+1}. ${p.name} (${p.position})`).join('\n');try{await navigator.clipboard.writeText(s);$('copy-status').textContent='Rankings copied.';}catch{$('copy-text').value=s;$('copy-text').hidden=false;$('copy-text').focus();$('copy-text').select();$('copy-status').textContent='Select and copy the rankings below.';}};
 document.addEventListener('keydown',e=>{if(e.target.closest?.('input,select,textarea')||e.altKey)return;if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){if(state?.history?.length){e.preventDefault();undo();}return;}if(!state||state.done||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowLeft'){e.preventDefault();choose('left');}if(e.key==='ArrowRight'){e.preventDefault();choose('right');}});
