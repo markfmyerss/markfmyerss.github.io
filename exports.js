@@ -22,16 +22,38 @@
   for(const size of (mobile?SIZES.slice(0,4):SIZES))$('export-size').add(new Option(mobile?size.label:size.label+' · '+size.width+'×'+size.height,size.id));
   $('export-size').value=(mobile?SIZES.slice(0,4):SIZES).some(s=>s.id===selected)?selected:'1x1';
   $('export-type-field').hidden=mobile;$('export-panel').classList.toggle('mobile-export',mobile);
-  $('export-intro').textContent=mobile?'Choose an image size and how many players to include.':'Create a post, story or landscape card. Long rankings become readable pages.';
-  $('export-note').textContent=mobile?'Create your image, then tap Save image or touch and hold it. Long rankings are saved one page at a time.':'Images are created in your browser. Nothing is uploaded. Downloads start only when you choose a download button. If a photo cannot be included, its jersey number appears instead.';
+  $('export-intro').textContent=mobile?'Choose a size and range. Every name fits in one image.':'One complete ranking image, in any size. Choose All, Top 10 or Top 25.';
+  $('export-note').textContent=mobile?'Create your image, then tap Save image or touch and hold it. Your entire selected ranking fits in one image.':'Your selected ranking fits in one image. Dense rankings use smaller text. Images are created in your browser; unavailable photos use jersey numbers.';
  }
  function plan(result,options){
-  const size=SIZES.find(s=>s.id===options.size)||SIZES[0],W=1080,H=size.height*W/size.width,columns=size.width/size.height>=1.25?2:1;
-  const header=columns===2?188:246,footer=columns===2?64:72;
-  const rows=Math.max(1,Math.min(size.height/size.width>1.2?12:10,Math.floor((H-header-footer)/76))),capacity=rows*columns;
+  const size=SIZES.find(s=>s.id===options.size)||SIZES[0],W=1080,H=size.height*W/size.width;
   const limit=options.scope==='all'?result.players.length:Number(options.scope);
   const players=result.players.slice(0,Math.min(result.players.length,limit||result.players.length));
-  return {size,W,H,columns,header,footer,rows,capacity,players,pages:Math.max(1,Math.ceil(players.length/capacity))};
+  const wide=W/H>=1.25,pad=wide?42:48,gutter=wide?14:16,header=wide?112:172,footer=wide?58:72;
+  const featured=Math.min(3,players.length),rest=players.slice(featured),boxes=[];
+  const base=wide?76:Math.max(62,Math.min(players.length<=3?160:100,H*.067));
+  let y=header;
+  if(wide){
+   const width=(W-2*pad-gutter*(featured-1))/Math.max(1,featured);
+   for(let i=0;i<featured;i++)boxes.push({x:pad+i*(width+gutter),y,width,height:base,featured:true});
+   y+=base+18;
+  }else{
+   for(let i=0;i<featured;i++){const height=base*[1.12,1,.9][i];boxes.push({x:pad,y,width:W-2*pad,height,featured:true});y+=height+8;}
+   y+=10;
+  }
+  const available=Math.max(1,H-footer-y),longest=Math.max(12,...rest.map(p=>p.name.length));
+  let best={score:-1,columns:1,rows:Math.max(1,rest.length),width:W-2*pad,rowHeight:available};
+  for(let columns=1;columns<=Math.min(6,Math.max(1,rest.length));columns++){
+   const rows=Math.ceil(rest.length/columns)||1,width=(W-2*pad-gutter*(columns-1))/columns,rowHeight=available/rows;
+   const photo=Math.max(12,Math.min(40,rowHeight-10)),rank=rowHeight<30?24:30,textWidth=width-photo-rank-24;
+   const score=Math.min(26,Math.max(8,(rowHeight-4)*.68),textWidth/(longest*.45));
+   if(score>best.score)best={score,columns,rows,width,rowHeight};
+  }
+  rest.forEach((p,i)=>{
+   const column=Math.floor(i/best.rows),row=i%best.rows;
+   boxes.push({x:pad+column*(best.width+gutter),y:y+row*best.rowHeight,width:best.width,height:best.rowHeight-4,featured:false});
+  });
+  return {size,W,H,pad,header,footer,columns:best.columns,rows:best.rows,capacity:players.length,players,pages:1,boxes};
  }
  function loadPhoto(player){
   const url=HEADSHOTS[player.id]?.url;if(!url)return Promise.resolve(null);
@@ -46,52 +68,70 @@
  function rect(ctx,x,y,w,h,r,fill,stroke){
   ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();}
  }
- function text(ctx,value,x,y,max,font,color,weight=600,align='left'){
-  let n=font;ctx.textAlign=align;
-  do{ctx.font=weight+' '+n+'px system-ui,-apple-system,sans-serif';if(ctx.measureText(value).width<=max||n<=12)break;n--;}while(n>12);
+ function text(ctx,value,x,y,max,font,color,weight=600,align='left',condensed=false){
+  let n=Math.max(8,Math.floor(font));ctx.textAlign=align;
+  const family=condensed?'"Barlow Condensed","Arial Narrow",sans-serif':'"DM Sans",system-ui,-apple-system,sans-serif';
+  do{ctx.font=weight+' '+n+'px '+family;if(ctx.measureText(value).width<=max||n<=8)break;n--;}while(n>=8);
   ctx.fillStyle=color;ctx.fillText(value,x,y,max);ctx.textAlign='left';
+ }
+ function blend(a,b,amount){
+  const rgb=hex=>hex.replace('#','').match(/../g).map(n=>parseInt(n,16));
+  const aa=rgb(a),bb=rgb(b);
+  return '#'+aa.map((v,i)=>Math.round(v*(1-amount)+bb[i]*amount).toString(16).padStart(2,'0')).join('');
  }
  async function createImage(result,options,index=0){
   if(!result?.players?.length||!TEAM_INFO[result.team])throw Error('Finish a ranking first.');
-  const p=plan(result,options);if(index<0||index>=p.pages)throw Error('Invalid result page.');
-  const type=TYPES[options.type]||TYPES.png,info=TEAM_INFO[result.team],colors=info.colors;
+  if(index!==0)throw Error('The whole ranking fits in one image.');
+  // Use the site's distinctive fonts when available; full names also fit with fallback fonts.
+  if(document.fonts)await Promise.all([
+   document.fonts.load('700 24px "Barlow Condensed"'),document.fonts.load('500 16px "DM Sans"')
+  ]).catch(()=>{});
+  const p=plan(result,options),type=TYPES[options.type]||TYPES.png,info=TEAM_INFO[result.team],colors=info.colors;
   const canvas=document.createElement('canvas');canvas.width=p.size.width;canvas.height=p.size.height;
   const ctx=canvas.getContext('2d');if(!ctx)throw Error('Image export is unavailable in this browser.');
   ctx.scale(p.size.width/p.W,p.size.width/p.W);
-  const bg=ctx.createLinearGradient(0,0,p.W,p.H);bg.addColorStop(0,'#191b25');bg.addColorStop(1,'#090a10');ctx.fillStyle=bg;ctx.fillRect(0,0,p.W,p.H);
-  const glow=ctx.createRadialGradient(p.W,0,0,p.W,0,p.W);glow.addColorStop(0,colors.primary);glow.addColorStop(1,'#10111800');ctx.save();ctx.globalAlpha=.5;ctx.fillStyle=glow;ctx.fillRect(0,0,p.W,p.H);ctx.restore();
-  const wide=p.columns===2,pad=56,top=wide?34:48;
-  rect(ctx,pad,top-10,58,5,2,colors.highlight);
-  text(ctx,info.code+'  /  '+(info.division||'NFL'),pad+76,top,450,15,colors.highlight,800);
-  text(ctx,'NFL FAVORITES SORTER',p.W-pad,top,300,12,'#d0d2dc',700,'right');
-  text(ctx,result.team,pad,wide?82:105,p.W-2*pad,wide?34:43,'#fff',800);
-  text(ctx,'My favorites.',pad,wide?132:178,p.W-2*pad,wide?49:73,'#fff',850);
-  const scope=p.players.length<result.players.length?'Top '+p.players.length+' of '+result.players.length:'All '+p.players.length+' ranked players';
-  text(ctx,(result.pos==='ALL'?'All positions':result.pos)+'  ·  '+scope,pad,wide?163:216,p.W-2*pad,wide?17:20,'#c0c4d1',500);
-  const start=index*p.capacity,items=p.players.slice(start,start+p.capacity),photos=await Promise.all(items.map(loadPhoto));
-  const gutter=24,columnWidth=(p.W-pad*2-gutter*(p.columns-1))/p.columns,rowHeight=(p.H-p.header-p.footer)/p.rows;
+  const paper='#f4f0e6',ink='#19232c',brandInk=blend(colors.primary,'#101820',.3),wide=p.W/p.H>=1.25,pad=p.pad;
+  ctx.fillStyle=paper;ctx.fillRect(0,0,p.W,p.H);
+  const badge=wide?60:88,top=wide?22:30;
+  rect(ctx,pad,top,badge,badge,14,colors.primary);
+  text(ctx,info.code,pad+badge/2,top+badge*.64,badge-12,wide?25:35,'#fff',800,'center',true);
+  const titleX=pad+badge+22,titleWidth=p.W-pad-titleX;
+  text(ctx,'MY RANKING',titleX,top+12,titleWidth,12,brandInk,700);
+  text(ctx,result.team,titleX,top+(wide?44:57),titleWidth,wide?37:52,brandInk,800,'left',true);
+  const scope=p.players.length<result.players.length?'Top '+p.players.length+' of '+result.players.length:'All '+p.players.length+' players';
+  text(ctx,(result.pos==='ALL'?'All positions':result.pos)+' · '+scope,titleX,top+(wide?65:84),titleWidth,wide?13:16,'#58606a',500);
+  ctx.fillStyle=colors.primary;ctx.fillRect(0,p.header-22,p.W,6);
+  ctx.fillStyle=colors.accent;ctx.fillRect(0,p.header-12,p.W,4);
+  const photos=await Promise.all(p.players.map(loadPhoto));
   let missingPhotos=0;
-  items.forEach((player,i)=>{
-   const column=Math.floor(i/p.rows),row=i%p.rows,x=pad+column*(columnWidth+gutter),y=p.header+row*rowHeight,w=columnWidth,h=rowHeight-8,rank=start+i+1;
-   rect(ctx,x,y,w,h,12,rank<=3?'#ffffff0e':'#ffffff06',rank===1?colors.highlight:'#ffffff12');
-   const mid=y+h/2,rankWidth=wide?42:53,photoSize=Math.min(wide?56:80,h-16),photoX=x+rankWidth+16,photoY=mid-photoSize/2;
-   text(ctx,String(rank).padStart(2,'0'),x+14,mid+9,rankWidth-10,wide?23:28,rank<=3?colors.highlight:'#aeb4c4',800);
-   ctx.save();ctx.beginPath();ctx.arc(photoX+photoSize/2,mid,photoSize/2,0,Math.PI*2);ctx.clip();ctx.fillStyle='#232632';ctx.fillRect(photoX,photoY,photoSize,photoSize);
-   if(photos[i]){const image=photos[i],scale=Math.min(photoSize/image.naturalWidth,photoSize/image.naturalHeight),iw=image.naturalWidth*scale,ih=image.naturalHeight*scale;ctx.drawImage(image,photoX+(photoSize-iw)/2,photoY+(photoSize-ih)/2,iw,ih);}
-   else{missingPhotos++;ctx.fillStyle=colors.primary;ctx.fillRect(photoX,photoY,photoSize,photoSize);text(ctx,player.number||'—',photoX+photoSize/2,mid+photoSize*.14,photoSize-10,photoSize*.42,'#fff',800,'center');}
+  p.players.forEach((player,i)=>{
+   const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2;
+   rect(ctx,b.x,b.y,b.width,b.height,featured?16:10,featured?blend(colors.primary,'#ffffff',i===0?.83:i===1?.88:.92):'#ffffff');
+   const rankWidth=featured?(wide?32:48):(b.height<30?24:30);
+   const photoSize=featured?Math.min(wide?52:76,b.height-12):Math.max(12,Math.min(40,b.height-6));
+   const photoX=b.x+rankWidth+(featured?12:6),photoY=mid-photoSize/2;
+   text(ctx,String(rank),b.x+(featured?14:8),mid+(featured?11:6),rankWidth-8,featured?(wide?30:40):Math.min(24,b.height*.7),brandInk,800,'left',true);
+   ctx.save();ctx.beginPath();ctx.arc(photoX+photoSize/2,mid,photoSize/2,0,Math.PI*2);ctx.clip();
+   ctx.fillStyle=blend(colors.primary,'#ffffff',.12);ctx.fillRect(photoX,photoY,photoSize,photoSize);
+   if(photos[i]){
+    const image=photos[i],scale=Math.min(photoSize/image.naturalWidth,photoSize/image.naturalHeight),iw=image.naturalWidth*scale,ih=image.naturalHeight*scale;
+    ctx.drawImage(image,photoX+(photoSize-iw)/2,photoY+(photoSize-ih)/2,iw,ih);
+   }else{
+    missingPhotos++;text(ctx,player.number||'—',photoX+photoSize/2,mid+photoSize*.16,photoSize-4,photoSize*.45,'#fff',800,'center',true);
+   }
    ctx.restore();
-   const tx=photoX+photoSize+16,max=x+w-tx-18;
-   text(ctx,player.name,tx,mid-2,max,Math.min(wide?27:34,h*.34),'#fff',750);
-   text(ctx,(player.rosterPosition||player.position)+'  ·  #'+player.number,tx,mid+23,max,wide?15:17,'#b9bfce',500);
+   const tx=photoX+photoSize+(featured?16:8),max=b.x+b.width-tx-(featured?18:8);
+   const nameFont=featured?Math.min(wide?29:38,b.height*.44):Math.min(26,Math.max(10,(b.height)*.68));
+   text(ctx,player.name,tx,featured?mid-1:mid+nameFont*.33,max,nameFont,ink,800,'left',true);
+   if(featured)text(ctx,(player.rosterPosition||player.position)+' · #'+player.number,tx,mid+(wide?18:23),max,wide?12:16,'#59616b',500);
   });
-  const end=start+items.length;
-  text(ctx,'nfl-favorites-sorter · built by @markfm18',pad,p.H-30,420,14,'#aab1c2',600);
-  text(ctx,'Ranks '+(start+1)+'–'+end+'  ·  Page '+(index+1)+' / '+p.pages,p.W-pad,p.H-30,480,15,colors.highlight,700,'right');
-  text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-10,p.W-pad*2,10,'#858d9e',400);
+  ctx.fillStyle='#d8d4cc';ctx.fillRect(pad,p.H-p.footer+10,p.W-2*pad,1);
+  text(ctx,'nfl-favorites-sorter · built by @markfm18',pad,p.H-30,650,14,brandInk,600);
+  text(ctx,p.players.length+' FAVORITES',p.W-pad,p.H-30,220,14,brandInk,700,'right');
+  text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-10,p.W-pad*2,10,'#646a70',400);
   const blob=await new Promise((resolve,reject)=>{try{canvas.toBlob(b=>b?resolve(b):reject(Error('Could not create the image.')),type.mime,.94);}catch(e){reject(e);}});
-  // Unsupported encoders can silently return PNG; keep the extension truthful.
   const actual=Object.values(TYPES).find(t=>t.mime===blob.type);if(!actual)throw Error('Unsupported image format.');
-  return {blob,width:canvas.width,height:canvas.height,pages:p.pages,index,start:start+1,end,missingPhotos,extension:actual.extension,players:items.map(p=>p.id)};
+  return {blob,width:canvas.width,height:canvas.height,pages:1,index:0,start:1,end:p.players.length,missingPhotos,extension:actual.extension,players:p.players.map(p=>p.id)};
  }
  function crc32(bytes){let crc=0xffffffff;for(const b of bytes){crc^=b;for(let i=0;i<8;i++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}return (crc^0xffffffff)>>>0;}
  function zip(files){
@@ -109,7 +149,7 @@
  }
  function filename(result,options,image){
   const code=TEAM_INFO[result.team].code.toLowerCase(),scope=options.scope==='all'?'all':'top-'+options.scope;
-  return 'nfl-favorites-'+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'-'+String(image.index+1).padStart(2,'0')+'-of-'+String(image.pages).padStart(2,'0')+'.'+image.extension:'.zip');
+  return 'nfl-favorites-'+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
  }
  function releasePreview(){if(previewUrl?.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;preview=null;$('export-preview-image').removeAttribute('src');$('export-preview-image').hidden=true;}
  function controls(){
@@ -117,7 +157,7 @@
   for(const id of ['export-size','export-type','export-scope','export-preview'])$(id).disabled=busy||!current;
   $('export-download').disabled=busy||!preview;
   $('export-type').disabled=mobile||busy||!current;
-  $('export-all').disabled=mobile||busy||!current;$('export-all').hidden=mobile||pages===1;
+  $('export-all').disabled=true;$('export-all').hidden=mobile||pages===1;
   $('export-all').textContent='Download all '+pages+' pages (ZIP)';
   $('export-prev').disabled=busy||!preview||pageIndex===0;$('export-next').disabled=busy||!preview||pageIndex>=pages-1;
   $('export-pages').hidden=!preview||pages===1;
@@ -138,7 +178,7 @@
    const source=mobile?await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Could not open the image.'));reader.readAsDataURL(image.blob);}):URL.createObjectURL(image.blob);
    if(ticket!==revision){if(source.startsWith('blob:'))URL.revokeObjectURL(source);return;}
    releasePreview();preview=image;pageIndex=index;previewUrl=source;$('export-preview-image').src=previewUrl;$('export-preview-image').hidden=false;
-   $('export-status').textContent=(mobile?'':image.width+' × '+image.height+' · ')+'Ranks '+image.start+'–'+image.end+' · Page '+(index+1)+' of '+image.pages+(image.missingPhotos?' · '+image.missingPhotos+' unavailable photos use jersey numbers.':'');
+   $('export-status').textContent=(mobile?'':image.width+' × '+image.height+' · ')+'All '+image.end+' selected players · One image'+(image.missingPhotos?' · '+image.missingPhotos+' unavailable photos use jersey numbers.':'');
   }catch(e){if(ticket===revision)$('export-status').textContent='Could not create the image. Please try again.';console.info('Results export:',e.message);}
   finally{if(ticket===revision){busy=false;controls();}}
  }

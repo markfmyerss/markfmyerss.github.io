@@ -3,107 +3,107 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
 (async()=>{
  const server=http.createServer(async(req,res)=>{try{const file=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/$/,'/index.html').slice(1));if(!file.startsWith(process.cwd()+path.sep))throw Error('path');res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end('not found');}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port,browser=await chromium.launch();
+
  try{
+  await fs.mkdir('qa',{recursive:true});
   const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[],downloads=[];
   page.on('pageerror',e=>errors.push(e.message));page.on('download',d=>downloads.push(d));
-  await page.goto(url);assert.equal(downloads.length,0);
-  // Complete a small ranking through the actual controls to check integration.
+  await page.goto(url);
   await page.selectOption('#position','QB');await page.click('#start');
   while(await page.locator('#sort').isVisible())await page.click('#left');
-  assert.ok(await page.locator('.export-panel').isVisible());assert.equal(await page.locator('#results .builder-credit').textContent(),'built by @markfm18');assert.equal(downloads.length,0);
+  assert.equal(await page.locator('#results .builder-credit').textContent(),'built by @markfm18');
   await page.click('#export-preview');await page.waitForFunction(()=>!document.getElementById('export-download').disabled);
-  assert.equal(downloads.length,0,'preview must not start a download');
-  await page.waitForFunction(()=>document.getElementById('export-preview-image').complete&&document.getElementById('export-preview-image').naturalWidth>0);
-  const realPreview=await page.locator('#export-preview-image').evaluate(i=>({width:i.naturalWidth,height:i.naturalHeight}));
-  assert.deepEqual(realPreview,{width:1080,height:1080});
-  console.log('PASS real completed ranking enables export; preview downloads nothing');
+  assert.equal(downloads.length,0);
+  assert.ok(await page.locator('#export-pages').isHidden());assert.ok(await page.locator('#export-all').isHidden());
+  console.log('PASS completed ranking previews one image without automatic downloads or pagination');
+
+  const layout=await page.evaluate(()=>{
+   let count=0;
+   for(const [team,players] of Object.entries(ROSTERS))for(const size of ResultsExport.SIZES)for(const scope of ['all','10','25']){
+    const p=ResultsExport.plan({team,pos:'ALL',players},{size:size.id,type:'png',scope});
+    const expected=scope==='all'?players.length:Math.min(Number(scope),players.length);
+    if(p.pages!==1||p.players.length!==expected||p.boxes.length!==expected)throw Error('Dropped players '+team+' '+size.id+' '+scope);
+    for(const [i,b] of p.boxes.entries()){
+     if(b.x<0||b.y<p.header||b.x+b.width>p.W+.1||b.y+b.height>p.H-p.footer+.1||b.width<=0||b.height<=0)throw Error('Out of bounds '+team+' '+size.id+' rank '+(i+1));
+     for(const other of p.boxes.slice(i+1)){
+      if(b.x<other.x+other.width-.1&&b.x+b.width>other.x+.1&&b.y<other.y+other.height-.1&&b.y+b.height>other.y+.1)throw Error('Overlapping rows');
+     }
+    }
+    count++;
+   }
+   return count;
+  });
+  assert.equal(layout,32*9*3);console.log('PASS all '+layout+' team/size/range layouts retain every player with no overlap');
 
   const variants=await page.evaluate(async()=>{
-   const result={team:'Baltimore Ravens',pos:'ALL',players:[...ROSTERS['Baltimore Ravens']].reverse()},log=[];
+   const [team,players]=Object.entries(ROSTERS).sort((a,b)=>b[1].length-a[1].length)[0];
+   const result={team,pos:'ALL',players:[...players].reverse()},log=[];
    for(const size of ResultsExport.SIZES)for(const type of Object.keys(ResultsExport.TYPES)){
-    const options={size:size.id,type,scope:'all'},plan=ResultsExport.plan(result,options),seen=[];
-    for(let index=0;index<plan.pages;index++){
-     let image,creditDraws=0;
-     const originalFill=CanvasRenderingContext2D.prototype.fillText;
-     CanvasRenderingContext2D.prototype.fillText=function(value,...args){
-      if(value==='nfl-favorites-sorter · built by @markfm18')creditDraws++;
-      return originalFill.call(this,value,...args);
-     };
-     try{image=await ResultsExport.createImage(result,options,index);}
-     finally{CanvasRenderingContext2D.prototype.fillText=originalFill;}
-     if(creditDraws!==1)throw Error('Missing creator credit '+size.id+' '+type+' page '+index);
-     const bitmap=await createImageBitmap(image.blob);
-     if(bitmap.width!==size.width||bitmap.height!==size.height)throw Error('Wrong encoded dimensions '+size.id);
-     if(image.blob.type!==ResultsExport.TYPES[type].mime)throw Error('Wrong file encoding '+type);
-     if(image.blob.size<2000)throw Error('Image is empty');
-     seen.push(...image.players);bitmap.close();
-    }
-    if(JSON.stringify(seen)!==JSON.stringify(result.players.map(p=>p.id)))throw Error('Missing, duplicated or reordered players');
-    log.push(size.id+' '+type+' '+plan.pages+' pages');
+    const options={size:size.id,type,scope:'all'},drawn=[],credits=[],original=CanvasRenderingContext2D.prototype.fillText;
+    CanvasRenderingContext2D.prototype.fillText=function(value,x,y,max){
+     if(result.players.some(p=>p.name===value)){
+      if(this.measureText(value).width>max+.5)throw Error('Name does not fit '+value+' '+size.id);
+      drawn.push(value);
+     }
+     if(value==='nfl-favorites-sorter · built by @markfm18')credits.push(value);
+     return original.call(this,value,x,y,max);
+    };
+    let image;try{image=await ResultsExport.createImage(result,options);}finally{CanvasRenderingContext2D.prototype.fillText=original;}
+    const bitmap=await createImageBitmap(image.blob);
+    if(bitmap.width!==size.width||bitmap.height!==size.height)throw Error('Wrong dimensions '+size.id);
+    if(image.blob.type!==ResultsExport.TYPES[type].mime||image.blob.size<2000)throw Error('Wrong/empty encoding');
+    if(image.pages!==1||JSON.stringify(image.players)!==JSON.stringify(result.players.map(p=>p.id)))throw Error('Incomplete ranking');
+    if(JSON.stringify(drawn)!==JSON.stringify(result.players.map(p=>p.name)))throw Error('Missing, repeated or reordered names');
+    if(credits.length!==1)throw Error('Missing creator credit');
+    bitmap.close();log.push(size.id+' '+type+' '+players.length+' names');
    }
-   // Verify top-10 and top-25 ranges include the correct leading subset.
    for(const scope of ['10','25']){
-    const options={size:'1x1',type:'png',scope},plan=ResultsExport.plan(result,options),seen=[];
-    for(let i=0;i<plan.pages;i++)seen.push(...(await ResultsExport.createImage(result,options,i)).players);
-    if(JSON.stringify(seen)!==JSON.stringify(result.players.slice(0,Number(scope)).map(p=>p.id)))throw Error('Wrong top range');
+    const image=await ResultsExport.createImage(result,{size:'1x1',type:'png',scope});
+    if(JSON.stringify(image.players)!==JSON.stringify(result.players.slice(0,Number(scope)).map(p=>p.id)))throw Error('Wrong top range');
    }
    return log;
   });
-  console.log('PASS all '+variants.length+' size/encoding variants decode correctly; every page preserves full ranking order');
-  console.log('PASS top-10 and top-25 image ranges');
-  console.log('PASS built by @markfm18 appears on results and is drawn on every page of all 27 image variants');
-
-  // Track actual text rendering as an independent check of the visible ranking.
-  const drawn=await page.evaluate(async()=>{
-   const result={team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens'].slice(0,3)},names=[],original=CanvasRenderingContext2D.prototype.fillText;
-   CanvasRenderingContext2D.prototype.fillText=function(value,...args){names.push(value);return original.call(this,value,...args);};
-   try{await ResultsExport.createImage(result,{size:'4x5',type:'png',scope:'all'},0);}finally{CanvasRenderingContext2D.prototype.fillText=original;}
-   return {drawn:names.filter(n=>result.players.some(p=>p.name===n)),expected:result.players.map(p=>p.name)};
-  });assert.deepEqual(drawn.drawn,drawn.expected);
-  console.log('PASS canvas draws the actual ordered player names');
-
-  // Fill a complete ordered ranking fixture; existing sorting is covered separately.
-  await page.evaluate(()=>{
-   state={team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens'],stack:[],history:[],comparisons:200,done:true,sorted:[...ROSTERS['Baltimore Ravens']].reverse()};save();render();
-  });
+  assert.equal(variants.length,27);
+  console.log('PASS all 27 size/encoding variants contain the largest roster, every full name and creator credit in one image');
+  await page.evaluate(()=>{state={team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens'],stack:[],history:[],comparisons:200,done:true,sorted:[...ROSTERS['Baltimore Ravens']].reverse()};save();render();});
   await page.selectOption('#export-type','jpg');await page.click('#export-preview');await page.waitForFunction(()=>!document.getElementById('export-download').disabled);
-  assert.equal(await page.locator('#export-page-label').textContent(),'Page 1 of 6');
-  await page.click('#export-next');await page.waitForFunction(()=>document.getElementById('export-page-label').textContent==='Page 2 of 6'&&!document.getElementById('export-download').disabled);
-  const onePromise=page.waitForEvent('download');await page.click('#export-download');const one=await onePromise;
-  assert.match(one.suggestedFilename(),/-02-of-06\.jpg$/);const bytes=await fs.readFile(await one.path());assert.equal(bytes[0],0xff);assert.equal(bytes[1],0xd8);
-  console.log('PASS single-page download has correct rank page, filename and JPEG bytes');
+  assert.ok(await page.locator('#export-pages').isHidden());assert.ok(await page.locator('#export-all').isHidden());
+  const promise=page.waitForEvent('download');await page.click('#export-download');const file=await promise;
+  assert.match(file.suggestedFilename(),/-1x1\.jpg$/);const bytes=await fs.readFile(await file.path());assert.equal(bytes[0],0xff);assert.equal(bytes[1],0xd8);
+  await file.saveAs('qa/complete-ranking-square.jpg');
+  console.log('PASS single complete JPEG download; no ZIP or page controls');
 
-  const zipPromise=page.waitForEvent('download');await page.click('#export-all');const archive=await zipPromise;
-  assert.match(archive.suggestedFilename(),/\.zip$/);const archivePath=await archive.path();const listing=execFileSync('unzip',['-Z1',archivePath],{encoding:'utf8'}).trim().split('\n');
-  assert.equal(listing.length,6);assert.match(listing[0],/-01-of-06\.jpg$/);assert.match(listing.at(-1),/-06-of-06\.jpg$/);
-  execFileSync('unzip',['-t',archivePath]);console.log('PASS ZIP passes standard CRC validation and contains all six ranking pages');
+  // Save actual image artifacts on GitHub for visual review, including the densest short format.
+  for(const size of ['1x1','3x4','4x5','9x16','16x9','link']){
+   const data=await page.evaluate(async size=>{
+    const result={team:'Philadelphia Eagles',pos:'ALL',players:ROSTERS['Philadelphia Eagles']};
+    const image=await ResultsExport.createImage(result,{size,type:'png',scope:'all'});
+    return new Promise(resolve=>{const r=new FileReader();r.onload=()=>resolve(r.result.split(',')[1]);r.readAsDataURL(image.blob);});
+   },size);
+   await fs.writeFile('qa/complete-ranking-'+size+'.png',Buffer.from(data,'base64'));
+  }
 
-  await page.waitForFunction(()=>!document.getElementById('export-size').disabled);await page.selectOption('#export-size','9x16');
-  assert.ok(await page.locator('#export-download').isDisabled());assert.ok(await page.locator('#export-preview-image').isHidden());
-  await page.click('#export-preview');await page.waitForFunction(()=>!document.getElementById('export-download').disabled);
-  await page.waitForFunction(()=>document.getElementById('export-preview-image').naturalHeight===1920);
-  const story=await page.locator('#export-preview-image').evaluate(i=>[i.naturalWidth,i.naturalHeight]);assert.deepEqual(story,[1080,1920]);
-  console.log('PASS changing options clears stale preview and creates correct story size');
-
-  // Export works even when every external photo is unavailable; the canvas remains readable.
-  const fallback=await browser.newPage();await fallback.route(/https:\/\/static\.(?:clubs|www)\.nfl\.com\/.*/,route=>route.abort());await fallback.goto(url);
+  const fallback=await browser.newPage();
+  await fallback.route(/https:\/\/static\.(?:clubs|www)\.nfl\.com\/.*/,r=>r.abort());
+  await fallback.route(/fonts\.(googleapis|gstatic)\.com/,r=>r.abort());
+  await fallback.goto(url);
   const blocked=await fallback.evaluate(async()=>{
-   const result={team:'Baltimore Ravens',pos:'QB',players:ROSTERS['Baltimore Ravens'].filter(p=>p.position==='QB')},image=await ResultsExport.createImage(result,{size:'1x1',type:'png',scope:'all'});
-   const decoded=await createImageBitmap(image.blob);return {missing:image.missingPhotos,count:result.players.length,width:decoded.width};
-  });assert.equal(blocked.missing,blocked.count);assert.equal(blocked.width,1080);await fallback.close();
-  console.log('PASS blocked/missing photos use jerseys and never prevent image download');
+   const result={team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens']};
+   const drawn=[],original=CanvasRenderingContext2D.prototype.fillText;
+   CanvasRenderingContext2D.prototype.fillText=function(value,...args){if(result.players.some(p=>p.name===value))drawn.push(value);return original.call(this,value,...args);};
+   let image;try{image=await ResultsExport.createImage(result,{size:'link',type:'png',scope:'all'});}finally{CanvasRenderingContext2D.prototype.fillText=original;}
+   return {missing:image.missingPhotos,count:result.players.length,drawn,expected:result.players.map(p=>p.name),pages:image.pages};
+  });
+  assert.equal(blocked.missing,blocked.count);assert.equal(blocked.pages,1);assert.deepEqual(blocked.drawn,blocked.expected);await fallback.close();
+  console.log('PASS missing photos and blocked fonts retain the full ranking in one image');
 
-  // Interrupted generation must not surface or download a different team's old ranking.
   const cancel=await browser.newPage();await cancel.route(/https:\/\/static\.(?:clubs|www)\.nfl\.com\/.*/,async route=>{await new Promise(r=>setTimeout(r,800));await route.abort();});await cancel.goto(url);
   await cancel.evaluate(()=>{ResultsExport.setResults({team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens']});document.getElementById('export-preview').click();ResultsExport.setResults(null);});
   await cancel.waitForTimeout(1000);assert.ok(await cancel.locator('#export-preview-image').isHidden());assert.ok(await cancel.locator('#export-download').isDisabled());await cancel.close();
-  console.log('PASS changing results cancels stale exports');
-
-  await fs.mkdir('qa',{recursive:true});
   for(const width of [320,390,768,1440]){
-   await page.setViewportSize({width,height:1000});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'export controls overflow '+width);
-   await page.locator('.export-panel').screenshot({path:'qa/results-export-'+width+'.png'});console.log('PASS export controls viewport '+width);
+   await page.setViewportSize({width,height:1000});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   await page.locator('.export-panel').screenshot({path:'qa/results-export-'+width+'.png'});
   }
-  assert.deepEqual(errors,[]);console.log('PASS no browser exceptions; test downloads remained on GitHub');
+  assert.deepEqual(errors,[]);console.log('PASS responsive export controls, stale preview cancellation and no browser exceptions');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
