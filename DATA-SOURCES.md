@@ -1,8 +1,8 @@
-# NFL Favorites Sorter — sources and image policy
+# NFL Favorites Sorter — all 32 teams
 
-Available: all AFC teams and NFC North, East and South. Official active-roster snapshots verified November 5, 2026:
+Official active-roster snapshots verified November 5, 2026 (America/New_York):
 
-| Division | Team | Active players | Source |
+| Division | Team | Active players | Official roster |
 | --- | --- | ---: | --- |
 | AFC North | Baltimore Ravens | 53 | https://www.baltimoreravens.com/team/players-roster/ |
 | AFC North | Cincinnati Bengals | 52 | https://www.bengals.com/team/players-roster/ |
@@ -32,12 +32,16 @@ Available: all AFC teams and NFC North, East and South. Official active-roster s
 | NFC South | Carolina Panthers | 53 | https://www.panthers.com/team/players-roster/ |
 | NFC South | New Orleans Saints | 53 | https://www.neworleanssaints.com/team/players-roster/ |
 | NFC South | Tampa Bay Buccaneers | 53 | https://www.buccaneers.com/team/players-roster/ |
+| NFC West | Arizona Cardinals | 52 | https://www.azcardinals.com/team/players-roster/ |
+| NFC West | Los Angeles Rams | 52 | https://www.therams.com/team/players-roster/ |
+| NFC West | San Francisco 49ers | 53 | https://www.49ers.com/team/players-roster/ |
+| NFC West | Seattle Seahawks | 53 | https://www.seahawks.com/team/players-roster/ |
 
-The 1,475 players reflect the published **Active** tables. Counts can differ from 53; Atlanta lists 50. Practice squad, reserve/injured, suspended and separately listed groups are excluded. This is a dated snapshot, not live transaction tracking. Every player retains an official profile URL.
+The 1,685 players reflect the teams’ published **Active** tables. Counts may differ from 53. Practice squad, reserve/injured, suspended and other separately listed groups are excluded. Every player retains an official profile URL. Rosters are dated snapshots, not a live transaction feed.
 
-## Headshots
+## Official portrait sources
 
-Every player has an official team/NFL portrait source in HEADSHOTS. 1457 come from roster pages; 18 missing or generic thumbnails use individual NFL profiles:
+All 1,685 players have a portrait URL and source page in HEADSHOTS. 1663 are sourced from official roster pages. 22 missing or generic roster images are resolved through individual NFL.com profiles:
 
 - Derek Barnett: https://www.nfl.com/players/derek-barnett/
 - Mekhi Blackmon: https://www.nfl.com/players/mekhi-blackmon/
@@ -57,27 +61,37 @@ Every player has an official team/NFL portrait source in HEADSHOTS. 1457 come fr
 - Kenny Moore II: https://www.nfl.com/players/kenny-moore/
 - Stefon Diggs: https://www.nfl.com/players/stefon-diggs/
 - Lucas Patrick: https://www.nfl.com/players/lucas-patrick/
+- DeForest Buckner: https://www.nfl.com/players/deforest-buckner/
+- Ashtyn Davis: https://www.nfl.com/players/ashtyn-davis/
+- Khalid Kareem: https://www.nfl.com/players/khalid-kareem/
+- Keion White: https://www.nfl.com/players/keion-white/
 
-All 1,475 image URLs passed GitHub checks. Photos remain on official servers; no image binaries are bundled. Jersey numbers are the fallback. Previously verified name mappings and all twenty-four existing teams’ records, images, metadata and save keys are unchanged.
+Every URL returned image content in GitHub checks. Images load from official servers; no photo binaries are bundled. Failed images use jersey numbers. Historical Vega Ioane, Nathan/Nate Thomas and Kenny Moore II mappings remain intact.
 
-Images belong to their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. Remote availability, URLs and uniforms may change. No affiliation with the NFL or teams is implied.
+The NFC South was deployed and confirmed live before NFC West work began. All twenty-eight existing teams’ metadata, roster records, portrait mappings and save keys were preserved in the final expansion.
 
-## Positions, navigation and colors
+Images remain the property of their respective rights holders. Public availability is not a license grant; no independent display or redistribution license has been established. URLs, availability and photographed uniforms may change. The project is not affiliated with the NFL or its teams.
 
-AFC/NFC navigation remembers team selections and preserves separate team/position rankings in the visitor’s browser. Each available division contains four teams.
+## Navigation, rankings and positions
 
-Position groups retain official labels on cards. HB/FB map to RB; line positions to OL; DT/DE/NT to DL; EDGE/ILB/OLB to LB; CB/S to DB; K/P/LS/RS/KR/PR to ST. Combined roles can appear in multiple filters: Barion Brown’s WR/RS listing appears in WR and ST, once in the full Saints roster. Travis Hunter remains in WR and DB.
+Two conference buttons lead to four divisions each, with four teams per division. Each conference and division remembers the last selected team. Rankings remain separate for each team and position filter, saved in the visitor’s browser.
 
-New South palettes use Atlanta red/black (#A71930/#000000), Carolina blue/black (#0085CA/#101820), New Orleans black/gold (#101820/#D3BC8D), and Tampa Bay red/orange (#D50A0A/#FF7900). TEAM_INFO records readable UI highlights. Existing palettes are unchanged. Values do not imply a licensed style guide or team approval.
+HB/FB group with RB; line positions with OL; DT/DE/NT with DL; EDGE/ILB/OLB with LB; CB/S with DB; K/P/LS/RS/KR/PR with ST. Official position labels remain on cards. Multi-role players can appear in multiple filters: Travis Hunter in WR/DB, Barion Brown in WR/ST, once each in full-team rankings.
 
-## GitHub-only work and validation
+## Palettes
 
-Source preparation, roster retrieval, tests, browser dependencies, screenshots and test downloads remain on GitHub. The workflow has read-only repository access and cannot commit or push. Reviewed generated source is committed through repository tools; no site files or development dependencies are downloaded to the user’s Mac.
+TEAM_INFO contains every team’s palette and brighter UI highlights. New West colors: Arizona cardinal red/black (#97233F/#000000), Los Angeles Rams Royal/Sol (#003594/#FFD100), San Francisco red/gold (#AA0000/#B3995D), and Seattle navy/action green (#002244/#69BE28). Existing palettes are unchanged.
 
-Checks cover 280 team/filter combinations, 1,475 portraits, every team’s browser flow, saved-state isolation, migration, undo, multi-position players, mobile PNG exports for all NFC teams, and four viewport sizes. Desktop image and Chromium/WebKit mobile save tests remain covered.
+Rams color names and RGB values are documented in their [official media guide](https://static.www.nfl.com/image/upload/league/apps/league-site/media-guides/2021/LAR.pdf), and Royal/Sol are retained in the [2026 brand refresh](https://www.therams.com/news/rams-unveil-uniform-brand-refresh-ahead-of-2026-season). Color values do not imply a licensed style guide or team approval.
 
-## User-created images
+## Export behavior
 
-Desktop retains nine sizes, PNG/JPG/WebP and ZIP exports. Mobile retains four sizes (1:1, 3:4, 4:5, 9:16), automatic PNG, All/Top 10/Top 25 and individual page saving, with no file-format selector or ZIP.
+Desktop offers nine image sizes, PNG/JPG/WebP, All/Top 10/Top 25 and individual-page or ZIP downloads. Mobile offers only 1:1, 3:4, 4:5 and 9:16, automatic PNG, All/Top 10/Top 25 and individual page saving; file format and ZIP controls are hidden and disabled.
 
-Cards are generated in the browser without uploading rankings. Mobile uses native file sharing or a press-and-hold PNG preview; the actual iPhone Photos menu requires a physical-device check. CORS-restricted or missing photos use jerseys. Source-image rights are unchanged.
+Cards are generated in the visitor’s browser without uploading rankings. Mobile uses a ready PNG file for native sharing and a real PNG preview for press-and-hold saving. Actual iPhone Photos menus still need physical-device validation. Missing or CORS-restricted portraits use jerseys. Generating a card does not confer additional image rights.
+
+## GitHub-only development and validation
+
+Roster retrieval, source preparation, checks, browser dependencies, test downloads and screenshots remain on GitHub. The workflow has read-only repository access and cannot commit or push. Generated source is reviewed before committing through repository tools. No site files or development dependencies are downloaded to the user’s Mac.
+
+Passing checks cover 320 team/position combinations, all 1,685 image URLs, both conferences and all eight divisions, state isolation and migration, undo, multi-position players, every team’s browser flow, all NFC mobile PNG exports, four viewport sizes, desktop’s 27 size/encoding variants, ZIP validity, and mobile Chromium/WebKit saving, fallback and cancellation.

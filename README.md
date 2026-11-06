@@ -1,20 +1,22 @@
-# NFL Favorites Sorter — 28 teams
+# NFL Favorites Sorter — All 32 NFL teams
 
-Rank favorites across all AFC teams and NFC North, East and South, now including the Falcons, Panthers, Saints and Buccaneers.
+Rank your personal favorites across both conferences and all eight divisions.
 
 Live: https://markfmyerss.github.io/nfl-favorites-sorter/
 
-- 28 teams, seven divisions and 1,475 official portrait sources.
-- Remembered conference/division choices and separate team/position rankings.
+- 32 teams and 1,685 official portrait sources.
+- Remembered conference/division selections and independent team/position rankings.
 - Team-colored cards, pairwise sorting, undo, keyboard picks and image exports.
-- Existing teams, saved-ranking keys and mobile PNG saving remain intact.
-- Return-specialist support includes Barion Brown in WR and ST.
+- Existing rankings, roster IDs, image mappings and mobile PNG behavior are preserved.
+- Return and dual-position players appear in their applicable filters.
+
+The NFC South went live before NFC West work began, as requested.
 
 ## GitHub-only development
 
-The app is buildless and GitHub Pages serves main. Roster preparation, dependencies, tests, screenshots and test downloads stay on GitHub. The workflow has read-only repository access. scripts/expand-nfc-south.cjs prepares missing South snapshots without refreshing previous teams or pushing commits.
+The app is buildless and GitHub Pages serves the root of main. Roster retrieval, browser dependencies, checks, screenshots and test downloads remain on GitHub. The workflow has read-only repository access; scripts/expand-nfc-west.cjs prepares missing West data without refreshing previous teams or pushing commits. Reviewed generated source is committed through repository tools.
 
-Checks cover 280 sorting combinations, every headshot, browser flows for every team, and desktop/mobile export suites. Source scope, official links, November 5, 2026 snapshot date and image rights are in [DATA-SOURCES.md](DATA-SOURCES.md).
+Checks cover 320 sorting combinations, every portrait, all 32 teams in browser flows, desktop exports and mobile PNG saving in Chromium/WebKit. Source tables, November 5, 2026 snapshot scope, position grouping, palettes and image-rights limitations are documented in [DATA-SOURCES.md](DATA-SOURCES.md). Rosters are not a live transaction feed.
 
 ## Downloadable result cards
 
