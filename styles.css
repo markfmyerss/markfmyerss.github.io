@@ -108,3 +108,17 @@ html .muted,html .source-line{color:#b7c2d0}
  html *,html *:before,html *:after{transition:none!important;animation:none!important}
  html button:enabled:hover,html button:enabled:active{transform:none!important}
 }
+
+/* Align labels above a shared control baseline; keep actions together at every width. */
+html .controls{display:grid;grid-template-columns:minmax(200px,1.3fr) minmax(150px,.8fr) minmax(150px,1fr) auto;align-items:end;gap:16px;padding:24px 0}
+html .controls label{min-width:0;gap:8px}
+html .controls select{width:100%;min-width:0;height:48px}
+html .controls .filter-info{min-width:0;min-height:48px;align-content:center}
+html .control-actions{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:16px;align-items:stretch}
+html .controls .control-actions button{height:48px;margin:0;align-self:stretch;white-space:nowrap}
+@media(hover:hover){html .controls button:enabled:hover{transform:none}}
+@media(max-width:1000px){
+ html .controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+ html .controls .filter-info{grid-column:1/-1;order:0;min-height:0}
+ html .control-actions{grid-column:1/-1}
+}

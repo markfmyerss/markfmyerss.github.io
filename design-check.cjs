@@ -15,7 +15,30 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  await page.goto(url);
  assert.equal(await page.locator('[data-design-choice]').count(),0);
  assert.match(await page.locator('html').evaluate(el=>getComputedStyle(el).fontFamily),/DM Sans/);
- await page.click('#start');await page.click('#left');
+
+ async function checkControls(){
+  for(const width of [320,390,768,1024,1440]){
+   await page.setViewportSize({width,height:1000});
+   await page.mouse.move(0,0);
+   const rects=await page.evaluate(()=>{
+    const rect=id=>{const r=document.getElementById(id).getBoundingClientRect();return {top:r.top,height:r.height,width:r.width,bottom:r.bottom};};
+    return {team:rect('team'),position:rect('position'),start:document.getElementById('start').hidden?null:rect('start'),reset:rect('reset')};
+   });
+   assert.ok(Math.abs(rects.team.top-rects.position.top)<1,'aligned selects '+width);
+   for(const r of [rects.team,rects.position,rects.reset,rects.start].filter(Boolean))assert.equal(r.height,48,'consistent control height '+width);
+   if(rects.start){
+    assert.ok(Math.abs(rects.start.top-rects.reset.top)<1,'aligned actions '+width);
+    assert.ok(Math.abs(rects.start.width-rects.reset.width)<1,'balanced action widths '+width);
+   }
+   if(width>1000)assert.ok(Math.abs(rects.reset.top-rects.team.top)<1,'shared desktop baseline '+width);
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'controls overflow '+width);
+  }
+ }
+ await checkControls();
+ await page.click('#start');
+ await checkControls();
+ await page.click('#left');
+
  const saved=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([k])=>k.startsWith('nfl-sorter-v3:'))));
  await page.reload();
  assert.match(await page.locator('html').evaluate(el=>getComputedStyle(el).fontFamily),/DM Sans/);
@@ -46,6 +69,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  await normal.screenshot({path:'qa/design-fresh-fonts.png',fullPage:true});
  assert.ok(await normal.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
+ console.log('PASS balanced control heights, spacing and alignment at 320/390/768/1024/1440 before and during sorting');
  console.log('PASS permanent Fresh design despite old preferences; rankings preserved; 32 team layouts at 320/390/768/1440; font fallback; reduced motion');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
