@@ -16,6 +16,8 @@ jobs:
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test
       - run: npx playwright install --with-deps chromium webkit
+      - name: Check Light, Dim and Lights Out appearances
+        run: node appearance-check.cjs
       - name: Check complete ranking image layouts and downloads
         run: node export-check.cjs
       - name: Check mobile single-image saving in Chromium and WebKit

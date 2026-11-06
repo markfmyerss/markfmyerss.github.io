@@ -1,0 +1,101 @@
+/* Dim retains the Fresh design. Light and Lights Out override its surface colors. */
+.appearance-bar{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:0 0 24px;font-size:.7rem}
+.appearance-label{color:#b7c2d0}
+.appearance-options{display:flex;gap:2px;padding:3px;border:1px solid #ffffff25;border-radius:14px;background:#18202a}
+html .appearance-option{min-height:44px;padding:10px;font-size:.72rem;border-radius:10px;background:transparent;color:#bdc7d4;white-space:nowrap}
+html .appearance-option[aria-pressed=true]{background:#344252;color:#fff;border-color:#ffffff25}
+html .appearance-option:enabled:hover{transform:none}
+html[data-appearance=light]{color-scheme:light;background:#f5f1e8;color:#232b36}
+html[data-appearance=light] body{background:#f5f1e8;color:#232b36}
+html[data-appearance=light] p,
+html[data-appearance=light] .lede,
+html[data-appearance=light] .muted,
+html[data-appearance=light] .source-line,
+html[data-appearance=light] .filter-info small,
+html[data-appearance=light] .controls label,
+html[data-appearance=light] #progress,
+html[data-appearance=light] #sort .progress-milestone,
+html[data-appearance=light] #division-summary,
+html[data-appearance=light] .edition,
+html[data-appearance=light] .export-controls label,
+html[data-appearance=light] .export-note,
+html[data-appearance=light] .export-pages span,
+html[data-appearance=light] .builder-credit,
+html[data-appearance=light] .appearance-label{color:#56616c}
+html[data-appearance=light] .compact-brand,
+html[data-appearance=light] footer strong,
+html[data-appearance=light] .builder-credit a{color:#232b36}
+html[data-appearance=light] .kicker,
+html[data-appearance=light] .player-meta,
+html[data-appearance=light] .rank-num,
+html[data-appearance=light] .podium-place,
+html[data-appearance=light] #progress-estimate,
+html[data-appearance=light] a{color:var(--light-accent,#241773)}
+html[data-appearance=light] button{background:var(--light-accent,#241773);color:#fff}
+html[data-appearance=light] .panel,
+html[data-appearance=light] .player,
+html[data-appearance=light] .team-tile{background:#fffdf8;color:#232b36;border-color:#d6d2c8;box-shadow:0 8px 24px #3e352909}
+html[data-appearance=light] .secondary{background:#e7e2d8;color:#232b36;border-color:#ccc6b9}
+html[data-appearance=light] select,
+html[data-appearance=light] textarea{background:#fffdf8;color:#232b36;border-color:#bbb5a9}
+html[data-appearance=light] .workspace,
+html[data-appearance=light] footer,
+html[data-appearance=light] .export-panel,
+html[data-appearance=light] .rank{border-color:#d6d2c8}
+html[data-appearance=light] .edition span{border-color:#bbb5a9}
+html[data-appearance=light] .conference-button{background:transparent;color:#56616c;border-color:#bbb5a9}
+html[data-appearance=light] .conference-button[aria-pressed=true]{background:var(--light-accent,#241773);color:#fff;border-color:var(--light-accent,#241773)}
+html[data-appearance=light] #division-picker,
+html[data-appearance=light] .appearance-options{background:#ebe6dc;border-color:#d6d2c8}
+html[data-appearance=light] .division-button,
+html[data-appearance=light] .appearance-option{background:transparent;color:#56616c}
+html[data-appearance=light] .division-button[aria-pressed=true],
+html[data-appearance=light] .appearance-option[aria-pressed=true]{background:#fffdf8;color:#232b36;border-color:#ccc6b9}
+html[data-appearance=light] .division-button[aria-pressed=true]{box-shadow:inset 0 -3px var(--light-accent,#241773)}
+html[data-appearance=light] .team-code,
+html[data-appearance=light] .team-tile:after{color:color-mix(in srgb,var(--tile-primary) 76%,#101820)}
+html[data-appearance=light] .team-tile small,
+html[data-appearance=light] .player-team,
+html[data-appearance=light] .rank-text small,
+html[data-appearance=light] .podium-meta{color:#56616c}
+html[data-appearance=light] .team-tile[aria-pressed=true]{background:linear-gradient(125deg,color-mix(in srgb,var(--tile-primary) 12%,#fffdf8),#fffdf8);border-color:var(--tile-primary);box-shadow:inset 0 -3px var(--tile-accent)}
+html[data-appearance=light] .portrait{background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--primary) 12%,#eee9df),#eee9df 85%)}
+html[data-appearance=light] .portrait:after{background:none}
+html[data-appearance=light] .versus{background:#fffdf8;border-color:#bbb5a9;color:#232b36}
+html[data-appearance=light] .progress-track{background:#ddd7cc}
+html[data-appearance=light] #progressbar{background:var(--light-accent,#241773)}
+html[data-appearance=light] .podium-card{background:#ebe6dc;border-color:#d6d2c8}
+html[data-appearance=light] .podium-card:first-child{background:linear-gradient(155deg,color-mix(in srgb,var(--primary) 10%,#fffdf8),#fffdf8);border-color:var(--light-accent,#241773)}
+html[data-appearance=light] .rank-thumb{background:#e7e2d8}
+html[data-appearance=light] .export-preview-wrap{background:#e7e2d8}
+html[data-appearance=light] #storage-note{color:#232b36;border-color:var(--light-accent,#241773)}
+html[data-appearance=light] button:focus-visible,
+html[data-appearance=light] select:focus-visible,
+html[data-appearance=light] a:focus-visible{outline-color:var(--light-accent,#241773)}
+html[data-appearance=black]{color-scheme:dark;background:#000}
+html[data-appearance=black] body{background:#000;color:#f5f2e9}
+html[data-appearance=black] .panel,
+html[data-appearance=black] .player,
+html[data-appearance=black] .team-tile{background:#080808;border-color:#303030;box-shadow:none}
+html[data-appearance=black] .secondary,
+html[data-appearance=black] select,
+html[data-appearance=black] textarea{background:#121212;border-color:#383838}
+html[data-appearance=black] #division-picker,
+html[data-appearance=black] .appearance-options{background:#050505;border-color:#303030}
+html[data-appearance=black] .division-button[aria-pressed=true],
+html[data-appearance=black] .appearance-option[aria-pressed=true]{background:#242424;border-color:#444}
+html[data-appearance=black] .portrait{background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--primary) 12%,#101010),#000 85%)}
+html[data-appearance=black] .portrait:after{background:none}
+html[data-appearance=black] .team-tile[aria-pressed=true]{background:linear-gradient(125deg,color-mix(in srgb,var(--tile-primary) 45%,#080808),#080808);border-color:var(--tile-color);box-shadow:inset 0 -3px var(--tile-accent)}
+html[data-appearance=black] .podium-card{background:#101010;border-color:#303030}
+html[data-appearance=black] .podium-card:first-child{background:linear-gradient(155deg,color-mix(in srgb,var(--primary) 18%,#101010),#080808);border-color:var(--highlight)}
+html[data-appearance=black] .versus,
+html[data-appearance=black] .rank-thumb{background:#121212}
+html[data-appearance=black] .export-preview-wrap{background:#000}
+@media(hover:hover){
+ html[data-appearance=light] .team-tile:hover{background:color-mix(in srgb,var(--tile-primary) 7%,#fffdf8);border-color:var(--tile-primary)}
+ html[data-appearance=light] .player:hover{background:#f5f1e8;border-color:var(--light-accent,#241773)}
+ html[data-appearance=black] .player:hover{background:#111;border-color:var(--highlight)}
+ html[data-appearance=black] .team-tile:hover{background:color-mix(in srgb,var(--tile-primary) 22%,#080808)}
+}
+@media(max-width:380px){.appearance-bar{gap:8px;justify-content:space-between}html .appearance-option{padding:10px 8px}}

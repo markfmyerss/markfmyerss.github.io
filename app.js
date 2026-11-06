@@ -49,6 +49,7 @@ function applyTheme() {
   const team=$('team').value, c=TEAM_INFO[team];
   for(const [key,value] of Object.entries(c.colors))document.documentElement.style.setProperty('--'+key,value);
   document.documentElement.style.setProperty('--pick-ink',primaryTextColor(c.colors.primary));
+  globalThis.SiteAppearance?.setTeamColors(c.colors);
   document.body.dataset.team=c.code;
   $('eyebrow').textContent=team+' · Favorites sorter';
   $('question').textContent='Who is your favorite '+c.singular+'?';
