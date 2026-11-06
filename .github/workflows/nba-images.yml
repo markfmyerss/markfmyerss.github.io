@@ -1,21 +1,41 @@
-name: Prepare NBA Central assets
+name: Verify live NBA Eastern Conference
 on:
   push:
-    paths: ['scripts/prepare-nba-central.cjs', '.github/workflows/nba-images.yml']
-  workflow_dispatch:
+    paths: ['.github/workflows/nba-images.yml']
 permissions:
   contents: read
 jobs:
-  prepare:
+  live:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    strategy:
-      fail-fast: false
-      matrix:
-        team: [CHI, CLE, DET, IND, MIL]
+    timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/prepare-nba-central.cjs "${{ matrix.team }}"
+      - name: Verify public Eastern Conference release
+        run: |
+          node <<'NODE'
+          const base='https://markfmyerss.github.io/';
+          function roster(source,name){const prefix='const '+name+' = ',start=source.indexOf(prefix);if(start<0)throw Error('Missing public roster '+name);return JSON.parse(source.slice(start+prefix.length,source.indexOf(';\n',start)));}
+          (async()=>{
+           let ready=false;
+           for(let attempt=0;attempt<60;attempt++){
+            const r=await fetch(base+'?verify=east-e93414d5&attempt='+attempt,{signal:AbortSignal.timeout(15000)}),html=await r.text();
+            if(r.ok&&html.includes('nba-southeast-data.js')){ready=true;console.log('PUBLIC_HTML '+r.status+' '+r.headers.get('last-modified'));break;}
+            console.log('Waiting for public Southeast HTML: attempt '+(attempt+1));
+            await new Promise(resolve=>setTimeout(resolve,6000));
+           }
+           if(!ready)throw Error('Southeast not yet visible publicly');
+           const groups=[];
+           for(const [file,name] of [['nba-data.js','NBA_ROSTERS'],['nba-central-data.js','NBA_CENTRAL_ROSTERS'],['nba-southeast-data.js','NBA_SOUTHEAST_ROSTERS']]){
+            const r=await fetch(new URL(file,base),{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('Public roster HTTP '+r.status);
+            groups.push(roster(await r.text(),name));console.log('PUBLIC_DATA '+file+' '+r.status);
+           }
+           const all=groups.flatMap(g=>Object.values(g).flat());
+           if(groups.reduce((n,g)=>n+Object.keys(g).length,0)!==15||all.length!==261||new Set(all.map(p=>p.id)).size!==261)throw Error('Wrong public NBA totals');
+           for(const path of ['assets/nba/headshots/1628369.png','assets/nba/headshots/1642855.png','assets/nba/headshots/1629652.png','assets/nba/logos/ORL.svg','assets/link-preview-v2.png']){
+            const r=await fetch(new URL(path,base),{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('Missing public asset '+path);console.log('PUBLIC_ASSET '+path+' '+r.status+' '+r.headers.get('content-type'));
+           }
+           console.log('PASS EASTERN LIVE: 15 NBA teams, 261 unique players, three division snapshots, portraits, logos and sharing preview accessible publicly');
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          NODE
