@@ -42,3 +42,69 @@
 .conference-button{background:#17171d;color:#b8b8c3;border:1px solid #3d3d46;min-width:100px;padding:12px 24px;font-size:.9rem;letter-spacing:.08em}
 .conference-button[aria-pressed=true]{background:#f2f1ed;color:#141419;border-color:#f2f1ed}
 @media(max-width:600px){#conference-picker{width:100%;gap:8px}.conference-button{flex:1;min-width:0}}
+
+/* Fresh: permanent visual design. */
+html{font-family:'DM Sans',system-ui,sans-serif;background:#171c24}
+html body{
+ background:radial-gradient(ellipse 115% 850px at 100% 0%,color-mix(in srgb,var(--primary) 16%,#232a34) 0%,#1b222c 48%,#151b23 100%);
+ color:#f5f2e9;
+}
+html h1,html h2,html h3,html .player-name,html .team-tile strong{
+ font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:-.015em;
+}
+html h1{font-size:clamp(4.2rem,10vw,8rem);line-height:.86;text-transform:uppercase;max-width:780px;margin:25px 0 28px}
+html h1 em{font-style:normal;color:var(--highlight)}
+html .kicker{letter-spacing:.16em}
+html .lede{font-size:1rem;line-height:1.7;color:#c2c9d3}
+html .edition{font-family:'DM Sans',sans-serif;color:#bdc5d0}
+html h2{font-size:clamp(2rem,4vw,3rem)}
+html .panel{background:#202833;border-color:#ffffff16;border-radius:22px;box-shadow:0 14px 45px #080e151c}
+html .workspace{border-color:#ffffff22}
+html button{
+ transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s,border-color .18s,background .18s;
+}
+html button:enabled:active{transform:translateY(2px) scale(.975);box-shadow:none}
+html button:focus-visible{outline:3px solid var(--highlight);outline-offset:4px}
+html .secondary{background:#303b49;border-color:#ffffff20}
+html select{background:#202a36;border-color:#ffffff2b;color:#f5f2e9;border-radius:12px}
+html #conference-picker{gap:10px}
+html .conference-button{border-radius:99px;background:transparent;border-color:#ffffff32;min-width:112px;font-size:.8rem}
+html .conference-button[aria-pressed=true]{background:var(--highlight);border-color:var(--highlight);color:#131923;box-shadow:0 4px 16px #0002}
+html #division-picker{background:#18202a;border-color:#ffffff18;border-radius:15px}
+html .division-button{border-radius:10px;color:#c3cbd8}
+html .division-button[aria-pressed=true]{background:#344252;border-color:#ffffff27;color:#fff;box-shadow:inset 0 -3px var(--highlight)}
+html .team-tile{background:#242e3a;border-color:#ffffff20;border-radius:17px;padding:22px 20px;box-shadow:0 8px 24px #0b11191c}
+html .team-tile:before{inset:14px auto 14px 0;width:3px;border-radius:0 4px 4px 0}
+html .team-tile:after{content:'↗';position:absolute;top:18px;right:17px;color:var(--tile-color);font-size:1.25rem;opacity:.55;transition:transform .18s,opacity .18s}
+html .team-tile strong{font-size:1.8rem;margin:12px 0 5px}
+html .team-tile[aria-pressed=true]{background:color-mix(in srgb,var(--tile-color) 9%,#273340);border-color:var(--tile-color)}
+html .team-tile[aria-pressed=true]:after{content:'✓';opacity:1}
+html .portrait{background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--primary) 23%,#344252),#27313e 85%)}
+html .portrait:after{background:repeating-linear-gradient(125deg,transparent 0 62px,#ffffff04 62px 63px)}
+html .player{background:#25313f;border-color:#ffffff24;border-radius:19px;box-shadow:0 9px 24px #0b111921}
+html .player-name{font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.02}
+html .player-team{color:#c1cbd8}
+html .pick-label{border-radius:10px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;transition:box-shadow .18s,transform .18s}
+html .versus{background:#26313e;border-color:#697787;color:#f3f0e8}
+html .progress-track{height:6px;background:#ffffff16}
+html .rank{border-color:#ffffff16}
+html .rank-thumb{background:#344252}
+html .muted,html .source-line{color:#b7c2d0}
+@media(hover:hover){
+ html button:enabled:hover{filter:none;transform:translateY(-2px);box-shadow:0 7px 20px #070e192b}
+ html .team-tile:hover{border-color:var(--tile-color);background:#2c3948}
+ html .team-tile:hover:after{transform:translate(2px,-2px);opacity:1}
+ html .player:hover{transform:translateY(-5px);border-color:var(--highlight);background:#2a3848;box-shadow:0 18px 32px #070e1933}
+ html .player:hover .pick-label{box-shadow:0 0 0 3px color-mix(in srgb,var(--highlight) 22%,transparent)}
+}
+@media(max-width:600px){
+ html h1{font-size:clamp(2.65rem,12.8vw,5rem)}
+ html .team-tile{padding:16px 14px}
+ html .team-tile strong{font-size:1.6rem}
+ html .player-name{font-size:1.5rem}
+ html .player-body{padding:14px 10px}
+}
+@media(prefers-reduced-motion:reduce){
+ html *,html *:before,html *:after{transition:none!important;animation:none!important}
+ html button:enabled:hover,html button:enabled:active{transform:none!important}
+}

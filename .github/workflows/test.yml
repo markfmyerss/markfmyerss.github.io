@@ -18,7 +18,7 @@ jobs:
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test
       - run: npx playwright install --with-deps chromium webkit
-      - name: Check reversible design trial and responsive layouts
+      - name: Check permanent Fresh design and responsive layouts
         run: node design-check.cjs
       - run: node browser-check.cjs
       - name: Check results image downloads

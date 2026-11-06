@@ -9,22 +9,17 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  page.on('pageerror',e=>errors.push(e.message));
  // Block web fonts in this page to verify the fallback works without that service.
  await page.route(/fonts\.(googleapis|gstatic)\.com/,route=>route.abort());
+
+ // A previous Original preference must not override the permanent design.
+ await page.addInitScript(()=>localStorage.setItem('nfl-sorter-design-v1','original'));
  await page.goto(url);
- assert.equal(await page.locator('html').getAttribute('data-design'),'fresh');
+ assert.equal(await page.locator('[data-design-choice]').count(),0);
+ assert.match(await page.locator('html').evaluate(el=>getComputedStyle(el).fontFamily),/DM Sans/);
  await page.click('#start');await page.click('#left');
  const saved=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([k])=>k.startsWith('nfl-sorter-v3:'))));
- for(const mode of ['original','fresh']){
-  await page.click('[data-design-choice='+mode+']');
-  assert.equal(await page.locator('html').getAttribute('data-design'),mode);
-  assert.equal(await page.locator('[data-design-choice='+mode+']').getAttribute('aria-pressed'),'true');
-  await page.reload();
-  assert.equal(await page.locator('html').getAttribute('data-design'),mode);
-  assert.deepEqual(await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([k])=>k.startsWith('nfl-sorter-v3:')))),saved);
-  for(const width of [320,390,768,1440]){
-   await page.setViewportSize({width,height:1000});
-   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+mode+' '+width);
-  }
- }
+ await page.reload();
+ assert.match(await page.locator('html').evaluate(el=>getComputedStyle(el).fontFamily),/DM Sans/);
+ assert.deepEqual(await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([k])=>k.startsWith('nfl-sorter-v3:')))),saved);
  await page.click('#undo');assert.match(await page.locator('#progress').textContent(),/^0 picks/);
  const teams=await page.locator('#team option').evaluateAll(os=>os.map(o=>o.value));
  assert.equal(teams.length,32);
@@ -51,6 +46,6 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  await normal.screenshot({path:'qa/design-fresh-fonts.png',fullPage:true});
  assert.ok(await normal.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
- console.log('PASS design toggle persistence; rankings preserved; 32 team layouts at 320/390/768/1440; font fallback; reduced motion');
+ console.log('PASS permanent Fresh design despite old preferences; rankings preserved; 32 team layouts at 320/390/768/1440; font fallback; reduced motion');
  }finally{await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
