@@ -1,0 +1,21 @@
+name: Prepare NBA Southeast assets
+on:
+  push:
+    paths: ['scripts/prepare-nba-southeast.cjs', '.github/workflows/nba-southeast.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        team: [ATL, CHA, MIA, ORL, WAS]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/prepare-nba-southeast.cjs "${{ matrix.team }}"
