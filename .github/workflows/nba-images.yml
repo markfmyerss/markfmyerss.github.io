@@ -1,23 +1,21 @@
-name: Prepare NBA portrait assets
+name: Prepare NBA Central assets
 on:
   push:
-    paths:
-      - 'scripts/prepare-nba-images.cjs'
-      - '.github/workflows/nba-images.yml'
+    paths: ['scripts/prepare-nba-central.cjs', '.github/workflows/nba-images.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  portraits:
+  prepare:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
-        team: [BOS, BKN, NYK, PHI, TOR]
+        team: [CHI, CLE, DET, IND, MIL]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/prepare-nba-images.cjs "${{ matrix.team }}"
+      - run: node scripts/prepare-nba-central.cjs "${{ matrix.team }}"
