@@ -3,6 +3,7 @@ on:
   push:
     paths-ignore:
       - 'scripts/prepare-nba-atlantic.cjs'
+      - 'scripts/prepare-nba-central.cjs'
       - 'scripts/prepare-nba-images.cjs'
       - '.github/workflows/nba-images.yml'
       - '.github/workflows/nba-snapshot.yml'
@@ -25,7 +26,7 @@ jobs:
           node-version: '22'
       - name: Check static link-preview metadata and PNG
         run: node social-preview-check.cjs
-      - name: Check NBA Atlantic data and saved rankings
+      - name: Check NBA Atlantic and Central data and saved rankings
         run: node nba-tests.cjs
       - name: Prepare official NFC West snapshot on GitHub
         run: node scripts/expand-nfc-west.cjs

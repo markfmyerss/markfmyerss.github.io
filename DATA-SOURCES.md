@@ -127,3 +127,21 @@ Images and marks remain the property of the NBA and their respective rights hold
 NBA uses separate `nba-sorter-v1` ranking keys and selection preferences; NFL `nfl-sorter-v3` keys and migration behavior remain intact. The common appearance preference applies across sports.
 
 The sharing preview is a static composite of official NFL and NBA marks; it is not a league affiliation or a user's submitted ranking.
+
+## NBA — Eastern Conference, Central Division
+
+Verified November 6, 2026 (America/New_York), after the Atlantic release. These records are additive in `nba-central-data.js`; the NFL and Atlantic source data files are unchanged.
+
+| Team | Roster players | Official source | Team ID |
+| --- | ---: | --- | --- |
+| Chicago Bulls | 17 | https://www.nba.com/team/1610612741/bulls | 1610612741 |
+| Cleveland Cavaliers | 17 | https://www.nba.com/team/1610612739/cavaliers | 1610612739 |
+| Detroit Pistons | 18 | https://www.nba.com/team/1610612765/pistons | 1610612765 |
+| Indiana Pacers | 17 | https://www.nba.com/team/1610612754/pacers | 1610612754 |
+| Milwaukee Bucks | 18 | https://www.nba.com/team/1610612749/bucks | 1610612749 |
+
+All 87 listed Central players have distinct official 260×190 PNG portraits, hosted alongside the Atlantic assets in `assets/nba/headshots/`. Source URLs, byte sizes and SHA-256 hashes are recorded in `central-manifest.json`. The generic-placeholder check found no Central fallbacks. The two Atlantic fallbacks remain unchanged.
+
+The five unmodified official NBA logo SVGs are hosted in `assets/nba/logos/`. Primary/secondary colors follow their visible NBA logo assets: Bulls red/black (#CD1F43/#000000), Cavaliers wine/gold (#860038/#BC945C), Pistons red/blue (#C8102E/#1D428A), Pacers navy/yellow (#0C2340/#FFD520), and Bucks green/cream (#00471A/#EDE0C5). Brighter UI highlights preserve text contrast.
+
+The shared G/F/C filter rules and NBA save namespace apply to both divisions. Cleveland, Detroit and Indianapolis NBA codes remain isolated from the NFL teams using CLE, DET and IND. Rights and snapshot limitations above continue to apply.

@@ -8,13 +8,13 @@ function boot(storage=new Map(),blocked=false){
   const elements=new Map();const document={getElementById:id=>{if(!elements.has(id))elements.set(id,new Element());return elements.get(id);},createElement:tag=>new Element(tag),documentElement:new Element(),body:new Element(),addEventListener(){}};
   const localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>{if(blocked)throw Error('blocked');storage.set(k,v);},removeItem:k=>storage.delete(k)};
   const c=vm.createContext({document,localStorage,Option:function(text,value){this.text=text;this.value=value;},navigator:{clipboard:{writeText:async()=>{}}},confirm:()=>true,console});
-  vm.runInContext(fs.readFileSync(__dirname+'/data.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/nba-data.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),c);
+  vm.runInContext(fs.readFileSync(__dirname+'/data.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/nba-data.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/nba-central-data.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),c);
   return {c,storage,e:document.getElementById,run:code=>vm.runInContext(code,c)};
 }
 
 const b=boot();
 assert.equal(b.run('Object.keys(TEAM_INFO).length'),32);
-assert.equal(b.run('Object.keys(NBA_TEAM_INFO).length'),5);
+assert.equal(b.run('Object.keys(NBA_TEAM_INFO).length'),10);
 assert.equal(b.e('sport-picker').children.length,2);
 assert.equal(b.run("keyFor('Philadelphia Eagles','ALL')"),'nfl-sorter-v3:PHI:ALL');
 assert.equal(b.run("keyFor('Philadelphia 76ers','ALL')"),'nba-sorter-v1:PHI:ALL');
@@ -22,7 +22,7 @@ b.e('team').value='Philadelphia Eagles';b.run("selectTeam();start();choose('righ
 b.run("selectSport('NBA')");assert.equal(b.e('team').value,'Boston Celtics');assert.equal(b.e('team-grid').children.length,5);
 assert.deepEqual(b.e('position').children.map(o=>o.value),['ALL','G','F','C']);
 assert.deepEqual(b.e('conference-picker').children.map(o=>o.dataset.conference),['Eastern']);
-assert.deepEqual(b.e('division-picker').children.map(o=>o.dataset.division),['Atlantic']);
+assert.deepEqual(b.e('division-picker').children.map(o=>o.dataset.division),['Atlantic','Central']);
 b.e('team').value='Philadelphia 76ers';b.run("selectTeam();start();choose('left')");const nba=b.run('JSON.stringify(state)');
 b.run("selectSport('NFL')");assert.equal(b.run('JSON.stringify(state)'),nfl);assert.equal(b.e('team').value,'Philadelphia Eagles');
 b.run("selectSport('NBA')");assert.equal(b.run('JSON.stringify(state)'),nba);
@@ -44,17 +44,32 @@ for(const team of oracle.run('Object.keys(NBA_TEAM_INFO)'))for(const pos of ['AL
  assert.equal(new Set(oracle.run('state.sorted.map(p=>p.id)')).size,actual.length);
  cases++;
 }
-assert.equal(cases,20);console.log('PASS all 20 NBA team/filter combinations sort correctly, with undo and no duplicate players');
-const players=oracle.run('Object.values(NBA_ROSTERS).flat()');assert.equal(players.length,86);
+assert.equal(cases,40);console.log('PASS all 40 NBA team/filter combinations sort correctly, with undo and no duplicate players');
+const players=oracle.run('Object.values(NBA_ROSTERS).flat()');assert.equal(players.length,173);
 const ids=new Set();for(const p of players){
  assert.ok(!ids.has(p.id));ids.add(p.id);assert.equal(p.id,'NBA-'+p.nbaId);
  assert.ok(p.positions.every(v=>['G','F','C'].includes(v)));
  assert.ok(p.positions.includes(p.position));
  const url=oracle.run('NBA_HEADSHOTS['+JSON.stringify(p.id)+'].url');if(url){assert.equal(url,'assets/nba/headshots/'+p.nbaId+'.png');const image=fs.readFileSync(__dirname+'/'+url);assert.equal(image.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.equal(image.readUInt32BE(16),260);assert.equal(image.readUInt32BE(20),190);}
 }
-console.log('PASS 86 official NBA player IDs, hybrid position grouping and official portrait source hosts');
+console.log('PASS 173 official NBA player IDs, hybrid position grouping and official portrait source hosts');
 
 const manifest=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/manifest.json','utf8'));
 assert.equal(manifest.portraits.length,84);assert.equal(manifest.fallbacks.length,2);
 for(const item of manifest.portraits){assert.equal(new URL(item.url).hostname,'cdn.nba.com');assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+item.path)).digest('hex'),item.sha256);}
 console.log('PASS 84 unmodified NBA portrait assets match their official-source hashes; two generic profiles use jersey fallbacks');
+
+const centralManifest=JSON.parse(fs.readFileSync(__dirname+'/assets/nba/headshots/central-manifest.json','utf8'));
+assert.equal(centralManifest.portraits.length,87);assert.equal(centralManifest.fallbacks.length,0);
+for(const item of centralManifest.portraits)assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(__dirname+'/'+item.path)).digest('hex'),item.sha256);
+const nav=boot();nav.run("selectSport('NBA');start();choose('left')");const atlantic=nav.run('JSON.stringify(state)');
+nav.run("selectDivision('Central');start();choose('right')");const central=nav.run('JSON.stringify(state)');
+nav.run("selectDivision('Atlantic')");assert.equal(nav.run('JSON.stringify(state)'),atlantic);
+nav.run("selectDivision('Central')");assert.equal(nav.run('JSON.stringify(state)'),central);
+const reloadCentral=boot(nav.storage);assert.equal(reloadCentral.e('division-picker').dataset.conference,'Eastern');assert.equal(reloadCentral.run('JSON.stringify(state)'),central);
+for(const [nfl,nba] of [['Cleveland Browns','Cleveland Cavaliers'],['Detroit Lions','Detroit Pistons'],['Indianapolis Colts','Indiana Pacers']])assert.notEqual(nav.run('keyFor('+JSON.stringify(nfl)+',"ALL")'),nav.run('keyFor('+JSON.stringify(nba)+',"ALL")'));
+for(const team of nav.run('Object.values(NBA_CENTRAL_TEAM_INFO)')){
+ const svg=fs.readFileSync(__dirname+'/'+team.logo,'utf8').toLowerCase();
+ for(const color of [team.colors.primary,team.colors.accent])if(!['#000000','#ffffff'].includes(color.toLowerCase()))assert.ok(svg.includes(color.toLowerCase()),team.name+' official logo color '+color);
+}
+console.log('PASS Central/Atlantic progress and reload isolation; 87 Central portrait hashes; official logo palettes; NFL/NBA CLE/DET/IND key isolation');
