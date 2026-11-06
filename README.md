@@ -2,7 +2,7 @@
 
 Rank your personal favorites across both conferences and all eight divisions.
 
-Live: https://markfmyerss.github.io/nfl-favorites-sorter/
+Live: https://markfmyerss.github.io/
 
 - 32 teams and 1,685 official portrait sources.
 - Remembered conference/division selections and independent team/position rankings.
