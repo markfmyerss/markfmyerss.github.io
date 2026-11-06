@@ -18,6 +18,8 @@ permissions:
 jobs:
   functionality:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -31,8 +33,7 @@ jobs:
       - name: Prepare official NFC West snapshot on GitHub
         run: node scripts/expand-nfc-west.cjs
       - name: Install browser checks on GitHub runner
-        run: npm install --no-save --package-lock=false @playwright/test
-      - run: npx playwright install --with-deps chromium webkit
+        run: npm install --no-save --package-lock=false @playwright/test@1.64.1
       - name: Check NBA sport switching, cards and exports
         run: node nba-browser-check.cjs
       - name: Check Light, Dim and Lights Out appearances
