@@ -5,6 +5,8 @@ on:
       - 'scripts/prepare-nba-atlantic.cjs'
       - 'scripts/prepare-nba-central.cjs'
       - 'scripts/prepare-nba-southeast.cjs'
+      - 'scripts/prepare-nba-northwest.cjs'
+      - '.github/workflows/nba-northwest.yml'
       - '.github/workflows/nba-southeast.yml'
       - 'scripts/prepare-nba-images.cjs'
       - '.github/workflows/nba-images.yml'
@@ -30,7 +32,7 @@ jobs:
           node-version: '22'
       - name: Check static link-preview metadata and PNG
         run: node social-preview-check.cjs
-      - name: Check NBA Eastern Conference data and saved rankings
+      - name: Check NBA Eastern and Northwest data and saved rankings
         run: node nba-tests.cjs
       - name: Prepare official NFC West snapshot on GitHub
         run: node scripts/expand-nfc-west.cjs

@@ -15,7 +15,7 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
    await page.selectOption('#team','Philadelphia Eagles');await page.click('#start');await page.click('#left');
    const nfl=await page.evaluate(()=>localStorage.getItem('nfl-sorter-v3:PHI:ALL'));
    await page.click('[data-sport=NBA].sport-button');
-   assert.equal(await page.locator('#team option').count(),15);
+   assert.equal(await page.locator('#team option').count(),20);
    assert.equal(await page.locator('#conference-picker [aria-pressed=true]').textContent(),'Eastern');
    assert.equal(await page.locator('#division-picker [aria-pressed=true]').textContent(),'Atlantic');
    assert.deepEqual(await page.locator('#position option').evaluateAll(os=>os.map(o=>o.value)),['ALL','G','F','C']);
@@ -75,7 +75,7 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
     }
     return log;
    });
-   assert.equal(generated.length,15);
+   assert.equal(generated.length,20);
    await page.click('[data-sport=NFL].sport-button');
    assert.equal(await page.locator('#team').inputValue(),'Philadelphia Eagles');
    assert.equal(await page.evaluate(()=>localStorage.getItem('nfl-sorter-v3:PHI:ALL')),nfl);

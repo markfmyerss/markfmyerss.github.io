@@ -169,3 +169,11 @@ The shared NBA G/F/C filters, single-image exports and save namespace apply to S
 ESPN team roster responses and visual inspection confirmed current team portraits for Dillon Mitchell (Celtics, ESPN 5106283), Jaden Akins (Knicks, ESPN 4683730), and Henri Veesaar (Hawks, ESPN 5105571). Their unmodified 600×436 PNGs are hosted alongside the NBA images for reliable cards and canvas exports. All 261 NBA players now have portraits. `assets/nba/headshots/espn-overrides.json` records the profile URLs, original image URLs, dimensions, bytes and SHA-256 hashes; division manifests include these replacements too. The roster snapshots and ranking save keys are unchanged.
 
 ESPN images remain the property of their respective rights holders. Public access does not establish an independent redistribution license or endorsement. No additional image license has been verified; failed images retain the existing jersey fallback.
+
+## NBA Western Conference — Northwest Division
+
+Verified November 6, 2026 from NBA.com structured team rosters: Denver Nuggets (17), Minnesota Timberwolves (16), Oklahoma City Thunder (18), Portland Trail Blazers (17), Utah Jazz (18). The 86 additional players bring the site to 20 NBA teams and 347 players. Includes supplemental/two-way players listed by NBA.com; a snapshot rather than a live transaction feed.
+
+Source URLs and official logo URLs are recorded in `assets/nba/headshots/northwest-manifest.json`. All 86 Northwest portraits are unmodified NBA.com PNGs hosted in GitHub, with source URLs, dimensions and SHA-256 hashes. Team primary/accent colors are taken directly from their current official NBA SVG logos, including Minnesota's blue/green, Portland's red, and Utah's purple. Existing NFL and Eastern Conference data files are unchanged.
+
+For this and future NBA additions, missing, failed or generic NBA.com portraits are checked against ESPN's roster for the same team. An unambiguous normalized full-name match is required before using ESPN's supplied headshot URL; images are visually checked if this path is used. NBA.com remains the primary source. No Northwest fallback was needed. Images and logos remain the property of their respective rights holders; public availability does not establish an independent redistribution license or endorsement.
