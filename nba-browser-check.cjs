@@ -1,7 +1,7 @@
 // Browser checks and screenshots run on GitHub; no browser is installed on the user's Mac.
 const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
 (async()=>{
- const server=http.createServer(async(req,res)=>{try{const file=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/$/,'/index.html').slice(1));if(!file.startsWith(process.cwd()+path.sep))throw Error('path');const body=await fs.readFile(file);res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(body);}catch{res.statusCode=404;res.end('Not found');}});
+ const server=http.createServer(async(req,res)=>{try{const file=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/$/,'/index.html').slice(1));if(!file.startsWith(process.cwd()+path.sep))throw Error('path');const body=await fs.readFile(file);res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':'text/html');res.end(body);}catch{res.statusCode=404;res.end('Not found');}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
 
  try{
@@ -60,6 +60,7 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
       const options={size:size.id,type:'png',scope:'all'},names=[],original=CanvasRenderingContext2D.prototype.fillText;
       CanvasRenderingContext2D.prototype.fillText=function(value,...args){if(players.some(p=>p.name===value))names.push(value);return original.call(this,value,...args);};
       let image;try{image=await ResultsExport.createImage(result,options);}finally{CanvasRenderingContext2D.prototype.fillText=original;}
+      if(image.missingPhotos!==result.players.filter(p=>!NBA_HEADSHOTS[p.id]?.url).length)throw Error('Unexpected missing NBA photos '+team);
       if(!image.logoIncluded||image.pages!==1)throw Error('NBA logo or pagination '+team);
       if(JSON.stringify(names)!==JSON.stringify(result.players.map(p=>p.name)))throw Error('NBA names missing '+team);
       if(JSON.stringify(image.players)!==JSON.stringify(result.players.map(p=>p.id)))throw Error('NBA IDs reordered');

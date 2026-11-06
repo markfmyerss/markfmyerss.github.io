@@ -1,5 +1,15 @@
 name: Sorter checks
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+      - 'scripts/prepare-nba-atlantic.cjs'
+      - '.github/workflows/nba-snapshot.yml'
+      - 'assets/link-preview.html'
+      - 'scripts/render-link-preview.cjs'
+      - '.github/workflows/link-preview.yml'
+      - 'README.md'
+      - 'DATA-SOURCES.md'
+  pull_request:
 permissions:
   contents: read
 jobs:

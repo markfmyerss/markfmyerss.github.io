@@ -16,7 +16,8 @@ const NBA_TEAM_INFO = {
       "accent": "#BB9753",
       "highlight": "#8bd9b0",
       "ink": "#101014"
-    }
+    },
+    "logo": "assets/nba/logos/BOS.svg"
   },
   "Brooklyn Nets": {
     "name": "Brooklyn Nets",
@@ -34,7 +35,8 @@ const NBA_TEAM_INFO = {
       "accent": "#FFFFFF",
       "highlight": "#d2d7da",
       "ink": "#101014"
-    }
+    },
+    "logo": "assets/nba/logos/BKN.svg"
   },
   "New York Knicks": {
     "name": "New York Knicks",
@@ -52,7 +54,8 @@ const NBA_TEAM_INFO = {
       "accent": "#F58426",
       "highlight": "#ffb57b",
       "ink": "#101014"
-    }
+    },
+    "logo": "assets/nba/logos/NYK.svg"
   },
   "Philadelphia 76ers": {
     "name": "Philadelphia 76ers",
@@ -70,7 +73,8 @@ const NBA_TEAM_INFO = {
       "accent": "#C8102E",
       "highlight": "#a9c9ff",
       "ink": "#101014"
-    }
+    },
+    "logo": "assets/nba/logos/PHI.svg"
   },
   "Toronto Raptors": {
     "name": "Toronto Raptors",
@@ -88,7 +92,8 @@ const NBA_TEAM_INFO = {
       "accent": "#000000",
       "highlight": "#ffadb5",
       "ink": "#101014"
-    }
+    },
+    "logo": "assets/nba/logos/TOR.svg"
   }
 };
 const NBA_ROSTERS = {
@@ -1271,8 +1276,10 @@ const NBA_HEADSHOTS = {
     "source": "https://www.nba.com/player/202331/paul-george"
   },
   "NBA-1641759": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641759.png",
-    "source": "https://www.nba.com/player/1641759/dillon-mitchell"
+    "url": null,
+    "source": "https://www.nba.com/player/1641759/dillon-mitchell",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641759.png",
+    "unavailableReason": "Official NBA image endpoints return the same generic placeholder at both checked sizes."
   },
   "NBA-1641775": {
     "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641775.png",
@@ -1423,8 +1430,10 @@ const NBA_HEADSHOTS = {
     "source": "https://www.nba.com/player/1642278/tyler-kolek"
   },
   "NBA-1643022": {
-    "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643022.png",
-    "source": "https://www.nba.com/player/1643022/jaden-akins"
+    "url": null,
+    "source": "https://www.nba.com/player/1643022/jaden-akins",
+    "originalUrl": "https://cdn.nba.com/headshots/nba/latest/1040x760/1643022.png",
+    "unavailableReason": "Official NBA image endpoints return the same generic placeholder at both checked sizes."
   },
   "NBA-1628969": {
     "url": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628969.png",

@@ -1,13 +1,13 @@
 // Generate the static sharing image on GitHub. No assets or dependencies go to the owner's Mac.
 const {chromium}=require('@playwright/test'),http=require('node:http'),fs=require('node:fs/promises'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 (async()=>{
- const server=http.createServer(async(req,res)=>{try{const file=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1));if(!file.startsWith(process.cwd()+path.sep))throw Error('path');res.setHeader('Content-Type','text/html');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end();}});
+ const server=http.createServer(async(req,res)=>{try{const file=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1));if(!file.startsWith(process.cwd()+path.sep))throw Error('path');res.setHeader('Content-Type',file.endsWith('.svg')?'image/svg+xml':'text/html');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end();}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch();
  try{
   const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1});
   await page.goto('http://127.0.0.1:'+server.address().port+'/assets/link-preview.html');
   await page.evaluate(()=>document.fonts.ready);
-  await page.waitForFunction(()=>[...document.images].length===9&&[...document.images].every(i=>i.complete&&i.naturalWidth>0));
+  try{await page.waitForFunction(()=>[...document.images].length===9&&[...document.images].every(i=>i.complete&&i.naturalWidth>0));}catch(e){console.log('IMAGE_FAILURES '+JSON.stringify(await page.evaluate(()=>[...document.images].map(i=>({src:i.src,complete:i.complete,width:i.naturalWidth})))));throw e;}
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth===1200&&document.documentElement.scrollHeight===630));
   await fs.mkdir('qa',{recursive:true});
   const png=await page.screenshot({path:'qa/link-preview-v2.png',type:'png'});

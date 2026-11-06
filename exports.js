@@ -61,7 +61,7 @@
  }
  function logoUrl(team){
   const info=ALL_TEAM_INFO[team];
-  if(info?.league==='NBA')return 'https://cdn.nba.com/logos/nba/'+info.nbaId+'/primary/L/logo.svg';
+  if(info?.league==='NBA')return new URL(info.logo,document.baseURI).href;
   const code=info?.code;
   if(!code)return null;
   const official={LAR:'LA',WSH:'WAS'}[code]||code;

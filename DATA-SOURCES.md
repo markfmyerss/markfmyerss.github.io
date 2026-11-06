@@ -1,4 +1,6 @@
-# NFL Favorites Sorter — all 32 teams
+# Fan Favorites — NFL and NBA sources
+
+## NFL — all 32 teams
 
 Official active-roster snapshots verified November 5, 2026 (America/New_York):
 
@@ -101,3 +103,27 @@ The image loader uses anonymous CORS requests so a failed or restricted logo can
 Roster retrieval, source preparation, checks, browser dependencies, test downloads and screenshots remain on GitHub. The workflow has read-only repository access and cannot commit or push. Generated source is reviewed before committing through repository tools. No site files or development dependencies are downloaded to the user’s Mac.
 
 Passing checks cover 320 team/position combinations, all 1,685 image URLs, both conferences and all eight divisions, state isolation and migration, undo, multi-position players, every team’s browser flow, all NFC mobile PNG exports, four viewport sizes, desktop’s 27 size/encoding variants, complete single-image layouts, all 32 team logos, and mobile Chromium/WebKit saving, fallback and cancellation.
+
+## NBA — Eastern Conference, Atlantic Division
+
+Official NBA.com team-page structured roster snapshots, verified November 6, 2026 (America/New_York). Every player listed in each team's roster array is included, including listed supplemental/two-way players; this is not a game-day active list or a live transaction feed. NFL snapshots and portrait mappings were not refreshed.
+
+| Team | Roster players | Official source | Team ID |
+| --- | ---: | --- | --- |
+| Boston Celtics | 17 | https://www.nba.com/team/1610612738/celtics | 1610612738 |
+| Brooklyn Nets | 18 | https://www.nba.com/team/1610612751/nets | 1610612751 |
+| New York Knicks | 17 | https://www.nba.com/team/1610612752/knicks | 1610612752 |
+| Philadelphia 76ers | 17 | https://www.nba.com/team/1610612755/76ers | 1610612755 |
+| Toronto Raptors | 17 | https://www.nba.com/team/1610612761/raptors | 1610612761 |
+
+Player IDs, jersey numbers, names and G/F/C positions come directly from `props.pageProps.team.roster`. Hybrid labels such as F-G and C-F are retained on cards and included in both relevant filters, without duplicates in All.
+
+Headshots use NBA.com player profiles and `https://cdn.nba.com/headshots/nba/latest/1040x760/{playerId}.png`. All 86 endpoints were checked. 84 returned distinct portrait images; Dillon Mitchell (1641759) and Jaden Akins (1643022) returned the same generic image at both 1040×760 and 260×190. Their entries keep the source and original URL for traceability but disable the generic image, showing a jersey fallback instead.
+
+The five unmodified NBA logo SVGs are hosted in `assets/nba/logos/` for reliable same-origin image exports. They were retrieved on GitHub from `https://cdn.nba.com/logos/nba/{teamId}/primary/L/logo.svg`. Primary/secondary palette values follow the visible colors in those official NBA logo assets: Celtics green/gold (#008348/#BB9753), Nets black/white, Knicks blue/orange (#1D428A/#F58426), 76ers blue/red (#1D428A/#C8102E) and Raptors red/black (#BC2126/#000000). Brighter highlights are used for readability.
+
+Images and marks remain the property of the NBA and their respective rights holders. Public URLs do not establish an independent redistribution license or endorsement. Official images may become unavailable; failed images use the existing jersey fallback.
+
+NBA uses separate `nba-sorter-v1` ranking keys and selection preferences; NFL `nfl-sorter-v3` keys and migration behavior remain intact. The common appearance preference applies across sports.
+
+The sharing preview is a static composite of official NFL and NBA marks; it is not a league affiliation or a user's submitted ranking.
