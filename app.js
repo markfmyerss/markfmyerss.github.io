@@ -1,20 +1,32 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST'];
+
+const nbaReady=typeof NBA_TEAM_INFO!=='undefined';
+const ALL_TEAM_INFO={...TEAM_INFO,...(nbaReady?NBA_TEAM_INFO:{})};
+const ALL_HEADSHOTS={...HEADSHOTS,...(nbaReady?NBA_HEADSHOTS:{})};
+const SPORTS={NFL:{teams:TEAM_INFO,positions},...(nbaReady?{NBA:{teams:NBA_TEAM_INFO,positions:['ALL','G','F','C']}}:{})};
+let activeSport='NFL';
+const leagueFor=team=>ALL_TEAM_INFO[team]?.league||'NFL';
+const rosterFor=team=>leagueFor(team)==='NBA'?NBA_ROSTERS[team]:ROSTERS[team];
+const teamsFor=sport=>Object.keys(SPORTS[sport].teams);
+const prefixFor=sport=>sport==='NBA'?'nba-sorter':'nfl-sorter';
+const selectionKey=sport=>prefixFor(sport)+'-selection';
+
 const normalizedName = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
 // Preserve the Vega Ioane fix: licensed providers may use his full given name.
 const headshotAliases = new Map([[normalizedName('Vega Ioane'), normalizedName('Olaivavega Ioane')]]);
 // Official team/NFL portrait URLs are stored separately so existing saved players get photos too.
 let state = null;
 const memory = new Map();
-const keyFor = (team, pos) => `nfl-sorter-v3:${TEAM_INFO[team].code}:${pos}`;
+const keyFor=(team,pos)=>(leagueFor(team)==='NBA'?'nba-sorter-v1:':'nfl-sorter-v3:')+ALL_TEAM_INFO[team].code+':'+pos;
 function read(key) { if(memory.has(key))return memory.get(key);try { return localStorage.getItem(key); } catch { return null; } }
 function write(key, value) { memory.set(key,value); try { localStorage.setItem(key,value); } catch { $('storage-note').hidden = false; } }
 function remove(key) { memory.set(key,null); try { localStorage.removeItem(key); } catch { $('storage-note').hidden=false; } }
 const matchesPosition = (p,pos) => pos==='ALL'||(p.positions||[p.position]).includes(pos);
 function valid(s, team, pos) {
   if (!s || s.team !== team || s.pos !== pos || !Array.isArray(s.players) || !s.players.length || !Array.isArray(s.stack) || !Number.isInteger(s.comparisons) || s.comparisons < 0) return false;
-  const allowed = new Set(ROSTERS[team].filter(p => matchesPosition(p,pos)).map(p=>p.id));
+  const allowed = new Set(rosterFor(team).filter(p => matchesPosition(p,pos)).map(p=>p.id));
   const ids = s.players.map(p=>p.id);
   const listOK = items => Array.isArray(items) && items.every(p=>p && allowed.has(p.id) && p.team===team);
   if (ids.length !== allowed.size || new Set(ids).size !== ids.length || !listOK(s.players)) return false;
@@ -27,11 +39,11 @@ function save() { if (state) write(keyFor(state.team,state.pos),JSON.stringify(s
 function makeFallback(p, small=false) {
   const d=document.createElement('span'); d.className=small?'fallback small':'fallback';
   const n=document.createElement('span'); n.className='jersey-number'; n.textContent=p.number||'—'; d.append(n);
-  if(!small){const t=document.createElement('span');t.className='jersey-team';t.textContent=TEAM_INFO[p.team].code;d.append(t);}
+  if(!small){const t=document.createElement('span');t.className='jersey-team';t.textContent=ALL_TEAM_INFO[p.team].code;d.append(t);}
   return d;
 }
 function makePortrait(p, small=false) {
-  const url=HEADSHOTS[p.id]?.url;
+  const url=ALL_HEADSHOTS[p.id]?.url;
   if(!url)return makeFallback(p,small);
   const img=document.createElement('img');img.alt=p.name+' headshot';img.loading=small?'lazy':'eager';img.decoding='async';img.referrerPolicy='no-referrer';
   img.onerror=()=>img.replaceWith(makeFallback(p,small));img.src=url;return img;
@@ -46,20 +58,30 @@ function primaryTextColor(hex) {
 }
 function applyTheme() {
   renderTeamPicker();
-  const team=$('team').value, c=TEAM_INFO[team];
+  const team=$('team').value, c=ALL_TEAM_INFO[team];
   for(const [key,value] of Object.entries(c.colors))document.documentElement.style.setProperty('--'+key,value);
   document.documentElement.style.setProperty('--pick-ink',primaryTextColor(c.colors.primary));
   globalThis.SiteAppearance?.setTeamColors(c.colors);
   document.body.dataset.team=c.code;
+  document.body.dataset.sport=activeSport;
+  $('league-summary').textContent=activeSport==='NFL'?'ALL 32 NFL TEAMS':'NBA · ATLANTIC';
+  for(const b of $('sport-picker').children)b.setAttribute('aria-pressed',String(b.dataset.sport===activeSport));
   $('eyebrow').textContent=team+' · Favorites sorter';
   $('question').textContent='Who is your favorite '+c.singular+'?';
   $('results-title').textContent='Your '+c.nickname+' favorites';
   $('source').href=c.source;$('source').textContent='Official '+c.nickname+' roster ↗';
-  $('roster-summary').textContent=`${ROSTERS[team].length} active-roster players · Verified November 5, 2026`;
-  $('position-count').textContent=ROSTERS[team].filter(p=>matchesPosition(p,$('position').value)).length+' players in this filter';
+  $('roster-summary').textContent=`${rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${c.verified||'November 5, 2026'}`;
+  $('position-count').textContent=rosterFor(team).filter(p=>matchesPosition(p,$('position').value)).length+' players in this filter';
   for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
 }
-function selectTeam() { save(); write('nfl-sorter-last-team:'+divisionFor($('team').value),$('team').value); state=stored($('team').value,$('position').value);write('nfl-sorter-selection',JSON.stringify({team:$('team').value,pos:$('position').value}));if(state&&!state.done)mergeNext();else render(); }
+function selectTeam() {
+ save();const team=$('team').value;
+ if(!ALL_TEAM_INFO[team]||leagueFor(team)!==activeSport)return;
+ write(prefixFor(activeSport)+'-last-team:'+divisionFor(team),team);
+ state=stored(team,$('position').value);
+ write(selectionKey(activeSport),JSON.stringify({team,pos:$('position').value}));
+ if(state&&!state.done)mergeNext();else render();
+}
 function receive(items) { const p=state.stack.at(-1);if(p.stage===1)p.left=items;else if(p.stage===2){p.right=items;p.i=0;p.j=0;p.out=[];}else throw Error('Invalid merge state'); }
 function finish(items) { state.sorted=items;state.done=true;save();render(); }
 function mergeNext() {
@@ -109,12 +131,12 @@ function choose(side) {
 }
 function start() {
   if(state)return;
-  const team=$('team').value,pos=$('position').value,players=ROSTERS[team].filter(p=>matchesPosition(p,pos));
+  const team=$('team').value,pos=$('position').value,players=rosterFor(team).filter(p=>matchesPosition(p,pos));
   if(!players.length)return;
   state={team,pos,players,history:[],stack:[{items:players,stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
 }
 function undo() { if(!state?.history?.length)return;const history=state.history;state=JSON.parse(history.pop());state.history=history;save();render(); }
-function reset() { if(state&&!confirm('Clear this '+TEAM_INFO[state.team].nickname+' ranking for '+(state.pos==='ALL'?'all positions':state.pos)+'? Other rankings stay saved.'))return;remove(keyFor($('team').value,$('position').value));state=null;render(); }
+function reset() { if(state&&!confirm('Clear this '+ALL_TEAM_INFO[state.team].nickname+' ranking for '+(state.pos==='ALL'?'all positions':state.pos)+'? Other rankings stay saved.'))return;remove(keyFor($('team').value,$('position').value));state=null;render(); }
 function renderPlayer(id,p) {
   const b=$(id);b.replaceChildren();b.setAttribute('aria-label','Choose '+p.name+' as your favorite');
   const photo=document.createElement('div');photo.className='portrait';photo.append(makePortrait(p));
@@ -151,9 +173,9 @@ function render() {
   $('progress-track').setAttribute('aria-valuetext','At least '+percent+'% complete.');
   $('undo').disabled=!state.history?.length;
 }
-const divisionFor = team => TEAM_INFO[team].division || 'AFC North';
-const conferenceFor = team => divisionFor(team).split(' ')[0];
-const conferenceKey = conference => 'nfl-sorter-last-conference-team:'+conference;
+const divisionFor=team=>ALL_TEAM_INFO[team].division||'AFC North';
+const conferenceFor=team=>ALL_TEAM_INFO[team].conference||divisionFor(team).split(' ')[0];
+const conferenceKey=conference=>prefixFor(activeSport)+'-last-conference-team:'+conference;
 function teamButton(team,info) {
  const b=document.createElement('button');b.className='team-tile';b.dataset.team=team;
  b.style.setProperty('--tile-color',info.colors.highlight);
@@ -164,41 +186,71 @@ function teamButton(team,info) {
  const status=document.createElement('small');b.append(code,name,status);
  b.onclick=()=>{$('team').value=team;selectTeam();};return b;
 }
-function renderTeamPicker() {
- const team=$('team').value,division=divisionFor(team),conference=conferenceFor(team);
+
+function renderTeamPicker(){
+ const team=$('team').value,division=divisionFor(team),conference=conferenceFor(team),teams=teamsFor(activeSport);
  if(read(conferenceKey(conference))!==team)write(conferenceKey(conference),team);
- if($('division-picker').dataset.conference!==conference){
-  const divisions=[...new Set(Object.keys(TEAM_INFO).filter(t=>conferenceFor(t)===conference).map(divisionFor))];
+ if($('division-picker').dataset.conference!==conference||$('division-picker').dataset.sport!==activeSport){
+  const divisions=[...new Set(teams.filter(t=>conferenceFor(t)===conference).map(divisionFor))];
   $('division-picker').replaceChildren(...divisions.map(division=>{const b=document.createElement('button');b.className='division-button';b.dataset.division=division;b.textContent=division;b.onclick=()=>selectDivision(division);return b;}));
-  $('division-picker').dataset.conference=conference;
+  $('division-picker').dataset.conference=conference;$('division-picker').dataset.sport=activeSport;
  }
  for(const b of $('conference-picker').children)b.setAttribute('aria-pressed',String(b.dataset.conference===conference));
- if($('team-grid').dataset.division!==division){
-  $('team-grid').replaceChildren(...Object.entries(TEAM_INFO).filter(([team])=>divisionFor(team)===division).map(([team,info])=>teamButton(team,info)));
-  $('team-grid').dataset.division=division;
+ if($('team-grid').dataset.division!==division||$('team-grid').dataset.sport!==activeSport){
+  $('team-grid').replaceChildren(...teams.filter(t=>divisionFor(t)===division).map(t=>teamButton(t,ALL_TEAM_INFO[t])));
+  $('team-grid').dataset.division=division;$('team-grid').dataset.sport=activeSport;
  }
  for(const b of $('division-picker').children)b.setAttribute('aria-pressed',String(b.dataset.division===division));
- $('division-summary').textContent=division+' · '+$('team-grid').children.length+' teams';
+ $('division-summary').textContent=(activeSport==='NBA'?conference+' · ':'')+division+' · '+$('team-grid').children.length+' teams';
  $('team-grid').setAttribute('aria-label',division+' teams');
 }
-function selectConference(conference) {
- const teams=Object.keys(TEAM_INFO).filter(team=>conferenceFor(team)===conference);if(!teams.length)return;
+function selectConference(conference){
+ const teams=teamsFor(activeSport).filter(team=>conferenceFor(team)===conference);if(!teams.length)return;
  const previous=read(conferenceKey(conference));$('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
-function selectDivision(division) {
- write('nfl-sorter-last-team:'+divisionFor($('team').value),$('team').value);
- const teams=Object.keys(TEAM_INFO).filter(team=>divisionFor(team)===division);
- if(!teams.length)return;
- const previous=read('nfl-sorter-last-team:'+division);
+function selectDivision(division){
+ write(prefixFor(activeSport)+'-last-team:'+divisionFor($('team').value),$('team').value);
+ const teams=teamsFor(activeSport).filter(team=>divisionFor(team)===division);if(!teams.length)return;
+ const previous=read(prefixFor(activeSport)+'-last-team:'+division);
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
-for(const team of Object.keys(TEAM_INFO))$('team').add(new Option(team,team));
-for(const conference of [...new Set(Object.keys(TEAM_INFO).map(conferenceFor))]){const b=document.createElement('button');b.className='conference-button';b.dataset.conference=conference;b.textContent=conference;b.onclick=()=>selectConference(conference);$('conference-picker').append(b);}
-for(const pos of positions)$('position').add(new Option(pos==='ALL'?'All positions':pos,pos));
-$('team').value='Baltimore Ravens';
-try{const selection=JSON.parse(read('nfl-sorter-selection'));if(TEAM_INFO[selection?.team])$('team').value=selection.team;if(positions.includes(selection?.pos))$('position').value=selection.pos;}catch{}
-// One-time, non-destructive migration of existing Ravens rankings.
-try{const old=JSON.parse(read('nfl-sorter-ravens-v2'));if(!read('nfl-sorter-legacy-migrated')&&valid(old,'Baltimore Ravens',old?.pos)){if(!read(keyFor(old.team,old.pos)))write(keyFor(old.team,old.pos),JSON.stringify(old));if(!read('nfl-sorter-selection'))$('position').value=old.pos;write('nfl-sorter-legacy-migrated','true');write('nfl-sorter-selection',JSON.stringify({team:$('team').value,pos:$('position').value}));}}catch{}
+function populateSport(){
+ const teams=teamsFor(activeSport),allowed=SPORTS[activeSport].positions;
+ let selection=null;try{selection=JSON.parse(read(selectionKey(activeSport)));}catch{}
+ $('team').replaceChildren();for(const team of teams)$('team').add(new Option(team,team));
+ $('position').replaceChildren();for(const pos of allowed){
+  const label=pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
+  $('position').add(new Option(label,pos));
+ }
+ $('team').value=teams.includes(selection?.team)?selection.team:teams[0];
+ $('position').value=allowed.includes(selection?.pos)?selection.pos:'ALL';
+ $('conference-picker').replaceChildren(...[...new Set(teams.map(conferenceFor))].map(conference=>{
+  const b=document.createElement('button');b.className='conference-button';b.dataset.conference=conference;b.textContent=conference;b.onclick=()=>selectConference(conference);return b;
+ }));
+}
+function selectSport(sport){
+ if(!SPORTS[sport]||sport===activeSport)return;
+ save();write(selectionKey(activeSport),JSON.stringify({team:$('team').value,pos:$('position').value}));
+ activeSport=sport;write('fan-favorites-sport',sport);populateSport();
+ state=stored($('team').value,$('position').value);if(state&&!state.done)mergeNext();else render();
+}
+for(const sport of Object.keys(SPORTS)){
+ const b=document.createElement('button');b.className='sport-button';b.dataset.sport=sport;b.textContent=sport;b.onclick=()=>selectSport(sport);$('sport-picker').append(b);
+}
+if(SPORTS[read('fan-favorites-sport')])activeSport=read('fan-favorites-sport');
+populateSport();
+// Preserve the existing one-time Ravens migration and every NFL storage key.
+try{
+ const old=JSON.parse(read('nfl-sorter-ravens-v2'));
+ if(!read('nfl-sorter-legacy-migrated')&&valid(old,'Baltimore Ravens',old?.pos)){
+  if(!read(keyFor(old.team,old.pos)))write(keyFor(old.team,old.pos),JSON.stringify(old));
+  if(!read('nfl-sorter-selection')){
+   write('nfl-sorter-selection',JSON.stringify({team:old.team,pos:old.pos}));
+   if(activeSport==='NFL'){$('team').value=old.team;$('position').value=old.pos;}
+  }
+  write('nfl-sorter-legacy-migrated','true');
+ }
+}catch{}
 state=stored($('team').value,$('position').value);
 $('team').onchange=selectTeam;$('position').onchange=selectTeam;$('start').onclick=start;$('reset').onclick=reset;
 $('left').onclick=()=>choose('left');$('right').onclick=()=>choose('right');$('undo').onclick=undo;$('undo-result').onclick=undo;

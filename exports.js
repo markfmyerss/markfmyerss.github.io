@@ -50,7 +50,7 @@
   return {size,W,H,pad,header,footer,columns:best.columns,rows:best.rows,capacity:players.length,players,pages:1,boxes};
  }
  function loadPhoto(player){
-  const url=HEADSHOTS[player.id]?.url;if(!url)return Promise.resolve(null);
+  const url=ALL_HEADSHOTS[player.id]?.url;if(!url)return Promise.resolve(null);
   if(photoCache.has(url))return photoCache.get(url);
   const promise=new Promise(resolve=>{
    const image=new Image();let done=false;
@@ -60,7 +60,9 @@
   });if(photoCache.size>=96)photoCache.delete(photoCache.keys().next().value);photoCache.set(url,promise);return promise;
  }
  function logoUrl(team){
-  const code=TEAM_INFO[team]?.code;
+  const info=ALL_TEAM_INFO[team];
+  if(info?.league==='NBA')return 'https://cdn.nba.com/logos/nba/'+info.nbaId+'/primary/L/logo.svg';
+  const code=info?.code;
   if(!code)return null;
   const official={LAR:'LA',WSH:'WAS'}[code]||code;
   return 'https://static.www.nfl.com/t_q-best/league/api/clubs/logos/'+official;
@@ -92,13 +94,13 @@
   return '#'+aa.map((v,i)=>Math.round(v*(1-amount)+bb[i]*amount).toString(16).padStart(2,'0')).join('');
  }
  async function createImage(result,options,index=0){
-  if(!result?.players?.length||!TEAM_INFO[result.team])throw Error('Finish a ranking first.');
+  if(!result?.players?.length||!ALL_TEAM_INFO[result.team])throw Error('Finish a ranking first.');
   if(index!==0)throw Error('The whole ranking fits in one image.');
   // Use the site's distinctive fonts when available; full names also fit with fallback fonts.
   if(document.fonts)await Promise.all([
    document.fonts.load('700 24px "DM Sans"'),document.fonts.load('600 20px "DM Sans"'),document.fonts.load('500 16px "DM Sans"')
   ]).catch(()=>{});
-  const p=plan(result,options),type=TYPES[options.type]||TYPES.png,info=TEAM_INFO[result.team],colors=info.colors;
+  const p=plan(result,options),type=TYPES[options.type]||TYPES.png,info=ALL_TEAM_INFO[result.team],colors=info.colors;
   const canvas=document.createElement('canvas');canvas.width=p.size.width;canvas.height=p.size.height;
   const ctx=canvas.getContext('2d');if(!ctx)throw Error('Image export is unavailable in this browser.');
   ctx.scale(p.size.width/p.W,p.size.width/p.W);
@@ -150,7 +152,7 @@
    if(featured)text(ctx,(player.rosterPosition||player.position)+' · #'+player.number,tx,podium?b.y+b.height-14:mid+18,max,podium?13:12,'#b4c0ce',500);
   });
   ctx.fillStyle='#ffffff18';ctx.fillRect(pad,p.H-p.footer+10,p.W-2*pad,1);
-  text(ctx,'nfl-favorites-sorter · built by @markfm18',pad,p.H-30,650,14,brandInk,600);
+  text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-30,650,14,brandInk,600);
   text(ctx,p.players.length+' FAVORITES',p.W-pad,p.H-30,220,14,brandInk,700,'right');
   text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-10,p.W-pad*2,10,'#9aa9b9',400);
   const blob=await new Promise((resolve,reject)=>{try{canvas.toBlob(b=>b?resolve(b):reject(Error('Could not create the image.')),type.mime,.94);}catch(e){reject(e);}});
@@ -172,8 +174,8 @@
   return new Blob([...chunks,...directory,end],{type:'application/zip'});
  }
  function filename(result,options,image){
-  const code=TEAM_INFO[result.team].code.toLowerCase(),scope=options.scope==='all'?'all':'top-'+options.scope;
-  return 'nfl-favorites-'+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
+  const code=ALL_TEAM_INFO[result.team].code.toLowerCase(),scope=options.scope==='all'?'all':'top-'+options.scope;
+  return (ALL_TEAM_INFO[result.team].league==='NBA'?'nba-favorites-':'nfl-favorites-')+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
  }
  function releasePreview(){if(previewUrl?.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;preview=null;$('export-preview-image').removeAttribute('src');$('export-preview-image').hidden=true;}
  function controls(){

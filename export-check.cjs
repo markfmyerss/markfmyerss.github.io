@@ -64,7 +64,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
       if(this.measureText(value).width>max+.5)throw Error('Name does not fit '+value+' '+size.id);
       drawn.push(value);
      }
-     if(value==='nfl-favorites-sorter · built by @markfm18')credits.push(value);
+     if(value==='Fan Favorites · built by @markfm18')credits.push(value);
      return original.call(this,value,x,y,max);
     };
     let image;try{image=await ResultsExport.createImage(result,options);}finally{CanvasRenderingContext2D.prototype.fillText=original;}

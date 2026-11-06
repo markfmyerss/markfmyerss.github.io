@@ -13,11 +13,15 @@ jobs:
           node-version: '22'
       - name: Check static link-preview metadata and PNG
         run: node social-preview-check.cjs
+      - name: Check NBA Atlantic data and saved rankings
+        run: node nba-tests.cjs
       - name: Prepare official NFC West snapshot on GitHub
         run: node scripts/expand-nfc-west.cjs
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test
       - run: npx playwright install --with-deps chromium webkit
+      - name: Check NBA sport switching, cards and exports
+        run: node nba-browser-check.cjs
       - name: Check Light, Dim and Lights Out appearances
         run: node appearance-check.cjs
       - name: Check complete ranking image layouts and downloads

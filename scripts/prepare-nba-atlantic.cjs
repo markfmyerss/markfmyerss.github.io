@@ -34,6 +34,16 @@ const teams=[
  }
  await Promise.all(Array.from({length:6},worker));
  const duplicates=[...hashes.values()].filter(v=>v.length>1);console.log('PORTRAIT_CHECK '+JSON.stringify({count:checks.length,duplicateImages:duplicates}));
+ for(const group of duplicates){
+  for(const size of ['260x190','2026/1040x760']){
+   const results=[];
+   for(const id of group){
+    const person=id.replace('NBA-',''),url=size.includes('/')?'https://cdn.nba.com/headshots/nba/'+size+'/'+person+'.png':'https://cdn.nba.com/headshots/nba/latest/'+size+'/'+person+'.png';
+    try{const r=await fetch(url,{signal:AbortSignal.timeout(12000)});const bytes=Buffer.from(await r.arrayBuffer());results.push({id,url,status:r.status,type:r.headers.get('content-type'),bytes:bytes.length,sha:crypto.createHash('sha256').update(bytes).digest('hex')});}catch(e){results.push({id,url,error:e.message});}
+   }
+   console.log('PORTRAIT_ALTERNATES '+JSON.stringify(results));
+  }
+ }
  const source='// Official NBA Atlantic roster snapshot verified November 6, 2026. Generated on GitHub from NBA.com.\nconst NBA_TEAM_INFO = '+JSON.stringify(info,null,2)+';\nconst NBA_ROSTERS = '+JSON.stringify(rosters,null,2)+';\nconst NBA_HEADSHOTS = '+JSON.stringify(headshots,null,2)+';\n';
  await fs.mkdir('qa/nba-probe',{recursive:true});await fs.writeFile('qa/nba-probe/nba-data.js',source);
  for(let i=0,n=0;i<source.length;i+=8000,n++)console.log('NBA_SNAPSHOT_CHUNK_'+String(n).padStart(4,'0')+':'+JSON.stringify(source.slice(i,i+8000)));

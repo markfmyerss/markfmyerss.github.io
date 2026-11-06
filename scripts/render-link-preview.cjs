@@ -10,7 +10,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
   await page.waitForFunction(()=>[...document.images].length===9&&[...document.images].every(i=>i.complete&&i.naturalWidth>0));
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth===1200&&document.documentElement.scrollHeight===630));
   await fs.mkdir('qa',{recursive:true});
-  const png=await page.screenshot({path:'qa/link-preview-v1.png',type:'png'});
+  const png=await page.screenshot({path:'qa/link-preview-v2.png',type:'png'});
   assert.equal(png.readUInt32BE(16),1200);assert.equal(png.readUInt32BE(20),630);assert.ok(png.length<5*1024*1024);
   const encoded=png.toString('base64');
   for(let i=0,n=0;i<encoded.length;i+=16000,n++)console.log('PREVIEW_PNG_CHUNK_'+String(n).padStart(4,'0')+':'+encoded.slice(i,i+16000));
