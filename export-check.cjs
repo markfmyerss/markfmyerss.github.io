@@ -10,7 +10,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
   // Complete a small ranking through the actual controls to check integration.
   await page.selectOption('#position','QB');await page.click('#start');
   while(await page.locator('#sort').isVisible())await page.click('#left');
-  assert.ok(await page.locator('.export-panel').isVisible());assert.equal(downloads.length,0);
+  assert.ok(await page.locator('.export-panel').isVisible());assert.equal(await page.locator('#results .builder-credit').textContent(),'built by @markfm18');assert.equal(downloads.length,0);
   await page.click('#export-preview');await page.waitForFunction(()=>!document.getElementById('export-download').disabled);
   assert.equal(downloads.length,0,'preview must not start a download');
   await page.waitForFunction(()=>document.getElementById('export-preview-image').complete&&document.getElementById('export-preview-image').naturalWidth>0);
@@ -23,7 +23,16 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    for(const size of ResultsExport.SIZES)for(const type of Object.keys(ResultsExport.TYPES)){
     const options={size:size.id,type,scope:'all'},plan=ResultsExport.plan(result,options),seen=[];
     for(let index=0;index<plan.pages;index++){
-     const image=await ResultsExport.createImage(result,options,index),bitmap=await createImageBitmap(image.blob);
+     let image,creditDraws=0;
+     const originalFill=CanvasRenderingContext2D.prototype.fillText;
+     CanvasRenderingContext2D.prototype.fillText=function(value,...args){
+      if(value==='nfl-favorites-sorter · built by @markfm18')creditDraws++;
+      return originalFill.call(this,value,...args);
+     };
+     try{image=await ResultsExport.createImage(result,options,index);}
+     finally{CanvasRenderingContext2D.prototype.fillText=originalFill;}
+     if(creditDraws!==1)throw Error('Missing creator credit '+size.id+' '+type+' page '+index);
+     const bitmap=await createImageBitmap(image.blob);
      if(bitmap.width!==size.width||bitmap.height!==size.height)throw Error('Wrong encoded dimensions '+size.id);
      if(image.blob.type!==ResultsExport.TYPES[type].mime)throw Error('Wrong file encoding '+type);
      if(image.blob.size<2000)throw Error('Image is empty');
@@ -42,6 +51,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
   });
   console.log('PASS all '+variants.length+' size/encoding variants decode correctly; every page preserves full ranking order');
   console.log('PASS top-10 and top-25 image ranges');
+  console.log('PASS built by @markfm18 appears on results and is drawn on every page of all 27 image variants');
 
   // Track actual text rendering as an independent check of the visible ranking.
   const drawn=await page.evaluate(async()=>{

@@ -85,7 +85,7 @@
    text(ctx,(player.rosterPosition||player.position)+'  ·  #'+player.number,tx,mid+23,max,wide?15:17,'#b9bfce',500);
   });
   const end=start+items.length;
-  text(ctx,'nfl-favorites-sorter',pad,p.H-30,420,14,'#aab1c2',600);
+  text(ctx,'nfl-favorites-sorter · built by @markfm18',pad,p.H-30,420,14,'#aab1c2',600);
   text(ctx,'Ranks '+(start+1)+'–'+end+'  ·  Page '+(index+1)+' / '+p.pages,p.W-pad,p.H-30,480,15,colors.highlight,700,'right');
   text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-10,p.W-pad*2,10,'#858d9e',400);
   const blob=await new Promise((resolve,reject)=>{try{canvas.toBlob(b=>b?resolve(b):reject(Error('Could not create the image.')),type.mime,.94);}catch(e){reject(e);}});
