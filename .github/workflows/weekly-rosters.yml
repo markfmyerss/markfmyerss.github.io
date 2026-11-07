@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Check league-wide position ranking storage
+        run: node position-rankings-check.cjs
       - name: Check archive, identity and saved-progress safeguards
         run: node weekly-rosters-check.cjs
       - name: Fetch and stage all official NFL and NBA rosters
@@ -37,6 +39,8 @@ jobs:
         run: npm install --no-save --package-lock=false @playwright/test@1.64.1
       - name: Check old shared links and saved rankings after roster changes
         run: node weekly-rosters-browser-check.cjs
+      - name: Check league-wide positions and historical exports
+        run: node position-rankings-browser-check.cjs
       - name: Check NBA sorting, headshots and every image size
         run: node nba-browser-check.cjs
       - name: Check existing NFL sorting and results flow

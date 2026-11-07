@@ -18,18 +18,23 @@
  let current=null,fingerprint='',revision=0,busy=false,pageIndex=0,preview=null,previewUrl=null;
  function config(){return {size:$('export-size').value,type:mobile?'png':$('export-type').value,scope:$('export-scope').value};}
  function updateMode(){
+  const league=!!current&&ALL_TEAM_INFO[current.team]?.scope==='league';
   const selected=$('export-size').value;$('export-size').replaceChildren();
-  for(const size of (mobile?SIZES.slice(0,4):SIZES))$('export-size').add(new Option(mobile?size.label:size.label+' · '+size.width+'×'+size.height,size.id));
+  for(const size of (mobile?SIZES.slice(0,4):SIZES))$('export-size').add(new Option(mobile||league?size.label:size.label+' · '+size.width+'×'+size.height,size.id));
   $('export-size').value=(mobile?SIZES.slice(0,4):SIZES).some(s=>s.id===selected)?selected:'1x1';
   $('export-type-field').hidden=mobile;$('export-panel').classList.toggle('mobile-export',mobile);
   $('export-intro').textContent=mobile?'Choose a size and range. Every name fits in one image.':'One complete ranking image, in any size. Choose All, Top 10 or Top 25.';
   $('export-note').textContent=mobile?'Create your image, then tap Save image or touch and hold it. Your entire selected ranking fits in one image.':'Your selected ranking fits in one image. Dense rankings use smaller text. Images are created in your browser; unavailable photos use jersey numbers.';
  }
  function plan(result,options){
-  const size=SIZES.find(s=>s.id===options.size)||SIZES[0],W=1080,H=size.height*W/size.width;
+  const preset=SIZES.find(s=>s.id===options.size)||SIZES[0];
   const limit=options.scope==='all'?result.players.length:Number(options.scope);
   const players=result.players.slice(0,Math.min(result.players.length,limit||result.players.length));
-  const wide=W/H>=1.25,pad=wide?42:48,gutter=wide?14:16,header=wide?112:172,footer=wide?58:72;
+  const league=ALL_TEAM_INFO[result.team]?.scope==='league',density=league&&players.length>80?Math.ceil(players.length/90):1;
+  const outputScale=Math.max(1,Math.min(density,Math.floor(4096/preset.width),Math.floor(4096/preset.height),Math.floor(Math.sqrt(16000000/(preset.width*preset.height)))));
+  const size={...preset,width:preset.width*outputScale,height:preset.height*outputScale},W=1080*density,H=preset.height*W/preset.width;
+
+  const wide=W/H>=1.25,pad=wide?42:48,gutter=wide?14:16,header=wide?112:172,footer=league?Math.max(wide?58:72,56/(size.width/W)):wide?58:72;
   const featured=Math.min(3,players.length),rest=players.slice(featured),boxes=[];
   const base=wide?82:Math.max(154,Math.min(210,H*.15));
   const featureWidth=(W-2*pad-gutter*(featured-1))/Math.max(1,featured);
@@ -49,23 +54,29 @@
   });
   return {size,W,H,pad,header,footer,columns:best.columns,rows:best.rows,capacity:players.length,players,pages:1,boxes};
  }
- function loadPhoto(player){
+ function loadPhoto(player,thumbnail=false){
   const url=player.headshotUrl||ALL_HEADSHOTS[player.id]?.url;if(!url)return Promise.resolve(null);
-  if(photoCache.has(url))return photoCache.get(url);
+  const key=url+(thumbnail?'#thumb':'');if(photoCache.has(key))return photoCache.get(key);
   const promise=new Promise(resolve=>{
    const image=new Image();let done=false;
    const finish=value=>{if(done)return;done=true;clearTimeout(timer);image.onload=null;image.onerror=null;resolve(value);};
    const timer=setTimeout(()=>finish(null),8000);
-   image.crossOrigin='anonymous';image.referrerPolicy='no-referrer';image.onload=()=>finish(image.naturalWidth>0?image:null);image.onerror=()=>finish(null);image.src=url;
-  });if(photoCache.size>=96)photoCache.delete(photoCache.keys().next().value);photoCache.set(url,promise);return promise;
+   image.crossOrigin='anonymous';image.referrerPolicy='no-referrer';image.onload=async()=>{if(!image.naturalWidth){finish(null);return;}if(thumbnail&&globalThis.createImageBitmap){try{const ratio=Math.min(1,160/image.naturalWidth,160/image.naturalHeight),bitmap=await createImageBitmap(image,{resizeWidth:Math.max(1,Math.round(image.naturalWidth*ratio)),resizeHeight:Math.max(1,Math.round(image.naturalHeight*ratio))});finish({drawable:bitmap,naturalWidth:bitmap.width,naturalHeight:bitmap.height});image.src='';return;}catch{}}finish(image);};image.onerror=()=>finish(null);image.src=url;
+  });if(photoCache.size>=96)photoCache.delete(photoCache.keys().next().value);photoCache.set(key,promise);return promise;
  }
  function logoUrl(team){
   const info=ALL_TEAM_INFO[team];
+  if(info?.scope==='league')return new URL(info.logo,document.baseURI).href;
   if(info?.league==='NBA')return new URL(info.logo,document.baseURI).href;
   const code=info?.code;
   if(!code)return null;
   const official={LAR:'LA',WSH:'WAS'}[code]||code;
   return 'https://static.www.nfl.com/t_q-best/league/api/clubs/logos/'+official;
+ }
+ async function loadPhotos(players,thumbnail){
+  if(!thumbnail)return Promise.all(players.map(p=>loadPhoto(p)));
+  const result=Array(players.length);let next=0;
+  await Promise.all(Array.from({length:8},async()=>{while(next<players.length){const i=next++;result[i]=await loadPhoto(players[i],true);}}));return result;
  }
  function loadLogo(team){
   const url=logoUrl(team);if(!url)return Promise.resolve(null);
@@ -83,9 +94,9 @@
   ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();}
  }
  function text(ctx,value,x,y,max,font,color,weight=600,align='left'){
-  let n=Math.max(8,Math.floor(font));ctx.textAlign=align;
+  const minimum=Math.max(8,Math.ceil(8/(ctx.getTransform().a||1)));let n=Math.max(minimum,Math.floor(font));ctx.textAlign=align;
   const family='"DM Sans",system-ui,-apple-system,sans-serif';
-  do{ctx.font=weight+' '+n+'px '+family;if(ctx.measureText(value).width<=max||n<=8)break;n--;}while(n>=8);
+  do{ctx.font=weight+' '+n+'px '+family;if(ctx.measureText(value).width<=max||n<=minimum)break;n--;}while(n>=minimum);
   ctx.fillStyle=color;ctx.fillText(value,x,y,max);ctx.textAlign='left';
  }
  function blend(a,b,amount){
@@ -100,7 +111,7 @@
   if(document.fonts)await Promise.all([
    document.fonts.load('700 24px "DM Sans"'),document.fonts.load('600 20px "DM Sans"'),document.fonts.load('500 16px "DM Sans"')
   ]).catch(()=>{});
-  const p=plan(result,options),type=TYPES[options.type]||TYPES.png,info=ALL_TEAM_INFO[result.team],colors=info.colors;
+  const p=plan(result,options),type=TYPES[options.type]||TYPES.png,info=ALL_TEAM_INFO[result.team],colors=info.colors,league=info.scope==='league';
   const canvas=document.createElement('canvas');canvas.width=p.size.width;canvas.height=p.size.height;
   const ctx=canvas.getContext('2d');if(!ctx)throw Error('Image export is unavailable in this browser.');
   ctx.scale(p.size.width/p.W,p.size.width/p.W);
@@ -114,7 +125,7 @@
   for(const radius of [135,185,240]){ctx.beginPath();ctx.arc(p.W-52,22,radius,0,Math.PI*2);ctx.stroke();}
   ctx.restore();
   const badge=wide?66:96,top=wide?18:26;
-  const [logo,photos]=await Promise.all([loadLogo(result.team),Promise.all(p.players.map(loadPhoto))]);
+  const [logo,photos]=await Promise.all([loadLogo(result.team),loadPhotos(p.players,league)]),outputRatio=canvas.width/p.W;
   if(logo){
    const scale=Math.min(badge/logo.naturalWidth,badge/logo.naturalHeight),w=logo.naturalWidth*scale,h=logo.naturalHeight*scale;
    ctx.drawImage(logo,pad+(badge-w)/2,top+(badge-h)/2,w,h);
@@ -124,14 +135,14 @@
   }
   const titleX=pad+badge+22,titleWidth=p.W-pad-titleX;
   text(ctx,'MY FAVORITES',titleX,top+12,titleWidth,12,brandInk,600);
-  text(ctx,result.team,titleX,top+(wide?43:56),titleWidth,wide?33:44,ink,700);
+  text(ctx,league?info.league+' · '+result.pos+' FAVORITES':result.team,titleX,top+(wide?43:56),titleWidth,wide?33:44,ink,700);
   const scope=p.players.length<result.players.length?'Top '+p.players.length+' of '+result.players.length:'All '+p.players.length+' players';
-  text(ctx,(result.pos==='ALL'?'All positions':result.pos)+' · '+scope,titleX,top+(wide?65:84),titleWidth,wide?13:16,'#b4c0ce',500);
+  text(ctx,(league?'Across all '+(info.league==='NBA'?'30':'32')+' teams':result.pos==='ALL'?'All positions':result.pos)+' · '+scope,titleX,top+(wide?65:84),titleWidth,wide?13:16,'#b4c0ce',500);
   let missingPhotos=0;
   p.players.forEach((player,i)=>{
    const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2,podium=featured&&!wide;
    rect(ctx,b.x,b.y,b.width,b.height,featured?18:8,featured?(i===0?blend(colors.primary,'#233142',.7):'#202c3b'):'#ffffff07',featured?(i===0?colors.highlight:'#ffffff18'):null);
-   const rankWidth=featured?(wide?32:38):(b.height<30?24:30);
+   const rankWidth=league?Math.max(32/outputRatio,featured?(wide?32:38):(b.height<30?24:30)):featured?(wide?32:38):(b.height<30?24:30);
    const photoSize=podium?Math.min(96,b.height-68):featured?Math.min(52,b.height-12):Math.max(12,Math.min(40,b.height-6));
    const photoX=podium?b.x+(b.width-photoSize)/2:b.x+rankWidth+(featured?12:6);
    const photoY=podium?b.y+12:mid-photoSize/2,photoMid=photoY+photoSize/2;
@@ -140,21 +151,21 @@
    ctx.fillStyle=blend(colors.primary,'#273747',.55);ctx.fillRect(photoX,photoY,photoSize,photoSize);
    if(photos[i]){
     const image=photos[i],scale=Math.min(photoSize/image.naturalWidth,photoSize/image.naturalHeight),iw=image.naturalWidth*scale,ih=image.naturalHeight*scale;
-    ctx.drawImage(image,photoX+(photoSize-iw)/2,photoY+(photoSize-ih)/2,iw,ih);
+    ctx.drawImage(image.drawable||image,photoX+(photoSize-iw)/2,photoY+(photoSize-ih)/2,iw,ih);
    }else{
     missingPhotos++;text(ctx,player.number||'—',photoX+photoSize/2,photoMid+photoSize*.16,photoSize-4,photoSize*.4,'#fff',600,'center');
    }
    ctx.restore();
    const tx=podium?b.x+14:photoX+photoSize+(featured?14:8);
    const max=podium?b.width-28:b.x+b.width-tx-(featured?16:8);
-   const nameFont=featured?(podium?24:26):Math.min(24,Math.max(10,b.height*.66));
-   text(ctx,player.name,tx,podium?b.y+b.height-34:featured?mid-1:mid+nameFont*.33,max,nameFont,ink,600);
-   if(featured)text(ctx,(player.rosterPosition||player.position)+' · #'+player.number,tx,podium?b.y+b.height-14:mid+18,max,podium?13:12,'#b4c0ce',500);
+   const nameFont=featured?(podium?24:26):Math.min(24,Math.max(10,b.height*(league?0.48:0.66)));
+   text(ctx,player.name,tx,podium?b.y+b.height-34:featured||league?mid-1:mid+nameFont*.33,max,nameFont,ink,600);
+   if(featured||league)text(ctx,(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(player.rosterPosition||player.position)+' · #'+player.number,tx,podium?b.y+b.height-14:mid+(league?Math.max(14,8/outputRatio):18),max,league&&!featured?Math.min(12,b.height*.26):podium?13:12,'#b4c0ce',500);
   });
-  ctx.fillStyle='#ffffff18';ctx.fillRect(pad,p.H-p.footer+10,p.W-2*pad,1);
-  text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-30,650,14,brandInk,600);
-  text(ctx,p.players.length+' FAVORITES',p.W-pad,p.H-30,220,14,brandInk,700,'right');
-  text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-10,p.W-pad*2,10,'#9aa9b9',400);
+  ctx.fillStyle='#ffffff18';ctx.fillRect(pad,p.H-p.footer+(league?10/outputRatio:10),p.W-2*pad,1);
+  text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-(league?30/outputRatio:30),p.W-2*pad-260,league?Math.max(14,12/outputRatio):14,brandInk,600);
+  text(ctx,p.players.length+' FAVORITES',p.W-pad,p.H-(league?30/outputRatio:30),220,league?Math.max(14,12/outputRatio):14,brandInk,700,'right');
+  text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-(league?10/outputRatio:10),p.W-pad*2,league?Math.max(10,8/outputRatio):10,'#9aa9b9',400);
   const blob=await new Promise((resolve,reject)=>{try{canvas.toBlob(b=>b?resolve(b):reject(Error('Could not create the image.')),type.mime,.94);}catch(e){reject(e);}});
   const actual=Object.values(TYPES).find(t=>t.mime===blob.type);if(!actual)throw Error('Unsupported image format.');
   return {blob,width:canvas.width,height:canvas.height,pages:1,index:0,start:1,end:p.players.length,missingPhotos,logoIncluded:!!logo,extension:actual.extension,players:p.players.map(p=>p.id)};
@@ -175,7 +186,7 @@
  }
  function filename(result,options,image){
   const code=ALL_TEAM_INFO[result.team].code.toLowerCase(),scope=options.scope==='all'?'all':'top-'+options.scope;
-  return (ALL_TEAM_INFO[result.team].league==='NBA'?'nba-favorites-':'nfl-favorites-')+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
+  return (ALL_TEAM_INFO[result.team].scope==='league'?(ALL_TEAM_INFO[result.team].league.toLowerCase()+'-position-favorites-'):(ALL_TEAM_INFO[result.team].league==='NBA'?'nba-favorites-':'nfl-favorites-'))+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
  }
  function releasePreview(){if(previewUrl?.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;preview=null;$('export-preview-image').removeAttribute('src');$('export-preview-image').hidden=true;}
  function controls(){
@@ -193,8 +204,8 @@
  }
  function changed(){revision++;busy=false;pageIndex=0;releasePreview();$('export-status').textContent=current?(mobile?'Choose a size and range, then create your image.':'Choose a size, file format and range, then preview.'):'';controls();}
  function setResults(result){
-  const next=result?JSON.stringify([result.team,result.pos,result.players.map(p=>[p.id,p.name,p.number,p.position,p.rosterPosition])]):'';
-  if(next===fingerprint)return;fingerprint=next;current=result?{team:result.team,pos:result.pos,players:result.players.map(p=>({...p}))}:null;changed();
+  const next=result?JSON.stringify([result.team,result.pos,result.players.map(p=>[p.id,p.name,p.team,p.number,p.position,p.rosterPosition,p.headshotUrl||''])]):'';
+  if(next===fingerprint)return;fingerprint=next;current=result?{team:result.team,pos:result.pos,players:result.players.map(p=>({...p}))}:null;updateMode();changed();
  }
  async function showPreview(index){
   if(!current||busy)return;

@@ -1,0 +1,3 @@
+const fs=require('node:fs'),T=require('./roster-tools.cjs');const index=T.archiveData(T.loadData()),files={'assets/roster-snapshots/index.json':fs.readFileSync('assets/roster-snapshots/index.json','utf8')};
+for(const entry of Object.values(index.snapshots)){if(/\/(NFL\/NFL|NBA\/NBA)\//.test(entry.path))files[entry.path]=fs.readFileSync(entry.path,'utf8');}
+const data=JSON.stringify(files);for(let i=0,n=0;i<data.length;i+=10000,n++)console.log('POSITION_ARCHIVES_CHUNK_'+String(n).padStart(4,'0')+':'+JSON.stringify(data.slice(i,i+10000)));console.log('PASS exported '+Object.keys(files).length+' position snapshot files');

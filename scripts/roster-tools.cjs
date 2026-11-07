@@ -39,6 +39,25 @@ const canonical=players=>JSON.stringify(players.map(p=>[p.id,p.name,p.number,p.p
 function stamp(players){const value=canonical(players);let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}return (hash>>>0).toString(16).padStart(8,'0');}
 const filtered=(players,pos)=>players.filter(p=>pos==='ALL'||(p.positions||[p.position]).includes(pos));
 function writeJSON(file,value){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(value)+'\n');}
+function leaguePlayers(rosters){return Object.values(rosters).flat().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0);}
+const leagueCanonical=players=>JSON.stringify(players.map(p=>[p.id,p.name,p.number,p.position,p.rosterPosition,p.positions||[],p.team]));
+function leagueStamp(players){const value=leagueCanonical(players);let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}return (hash>>>0).toString(16).padStart(8,'0');}
+function archiveLeagueData(data,root,index){
+ for(const sport of ['NFL','NBA']){
+  const info=sport==='NFL'?data.TEAM_INFO:data.NBA_TEAM_INFO,rosters=sport==='NFL'?data.ROSTERS:data.NBA_ROSTERS,shots=sport==='NFL'?data.HEADSHOTS:data.NBA_HEADSHOTS,all=leaguePlayers(rosters);
+  const verified=Object.values(info).map(t=>t.verified||(sport==='NFL'?'November 5, 2026':'November 6, 2026')).sort((a,b)=>new Date(a)-new Date(b))[0];
+  assert.equal(new Set(all.map(p=>p.id)).size,all.length,'Duplicate league player identity');
+  for(const pos of (sport==='NFL'?NFL_POS:NBA_POS).filter(p=>p!=='ALL')){
+   const players=filtered(all,pos);if(!players.length)continue;assert.ok(players.length<=1000,'Position pool too large');
+   const hash=leagueStamp(players),file='assets/roster-snapshots/'+sport+'/'+sport+'/'+hash+'.json',key=[sport,sport,pos,hash].join('.');
+   const snapshot={version:2,scope:'league',sport,team:sport+' League',code:sport,pos,verified,players,headshots:Object.fromEntries(players.map(p=>[p.id,shots[p.id]||null]))};
+   if(fs.existsSync(path.join(root,file)))assert.equal(leagueCanonical(JSON.parse(fs.readFileSync(path.join(root,file),'utf8')).players),leagueCanonical(players),'League snapshot hash collision');else writeJSON(path.join(root,file),snapshot);
+   index.snapshots[key]={path:file,verified};
+  }
+ }
+ return index;
+}
+
 function archiveData(data,root='.'){
  const indexFile=path.join(root,'assets/roster-snapshots/index.json'),index=fs.existsSync(indexFile)?JSON.parse(fs.readFileSync(indexFile,'utf8')):{version:1,snapshots:{}};
  for(const sport of ['NFL','NBA']){const info=sport==='NFL'?data.TEAM_INFO:data.NBA_TEAM_INFO,rosters=sport==='NFL'?data.ROSTERS:data.NBA_ROSTERS,shots=sport==='NFL'?data.HEADSHOTS:data.NBA_HEADSHOTS;
@@ -47,7 +66,7 @@ function archiveData(data,root='.'){
    for(const pos of sport==='NFL'?NFL_POS:NBA_POS){const roster=filtered(players,pos);if(roster.length){const key=[sport,meta.code,pos,stamp(roster)].join('.');const old=index.snapshots[key];if(old&&old.path!==file){const saved=JSON.parse(fs.readFileSync(path.join(root,old.path),'utf8'));assert.equal(canonical(filtered(saved.players,pos)),canonical(roster),'Filtered roster archive hash collision');}index.snapshots[key]={path:file,verified};}}
   }
  }
- writeJSON(indexFile,index);return index;
+ archiveLeagueData(data,root,index);writeJSON(indexFile,index);return index;
 }
 async function mapLimit(items,limit,fn){const queue=[...items],out=[];await Promise.all(Array.from({length:limit},async()=>{while(queue.length){const item=queue.shift();out.push(await fn(item));}}));return out;}
-module.exports={DATA_FILES,NFL_POS,NBA_POS,loadData,clean,normalize,group,get,parseNFL,parseNBA,assignNFLIds,canonical,stamp,filtered,writeJSON,archiveData,mapLimit};
+module.exports={leaguePlayers,leagueCanonical,leagueStamp,archiveLeagueData,DATA_FILES,NFL_POS,NBA_POS,loadData,clean,normalize,group,get,parseNFL,parseNBA,assignNFLIds,canonical,stamp,filtered,writeJSON,archiveData,mapLimit};

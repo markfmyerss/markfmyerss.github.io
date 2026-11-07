@@ -38,6 +38,8 @@ jobs:
         run: node social-preview-check.cjs
       - name: Check all 30 NBA teams and saved rankings and saved rankings
         run: node nba-tests.cjs
+      - name: Check league-wide position pools and compact progress
+        run: node position-rankings-check.cjs
       - name: Check weekly roster safeguards and current data
         run: |
           node weekly-rosters-check.cjs
@@ -48,6 +50,10 @@ jobs:
         run: node scripts/expand-nfc-west.cjs
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - name: Check position tabs, mixed-team cards, links and dense images
+        run: node position-rankings-browser-check.cjs
+      - name: Export position archives for initial publication
+        run: node scripts/export-position-archives.cjs
       - name: Check historical shared links and roster changes
         run: node weekly-rosters-browser-check.cjs
       - name: Check shared links on mobile and desktop

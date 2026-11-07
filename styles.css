@@ -219,3 +219,13 @@ body[data-sport=NBA] #team-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
 .roster-history select{min-width:0;max-width:100%;width:100%}
 #saved-roster-note{font-size:.82rem;margin-top:0}
 @media(max-width:480px){.roster-history>div{align-items:stretch;flex-direction:column}}
+
+#ranking-mode{display:flex;gap:4px;width:max-content;max-width:100%;padding:4px;margin:-8px 0 24px;border:1px solid color-mix(in srgb,currentColor 18%,transparent);border-radius:14px}
+.mode-button{min-height:42px;padding:9px 20px;border-radius:10px;background:transparent;color:inherit;font-size:.83rem}
+.mode-button[aria-pressed=true]{background:var(--highlight);color:#101014;box-shadow:0 3px 12px #0002}
+#league-position-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:2px 0 28px}
+html .position-tile strong{font-size:1.5rem}
+body[data-ranking-mode=positions] .controls{grid-template-columns:minmax(180px,1fr) minmax(160px,1fr) auto}
+.rank-text{min-width:0}
+@media(max-width:760px){body[data-ranking-mode=positions] .controls{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-ranking-mode=positions] #position-field{grid-column:1/-1}}
+@media(max-width:480px){#league-position-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}html .position-tile strong{font-size:1.2rem}.mode-button{padding:10px 16px}}
