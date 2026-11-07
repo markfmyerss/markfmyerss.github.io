@@ -54,7 +54,7 @@ function archiveOwnRanking(s){
  if(!write(base+':roster-archive:'+stamp,JSON.stringify(s)))return false;
  let list=[];try{list=JSON.parse(read(base+':roster-archives'))||[];}catch{}
  if(!Array.isArray(list))list=[];
- const entry={stamp,verified:s.rosterVerified||(leagueFor(s.team)==='NFL'?'November 5, 2026':'November 6, 2026'),players:s.players.length};
+ const entry={stamp,verified:s.rosterVerified||(leagueFor(s.team)==='NFL'?'November 5, 2026':'November 6, 2026'),players:s.players.length,comparisons:s.comparisons,done:!!s.done};
  return write(base+':roster-archives',JSON.stringify([entry,...list.filter(row=>row.stamp!==stamp)]));
 }
 function useLatestRoster(){
@@ -78,7 +78,7 @@ function renderRosterHistory(){
  const active=state?stampForPlayers(state.players):rankingStamp($('team').value,$('position').value);
  const available=list.filter(row=>row&&/^[a-f0-9]{8}$/.test(row.stamp)&&row.stamp!==active);
  $('previous-rankings').hidden=!!sharedRanking||!available.length;$('roster-history').replaceChildren();
- for(const row of available)$('roster-history').add(new Option(row.verified+' · '+row.players+' players',row.stamp));
+ for(const row of available)$('roster-history').add(new Option(row.verified+' · '+row.players+' players'+(row.done?' · Complete':Number.isInteger(row.comparisons)?' · '+row.comparisons+' picks saved':''),row.stamp));
 }
 function save() { if (state) write(keyFor(state.team,state.pos),JSON.stringify(state)); }
 function makeFallback(p, small=false) {
@@ -297,7 +297,7 @@ populateSport();
 // Preserve the existing one-time Ravens migration and every NFL storage key.
 try{
  const old=JSON.parse(read('nfl-sorter-ravens-v2'));
- if(!read('nfl-sorter-legacy-migrated')&&valid(old,'Baltimore Ravens',old?.pos)){
+ if(!read('nfl-sorter-legacy-migrated')&&(valid(old,'Baltimore Ravens',old?.pos)||(knownSnapshot(old,'Baltimore Ravens',old?.pos)&&valid(old,'Baltimore Ravens',old?.pos,old.players)))){
   if(!read(keyFor(old.team,old.pos)))write(keyFor(old.team,old.pos),JSON.stringify(old));
   if(!read('nfl-sorter-selection')){
    write('nfl-sorter-selection',JSON.stringify({team:old.team,pos:old.pos}));
