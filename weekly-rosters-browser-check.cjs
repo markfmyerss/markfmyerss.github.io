@@ -8,8 +8,8 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
  const own=await page.evaluate(()=>{start();if(!state.done)choose('right');return {key:keyFor(state.team,state.pos),value:localStorage.getItem(keyFor(state.team,state.pos)),comparisons:state.comparisons};});
  const rosterName=old.sport==='NFL'?'ROSTERS':'NBA_ROSTERS',infoName=old.sport==='NFL'?'TEAM_INFO':'NBA_TEAM_INFO',shotsName=old.sport==='NFL'?'HEADSHOTS':'NBA_HEADSHOTS';
  const change='\n'+rosterName+'['+JSON.stringify(team)+']='+rosterName+'['+JSON.stringify(team)+'].filter(p=>p.id!=='+JSON.stringify(old.removed)+');'+infoName+'['+JSON.stringify(team)+'].verified="November 10, 2026";delete '+shotsName+'['+JSON.stringify(old.removed)+'];';
- await page.route('**/weekly-rosters.js?*',route=>route.fulfill({contentType:'text/javascript',body:weekly+change}));
- await page.goto(origin+'/'+new URL(old.link).hash);await page.waitForFunction(()=>!!sharedRanking);
+ await page.route(url=>url.pathname.endsWith('/weekly-rosters.js'),route=>route.fulfill({contentType:'text/javascript',body:weekly+change}));
+ await page.goto(origin+'/'+new URL(old.link).hash);await page.waitForFunction(()=>!!sharedRanking);assert.equal(await page.evaluate(({team,pos})=>rankingRoster(team,pos).length,{team,pos}),old.ids.length-1,'Roster-update fixture must load');
  assert.deepEqual(await page.locator('.rank-text strong').allTextContents(),old.names);assert.equal(await page.locator('#roster-date').textContent(),'Roster verified '+old.date.replace('November ','Nov. '));assert.equal(await page.evaluate(k=>localStorage.getItem(k),own.key),own.value);
  assert.equal(await page.evaluate(()=>encodeRankingLink(sharedRanking)),old.link);
  if(old.sport==='NBA'){const output=await page.evaluate(async()=>{const img=await ResultsExport.createImage({team:sharedRanking.team,pos:sharedRanking.pos,players:sharedRanking.sorted},{size:'1x1',type:'png',scope:'all'});return {missing:img.missingPhotos,ids:img.players,pages:img.pages};});assert.equal(output.missing,0);assert.deepEqual(output.ids,old.ids);assert.equal(output.pages,1);}

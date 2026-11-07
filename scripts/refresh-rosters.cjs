@@ -22,7 +22,7 @@ async function nflPortrait(p,counts){
   source='https://www.nfl.com/players/'+slug+'/';const html=await T.get(source),images=[...html.matchAll(/https:\/\/static\.www\.nfl\.com\/image\/[^"\s<>]+/g)].map(m=>m[0].replace(/&amp;/g,'&'));
   url=images.find(u=>/t_player_profile_(?:landscape|square)/.test(u)&&!u.includes('nsp399n4t89mwbndaoew'));assert.ok(url,'Individual NFL portrait unavailable: '+p.name);
  }
- assert.ok(/^https:\/\//.test(url));const response=await fetch(url,{signal:AbortSignal.timeout(25000)});assert.ok(response.ok,'NFL portrait HTTP '+response.status);assert.ok((response.headers.get('content-type')||'').startsWith('image/'),'NFL image response');assert.ok((await response.arrayBuffer()).byteLength>500,'NFL empty portrait');return {url,source};
+ assert.ok(/^https:\/\//.test(url));const response=await fetch(url,{signal:AbortSignal.timeout(25000)});assert.ok(response.ok,'NFL portrait '+p.name+' HTTP '+response.status+' '+url);assert.ok((response.headers.get('content-type')||'').startsWith('image/'),'NFL image response');assert.ok((await response.arrayBuffer()).byteLength>500,'NFL empty portrait');return {url,source};
 }
 function serialize(data,report){
  return '// Weekly roster overrides. Generated and validated on GitHub; baseline data remains available for regression checks.\nconst ROSTER_REFRESH_STATUS = '+JSON.stringify(report)+';\nconst ROSTER_KNOWN_IDS = '+JSON.stringify(data.KNOWN_ROSTER_IDS)+';\n'+[
