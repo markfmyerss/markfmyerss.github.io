@@ -5,7 +5,7 @@ Pick your favorite players in pairs, then share your personal ranking.
 Live: https://markfmyerss.github.io/
 
 - NFL: all 32 teams, with the existing November 5, 2026 active-roster snapshots.
-- NBA: 20 teams and 347 roster players across the full Eastern Conference and the Western Conference's Northwest Division, verified November 6, 2026.
+- NBA: 25 teams and 436 roster players across the full Eastern Conference and the Western Conference's Northwest and Pacific Divisions, verified November 6, 2026.
 - Sport, conference, division, team and position selection; separate saved rankings for every team/filter.
 - Light, Dim and Lights Out appearances; team-primary favorite buttons, headshots, undo and keyboard picks.
 - Featured top three and complete rankings saved in a single image at every export size.
@@ -27,14 +27,16 @@ Root and legacy links include Open Graph and X large-image metadata in their ini
 
 ## Sources and development
 
-[DATA-SOURCES.md](DATA-SOURCES.md) records roster sources, snapshot dates, official image sources, palette references and rights limitations. Rosters are snapshots, not live transaction feeds. All 347 NBA players have hosted portraits. Verified ESPN team headshots replace the NBA placeholders for Dillon Mitchell, Jaden Akins and Henri Veesaar; source URLs and hashes are recorded in `assets/nba/headshots/espn-overrides.json`. Image rights remain with their respective owners.
+[DATA-SOURCES.md](DATA-SOURCES.md) records roster sources, snapshot dates, official image sources, palette references and rights limitations. Rosters are snapshots, not live transaction feeds. All 436 NBA players have hosted portraits. Verified ESPN team headshots replace the NBA placeholders for Dillon Mitchell, Jaden Akins and Henri Veesaar; source URLs and hashes are recorded in `assets/nba/headshots/espn-overrides.json`. Image rights remain with their respective owners.
 
 All preparation, browser dependencies, screenshots and test downloads run on GitHub. NBA snapshot preparation and preview rendering use read-only workflows and produce reviewable artifacts; neither workflow pushes changes. No source or development dependencies are downloaded to the owner's Mac.
 
-Checks cover existing NFL functionality plus NBA sport switching, all 80 NBA team/filter rankings, save isolation, appearance persistence, responsive cards, official logos, headshots/fallbacks and all image-export sizes.
+Checks cover existing NFL functionality plus NBA sport switching, all 100 NBA team/filter rankings, save isolation, appearance persistence, responsive cards, official logos, headshots/fallbacks and all image-export sizes.
 
 Central adds the Bulls, Cavaliers, Pistons, Pacers and Bucks. Its additive data file preserves the published Atlantic snapshot and all existing save keys.
 
 Southeast adds the Hawks, Hornets, Heat, Magic and Wizards through another additive data file, preserving NFL, Atlantic and Central source files and existing progress.
 
 Northwest adds the Nuggets, Timberwolves, Thunder, Trail Blazers and Jazz. ESPN is the default secondary image source whenever NBA.com has no usable portrait, with team roster identity checks before use. Existing NFL and Eastern Conference snapshots and ranking keys are preserved.
+
+Pacific adds the Warriors, Clippers, Lakers, Suns and Kings with 89 portraits and separate progress per team. The Southwest Division remains to complete the NBA.

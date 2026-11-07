@@ -1,0 +1,929 @@
+{
+  "source": "Official NBA portraits; ESPN fallback when NBA images are unavailable",
+  "verified": "2026-11-06",
+  "teams": [
+    {
+      "team": "Golden State Warriors",
+      "source": "https://www.nba.com/team/1610612744/warriors",
+      "logoSource": "https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg",
+      "players": 18
+    },
+    {
+      "team": "LA Clippers",
+      "source": "https://www.nba.com/team/1610612746/clippers",
+      "logoSource": "https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg",
+      "players": 19
+    },
+    {
+      "team": "Los Angeles Lakers",
+      "source": "https://www.nba.com/team/1610612747/lakers",
+      "logoSource": "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg",
+      "players": 18
+    },
+    {
+      "team": "Phoenix Suns",
+      "source": "https://www.nba.com/team/1610612756/suns",
+      "logoSource": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg",
+      "players": 17
+    },
+    {
+      "team": "Sacramento Kings",
+      "source": "https://www.nba.com/team/1610612758/kings",
+      "logoSource": "https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg",
+      "players": 17
+    }
+  ],
+  "portraits": [
+    {
+      "id": 1627780,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627780.png",
+      "path": "assets/nba/headshots/1627780.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14555,
+      "sha256": "69fba989a815d508d42fee97e4aabeca0cc8a15eb9b0da70dbd440340991164f"
+    },
+    {
+      "id": 1642865,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642865.png",
+      "path": "assets/nba/headshots/1642865.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14895,
+      "sha256": "255480bcb725043ccef4f3df7f385589e8c91e385beb017ada96bc1e6c467a64"
+    },
+    {
+      "id": 1641764,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1641764.png",
+      "path": "assets/nba/headshots/1641764.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14423,
+      "sha256": "151f3f39d02a8b75b359013979e5988c4740187b559b5b3919f97e6ed02dc7ed"
+    },
+    {
+      "id": 1642954,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642954.png",
+      "path": "assets/nba/headshots/1642954.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15112,
+      "sha256": "02e4a65ff9c683d55d26c33ec20ec41fc55b275b04437812123c1f5480d48394"
+    },
+    {
+      "id": 1630541,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630541.png",
+      "path": "assets/nba/headshots/1630541.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15545,
+      "sha256": "6f5dd121e67290a9dffdacc95fabac4807b9c74edc884d158d7b1c444e7a059f"
+    },
+    {
+      "id": 204001,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/204001.png",
+      "path": "assets/nba/headshots/204001.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14182,
+      "sha256": "d7f7c2c18ef82a042ddf43170412de19916da13168c79d7dabda5fe6796e8790"
+    },
+    {
+      "id": 1629001,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629001.png",
+      "path": "assets/nba/headshots/1629001.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15403,
+      "sha256": "dfba248c03fbf40bae9f0d0094293e49a01d3591d5cf82c200a36f0aab7a4b95"
+    },
+    {
+      "id": 202710,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/202710.png",
+      "path": "assets/nba/headshots/202710.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14411,
+      "sha256": "cb50b0250f55f40e4a92569774da97ad520c256be02d345c296efd25b6615de6"
+    },
+    {
+      "id": 1630314,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630314.png",
+      "path": "assets/nba/headshots/1630314.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14616,
+      "sha256": "75c96ef9ba682f7fe0004be131832f9f4edeaee947d13949fa8086d1eec3b569"
+    },
+    {
+      "id": 1630611,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630611.png",
+      "path": "assets/nba/headshots/1630611.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14446,
+      "sha256": "eb6346a7c4d4472a6fcfa336d136777ecf9fcf0d88941506a92cb9bead72c46b"
+    },
+    {
+      "id": 1643018,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643018.png",
+      "path": "assets/nba/headshots/1643018.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15230,
+      "sha256": "7121c2bf37bfb7f5e275a597050290aca90f0fbc845e14f54a1299e556291418"
+    },
+    {
+      "id": 201143,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/201143.png",
+      "path": "assets/nba/headshots/201143.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15835,
+      "sha256": "3218b1cc46968916386b338e29725292ae12032d36842387dd1deb59c788fcf9"
+    },
+    {
+      "id": 203110,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/203110.png",
+      "path": "assets/nba/headshots/203110.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15924,
+      "sha256": "c5874be67d981133d8e0d80df4eab971ddc813649e234906d9e9264f5e7a5730"
+    },
+    {
+      "id": 1629646,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629646.png",
+      "path": "assets/nba/headshots/1629646.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16171,
+      "sha256": "4799bda653bdae8fbffcca81582bdc8da6d8d02c66b1a1955784bb413276daaf"
+    },
+    {
+      "id": 201939,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/201939.png",
+      "path": "assets/nba/headshots/201939.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14651,
+      "sha256": "d629352dfe499782f3f0d62dd36b521b37c968931bcfbe6c16862b22dcc58b92"
+    },
+    {
+      "id": 1627777,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627777.png",
+      "path": "assets/nba/headshots/1627777.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13533,
+      "sha256": "5ce06e80a7abf51e898abae55bfa7dc73c51fb0da2b0a1784e69fd9dbee0470e"
+    },
+    {
+      "id": 1642502,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642502.png",
+      "path": "assets/nba/headshots/1642502.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13274,
+      "sha256": "9a55a5a86e4efed742ed7bc9d63841543a9d17a2fb549593346011ea0e1d9d88"
+    },
+    {
+      "id": 1643633,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643633.png",
+      "path": "assets/nba/headshots/1643633.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14268,
+      "sha256": "5d2dd09e6d1f225744b5aa24b18fe491aa4eaea24312d1326c3a4500d459388f"
+    },
+    {
+      "id": 1643413,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643413.png",
+      "path": "assets/nba/headshots/1643413.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14586,
+      "sha256": "b2234a31eff14d6542ba9031046cdf953e115eea07ae300a2fc9c86449bd35eb"
+    },
+    {
+      "id": 203078,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/203078.png",
+      "path": "assets/nba/headshots/203078.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16778,
+      "sha256": "876be2b484f1ae0b39ce11dfe38b376d3cec5e35d5cf6026d853222e8e5c929c"
+    },
+    {
+      "id": 1642920,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642920.png",
+      "path": "assets/nba/headshots/1642920.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16500,
+      "sha256": "1e863bcf81fe308737664ea36f5bb46f0737b6b09bfc09aad932ccc95271be91"
+    },
+    {
+      "id": 1627884,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627884.png",
+      "path": "assets/nba/headshots/1627884.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 17158,
+      "sha256": "052f511d35dfe1f722e796b99ddc755444d2e34a076a16521c2a445d81539ca9"
+    },
+    {
+      "id": 1627742,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627742.png",
+      "path": "assets/nba/headshots/1627742.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 17188,
+      "sha256": "a1d86373c3dbff2fb1f522dc2e4761aa8df325565b4ab1aeb55300f9d2876afd"
+    },
+    {
+      "id": 1627739,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627739.png",
+      "path": "assets/nba/headshots/1627739.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15576,
+      "sha256": "93dee496e4ba291dd3fe459e047b83065524f7b0309862604fad6c910608ee6e"
+    },
+    {
+      "id": 1641711,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1641711.png",
+      "path": "assets/nba/headshots/1641711.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13967,
+      "sha256": "5be1db360d8bafd193d94ebd50ca26ba7f9df0da9f302535b7ed344ab94df09c"
+    },
+    {
+      "id": 1629636,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629636.png",
+      "path": "assets/nba/headshots/1629636.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16645,
+      "sha256": "5703c02516aa278c1e6e46fc743ad5662e56d21a1cc24eb0534648bdfd94b95b"
+    },
+    {
+      "id": 201572,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/201572.png",
+      "path": "assets/nba/headshots/201572.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15188,
+      "sha256": "54dad699867ec5a77a412c5f66f4e3e33becbadbfa0a37e7392127c29b3b2693"
+    },
+    {
+      "id": 1643568,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643568.png",
+      "path": "assets/nba/headshots/1643568.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14564,
+      "sha256": "eb13081d64101f21cc9dd1bfecd380c15dd561395b0905f00b44dde20f501fd7"
+    },
+    {
+      "id": 1642949,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642949.png",
+      "path": "assets/nba/headshots/1642949.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14376,
+      "sha256": "1bba12c491c4c256cbcdaa7f853a27aa9b34e0ee71f4e4dd5ed8fac99c5c3fb0"
+    },
+    {
+      "id": 1642394,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642394.png",
+      "path": "assets/nba/headshots/1642394.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14967,
+      "sha256": "49c94fd2d559337fc8e4308806f68fb7654aff38dc721407f13eaf51e9e82740"
+    },
+    {
+      "id": 1631104,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631104.png",
+      "path": "assets/nba/headshots/1631104.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14567,
+      "sha256": "fb0b7b8de367dad664dc3e63717cb9b6733e6330e6e18bf4615aa63bc2534522"
+    },
+    {
+      "id": 1629618,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629618.png",
+      "path": "assets/nba/headshots/1629618.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14668,
+      "sha256": "a3a59bf6ff50b06f69d4129cb7a3871d86ce9ac1fd0b47fce036a1edb36884a4"
+    },
+    {
+      "id": 1641757,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1641757.png",
+      "path": "assets/nba/headshots/1641757.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15305,
+      "sha256": "fbdf3dee492a28641531cc15769fbe22572b0f07ab28f2e2a593c6ab9d8b9c92"
+    },
+    {
+      "id": 1630543,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630543.png",
+      "path": "assets/nba/headshots/1630543.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 17875,
+      "sha256": "c1a538e0131186318ba17a8d0a80356ae7e2caba5cc31dd42c02cac08f27b19d"
+    },
+    {
+      "id": 1642353,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642353.png",
+      "path": "assets/nba/headshots/1642353.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14619,
+      "sha256": "a05765c7e24d1548cd4af4d81870041e552238721fdd9f746dbc89100859679a"
+    },
+    {
+      "id": 1629060,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629060.png",
+      "path": "assets/nba/headshots/1629060.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15370,
+      "sha256": "8d44bf47cb0d5884132e0fdaaea6c006c9d5cae32eb13246a40352cba71a1793"
+    },
+    {
+      "id": 1629622,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629622.png",
+      "path": "assets/nba/headshots/1629622.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16169,
+      "sha256": "db6dc3eb984fef209a84872154dbe704b852443338c0c83cb73ec55556752e0e"
+    },
+    {
+      "id": 1643133,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643133.png",
+      "path": "assets/nba/headshots/1643133.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14122,
+      "sha256": "0b3bf067480947fd3d6cefdff2d0b20896fe0951297b9f6b68825c9422bed650"
+    },
+    {
+      "id": 1642876,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642876.png",
+      "path": "assets/nba/headshots/1642876.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16528,
+      "sha256": "94d3ebc57f93e591c490506273d8193c59f72456da62caa182ae94c5ee42143e"
+    },
+    {
+      "id": 1629020,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629020.png",
+      "path": "assets/nba/headshots/1629020.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15150,
+      "sha256": "e6a7a577b8754144fae7982da91e832a893bd8a04c2a0e35c58b195757a76a5b"
+    },
+    {
+      "id": 1629680,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629680.png",
+      "path": "assets/nba/headshots/1629680.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 18749,
+      "sha256": "89202e3a9027b6afb84d0e4e811e1df87cadc932ab21bd9ff89d861a55d3fb17"
+    },
+    {
+      "id": 1629656,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629656.png",
+      "path": "assets/nba/headshots/1629656.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14817,
+      "sha256": "30ce814942cb78e7aa4e3284e1eb93c7af8e7ecb87496210447c5f06005a56c8"
+    },
+    {
+      "id": 1630702,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630702.png",
+      "path": "assets/nba/headshots/1630702.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 17391,
+      "sha256": "df05977bd02dbd7c965caaed579aa1902822f1f4254ad7758ff30727a85400d1"
+    },
+    {
+      "id": 1642355,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642355.png",
+      "path": "assets/nba/headshots/1642355.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14941,
+      "sha256": "89465f5e354c6fc8e9debee3ad19f8daab410b369011cd81017a5deed769f297"
+    },
+    {
+      "id": 1629012,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629012.png",
+      "path": "assets/nba/headshots/1629012.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14700,
+      "sha256": "7a8393ac7256139456f86ce405dd709b5c84ecb7a898a448ffd5e1c77ed5d0f1"
+    },
+    {
+      "id": 1630533,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630533.png",
+      "path": "assets/nba/headshots/1630533.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14119,
+      "sha256": "119fa36fc513bd8c0878bc03f99d18a06d1e57650ad9d31c647356e7cc9395b2"
+    },
+    {
+      "id": 1631222,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631222.png",
+      "path": "assets/nba/headshots/1631222.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13660,
+      "sha256": "e8e649a56df902b7fc3d4d82f5453aad8748c2006a1c467ed2fbe11df63c2b25"
+    },
+    {
+      "id": 1631117,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631117.png",
+      "path": "assets/nba/headshots/1631117.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13744,
+      "sha256": "2bd3a035956a711a0eeb18e432d613e9876f77bdfb00d1fe21622dd928216037"
+    },
+    {
+      "id": 1630559,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630559.png",
+      "path": "assets/nba/headshots/1630559.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13900,
+      "sha256": "aa9f2b382358653613236f400798d03c070c5c9a077169903941654131eff83c"
+    },
+    {
+      "id": 1643024,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643024.png",
+      "path": "assets/nba/headshots/1643024.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14967,
+      "sha256": "270d16e59b7eacd013fcdd2bdc8f60ea59cd11fc5cfbb4ba3cf9014b58f8c10f"
+    },
+    {
+      "id": 1643418,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643418.png",
+      "path": "assets/nba/headshots/1643418.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14871,
+      "sha256": "60ed1ec372e80279c2fd4dd2b54fa6075806ba87877b639684c3307fc2a105be"
+    },
+    {
+      "id": 1641751,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1641751.png",
+      "path": "assets/nba/headshots/1641751.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14640,
+      "sha256": "27396fce0321c4bc74befc2069031df3713a4d38b8e09f69339f5ecc3e127a84"
+    },
+    {
+      "id": 1630572,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630572.png",
+      "path": "assets/nba/headshots/1630572.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13967,
+      "sha256": "4e438f479fdf8b4d1838b43fb1e6c5fb973e96ffe4c7673210587e840e0fec61"
+    },
+    {
+      "id": 1626172,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1626172.png",
+      "path": "assets/nba/headshots/1626172.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16704,
+      "sha256": "29979e9a13ec0e8ab4df4f09ea990c9fe00bf2178bf50def28cc4e5e98d19d44"
+    },
+    {
+      "id": 1629029,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629029.png",
+      "path": "assets/nba/headshots/1629029.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15494,
+      "sha256": "41c9d52dd88450bc8d41e8c1b3c6b22720078e25b368a2cc93108fb7cbbcb5f8"
+    },
+    {
+      "id": 1642346,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642346.png",
+      "path": "assets/nba/headshots/1642346.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14519,
+      "sha256": "aa1d91fd7869c245d476409a0c42ae3b12abe93f5d6ac498c91cdbd7ad800f7c"
+    },
+    {
+      "id": 1631166,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631166.png",
+      "path": "assets/nba/headshots/1631166.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14196,
+      "sha256": "53dec0d38ec6cae4124a38da4558b808eec242bac7b7ab800f3556f8b3f4af0f"
+    },
+    {
+      "id": 1628415,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1628415.png",
+      "path": "assets/nba/headshots/1628415.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15199,
+      "sha256": "0d8b21907a928d6f8f63a952103f9ea8c782d8c1eb1025f1e94b5d77ced2f494"
+    },
+    {
+      "id": 1630224,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630224.png",
+      "path": "assets/nba/headshots/1630224.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16740,
+      "sha256": "f2ff61fe74869d31424e1248aa77f27b13c693809d7c07ac6c53e2b36980ce0d"
+    },
+    {
+      "id": 1628379,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1628379.png",
+      "path": "assets/nba/headshots/1628379.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13985,
+      "sha256": "701badbf112d6a9f322bda0586b4201a18737a5b2fd23bc3a6e9ff78eee8d408"
+    },
+    {
+      "id": 1642863,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642863.png",
+      "path": "assets/nba/headshots/1642863.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15799,
+      "sha256": "ffee97013339d1ca1d6dc3ee51139d9010ae5f7c13f88ae812c4c8b7a1137410"
+    },
+    {
+      "id": 1642345,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642345.png",
+      "path": "assets/nba/headshots/1642345.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14305,
+      "sha256": "466b6d8bb6c4a152ce680a9593541a04e136faacdbc0aea9a6109b01f7868301"
+    },
+    {
+      "id": 1631221,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631221.png",
+      "path": "assets/nba/headshots/1631221.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14045,
+      "sha256": "874a5c1f7852a196c20c8dcd7bb861409df0d58bc5bcc14ca7ebd173c9a71981"
+    },
+    {
+      "id": 1626164,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1626164.png",
+      "path": "assets/nba/headshots/1626164.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15230,
+      "sha256": "fd1ec437fff4c46ac5e7bad0d54b6173bfe3e3f2d2cf55f959fed92b80cda283"
+    },
+    {
+      "id": 1631123,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631123.png",
+      "path": "assets/nba/headshots/1631123.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 13608,
+      "sha256": "6e28c3676ee6ea5a075f9181d79bc1ce9b18b8515db81e2574cbb02fc4457d8a"
+    },
+    {
+      "id": 1643520,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643520.png",
+      "path": "assets/nba/headshots/1643520.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15776,
+      "sha256": "16dfcba8bdc0a250720875777619db765612770971976e170a93318d1732dae7"
+    },
+    {
+      "id": 1642853,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642853.png",
+      "path": "assets/nba/headshots/1642853.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 14773,
+      "sha256": "da3f920ffdf138df0b0034baf8c0c842d81365bfbfac301d13a3e3d46cc8e3eb"
+    },
+    {
+      "id": 1628970,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1628970.png",
+      "path": "assets/nba/headshots/1628970.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15840,
+      "sha256": "744b7a8024995a8ca00477575a186a4e48c11f8ccbf24b45ecd19e7173ca0350"
+    },
+    {
+      "id": 1630692,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630692.png",
+      "path": "assets/nba/headshots/1630692.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15834,
+      "sha256": "0e41f2e792ed9f5172bb71421cee3b5a2235e8090b52bb09dc0326aa3ecb555f"
+    },
+    {
+      "id": 1631109,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631109.png",
+      "path": "assets/nba/headshots/1631109.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16165,
+      "sha256": "0fc11212c256e67c439368a86060eeda9f8283e2cb6f75ab083ee6e888977083"
+    },
+    {
+      "id": 1641871,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1641871.png",
+      "path": "assets/nba/headshots/1641871.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15163,
+      "sha256": "96ebb57252f8c14cf645927b32a7485251186b100025f08fbfd7ccf790f42ad1"
+    },
+    {
+      "id": 1630311,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630311.png",
+      "path": "assets/nba/headshots/1630311.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 12997,
+      "sha256": "acc03701d944770f3e4cf5dca986ac94137067c13431feec524ff6e09dbe287c"
+    },
+    {
+      "id": 1628370,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1628370.png",
+      "path": "assets/nba/headshots/1628370.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 18182,
+      "sha256": "916820efcb6cf0bae53a893f5437157e111c99ccc2fee1aad42e13de61a315e5"
+    },
+    {
+      "id": 1642951,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642951.png",
+      "path": "assets/nba/headshots/1642951.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15736,
+      "sha256": "bcd94db69a833ecdf7eeb7e6020983df000863b124bf8386204ed5d39b894218"
+    },
+    {
+      "id": 1643411,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643411.png",
+      "path": "assets/nba/headshots/1643411.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16080,
+      "sha256": "fe88cedbd096421910ed8071d66023667a261671755d3c98e018404d14cda8c8"
+    },
+    {
+      "id": 203897,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/203897.png",
+      "path": "assets/nba/headshots/203897.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15076,
+      "sha256": "8cb20c73198d2e25fb9ef4ff9a8bf74c1fcf316243b220190839f536bb2ef789"
+    },
+    {
+      "id": 1630173,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1630173.png",
+      "path": "assets/nba/headshots/1630173.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 17179,
+      "sha256": "124536a05939c4daebd80904ad84a040c2e338e2fb0194efbfc5368940198ba2"
+    },
+    {
+      "id": 1642363,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642363.png",
+      "path": "assets/nba/headshots/1642363.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16729,
+      "sha256": "47dd65ba16dea6f5f445545bc9e6a162ad8f0ad93319362e814bdadb6b426f38"
+    },
+    {
+      "id": 1627734,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627734.png",
+      "path": "assets/nba/headshots/1627734.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15424,
+      "sha256": "e0652618ca94a71289b5104bff3521d98f0c2470bf73300502fd346fb5ef6f17"
+    },
+    {
+      "id": 1631099,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631099.png",
+      "path": "assets/nba/headshots/1631099.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16684,
+      "sha256": "1bc17acc87ab8e6e642bf8a4806b6c17af9877f3fc58458276e2f50c709a4e3d"
+    },
+    {
+      "id": 1629631,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1629631.png",
+      "path": "assets/nba/headshots/1629631.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16872,
+      "sha256": "1c017e4462f0ed4e5ae9f3dcf7dd98e078c4d6a726b74fffe770a6f8dc944601"
+    },
+    {
+      "id": 1641778,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1641778.png",
+      "path": "assets/nba/headshots/1641778.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15777,
+      "sha256": "055d59f07a860d39fcd075ca73e58d4b42eb3b1cf91283a6f22bdfe5cd263878"
+    },
+    {
+      "id": 1642367,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642367.png",
+      "path": "assets/nba/headshots/1642367.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 21558,
+      "sha256": "e67277af2b40c780af2cdf178a2b3f51f40e8eeb17416f45ee79ede4e83c852e"
+    },
+    {
+      "id": 1627732,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1627732.png",
+      "path": "assets/nba/headshots/1627732.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16448,
+      "sha256": "66f21cd724bf0e2a45de75acf6f6d6ccdce3a6004fdd4d547e6b6a7074bf8c17"
+    },
+    {
+      "id": 1631342,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1631342.png",
+      "path": "assets/nba/headshots/1631342.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16083,
+      "sha256": "251cb45c2a6f1e79bf71054bbbe9b19066959d295b1f38f08eb50f38c641eafe"
+    },
+    {
+      "id": 1642928,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642928.png",
+      "path": "assets/nba/headshots/1642928.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15709,
+      "sha256": "c9853a5ecc031de7191027b9c2c53b02e53a8735335fe70168e25951cbf15226"
+    },
+    {
+      "id": 1642284,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642284.png",
+      "path": "assets/nba/headshots/1642284.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 16083,
+      "sha256": "aa2aea662266bcc4caf6ceea72b183c2783150038d2fce197177a123e62c51f1"
+    },
+    {
+      "id": 1643567,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1643567.png",
+      "path": "assets/nba/headshots/1643567.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 20766,
+      "sha256": "c069256d04726a18252e48d9ffeac888beb7b7bfb46c7ed611da15df2ca94475"
+    },
+    {
+      "id": 1642875,
+      "url": "https://cdn.nba.com/headshots/nba/latest/260x190/1642875.png",
+      "path": "assets/nba/headshots/1642875.png",
+      "provider": "NBA",
+      "width": 260,
+      "height": 190,
+      "bytes": 15474,
+      "sha256": "3f66a0c164b0fc83d1cda595cbc6b5b5d79c56cedc3ea4383b7ae55a7aabeaca"
+    }
+  ],
+  "fallbacks": []
+}
