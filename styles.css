@@ -198,3 +198,16 @@ body[data-sport=NBA] #team-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media(max-width:600px){#sport-picker{max-width:none}body[data-sport=NBA] #team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-sport=NBA] #team-grid .team-tile:last-child{grid-column:1/-1}}
 
 @media(max-width:600px){body[data-sport=NBA] #division-picker .division-button:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* Ranking links stay alongside existing image sharing in every appearance. */
+.roster-date{font-size:.76rem;line-height:1.5;margin:-10px 0 22px;opacity:.75}
+.ranking-share-actions{display:flex;gap:10px;flex-wrap:wrap}
+.ranking-share-actions button{white-space:nowrap}
+.shared-notice{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid currentColor;border-radius:14px;padding:14px 18px;margin:18px 0}
+.shared-notice p{margin:0;font-size:.85rem}
+.shared-status{padding:12px 16px;border:1px solid currentColor;border-radius:12px;font-size:.85rem}
+.ranking-link{box-sizing:border-box;display:block;width:100%;min-width:0;padding:12px;border-radius:10px;font:inherit;background:transparent;color:inherit;border:1px solid currentColor;margin:12px 0}
+#link-status{font-size:.82rem}
+#link-status:empty{display:none}
+[hidden]{display:none!important}
+@media(max-width:700px){.results-share{align-items:flex-start}.ranking-share-actions{width:100%}.ranking-share-actions button{flex:1;font-size:.82rem;padding:12px 10px}.shared-notice{align-items:flex-start;flex-direction:column;gap:12px}.roster-date{margin-top:-6px}}

@@ -38,10 +38,14 @@ jobs:
         run: node social-preview-check.cjs
       - name: Check all 30 NBA teams and saved rankings and saved rankings
         run: node nba-tests.cjs
+      - name: Check ranking links and roster dates
+        run: node ranking-links-check.cjs
       - name: Prepare official NFC West snapshot on GitHub
         run: node scripts/expand-nfc-west.cjs
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - name: Check shared links on mobile and desktop
+        run: node ranking-links-browser-check.cjs
       - name: Check NBA sport switching, cards and exports
         run: node nba-browser-check.cjs
       - name: Check Light, Dim and Lights Out appearances

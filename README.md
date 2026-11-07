@@ -19,6 +19,10 @@ NBA filters use the NBA's G / F / C classifications. Hybrid players appear once 
 
 ## Sharing
 
+Completed rankings can be shared as compact links. Recipients see a clearly labeled shared ranking without replacing their own saved picks, and can choose to rank those players themselves. Native sharing is used where available, with clipboard and manual-copy fallbacks. Links encode the selected sport, team, filter and player order in the URL fragment; no ranking database or upload is required. Links are validated against the roster snapshot and show an explanation if a later roster update makes the exact ranking unavailable. Image sharing remains available for lasting copies.
+
+Roster verification dates appear directly below the team/position controls, using each team's published snapshot date rather than suggesting live roster updates.
+
 Desktop offers nine image sizes, PNG/JPG/WebP and All / Top 10 / Top 25. Mobile keeps four sizes (1:1, 3:4, 4:5, 9:16), automatic PNG and the same ranges. Every selected ranking fits in one image. No pagination or ZIP is needed.
 
 Mobile saving uses a ready PNG for native sharing where supported, with a real image for press-and-hold saving. The device controls its native Photos menus.
