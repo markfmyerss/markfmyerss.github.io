@@ -14,7 +14,7 @@ function parseNFL(html,info,team){
   const name=clean(cells[0].match(/class="[^"]*\bnfl-o-roster__player-name\b[^"]*"[^>]*>([\s\S]*?)<\/span>/)?.[1]||'');assert.ok(name,'Player name missing');
   const href=cells[0].match(/href="([^"]+)"/)?.[1];assert.ok(href,'Player profile missing');const profile=new URL(href,info.source).href;
   const rosterPosition=clean(cells[2]).toUpperCase(),positions=[...new Set(rosterPosition.split(/[/-]/).map(group))];assert.ok(positions.every(p=>NFL_POS.includes(p)&&p!=='ALL'),'Unknown NFL position '+rosterPosition);
-  const urls=[...cells[0].matchAll(/https:\/\/static\.clubs\.nfl\.com\/[^"\s<>]+/g)].map(m=>m[0].replace(/,+$/,'').replace(/&amp;/g,'&').replace('/t_lazy/',''));
+  const urls=[...cells[0].matchAll(/https:\/\/static\.clubs\.nfl\.com\/[^"\s<>]+/g)].map(m=>m[0].replace(/,+$/,'').replace(/&amp;/g,'&').replace('/t_lazy/','/'));
   const imageCandidate=urls.find(u=>u.includes('t_thumb_squared_3x'))||urls[0]||null;
   players.push({name,number:clean(cells[1]),position:positions[0],...(positions.length>1?{positions}:{}),rosterPosition,team,profile,imageCandidate});
  }

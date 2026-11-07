@@ -8,6 +8,8 @@ const previous={'Team A':[{id:'A-1',name:'Same Name',team:'Team A',profile:'http
 assert.equal(T.assignNFLIds([{name:'Same Name',team:'Team A',profile:'https://a.example/team/players-roster/same-name/'}],previous)[0].id,'A-1');
 assert.equal(T.assignNFLIds([{name:'Same Name',team:'Team B',profile:'https://b.example/team/players-roster/same-name/'}],previous)[0].id,'B-1');
 assert.notEqual(T.assignNFLIds([{name:'Same Name',team:'Team C',profile:'https://c.example/team/players-roster/same-name/'}],{'Team A':previous['Team A']})[0].id,'A-1');
+const rosterHTML='<table><caption>Active</caption>'+Array.from({length:40},(_,i)=>'<tr><td><a href="/team/players-roster/player-'+i+'/"><img src="https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/t_lazy/f_auto,q_auto/club/player.jpg"><span class="nfl-o-roster__player-name">Player '+i+'</span></a></td><td>'+i+'</td><td>QB</td></tr>').join('')+'</table>';
+assert.equal(T.parseNFL(rosterHTML,{source:'https://club.example/team/players-roster/'},'Club')[0].imageCandidate,'https://static.clubs.nfl.com/image/upload/t_thumb_squared_3x/f_auto,q_auto/club/player.jpg');
 assert.throws(()=>T.parseNFL('<table><caption>Reserve</caption></table>',{source:'https://example.com/'},'Team'),/Active/);
 assert.throws(()=>R.png(Buffer.alloc(30)));
 for(const sport of ['NFL','NBA'])R.validateLeague(data,sport);
