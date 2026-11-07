@@ -14,7 +14,7 @@ const NBA_PACIFIC_TEAM_INFO = {
     "logo": "assets/nba/logos/GSW.svg",
     "colors": {
       "primary": "#1D428A",
-      "accent": "#FFC72C",
+      "accent": "#FDB927",
       "highlight": "#ffdf87",
       "ink": "#101014"
     }
@@ -32,8 +32,8 @@ const NBA_PACIFIC_TEAM_INFO = {
     "source": "https://www.nba.com/team/1610612746/clippers",
     "logo": "assets/nba/logos/LAC.svg",
     "colors": {
-      "primary": "#1D428A",
-      "accent": "#C8102E",
+      "primary": "#12173F",
+      "accent": "#FFFFFF",
       "highlight": "#b5caff",
       "ink": "#101014"
     }
@@ -51,8 +51,8 @@ const NBA_PACIFIC_TEAM_INFO = {
     "source": "https://www.nba.com/team/1610612747/lakers",
     "logo": "assets/nba/logos/LAL.svg",
     "colors": {
-      "primary": "#552583",
-      "accent": "#FDB927",
+      "primary": "#542C81",
+      "accent": "#FAB624",
       "highlight": "#e1c3ff",
       "ink": "#101014"
     }
@@ -70,8 +70,8 @@ const NBA_PACIFIC_TEAM_INFO = {
     "source": "https://www.nba.com/team/1610612756/suns",
     "logo": "assets/nba/logos/PHX.svg",
     "colors": {
-      "primary": "#1D1160",
-      "accent": "#E56020",
+      "primary": "#E46025",
+      "accent": "#F79E1E",
       "highlight": "#d8c2ff",
       "ink": "#101014"
     }
@@ -89,8 +89,8 @@ const NBA_PACIFIC_TEAM_INFO = {
     "source": "https://www.nba.com/team/1610612758/kings",
     "logo": "assets/nba/logos/SAC.svg",
     "colors": {
-      "primary": "#5A2D81",
-      "accent": "#63727A",
+      "primary": "#592D81",
+      "accent": "#63717A",
       "highlight": "#d9beef",
       "ink": "#101014"
     }
