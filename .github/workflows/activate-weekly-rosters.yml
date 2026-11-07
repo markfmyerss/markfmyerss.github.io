@@ -1,0 +1,21 @@
+name: Activate weekly roster refresh
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/activate-weekly-rosters.yml']
+permissions:
+  contents: read
+  actions: write
+jobs:
+  first-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run the first validated refresh
+        run: node scripts/activate-weekly-rosters.cjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
