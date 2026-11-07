@@ -14,7 +14,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: weekly-roster-refresh
+  group: weekly-roster-refresh-${{ github.event_name == 'push' && github.sha || 'main' }}
   cancel-in-progress: false
 jobs:
   validate:
