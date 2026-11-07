@@ -50,7 +50,7 @@
   return {size,W,H,pad,header,footer,columns:best.columns,rows:best.rows,capacity:players.length,players,pages:1,boxes};
  }
  function loadPhoto(player){
-  const url=ALL_HEADSHOTS[player.id]?.url;if(!url)return Promise.resolve(null);
+  const url=player.headshotUrl||ALL_HEADSHOTS[player.id]?.url;if(!url)return Promise.resolve(null);
   if(photoCache.has(url))return photoCache.get(url);
   const promise=new Promise(resolve=>{
    const image=new Image();let done=false;

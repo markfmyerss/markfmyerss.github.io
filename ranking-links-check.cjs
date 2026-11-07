@@ -1,5 +1,5 @@
 const fs=require('node:fs'),vm=require('node:vm');
-const bootSource=fs.readFileSync('nba-tests.cjs','utf8').split('const b=boot();')[0].replace('confirm:()=>true,console','btoa,atob,confirm:()=>true,console');
+const bootSource=fs.readFileSync('nba-tests.cjs','utf8').split('const b=boot();')[0].replace("vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),c);","vm.runInContext(fs.readFileSync(__dirname+'/weekly-rosters.js','utf8'),c);vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),c);").replace('confirm:()=>true,console','btoa,atob,confirm:()=>true,console');
 vm.runInNewContext(bootSource+`
 const b=boot();let count=0,longest=0;
 for(const sport of ['NFL','NBA']){
@@ -11,7 +11,7 @@ for(const sport of ['NFL','NBA']){
   const link=b.run('encodeRankingLink(state)');longest=Math.max(longest,link.length);assert.ok(link.length<300);
   const decoded=b.run('decodeRankingLink('+JSON.stringify(new URL(link).hash)+')');
   assert.equal(decoded.team,team);assert.equal(decoded.pos,pos);assert.deepEqual(Array.from(decoded.sorted,p=>p.id),Array.from(players,p=>p.id).reverse());
-  assert.equal(b.e('roster-date').textContent,sport==='NFL'?'Roster verified Nov. 5, 2026':'Roster verified Nov. 6, 2026');count++;
+  assert.equal(b.e('roster-date').textContent,b.run("'Roster verified '+(ALL_TEAM_INFO["+JSON.stringify(team)+"].verified||"+JSON.stringify(sport==='NFL'?'November 5, 2026':'November 6, 2026')+").replace('November ','Nov. ')"));count++;
  }
 }
 const sender=boot();sender.e('team').value='Baltimore Ravens';sender.run('selectTeam();start();while(!state.done)choose("left")');const link=sender.run('encodeRankingLink(state)'),hash=new URL(link).hash;

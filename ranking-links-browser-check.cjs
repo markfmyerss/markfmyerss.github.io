@@ -12,7 +12,7 @@ for(const [team,pos,width]of [['Baltimore Ravens','ALL',320],['Philadelphia Eagl
  assert.ok(await receiver.locator('#shared-notice').isVisible());assert.deepEqual(await receiver.locator('.rank-text strong').allTextContents(),result.names);assert.match(await receiver.locator('#results-title').textContent(),/^Shared /);
  assert.equal(await receiver.evaluate(k=>localStorage.getItem(k),own.key),own.value);
  assert.ok(await receiver.locator('#undo-result').isHidden());assert.ok(await receiver.locator('#again').isHidden());assert.ok(await receiver.locator('#reset').isDisabled());
- assert.equal(await receiver.locator('#roster-date').textContent(),team==='Baltimore Ravens'||team==='Philadelphia Eagles'?'Roster verified Nov. 5, 2026':'Roster verified Nov. 6, 2026');
+ assert.equal(await receiver.locator('#roster-date').textContent(),await receiver.evaluate(team=>'Roster verified '+(ALL_TEAM_INFO[team].verified||(leagueFor(team)==='NFL'?'November 5, 2026':'November 6, 2026')).replace('November ','Nov. '),team));
  await receiver.keyboard.press('ArrowLeft');await receiver.keyboard.press('Control+z');assert.equal(await receiver.evaluate(k=>localStorage.getItem(k),own.key),own.value);
  await receiver.evaluate(()=>{Object.defineProperty(navigator,'share',{configurable:true,value:undefined});Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async v=>{window.copiedLink=v;}}});});
  await receiver.click('#share-link');await receiver.waitForFunction(()=>!!window.copiedLink);assert.equal(await receiver.evaluate(()=>window.copiedLink),result.link);

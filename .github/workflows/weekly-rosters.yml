@@ -1,0 +1,101 @@
+name: Weekly roster refresh
+on:
+  schedule:
+    - cron: '0 8 * * 2'
+      timezone: 'America/New_York'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Validate a refresh without publishing'
+        type: boolean
+        default: true
+  push:
+    branches: [weekly-roster-updates]
+permissions:
+  contents: read
+concurrency:
+  group: weekly-roster-refresh
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check archive, identity and saved-progress safeguards
+        run: node weekly-rosters-check.cjs
+      - name: Fetch and stage all official NFL and NBA rosters
+        run: node scripts/refresh-rosters.cjs
+      - name: Validate current players, portraits and snapshot archives
+        run: node current-rosters-check.cjs
+      - name: Install checks on GitHub only
+        run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - name: Check old shared links and saved rankings after roster changes
+        run: node weekly-rosters-browser-check.cjs
+      - name: Check NBA sorting, headshots and every image size
+        run: node nba-browser-check.cjs
+      - name: Check existing NFL sorting and results flow
+        run: node flow-check.cjs
+      - name: Check appearance and saved-progress isolation
+        run: node appearance-check.cjs
+      - name: Check static link previews
+        run: node social-preview-check.cjs
+      - name: Export reviewable first-run candidate
+        if: github.event_name == 'push'
+        run: node scripts/export-roster-candidate.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validated-weekly-rosters
+          path: |
+            index.html
+            weekly-rosters.js
+            assets/roster-refresh-status.json
+            assets/roster-snapshots/
+            assets/roster-headshots/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weekly-roster-checks
+          path: qa/
+          retention-days: 7
+  publish:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: validated-weekly-rosters
+          path: .
+      - name: Commit only the validated roster candidate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html weekly-rosters.js assets/roster-refresh-status.json assets/roster-snapshots
+          if [ -d assets/roster-headshots ]; then
+            git add -- assets/roster-headshots
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh verified NFL and NBA rosters"
+            git push origin HEAD:main
+          fi
+      - name: Publish and verify GitHub Pages
+        run: node scripts/publish-rosters.cjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

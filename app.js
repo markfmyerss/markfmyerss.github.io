@@ -19,15 +19,16 @@ const headshotAliases = new Map([[normalizedName('Vega Ioane'), normalizedName('
 // Official team/NFL portrait URLs are stored separately so existing saved players get photos too.
 let state = null;
 let sharedRanking = null;
+let sharedRequest = 0;
 const memory = new Map();
 const keyFor=(team,pos)=>(leagueFor(team)==='NBA'?'nba-sorter-v1:':'nfl-sorter-v3:')+ALL_TEAM_INFO[team].code+':'+pos;
 function read(key) { if(memory.has(key))return memory.get(key);try { return localStorage.getItem(key); } catch { return null; } }
-function write(key, value) { memory.set(key,value); try { localStorage.setItem(key,value); } catch { $('storage-note').hidden = false; } }
+function write(key, value) { memory.set(key,value); try { localStorage.setItem(key,value);return true; } catch { $('storage-note').hidden = false;return false; } }
 function remove(key) { memory.set(key,null); try { localStorage.removeItem(key); } catch { $('storage-note').hidden=false; } }
 const matchesPosition = (p,pos) => pos==='ALL'||(p.positions||[p.position]).includes(pos);
-function valid(s, team, pos) {
+function valid(s, team, pos, snapshot=rosterFor(team)) {
   if (!s || s.team !== team || s.pos !== pos || !Array.isArray(s.players) || !s.players.length || !Array.isArray(s.stack) || !Number.isInteger(s.comparisons) || s.comparisons < 0) return false;
-  const allowed = new Set(rosterFor(team).filter(p => matchesPosition(p,pos)).map(p=>p.id));
+  const allowed = new Set(snapshot.filter(p => matchesPosition(p,pos)).map(p=>p.id));
   const ids = s.players.map(p=>p.id);
   const listOK = items => Array.isArray(items) && items.every(p=>p && allowed.has(p.id) && p.team===team);
   if (ids.length !== allowed.size || new Set(ids).size !== ids.length || !listOK(s.players)) return false;
@@ -35,7 +36,50 @@ function valid(s, team, pos) {
   const last=s.stack.at(-1);
   return last?.stage===2 && listOK(last.left) && listOK(last.right) && last.i<last.left.length && last.j<last.right.length && s.stack.every(f => listOK(f.items) && [0,1,2].includes(f.stage) && (f.stage!==2 || (listOK(f.left) && (!f.right || (listOK(f.right) && listOK(f.out) && Number.isInteger(f.i) && Number.isInteger(f.j) && f.i>=0 && f.j>=0 && f.i<=f.left.length && f.j<=f.right.length)))));
 }
-function stored(team, pos) { try { const s=JSON.parse(read(keyFor(team,pos))); return valid(s,team,pos)?s:null; } catch { return null; } }
+function earlierRoster(s){return !!s&&stampForPlayers(s.players)!==rankingStamp(s.team,s.pos);}
+function knownSnapshot(s,team,pos){
+ if(!s?.players?.length||s.players.length>(leagueFor(team)==='NBA'?25:100))return false;
+ const known=typeof ROSTER_KNOWN_IDS!=='undefined'?ROSTER_KNOWN_IDS[leagueFor(team)]?.[team]:null;
+ const groups=SPORTS[leagueFor(team)].positions;
+ return !!known&&s.players.every(p=>p&&known.includes(p.id)&&p.team===team&&typeof p.name==='string'&&p.name.length>0&&p.name.length<150&&Array.isArray(p.positions||[p.position])&&(p.positions||[p.position]).every(v=>groups.includes(v)&&v!=='ALL')&&matchesPosition(p,pos));
+}
+function stored(team,pos){
+ try{const s=JSON.parse(read(keyFor(team,pos)));if(valid(s,team,pos)&&!earlierRoster(s))return s;
+  if(knownSnapshot(s,team,pos)&&valid(s,team,pos,s.players)){s.rosterVerified=s.rosterVerified||(leagueFor(team)==='NFL'?'November 5, 2026':'November 6, 2026');return s;}
+  return null;
+ }catch{return null;}
+}
+function archiveOwnRanking(s){
+ if(!s)return true;const base=keyFor(s.team,s.pos),stamp=stampForPlayers(s.players);
+ if(!write(base+':roster-archive:'+stamp,JSON.stringify(s)))return false;
+ let list=[];try{list=JSON.parse(read(base+':roster-archives'))||[];}catch{}
+ if(!Array.isArray(list))list=[];
+ const entry={stamp,verified:s.rosterVerified||(leagueFor(s.team)==='NFL'?'November 5, 2026':'November 6, 2026'),players:s.players.length};
+ return write(base+':roster-archives',JSON.stringify([entry,...list.filter(row=>row.stamp!==stamp)]));
+}
+function useLatestRoster(){
+ if(sharedRanking||!state||!earlierRoster(state))return;
+ if(!archiveOwnRanking(state)){$('storage-note').textContent='Your previous ranking could not be saved. Your current ranking is unchanged.';$('storage-note').hidden=false;return;}remove(keyFor(state.team,state.pos));state=null;start();
+}
+function openPreviousRanking(){
+ if(sharedRanking)return;
+ const team=$('team').value,pos=$('position').value,stamp=$('roster-history').value;
+ if(!/^[a-f0-9]{8}$/.test(stamp))return;
+ let previous;try{previous=JSON.parse(read(keyFor(team,pos)+':roster-archive:'+stamp));}catch{return;}
+ if(!knownSnapshot(previous,team,pos)||!valid(previous,team,pos,previous.players))return;
+ if(!archiveOwnRanking(state))return;write(keyFor(team,pos),JSON.stringify(previous));state=stored(team,pos);
+ if(state&&!state.done)mergeNext();else render();
+}
+function renderRosterHistory(){
+ const older=!sharedRanking&&earlierRoster(state);$('saved-roster-note').hidden=!older;
+ if(older)$('saved-roster-message').textContent='Your saved ranking uses the '+(state.rosterVerified||'previous')+' roster. '+(state.done?'Keep this list, or rank the latest players.':'Keep going, or start with the latest players.');
+ let list=[];try{list=JSON.parse(read(keyFor($('team').value,$('position').value)+':roster-archives'))||[];}catch{}
+ if(!Array.isArray(list))list=[];
+ const active=state?stampForPlayers(state.players):rankingStamp($('team').value,$('position').value);
+ const available=list.filter(row=>row&&/^[a-f0-9]{8}$/.test(row.stamp)&&row.stamp!==active);
+ $('previous-rankings').hidden=!!sharedRanking||!available.length;$('roster-history').replaceChildren();
+ for(const row of available)$('roster-history').add(new Option(row.verified+' · '+row.players+' players',row.stamp));
+}
 function save() { if (state) write(keyFor(state.team,state.pos),JSON.stringify(state)); }
 function makeFallback(p, small=false) {
   const d=document.createElement('span'); d.className=small?'fallback small':'fallback';
@@ -44,7 +88,7 @@ function makeFallback(p, small=false) {
   return d;
 }
 function makePortrait(p, small=false) {
-  const url=ALL_HEADSHOTS[p.id]?.url;
+  const url=p.headshotUrl||ALL_HEADSHOTS[p.id]?.url;
   if(!url)return makeFallback(p,small);
   const img=document.createElement('img');img.alt=p.name+' headshot';img.loading=small?'lazy':'eager';img.decoding='async';img.referrerPolicy='no-referrer';
   img.onerror=()=>img.replaceWith(makeFallback(p,small));img.src=url;return img;
@@ -71,8 +115,9 @@ function applyTheme() {
   $('question').textContent='Who is your favorite '+c.singular+'?';
   $('results-title').textContent='Your '+c.nickname+' favorites';
   $('source').href=c.source;$('source').textContent='Official '+c.nickname+' roster ↗';
-  $('roster-date').textContent='Roster verified '+(c.verified||'November 5, 2026').replace('November ','Nov. ');
-  $('roster-summary').textContent=`${rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${c.verified||'November 5, 2026'}`;
+  const rosterDate=sharedRanking?.rosterVerified||c.verified||'November 5, 2026';
+  $('roster-date').textContent='Roster verified '+rosterDate.replace('November ','Nov. ');
+  $('roster-summary').textContent=`${sharedRanking?.players?.length||rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${rosterDate}`;
   $('position-count').textContent=rosterFor(team).filter(p=>matchesPosition(p,$('position').value)).length+' players in this filter';
   for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
 }
@@ -135,7 +180,7 @@ function start() { if(sharedRanking)return;
   if(state)return;
   const team=$('team').value,pos=$('position').value,players=rosterFor(team).filter(p=>matchesPosition(p,pos));
   if(!players.length)return;
-  state={team,pos,players,history:[],stack:[{items:players,stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
+  state={team,pos,players,rosterVerified:ALL_TEAM_INFO[team].verified||(activeSport==='NFL'?'November 5, 2026':'November 6, 2026'),history:[],stack:[{items:players,stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
 }
 function undo() { if(sharedRanking)return; if(!state?.history?.length)return;const history=state.history;state=JSON.parse(history.pop());state.history=history;save();render(); }
 function reset() { if(sharedRanking)return; if(state&&!confirm('Clear this '+ALL_TEAM_INFO[state.team].nickname+' ranking for '+(state.pos==='ALL'?'all positions':state.pos)+'? Other rankings stay saved.'))return;remove(keyFor($('team').value,$('position').value));state=null;render(); }
@@ -151,6 +196,7 @@ function renderPlayer(id,p) {
 }
 function render() {
   const result=sharedRanking||state;
+  renderRosterHistory();
   document.body.dataset.view=!result?'intro':result.done?'results':'sorting';
   applyTheme();$('intro').hidden=!!result;$('sort').hidden=!result||!!result.done;$('results').hidden=!result?.done;
   $('reset').disabled=!!sharedRanking||!state;
@@ -272,20 +318,21 @@ $('copy').onclick=async()=>{const result=sharedRanking||state;if(!result?.done)r
 document.addEventListener('keydown',e=>{if(e.target.closest?.('input,select,textarea')||e.altKey)return;if(!sharedRanking&&(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){if(state?.history?.length){e.preventDefault();undo();}return;}if(sharedRanking||!state||state.done||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowLeft'){e.preventDefault();choose('left');}if(e.key==='ArrowRight'){e.preventDefault();choose('right');}});
 
 function rankingRoster(team,pos){return rosterFor(team).filter(p=>matchesPosition(p,pos));}
-function rankingStamp(team,pos){
- const value=JSON.stringify(rankingRoster(team,pos).map(p=>[p.id,p.name,p.number,p.position,p.rosterPosition,p.positions||[]]));
+function rankingStamp(team,pos){return stampForPlayers(rankingRoster(team,pos));}
+function stampForPlayers(players){
+ const value=JSON.stringify(players.map(p=>[p.id,p.name,p.number,p.position,p.rosterPosition,p.positions||[]]));
  let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}
  return (hash>>>0).toString(16).padStart(8,'0');
 }
 function encodeRankingLink(result){
- const sport=leagueFor(result.team),roster=rankingRoster(result.team,result.pos);
+ const sport=leagueFor(result.team),roster=result.players||rankingRoster(result.team,result.pos);
  if(!roster.length||roster.length>255||result.sorted.length!==roster.length)throw Error('This ranking cannot be shared as a link.');
  const order=result.sorted.map(p=>{const i=roster.findIndex(r=>r.id===p.id&&r.name===p.name);if(i<0)throw Error('This ranking uses an older roster. Save an image or start a fresh ranking to share a link.');return i;});
  if(new Set(order).size!==roster.length)throw Error('This ranking cannot be shared as a link.');
  const encoded=btoa(String.fromCharCode(...order)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
- return 'https://markfmyerss.github.io/#ranking='+['v1',sport,ALL_TEAM_INFO[result.team].code,result.pos,rankingStamp(result.team,result.pos),encoded].join('.');
+ return 'https://markfmyerss.github.io/#ranking='+['v1',sport,ALL_TEAM_INFO[result.team].code,result.pos,stampForPlayers(roster),encoded].join('.');
 }
-function decodeRankingLink(hash){
+function decodeRankingLink(hash,snapshot=null){
  if(!hash.startsWith('#ranking='))return null;
  const invalid=()=>{throw Error('This ranking link is incomplete or invalid. Your saved rankings are unchanged.');};
  if(hash.length>1024)invalid();
@@ -293,15 +340,17 @@ function decodeRankingLink(hash){
  const [version,sport,code,pos,stamp,encoded]=parts;
  if(version!=='v1'||!Object.prototype.hasOwnProperty.call(SPORTS,sport)||!SPORTS[sport].positions.includes(pos)||! /^[a-f0-9]{8}$/.test(stamp)||! /^[A-Za-z0-9_-]+$/.test(encoded))invalid();
  const team=teamsFor(sport).find(t=>ALL_TEAM_INFO[t].code===code);if(!team)invalid();
- if(stamp!==rankingStamp(team,pos))throw Error('This link uses a different roster snapshot. Your saved rankings are unchanged. Ask the sender for an image or a fresh link.');
+ const roster=snapshot?snapshot.players.filter(p=>matchesPosition(p,pos)):rankingRoster(team,pos);
+ if(stamp!==stampForPlayers(roster)){const e=Error('This link uses a different roster snapshot. Loading its saved roster will preserve the original ranking.');e.archiveKey=[sport,code,pos,stamp].join('.');throw e;}
  let binary;try{const base=encoded.replace(/-/g,'+').replace(/_/g,'/');binary=atob(base.padEnd(Math.ceil(base.length/4)*4,'='));}catch{invalid();}
  if(btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')!==encoded)invalid();
- const roster=rankingRoster(team,pos),order=Array.from(binary,c=>c.charCodeAt(0));
+ const order=Array.from(binary,c=>c.charCodeAt(0));
  if(order.length!==roster.length||new Set(order).size!==roster.length||order.some(i=>i>=roster.length))invalid();
- return {team,pos,players:roster,sorted:order.map(i=>roster[i]),done:true};
+ const players=snapshot?roster.map(p=>({...p,headshotUrl:snapshot.headshots?.[p.id]?.url||null})):roster;
+ return {team,pos,players,sorted:order.map(i=>players[i]),done:true,rosterVerified:snapshot?.verified||ALL_TEAM_INFO[team].verified||(sport==='NFL'?'November 5, 2026':'November 6, 2026')};
 }
 function clearSharedLink(){
- sharedRanking=null;
+ sharedRequest++;sharedRanking=null;
  if(globalThis.location?.hash.startsWith('#ranking='))globalThis.history?.replaceState(null,'',location.pathname+location.search);
  $('shared-status').hidden=true;
 }
@@ -309,10 +358,29 @@ function viewOwnRanking(){
  clearSharedLink();write('fan-favorites-sport',activeSport);write(selectionKey(activeSport),JSON.stringify({team:$('team').value,pos:$('position').value}));state=stored($('team').value,$('position').value);
  if(state&&!state.done)mergeNext();else render();
 }
-function openSharedRanking(){
- let incoming;
- try{incoming=decodeRankingLink(globalThis.location?.hash||'');}
- catch(e){sharedRanking=null;$('shared-status').textContent=e.message;$('shared-status').hidden=false;if(state&&!state.done)mergeNext();else render();return;}
+async function fetchRosterSnapshot(key){
+ const response=await fetch('assets/roster-snapshots/index.json',{cache:'no-cache'});if(!response.ok)throw Error('Saved roster index unavailable');
+ const index=await response.json(),entry=index.snapshots?.[key];
+ if(!entry||!/^assets\/roster-snapshots\/(?:NFL|NBA)\/[A-Z0-9]{2,4}\/[a-f0-9]{8}\.json$/.test(entry.path))throw Error('Saved roster unavailable');
+ const result=await fetch(entry.path);if(!result.ok)throw Error('Saved roster unavailable');const snapshot=await result.json();
+ const [sport,code,pos,stamp]=key.split('.'),team=teamsFor(sport).find(t=>ALL_TEAM_INFO[t].code===code);
+ if(snapshot.version!==1||snapshot.sport!==sport||snapshot.code!==code||snapshot.team!==team||!Array.isArray(snapshot.players)||!snapshot.players.length||snapshot.players.length>100||new Set(snapshot.players.map(p=>p.id)).size!==snapshot.players.length)throw Error('Saved roster validation failed');
+ if(snapshot.players.some(p=>p.team!==team||typeof p.id!=='string'||typeof p.name!=='string'||!p.name||p.name.length>150||!(p.positions||[p.position]).every(v=>SPORTS[sport].positions.includes(v)&&v!=='ALL')))throw Error('Saved roster players invalid');
+ if(stampForPlayers(snapshot.players.filter(p=>matchesPosition(p,pos)))!==stamp)throw Error('Saved roster version mismatch');
+ for(const p of snapshot.players){const url=snapshot.headshots?.[p.id]?.url;if(url&&!/^https:\/\/|^assets\//.test(url))throw Error('Saved portrait source invalid');}
+ snapshot.verified=entry.verified||snapshot.verified;return snapshot;
+}
+async function openSharedRanking(){
+ const ticket=++sharedRequest,hash=globalThis.location?.hash||'';let incoming;
+ try{incoming=decodeRankingLink(hash);}
+ catch(e){
+  if(e.archiveKey){
+   $('shared-status').textContent='Opening the original roster…';$('shared-status').hidden=false;
+   try{const snapshot=await fetchRosterSnapshot(e.archiveKey);if(ticket!==sharedRequest||globalThis.location?.hash!==hash)return;incoming=decodeRankingLink(hash,snapshot);}
+   catch{if(ticket!==sharedRequest)return;sharedRanking=null;$('shared-status').textContent='This saved roster could not be loaded. Your rankings are unchanged. Please try again later.';$('shared-status').hidden=false;if(state&&!state.done)mergeNext();else render();return;}
+  }else{sharedRanking=null;$('shared-status').textContent=e.message;$('shared-status').hidden=false;if(state&&!state.done)mergeNext();else render();return;}
+ }
+ if(ticket!==sharedRequest)return;
  if(!incoming){if(sharedRanking)viewOwnRanking();return;}
  save();sharedRanking=incoming;activeSport=leagueFor(incoming.team);populateSport();
  $('team').value=incoming.team;$('position').value=incoming.pos;state=stored(incoming.team,incoming.pos);
@@ -323,13 +391,14 @@ async function shareRankingLink(){
  let url;try{url=encodeRankingLink(result);}catch(e){$('link-status').textContent=e.message;return;}
  $('ranking-link').hidden=true;$('link-status').textContent='';
  if(navigator.share){
-  try{await navigator.share({title:'My '+result.team+' favorites',text:'See my '+result.team+' favorites ranking.',url});return;}
+  try{await navigator.share({title:(sharedRanking?'Shared ':'My ')+result.team+' favorites',text:'See this '+result.team+' favorites ranking.',url});return;}
   catch(e){if(e.name==='AbortError')return;}
  }
  try{await navigator.clipboard.writeText(url);$('link-status').textContent='Ranking link copied. Send it to a friend.';}
  catch{$('ranking-link').value=url;$('ranking-link').hidden=false;$('ranking-link').focus();$('ranking-link').select();$('link-status').textContent='Copy the link below to share this exact ranking.';}
 }
 
+$('latest-roster').onclick=useLatestRoster;$('open-previous-ranking').onclick=openPreviousRanking;
 $('share-link').onclick=shareRankingLink;$('rank-yours').onclick=viewOwnRanking;
 globalThis.addEventListener?.('hashchange',openSharedRanking);
 if(state&&!state.done)mergeNext();else render();

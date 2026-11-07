@@ -4,8 +4,8 @@ Pick your favorite players in pairs, then share your personal ranking.
 
 Live: https://markfmyerss.github.io/
 
-- NFL: all 32 teams, with the existing November 5, 2026 active-roster snapshots.
-- NBA: all 30 teams and 524 roster players across both conferences and all six divisions, verified November 6, 2026.
+- NFL: all 32 teams, with weekly verified active-roster snapshots.
+- NBA: all 30 teams, with weekly verified roster snapshots across both conferences and all six divisions.
 - Sport, conference, division, team and position selection; separate saved rankings for every team/filter.
 - Light, Dim and Lights Out appearances; team-primary favorite buttons, headshots, undo and keyboard picks.
 - Featured top three and complete rankings saved in a single image at every export size.
@@ -19,7 +19,7 @@ NBA filters use the NBA's G / F / C classifications. Hybrid players appear once 
 
 ## Sharing
 
-Completed rankings can be shared as compact links. Recipients see a clearly labeled shared ranking without replacing their own saved picks, and can choose to rank those players themselves. Native sharing is used where available, with clipboard and manual-copy fallbacks. Links encode the selected sport, team, filter and player order in the URL fragment; no ranking database or upload is required. Links are validated against the roster snapshot and show an explanation if a later roster update makes the exact ranking unavailable. Image sharing remains available for lasting copies.
+Completed rankings can be shared as compact links. Recipients see a clearly labeled shared ranking without replacing their own saved picks, and can choose to rank those players themselves. Native sharing is used where available, with clipboard and manual-copy fallbacks. Links encode the selected sport, team, filter and player order in the URL fragment; no ranking database or upload is required. Shared links load an archived roster when the current roster has changed, preserving the original names and order. Image sharing remains available for lasting copies.
 
 Roster verification dates appear directly below the team/position controls, using each team's published snapshot date rather than suggesting live roster updates.
 
@@ -44,3 +44,17 @@ Southeast adds the Hawks, Hornets, Heat, Magic and Wizards through another addit
 Northwest adds the Nuggets, Timberwolves, Thunder, Trail Blazers and Jazz. ESPN is the default secondary image source whenever NBA.com has no usable portrait, with team roster identity checks before use. Existing NFL and Eastern Conference snapshots and ranking keys are preserved.
 
 Pacific adds the Warriors, Clippers, Lakers, Suns and Kings with 89 portraits and separate progress per team. Southwest completes the NBA with the Mavericks, Rockets, Grizzlies, Pelicans and Spurs, adding 88 portraits.
+
+## Tuesday roster updates
+
+The `Weekly roster refresh` GitHub workflow runs Tuesdays at **8:00 a.m. America/New_York**, including daylight-saving changes. GitHub may queue scheduled runs, so publication can finish later. A manual run defaults to a dry run.
+
+Official NFL active tables and NBA structured team rosters are validated before publication. New NBA portraits use NBA.com first and ESPN's matching team roster second. Current valid portraits and the existing Vega Ioane fix are retained. A source or portrait failure keeps that team's previous roster and verification date; cross-team identity conflicts retain the affected league's previous snapshot. No source, image files or dependencies are downloaded to the owner's Mac.
+
+`weekly-rosters.js` supplies the latest approved rosters after the original baseline data files. `assets/roster-refresh-status.json` records the latest check, team results and retained sources. Original files and counts in DATA-SOURCES describe historical baselines.
+
+The refresh archives the previous and new roster versions together before publishing. Old shared links resolve through `assets/roster-snapshots/index.json`. New NBA image assets have immutable content-based filenames so historical links can keep their photos.
+
+Saved rankings stay in the visitor's browser. An earlier roster remains sortable, and **Start with latest roster** saves the old ranking under **Previous rankings** before starting a fresh one. A failed archive write leaves the current ranking untouched.
+
+The workflow stages changes on a GitHub runner, validates archives, identities and portraits, runs browser checks, and only then commits the candidate. Non-forced publishing rejects a candidate if main changed during validation. GitHub's Pages API explicitly rebuilds the bot commit and the workflow checks the live verification record. It needs no personal token or always-on computer.

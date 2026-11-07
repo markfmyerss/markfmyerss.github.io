@@ -211,3 +211,11 @@ body[data-sport=NBA] #team-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
 #link-status:empty{display:none}
 [hidden]{display:none!important}
 @media(max-width:700px){.results-share{align-items:flex-start}.ranking-share-actions{width:100%}.ranking-share-actions button{flex:1;font-size:.82rem;padding:12px 10px}.shared-notice{align-items:flex-start;flex-direction:column;gap:12px}.roster-date{margin-top:-6px}}
+
+.roster-history{margin:0 0 20px;font-size:.8rem}
+.roster-history summary{cursor:pointer;opacity:.8}
+.roster-history>div{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-top:12px}
+.roster-history label{display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.roster-history select{min-width:0;max-width:100%;width:100%}
+#saved-roster-note{font-size:.82rem;margin-top:0}
+@media(max-width:480px){.roster-history>div{align-items:stretch;flex-direction:column}}
