@@ -30,8 +30,7 @@ function parseNBA(html,info,team){
 }
 function assignNFLIds(players,previous){
  const all=Object.values(previous).flat();
- const profileKey=p=>new URL(p.profile).pathname.replace(/\/$/,'').toLowerCase();
- for(const p of players){const alias=n=>normalize(n)==='olaivavegaioane'?'vegaioane':normalize(n);let matches=all.filter(old=>old.profile&&old.profile.replace(/\/$/,'')===p.profile.replace(/\/$/,''));if(matches.length!==1)matches=(previous[p.team]||[]).filter(old=>alias(old.name)===alias(p.name));if(matches.length!==1)matches=all.filter(old=>old.profile&&profileKey(old)===profileKey(p));if(matches.length!==1)matches=all.filter(old=>alias(old.name)===alias(p.name));
+ for(const p of players){const alias=n=>normalize(n)==='olaivavegaioane'?'vegaioane':normalize(n);let matches=all.filter(old=>old.profile&&old.profile.replace(/\/$/,'')===p.profile.replace(/\/$/,''));if(matches.length!==1)matches=(previous[p.team]||[]).filter(old=>alias(old.name)===alias(p.name));
  p.id=matches.length===1?matches[0].id:'NFL-'+crypto.createHash('sha256').update(p.profile).digest('hex').slice(0,16);
  }
  assert.equal(new Set(players.map(p=>p.id)).size,players.length,'Ambiguous NFL identity');return players;

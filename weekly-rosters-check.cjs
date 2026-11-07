@@ -7,6 +7,7 @@ try{const index=T.archiveData(data,dir);assert.equal(Object.keys(index.snapshots
 const previous={'Team A':[{id:'A-1',name:'Same Name',team:'Team A',profile:'https://a.example/team/players-roster/same-name/'}],'Team B':[{id:'B-1',name:'Same Name',team:'Team B',profile:'https://b.example/team/players-roster/same-name/'}]};
 assert.equal(T.assignNFLIds([{name:'Same Name',team:'Team A',profile:'https://a.example/team/players-roster/same-name/'}],previous)[0].id,'A-1');
 assert.equal(T.assignNFLIds([{name:'Same Name',team:'Team B',profile:'https://b.example/team/players-roster/same-name/'}],previous)[0].id,'B-1');
+assert.notEqual(T.assignNFLIds([{name:'Same Name',team:'Team C',profile:'https://c.example/team/players-roster/same-name/'}],{'Team A':previous['Team A']})[0].id,'A-1');
 assert.throws(()=>T.parseNFL('<table><caption>Reserve</caption></table>',{source:'https://example.com/'},'Team'),/Active/);
 assert.throws(()=>R.png(Buffer.alloc(30)));
 for(const sport of ['NFL','NBA'])R.validateLeague(data,sport);
