@@ -181,3 +181,7 @@ For this and future NBA additions, missing, failed or generic NBA.com portraits 
 ## NBA Western Conference — Pacific Division
 
 Verified November 6, 2026 from NBA.com structured team rosters: Golden State Warriors (18), LA Clippers (19), Los Angeles Lakers (18), Phoenix Suns (17), Sacramento Kings (17). All 89 listed players have distinct unmodified NBA portraits; no ESPN fallback was required. The site now includes 25 NBA teams and 436 players. Source roster URLs, logo URLs, portrait URLs, dimensions and SHA-256 hashes are recorded in `assets/nba/headshots/pacific-manifest.json`. Palettes use exact colors in official NBA team SVGs, including the Clippers' navy and white. Existing snapshots and save keys remain unchanged. The same ESPN fallback policy and image-rights limitations above apply.
+
+## NBA Western Conference — Southwest Division; NBA complete
+
+Verified November 6, 2026 from NBA.com structured team rosters: Dallas Mavericks (18), Houston Rockets (17), Memphis Grizzlies (18), New Orleans Pelicans (18), San Antonio Spurs (17). All 88 listed players have distinct unmodified NBA portraits; no ESPN fallback was required. All 30 NBA teams and 524 players are now included. Source roster URLs, official logo URLs, portrait URLs, dimensions and SHA-256 hashes are recorded in `assets/nba/headshots/southwest-manifest.json`. Palettes use exact colors in official NBA team SVGs. Existing snapshots and save keys are unchanged. The ESPN secondary-source policy and image-rights limitations above apply.

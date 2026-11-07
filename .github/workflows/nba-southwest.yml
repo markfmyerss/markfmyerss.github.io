@@ -1,0 +1,21 @@
+name: Prepare NBA Southwest assets
+on:
+  push:
+    paths: ['scripts/prepare-nba-southwest.cjs', '.github/workflows/nba-southwest.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        team: [DAL, HOU, MEM, NOP, SAS]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/prepare-nba-southwest.cjs "${{ matrix.team }}"
