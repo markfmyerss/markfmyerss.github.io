@@ -1,21 +1,15 @@
-name: Prepare NBA Central assets
+name: Verify live ranking links
 on:
   push:
-    paths: ['scripts/prepare-nba-central.cjs', '.github/workflows/nba-images.yml']
-  workflow_dispatch:
+    branches: [verify-ranking-links-live]
 permissions:
   contents: read
 jobs:
-  prepare:
+  live:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    strategy:
-      fail-fast: false
-      matrix:
-        team: [CHI, CLE, DET, IND, MIL]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/prepare-nba-central.cjs "${{ matrix.team }}"
+      - run: node scripts/prepare-nba-images.cjs
