@@ -55,6 +55,6 @@ Official NFL active tables and NBA structured team rosters are validated before 
 
 The refresh archives the previous and new roster versions together before publishing. Old shared links resolve through `assets/roster-snapshots/index.json`. New NBA image assets have immutable content-based filenames so historical links can keep their photos.
 
-Saved rankings stay in the visitor's browser. An earlier roster remains sortable, and **Start with latest roster** saves the old ranking under **Previous rankings** before starting a fresh one. A failed archive write leaves the current ranking untouched.
+Saved rankings stay in the visitor's browser. An earlier roster remains sortable, and **Start with latest roster** saves the old ranking under **Previous rankings** before starting a fresh one. Archived copies retain the full ranking and unfinished progress while starting a fresh undo history when reopened, which keeps browser storage small. A failed archive write leaves the current ranking untouched.
 
 The workflow stages changes on a GitHub runner, validates archives, identities and portraits, runs browser checks, and only then commits the candidate. Non-forced publishing rejects a candidate if main changed during validation. GitHub's Pages API explicitly rebuilds the bot commit and the workflow checks the live verification record. It needs no personal token or always-on computer.

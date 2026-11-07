@@ -51,7 +51,7 @@ function stored(team,pos){
 }
 function archiveOwnRanking(s){
  if(!s)return true;const base=keyFor(s.team,s.pos),stamp=stampForPlayers(s.players);
- if(!write(base+':roster-archive:'+stamp,JSON.stringify(s)))return false;
+ if(!write(base+':roster-archive:'+stamp,JSON.stringify({...s,history:[]})))return false;
  let list=[];try{list=JSON.parse(read(base+':roster-archives'))||[];}catch{}
  if(!Array.isArray(list))list=[];
  const entry={stamp,verified:s.rosterVerified||(leagueFor(s.team)==='NFL'?'November 5, 2026':'November 6, 2026'),players:s.players.length,comparisons:s.comparisons,done:!!s.done};
