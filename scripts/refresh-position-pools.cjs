@@ -38,7 +38,7 @@ const cross=await T.get('https://github.com/nflverse/nflverse-data/releases/down
 const selected=new Map(),unresolved=[],noParticipation=[];const add=(p,group)=>{const old=selected.get(p.id);if(old){if(!old.positions.includes(group))old.positions.push(group);return;}const {imageCandidate,...fields}=p;selected.set(p.id,{...fields,position:group,positions:[group]});};
 const exact=(name,list)=>list.filter(x=>norm(x.name)===norm(name));
 const records=reviewed?[...policy.offense,...policy.defense]:null;
-if(reviewed){for(const row of records){const found=candidates.filter(p=>norm(p.name)===norm(row.name)&&p.team===row.team);assert.equal(found.length,1,'Reviewed player missing '+row.name);add(found[0],row.group);}}
+if(reviewed){for(const row of records){let found=candidates.filter(p=>(row.id?p.id===row.id:norm(p.name)===norm(row.name))&&p.team===row.team);if(!found.length)found=(history[row.team]||[]).filter(p=>row.id?p.id===row.id:norm(p.name)===norm(row.name));assert.equal(found.length,1,'Reviewed player missing '+row.name);add({...found[0],rosterStatus:found[0].rosterStatus||'Approved reviewed snapshot'},row.group);}}
 else{
 const snapGames=new Map();for(const r of snaps){const k=r.game_id+':'+r.team;if(!snapGames.has(k))snapGames.set(k,[]);snapGames.get(k).push(r);}
 const opportunities=new Map();for(const [k,rows]of snapGames){const max=Math.max(...rows.map(r=>+r.defense_snaps)),possible=[];for(let n=max;n<=Math.max(max,400);n++)if(rows.every(r=>Math.abs(+r.defense_snaps/n-+r.defense_pct)<=.005000001))possible.push(n);assert.equal(possible.length,1,'Ambiguous defensive opportunity '+k);opportunities.set(k,possible[0]);}
@@ -59,9 +59,9 @@ if(!role){if(share>=.25)unresolved.push('Role: '+p.name);continue;}if(share>=pol
 }
 assert(unresolved.length===0,'Unresolved participating identities/roles; retain published pools: '+unresolved.join(', '));
 }
-for(const p of candidates.filter(p=>p.positions.includes('OL')&&p.rosterStatus==='Active'))add(p,'OL');
+for(const p of (reviewed?Object.values(data.ROSTERS).flat():candidates).filter(p=>(p.positions||[p.position]).includes('OL')&&(reviewed||p.rosterStatus==='Active')))add(p,'OL');
 const counts=new Map();for(const p of candidates)counts.set(p.imageCandidate,(counts.get(p.imageCandidate)||0)+1);
-await T.mapLimit([...selected.values()],6,async p=>{if(!shots[p.id]?.url){const original=candidates.find(c=>c.id===p.id);shots[p.id]=await nflPortrait(original,counts);}});
+await T.mapLimit([...selected.values()],6,async p=>{if(!shots[p.id]?.url){const original=candidates.find(c=>c.id===p.id)||p;shots[p.id]=await nflPortrait(original,counts);}});
 const players=[...selected.values()].sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0),groups=['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S'],tallies=Object.fromEntries(groups.map(g=>[g,players.filter(p=>p.positions.includes(g)).length]));
 for(const g of groups)assert(tallies[g]>0&&tallies[g]<400,'Suspicious '+g+' pool');
 for(const p of players)assert(shots[p.id]?.url&&shots[p.id]?.source,'Portrait provenance '+p.name);

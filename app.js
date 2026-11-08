@@ -1,13 +1,13 @@
 'use strict';
 const $ = id => document.getElementById(id);
-const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST','IDL','DE','ILB','EDGE','CB','S'];
+const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST'];
 const LEAGUE_POSITIONS={NFL:['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S'],NBA:['G','F','C']};
 const selectablePositions=(sport,league=false)=>league?LEAGUE_POSITIONS[sport]:SPORTS[sport].positions.filter(p=>!['ST','IDL','DE','ILB','EDGE','CB','S'].includes(p));
 
 const nbaReady=typeof NBA_TEAM_INFO!=='undefined';
 const ALL_TEAM_INFO={...TEAM_INFO,...(nbaReady?NBA_TEAM_INFO:{})};
 const ALL_HEADSHOTS={...HEADSHOTS,...(typeof NFL_POSITION_HEADSHOTS==='undefined'?{}:NFL_POSITION_HEADSHOTS),...(nbaReady?NBA_HEADSHOTS:{})};
-const SPORTS={NFL:{teams:TEAM_INFO,positions},...(nbaReady?{NBA:{teams:NBA_TEAM_INFO,positions:['ALL','G','F','C']}}:{})};
+const SPORTS={NFL:{teams:TEAM_INFO,positions:[...new Set([...positions,...LEAGUE_POSITIONS.NFL])]},...(nbaReady?{NBA:{teams:NBA_TEAM_INFO,positions:['ALL','G','F','C']}}:{})};
 let activeSport='NFL';
 const leagueFor=team=>ALL_TEAM_INFO[team]?.league||'NFL';
 const rosterFor=team=>isLeaguePool(team)?leaguePlayers(leagueFor(team)):leagueFor(team)==='NBA'?NBA_ROSTERS[team]:ROSTERS[team];
