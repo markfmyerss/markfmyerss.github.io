@@ -1,0 +1,30 @@
+name: Verify published NBA starter pools
+on:
+  push:
+    branches: [verify-nba-five-starter-pools-live]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify public source, starter pools, corrections and historical snapshots
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),vm=require('node:vm'),base='https://markfmyerss.github.io/',hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+          (async()=>{
+          for(const file of ['index.html','app.js','nba-position-data.js','assets/nba-position-status.json']){const expected=fs.readFileSync(file,'utf8');let live;for(let i=0;i<30;i++){const r=await fetch(base+file+'?nba5='+Date.now());if(r.ok){live=await r.text();if(hash(live)===hash(expected))break;}await new Promise(r=>setTimeout(r,5000));}assert.equal(hash(live||''),hash(expected),'Published file mismatch '+file);console.log('PASS public '+file);}
+          const source=await(await fetch(base+'nba-position-data.js?nba5='+Date.now())).text(),d=vm.runInNewContext(source+';({players:NBA_POSITION_PLAYERS,info:NBA_POSITION_INFO})'),ps=d.players;
+          assert.equal(ps.length,183);assert.equal(new Set(ps.map(p=>p.id)).size,183);assert(ps.every(p=>p.positions.length===1&&p.positions[0]===p.position&&p.rosterPosition===p.position));
+          assert.equal(ps.find(p=>p.id==='NBA-202710').position,'SF');assert.equal(ps.find(p=>p.id==='NBA-203078').position,'SG');assert(!ps.some(p=>p.id==='NBA-204001'));
+          const fnv=value=>{let h=2166136261;for(let i=0;i<value.length;i++){h^=value.charCodeAt(i);h=Math.imul(h,16777619);}return(h>>>0).toString(16).padStart(8,'0');};
+          const index=await(await fetch(base+'assets/roster-snapshots/index.json?nba5='+Date.now())).json();
+          for(const [g,n]of Object.entries({PG:37,SG:34,SF:44,PF:31,C:37})){const pool=ps.filter(p=>p.position===g);assert.equal(pool.length,n);const stamp=fnv(JSON.stringify(pool.map(p=>[p.id,p.name,p.number,p.position,p.rosterPosition,p.positions||[],p.team]))),item=index.snapshots['NBA.NBA.'+g+'.'+stamp];assert(item,'Missing public archive '+g);const snap=await(await fetch(base+item.path)).json();assert.deepEqual(snap.players.map(p=>p.id),Array.from(pool,p=>p.id));for(const p of snap.players)assert(snap.headshots[p.id]?.url&&snap.headshots[p.id]?.source);console.log('PASS public '+g+' pool, '+n+' unique players, archived snapshot and portraits');}
+          console.log('PASS 183 players, five disjoint primary positions, Jimmy Butler retained, Porzingis excluded, Beal SG');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
