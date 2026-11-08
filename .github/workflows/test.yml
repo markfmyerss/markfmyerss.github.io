@@ -25,7 +25,7 @@ permissions:
   contents: read
 jobs:
   functionality:
-    if: github.ref != 'refs/heads/prepare-approved-position-pools' && github.ref != 'refs/heads/prepare-ol-position-pools'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/five-ol-position-pools'
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble
@@ -92,7 +92,7 @@ jobs:
           retention-days: 7
 
   eligibility-sources:
-    if: github.ref != 'refs/heads/prepare-approved-position-pools' && github.ref != 'refs/heads/prepare-ol-position-pools'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/five-ol-position-pools'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
