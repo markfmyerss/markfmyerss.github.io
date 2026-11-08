@@ -51,7 +51,7 @@ if(qualifies||policy.offensePolicy.approvedPlayerExceptions.some(e=>norm(e.name)
 }
 if(!p.positions.some(g=>['DL','LB','DB'].includes(g)))continue;
 const espn=teamESPN.get(p.team),role=roleFor(p,policy,espn.roster,espn.depth),known=policy.roles.find(x=>norm(x.name)===norm(p.name)),a=espn.roster.filter(x=>norm(x.displayName||x.fullName)===norm(p.name)),cross=a.length===1?crosswalk.filter(x=>String(x.espn_id)===String(a[0].id)):[];
-const id=known?.pfrId||(cross.length===1?cross[0].pfr_id:null),rows=id?snaps.filter(x=>x.pfr_player_id===id):snaps.filter(x=>norm(x.player)===norm(p.name));
+const verifiedPfr={'Jack Pyburn':'PybuJa00','Zach Carter':'CartZa00'};const id=known?.pfrId||verifiedPfr[p.name]||(cross.length===1?cross[0].pfr_id:null),rows=id?snaps.filter(x=>x.pfr_player_id===id):snaps.filter(x=>norm(x.player)===norm(p.name));
 const exception=policy.defensePolicy.approvedPlayerExceptions.some(x=>norm(x.name)===norm(p.name));
 if(!rows.length){if(id){noParticipation.push({name:p.name,pfrId:id});}else unresolved.push(p.name);if(exception&&role)add(p,role);continue;}
 const numerator=rows.reduce((n,r)=>n+(+r.defense_snaps),0),denominator=rows.reduce((n,r)=>n+opportunities.get(r.game_id+':'+r.team),0),share=numerator/denominator;

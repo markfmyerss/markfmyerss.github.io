@@ -35,6 +35,8 @@ jobs:
         run: node scripts/refresh-rosters.cjs
       - name: Refresh approved league-wide NFL eligibility
         run: node scripts/refresh-position-pools.cjs
+      - name: Validate approved NFL position pools
+        run: node eligibility-check.cjs
       - name: Validate current players, portraits and snapshot archives
         run: node current-rosters-check.cjs
       - name: Install checks on GitHub only

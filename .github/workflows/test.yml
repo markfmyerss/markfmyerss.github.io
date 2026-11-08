@@ -46,6 +46,8 @@ jobs:
         run: node social-preview-check.cjs
       - name: Check all 30 NBA teams and saved rankings and saved rankings
         run: node nba-tests.cjs
+      - name: Check approved NFL eligibility and categories
+        run: node eligibility-check.cjs
       - name: Check league-wide position pools and compact progress
         run: node position-rankings-check.cjs
       - name: Check weekly roster safeguards and current data

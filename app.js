@@ -182,6 +182,7 @@ function applyTheme() {
   document.body.dataset.rankingMode=rankingMode;
   for(const b of $('ranking-mode').children)b.setAttribute('aria-pressed',String(b.dataset.mode===rankingMode));
   $('team-field').hidden=league;$('save-scope-note').textContent=league?'Each position saves separately':'Each team and filter saves separately';
+ if(league&&activeSport==='NFL'){const pos=$('position').value,minimum={QB:'50 passing attempts',RB:'25 rushes or 10 receptions',WR:'10 receptions',TE:'10 receptions',IDL:'50% defensive snaps',DE:'25% defensive snaps',ILB:'60% defensive snaps',EDGE:'40% defensive snaps',CB:'65% defensive snaps',S:'60% defensive snaps'}[pos];if(minimum)$('save-scope-note').textContent=minimum+' · Notable exceptions included';}
   for(const [key,value] of Object.entries(c.colors))document.documentElement.style.setProperty('--'+key,value);
   document.documentElement.style.setProperty('--pick-ink',primaryTextColor(c.colors.primary));
   globalThis.SiteAppearance?.setTeamColors(c.colors);
