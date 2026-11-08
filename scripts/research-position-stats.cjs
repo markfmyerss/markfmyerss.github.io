@@ -7,7 +7,7 @@ const data=loadData(),stats={},sources=[];
 for(const [cat,sort,index]of [['passing','passingattempts',3],['rushing','rushingattempts',2],['receiving','receivingreceptions',1]]){
 let url='https://www.nfl.com/stats/player-stats/category/'+cat+'/2026/REG/all/'+sort+'/desc';const seen=new Set(),records=[];
 for(let page=1;url;page++){
-assert(page<=40,'Too many pages');assert(!seen.has(url),'Repeated pagination');seen.add(url);
+assert(page<=40,'Too many pages');assert(!seen.has(url),'Repeated pagination '+url);seen.add(url);
 const html=await get(url);fs.writeFileSync(out+'/'+cat+'-'+page+'.html',html);
 const rows=[...html.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)];
 let n=0;
@@ -20,6 +20,7 @@ records.push({name:clean(a[2]),profile:new URL(a[1],url).href,value});n++;
 assert(n>0,'Empty statistics page '+url);
 sources.push({category:cat,page,url,rows:n});
 const anchors=[...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)];
+console.log('PAGE',cat,page,url,'rows',n,'links',JSON.stringify(anchors.filter(x=>/Page/i.test(clean(x[2]))).map(x=>({href:x[1],text:clean(x[2])}))));
 const next=anchors.find(x=>/Next Page/i.test(clean(x[2])));
 url=next?new URL(next[1].replace(/&amp;/g,'&'),'https://www.nfl.com').href:null;
 }
