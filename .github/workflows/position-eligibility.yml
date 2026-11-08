@@ -1,7 +1,7 @@
 name: Prepare approved NFL position pools
 on:
   push:
-    branches: [prepare-ol-position-pools]
+    branches: [prepare-ol-position-pools, prepare-injury-exceptions]
 permissions:
   contents: read
 jobs:

@@ -2,7 +2,7 @@ const assert=require('node:assert/strict'),T=require('./roster-tools.cjs');
 const name=s=>T.normalize(s).replace(/(?:jr|sr|iii|ii|iv|v)$/,'');
 const aliases={'Vega Ioane':'Olaivavega Ioane','Nate Thomas':'Nathan Thomas','A.J. Cann':'AJ Cann','Francis "Sisi" Mauigoa':'Francis Mauigoa'};
 const role=s=>({LT:'LT',RT:'RT',LG:'LG',RG:'RG',C:'C',OC:'C'})[String(s||'').toUpperCase()]||null;
-function chooseMinimum(rows,cap){let minimum=25;while(rows.filter(p=>p.offensiveSnaps>=minimum).length>cap)minimum+=25;return {minimum,players:rows.filter(p=>p.offensiveSnaps>=minimum)};}
+function chooseMinimum(rows,cap){assert(rows.filter(p=>p.approvedException).length<=cap,'Approved OL exceptions exceed cap');let minimum=25;const qualifies=p=>p.offensiveSnaps>=minimum||p.approvedException;while(rows.filter(qualifies).length>cap)minimum+=25;return {minimum,players:rows.filter(qualifies)};}
 async function build(candidates,parseCSV,options={}){
 const snapURL='https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv';
 const [snapText,crossText,teamsJSON]=await Promise.all([T.get(snapURL),T.get('https://github.com/nflverse/nflverse-data/releases/download/players/players.csv'),T.get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=100','json')]);
@@ -30,9 +30,9 @@ if(!group&&total>=25){console.log('OL_ROLE_REVIEW',JSON.stringify({name:p.name,t
 }
 assert.equal(unresolved.length,0,'Unresolved OL records: '+unresolved.join(', '));
 const caps=options.caps||{LT:40,RT:40,LG:40,RG:40,C:40},selected=[],thresholds={},counts={},excluded=[];
-for(const [g,cap]of Object.entries(caps)){const group=rows.filter(p=>p.group===g),chosen=chooseMinimum(group,cap);thresholds[g]=chosen.minimum;counts[g]=chosen.players.length;selected.push(...chosen.players);excluded.push(...group.filter(p=>p.offensiveSnaps<chosen.minimum));assert(counts[g]<=cap&&counts[g]>0);if(chosen.minimum>25)assert(group.filter(p=>p.offensiveSnaps>=chosen.minimum-25).length>cap);}
+for(const [g,cap]of Object.entries(caps)){const group=rows.filter(p=>p.group===g).map(p=>({...p,approvedException:(options.approvedPlayerExceptions||[]).some(e=>name(e.name)===name(p.player.name)&&e.group===g)})),chosen=chooseMinimum(group,cap);thresholds[g]=chosen.minimum;counts[g]=chosen.players.length;selected.push(...chosen.players);excluded.push(...group.filter(p=>p.offensiveSnaps<chosen.minimum&&!p.approvedException));assert(counts[g]<=cap&&counts[g]>0);if(chosen.minimum>25)assert(group.filter(p=>p.offensiveSnaps>=chosen.minimum-25||p.approvedException).length>cap);}
 assert.equal(new Set(selected.map(p=>p.player.id)).size,selected.length,'Repeated offensive lineman');
-const summary={season:2026,seasonType:'REG',caps,minimumOffensiveSnaps:thresholds,counts,reviewed:rows.length,injuredIncluded:selected.filter(p=>p.player.rosterStatus!=='Active').length,source:snapURL,sources,exclusions:excluded.map(p=>({name:p.player.name,team:p.player.team,group:p.group,snaps:p.offensiveSnaps})),method:'Total 2026 regular-season offensive snaps. Choose the lowest multiple of 25 that meets each hard pool cap; ties stay together. One primary listed side per player; ties at the same depth use the first ESPN-listed slot. Active and injury-reserve rosters are eligible.',unresolved};
+const summary={season:2026,seasonType:'REG',caps,minimumOffensiveSnaps:thresholds,counts,reviewed:rows.length,injuredIncluded:selected.filter(p=>p.player.rosterStatus!=='Active').length,source:snapURL,sources,exclusions:excluded.map(p=>({name:p.player.name,team:p.player.team,group:p.group,snaps:p.offensiveSnaps})),approvedPlayerExceptions:selected.filter(p=>p.approvedException).map(p=>({name:p.player.name,group:p.group,snaps:p.offensiveSnaps})),method:'Approved injury exceptions count within each hard cap. Total 2026 regular-season offensive snaps. Choose the lowest multiple of 25 that meets each hard pool cap; ties stay together. One primary listed side per player; ties at the same depth use the first ESPN-listed slot. Active and injury-reserve rosters are eligible.',unresolved};
 return {selected,summary};
 }
 module.exports={build,chooseMinimum,role};

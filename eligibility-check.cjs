@@ -3,8 +3,8 @@ const data=T.loadData(),policy=JSON.parse(fs.readFileSync('assets/nfl-position-p
 assert(data.NFL_POSITION_PLAYERS?.length);const players=data.NFL_POSITION_PLAYERS,groups=['QB','RB','WR','TE','LT','RT','LG','RG','C','IDL','DE','ILB','EDGE','CB','S'];
 assert.equal(new Set(players.map(p=>p.id)).size,players.length);
 for(const p of players){assert(p.positions.every(g=>groups.includes(g)));assert(data.NFL_POSITION_KNOWN_IDS[p.team].includes(p.id));assert(data.NFL_POSITION_HEADSHOTS[p.id]?.url&&data.NFL_POSITION_HEADSHOTS[p.id]?.source);}
-for(const e of [...policy.offensePolicy.approvedPlayerExceptions,...policy.defensePolicy.approvedPlayerExceptions])assert(players.some(p=>T.normalize(p.name)===T.normalize(e.name)),'Missing approved exception '+e.name);
-if(data.NFL_POSITION_INFO.mode==='approved-reviewed-snapshot')for(const [g,n]of Object.entries({QB:41,RB:72,WR:95,TE:48,IDL:61,DE:59,ILB:65,EDGE:63,CB:81,S:71}))assert.equal(T.filtered(players,g).length,n,g);
+for(const e of [...policy.offensePolicy.approvedPlayerExceptions,...policy.defensePolicy.approvedPlayerExceptions,...(policy.offensiveLinePolicy.approvedPlayerExceptions||[])])assert(players.some(p=>T.normalize(p.name)===T.normalize(e.name)),'Missing approved exception '+e.name);
+if(data.NFL_POSITION_INFO.mode==='approved-reviewed-snapshot')for(const [g,n]of Object.entries({QB:41,RB:72,WR:97,TE:48,IDL:62,DE:59,ILB:65,EDGE:67,CB:81,S:72}))assert.equal(T.filtered(players,g).length,n,g);
 const bootSource=fs.readFileSync('nba-tests.cjs','utf8').split('const b=boot();')[0].replace('confirm:()=>true,console','btoa,atob,confirm:()=>true,console');
 const boot=vm.runInNewContext(bootSource+';boot',{require,__dirname:process.cwd(),console,btoa,atob,URL});
 const b=boot();assert(!b.e('position').children.some(p=>p.value==='ST'));
@@ -26,3 +26,6 @@ const legacyStorage=new Map([['fan-favorites-sport','NFL'],['nfl-sorter-ranking-
 assert.equal(legacy.run('state.players.length'),oldPlayers.length);assert(legacy.e('position').children.some(o=>o.value==='OL'&&o.text==='Previous OL ranking'));assert(legacy.e('latest-roster').hidden);
 legacy.e('position').value='LT';legacy.run('selectTeam();start()');assert(legacy.run('state.players.length')<=40);assert.deepEqual(Array.from(legacy.run('parseSavedState(read("nfl-position-sorter-v1:OL")).sorted.map(p=>p.id)')),old.sorted.map(p=>p.id));
 console.log('PASS previous combined OL rankings remain accessible and separate from new left/right groups');
+
+// Injury exceptions reserve capacity; statistical ties remain together.
+{const rows=[...Array.from({length:38},(_,i)=>({offensiveSnaps:200+i})),{offensiveSnaps:100},{offensiveSnaps:100},...Array.from({length:3},()=>({offensiveSnaps:0,approvedException:true}))];const chosen=O.chooseMinimum(rows,40);assert.equal(chosen.minimum,225);assert.equal(chosen.players.filter(p=>p.approvedException).length,3);assert(chosen.players.length<=40);}
