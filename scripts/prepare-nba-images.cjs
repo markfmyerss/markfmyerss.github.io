@@ -1,21 +1,6 @@
-// Fetch original NBA thumbnails on GitHub and emit immutable, reviewable PNG assets.
-const fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-(async()=>{
- const box={};vm.runInNewContext(fs.readFileSync('nba-data.js','utf8')+';result={info:NBA_TEAM_INFO,rosters:NBA_ROSTERS,shots:NBA_HEADSHOTS};',box);
- const {info,rosters,shots}=box.result,code=process.argv[2],team=Object.values(info).find(t=>t.code===code);assert.ok(team,'known NBA team');
- let count=0;
- for(const player of rosters[team.name]){
-  const meta=shots[player.id];if(!meta?.url){console.log('NBA_IMAGE_FALLBACK '+player.id);continue;}
-  const remote=(meta.originalUrl||meta.url).replace('/1040x760/','/260x190/');
-  assert.equal(new URL(remote).hostname,'cdn.nba.com');
-  const r=await fetch(remote,{headers:{accept:'image/png'},signal:AbortSignal.timeout(25000)});assert.ok(r.ok,'NBA image '+player.name+' '+r.status);
-  const bytes=Buffer.from(await r.arrayBuffer());assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
-  const sha=crypto.createHash('sha256').update(bytes).digest('hex');
-  if(sha==='b3ebe78bfd1cecb8880e51e6a48c9093c5cfb7065f981826d12fb4c01a1b0965'){console.log('NBA_IMAGE_FALLBACK '+player.id);continue;}
-  assert.equal(bytes.readUInt32BE(16),260);assert.equal(bytes.readUInt32BE(20),190);
-  const encoded=bytes.toString('base64');
-  for(let i=0,n=0;i<encoded.length;i+=16000,n++)console.log('NBA_IMAGE_'+player.nbaId+'_CHUNK_'+String(n).padStart(4,'0')+':'+encoded.slice(i,i+16000));
-  console.log('NBA_IMAGE_SOURCE '+JSON.stringify({id:player.nbaId,url:remote,bytes:bytes.length,sha256:sha}));count++;
- }
- console.log('PASS '+team.name+': '+count+' official PNG thumbnails prepared on GitHub');
-})().catch(e=>{console.error(e);process.exitCode=1;});
+const {chromium}=require('@playwright/test'),http=require('node:http'),fs=require('node:fs/promises'),path=require('node:path');
+function emit(label,bytes){const s=Buffer.from(bytes).toString('base64');for(let i=0,n=0;i<s.length;i+=16000,n++)console.log(label+'_CHUNK_'+String(n).padStart(4,'0')+':'+s.slice(i,i+16000));}
+(async()=>{const server=http.createServer(async(req,res)=>{try{const p=path.resolve('.',decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/$/,'/index.html').slice(1));const b=await fs.readFile(p);res.setHeader('Content-Type',p.endsWith('.js')?'text/javascript':p.endsWith('.css')?'text/css':p.endsWith('.svg')?'image/svg+xml':p.endsWith('.png')?'image/png':'text/html');res.end(b);}catch{res.statusCode=404;res.end();}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch();try{const page=await browser.newPage({viewport:{width:390,height:900}});await page.goto('http://127.0.0.1:'+server.address().port);await page.click('[data-mode=positions]');emit('POSITION_INTRO',await page.screenshot({fullPage:true}));await page.click('[data-position=QB]');await page.waitForFunction(()=>state&&!state.done);await page.evaluate(()=>scrollTo(0,0));emit('POSITION_SORT',await page.screenshot({fullPage:true}));
+const pngs=await page.evaluate(async()=>{const team=leagueTeam('NFL'),groups=SPORTS.NFL.positions.filter(p=>p!=='ALL'),pos=groups.sort((a,b)=>rankingRoster(team,b).length-rankingRoster(team,a).length)[0],players=rankingRoster(team,pos),result={team,pos,players:[...players].reverse()},image=await ResultsExport.createImage(result,{size:'1x1',type:'png',scope:'all'});const bitmap=await createImageBitmap(image.blob),canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1080;canvas.getContext('2d').drawImage(bitmap,0,0,1080,1080);const overview=canvas.toDataURL('image/png').split(',')[1];const plan=ResultsExport.plan(result,{size:'1x1',scope:'all'}),box=plan.boxes[3],ratio=image.width/plan.W;canvas.width=900;canvas.height=400;canvas.getContext('2d').drawImage(bitmap,box.x*ratio,box.y*ratio,900,400,0,0,900,400);return {overview,crop:canvas.toDataURL('image/png').split(',')[1],players:players.length,width:image.width,height:image.height,missing:image.missingPhotos};});
+emit('POSITION_EXPORT',Buffer.from(pngs.overview,'base64'));emit('POSITION_CROP',Buffer.from(pngs.crop,'base64'));console.log('VISUAL_SUMMARY '+JSON.stringify({players:pngs.players,width:pngs.width,height:pngs.height,missing:pngs.missing}));
+}finally{await browser.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,21 +1,18 @@
-name: Prepare NBA Central assets
+name: Review position ranking layout
 on:
   push:
-    paths: ['scripts/prepare-nba-central.cjs', '.github/workflows/nba-images.yml']
-  workflow_dispatch:
+    branches: [review-position-layout]
 permissions:
   contents: read
 jobs:
-  prepare:
+  visual:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    strategy:
-      fail-fast: false
-      matrix:
-        team: [CHI, CLE, DET, IND, MIL]
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/prepare-nba-central.cjs "${{ matrix.team }}"
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node scripts/prepare-nba-images.cjs
