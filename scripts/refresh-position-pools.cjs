@@ -5,11 +5,12 @@ function parseCSV(s){const lines=[];let row=[],cell='',q=false;for(let i=0;i<s.l
 async function passingStats(){const out={};for(const [cat,sort,index,min]of [['passing','passingattempts',3,50],['rushing','rushingattempts',2,25],['receiving','receivingreceptions',1,10]]){
 let url='https://www.nfl.com/stats/player-stats/category/'+cat+'/2026/REG/all/'+sort+'/desc',all=[],seen=new Set();
 for(let page=0;url&&page<40;page++){assert(!seen.has(url),'Repeated stat cursor');seen.add(url);let html,rows;
-for(const candidate of [url,url.replace('/REG/','/reg/'),url.replace('www.nfl.com','amp.nfl.com'),url.replace('/DESC','/desc')]){
+for(const candidate of [url+(url.includes('?')?'&':'?')+'refresh='+Date.now(),url,url.replace('/REG/','/reg/'),url.replace('www.nfl.com','amp.nfl.com'),url.replace('/DESC','/desc')]){
 try{const h=await T.get(candidate),list=[];for(const row of h.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){const cells=[...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)].map(x=>x[1]);if(!cells.length)continue;const a=[...cells[0].matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)].find(x=>/\/players\//.test(x[1])&&T.clean(x[2]));assert(a);list.push({name:T.clean(a[2]),value:+T.clean(cells[index]).replace(/,/g,''),profile:a[1]});}
+if(!all.length&&list[0]?.value<({passing:312,rushing:175,receiving:66}[cat]*.9))continue;
 if(list.length&&!list.some(x=>all.some(p=>p.profile===x.profile))){html=h;rows=list;break;}
 }catch{}}assert(rows,'Fresh official statistics page unavailable');if(all.length)assert(rows[0].value<=all.at(-1).value);all.push(...rows);if(rows.at(-1).value<min){url=null;break;}const footer=html.slice(html.lastIndexOf('<footer class="d3-o-table__footer">'));const next=footer.match(/<a\b[^>]*href="([^"]+)"[^>]*class="[^"]*nfl-o-table-pagination__next[^"]*"/i);url=next?new URL(next[1].replace(/&amp;/g,'&'),'https://www.nfl.com').href:null;
-}assert(all.at(-1)?.value<min,'Statistics did not cover qualifying boundary '+cat);out[cat]=all;}return out;}
+}assert(all.at(-1)?.value<min,'Statistics did not cover qualifying boundary '+cat);assert(all.length>=({passing:38,rushing:80,receiving:180}[cat]),'Partial statistics table rejected '+cat);out[cat]=all;}return out;}
 function roleFor(p,policy,espn,depth){
 const old=policy.roles.filter(x=>norm(x.name)===norm(p.name));if(old.length===1&&old[0].group)return old[0].group;
 const raw=p.rosterPosition.split(/[/-]/);for(const [keys,g]of [[['DT','NT'],'IDL'],[['DE'],'DE'],[['EDGE'],'EDGE'],[['ILB','MLB'],'ILB'],[['CB'],'CB'],[['S','SS','FS'],'S']])if(raw.some(x=>keys.includes(x)))return g;
@@ -32,7 +33,7 @@ const images=[...c[0].matchAll(/https:\/\/static\.clubs\.nfl\.com\/[^"\s<>]+/g)]
 assert.equal(new Set(candidates.map(p=>p.id)).size,candidates.length,'Repeated NFL identities');
 let stats,snaps,crosswalk,espnTeams;const sourceStatus={};
 if(!reviewed){
-stats=await passingStats();const csv=await T.get('https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv');snaps=parseCSV(csv).filter(x=>+x.season===2026&&x.game_type==='REG');assert(snaps.length>1000);sourceStatus.snapSHA256=crypto.createHash('sha256').update(csv).digest('hex');
+stats=await passingStats();sourceStatus.statCoverage=Object.fromEntries(Object.entries(stats).map(([k,rows])=>[k,{rows:rows.length,first:rows[0].value,last:rows.at(-1).value}]));const csv=await T.get('https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv');snaps=parseCSV(csv).filter(x=>+x.season===2026&&x.game_type==='REG');assert(snaps.length>1000);sourceStatus.snapSHA256=crypto.createHash('sha256').update(csv).digest('hex');
 const cross=await T.get('https://github.com/nflverse/nflverse-data/releases/download/players/players.csv');crosswalk=parseCSV(cross);assert(crosswalk.length>1000);const teams=await T.get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=100','json');espnTeams=teams.sports[0].leagues[0].teams.map(x=>x.team);
 }
 const selected=new Map(),unresolved=[],noParticipation=[];const add=(p,group)=>{const old=selected.get(p.id);if(old){if(!old.positions.includes(group))old.positions.push(group);return;}const {imageCandidate,...fields}=p;selected.set(p.id,{...fields,position:group,positions:[group]});};
@@ -70,4 +71,4 @@ const verified=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',mont
 const source='// Generated and validated on GitHub. League-wide pools only; team rosters stay complete.\nconst NFL_POSITION_INFO = '+JSON.stringify(status)+';\nconst NFL_POSITION_PLAYERS = '+JSON.stringify(players)+';\nconst NFL_POSITION_HEADSHOTS = '+JSON.stringify(Object.fromEntries(players.map(p=>[p.id,shots[p.id]])))+';\nconst NFL_POSITION_KNOWN_IDS = '+JSON.stringify(known)+';\nObject.assign(HEADSHOTS,NFL_POSITION_HEADSHOTS);\n';
 fs.writeFileSync('nfl-position-data.js',source);T.writeJSON('assets/nfl-position-status.json',status);const hash=crypto.createHash('sha256').update(source).digest('hex').slice(0,12);fs.writeFileSync('index.html',fs.readFileSync('index.html','utf8').replace(/nfl-position-data\.js\?v=[^"]+/,'nfl-position-data.js?v='+hash));T.archiveData(T.loadData());console.log('POSITION_ELIGIBILITY '+JSON.stringify(status));
 }
-module.exports={main,parseCSV,roleFor};if(require.main===module)main().catch(e=>{console.error(e);process.exit(1)});
+module.exports={main,parseCSV,roleFor,passingStats};if(require.main===module)main().catch(e=>{console.error(e);process.exit(1)});

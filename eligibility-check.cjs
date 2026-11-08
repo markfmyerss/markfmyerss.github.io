@@ -13,3 +13,5 @@ assert(!b.e('position').children.some(p=>['ST','DL','LB','DB','ALL'].includes(p.
 for(const pos of groups){b.e('position').value=pos;b.run('selectTeam();start()');assert(b.run('state.players.length')>0);b.run('choose("left")');const n=b.run('state.comparisons');b.run('undo()');assert.equal(b.run('state.comparisons'),n-1);}
 b.run('selectRankingMode("teams")');assert(!b.e('position').children.some(p=>p.value==='ST'));assert(b.run('rosterFor("Baltimore Ravens").some(p=>p.position==="ST")'));
 console.log('PASS approved pools, named exceptions, injured portraits, unique identities, 11 league categories, sorting/undo and Special Teams removal');
+
+(async()=>{const original=T.get;try{T.get=async()=>'<table><tr><td><a href="/players/partial/">Partial Page</a></td><td>1</td><td>1</td><td>13</td></tr></table>';await assert.rejects(()=>require('./scripts/refresh-position-pools.cjs').passingStats(),/Fresh official statistics page unavailable/);console.log('PASS stale partial stat tables are rejected before publishing');}finally{T.get=original;}})().catch(e=>{console.error(e);process.exitCode=1;});
