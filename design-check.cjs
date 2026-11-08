@@ -44,14 +44,14 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
  const backgrounds=[];
  for(const [team,colors] of Object.entries(expected)){
   await page.selectOption('#team',team);
-  await page.mouse.move(0,0);
+  await page.mouse.move(0,0);await page.waitForTimeout(250);
   const tile=page.locator('.team-tile[aria-pressed=true]');
   const actual=await tile.evaluate(el=>{
    const style=getComputedStyle(el);
-   return {primary:style.getPropertyValue('--tile-primary').trim(),accent:style.getPropertyValue('--tile-accent').trim(),background:style.backgroundImage,rail:getComputedStyle(el,'::before').backgroundImage};
+   return {primary:style.getPropertyValue('--tile-primary').trim(),accent:style.getPropertyValue('--tile-accent').trim(),background:style.backgroundColor,rail:getComputedStyle(el,'::before').backgroundImage};
   });
   assert.deepEqual([actual.primary,actual.accent],colors);
-  assert.match(actual.background,/linear-gradient/);
+  assert.notEqual(actual.background,'rgba(0, 0, 0, 0)');
   assert.match(actual.rail,/linear-gradient/);
   backgrounds.push(actual.background);
  }
@@ -77,7 +77,7 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    await page.selectOption('#team',team);
    if(await page.locator('#start').isVisible())await page.click('#start');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'team overflow '+team+' '+width);
-   assert.match(await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundImage),/radial-gradient/);
+   assert.equal(await page.locator('body').evaluate(el=>getComputedStyle(el).backgroundImage),'none');
    const contrast=await page.locator('#left .pick-label').evaluate(el=>{
     const css=getComputedStyle(el),hex=TEAM_INFO[document.getElementById('team').value].colors.primary;
     const expected='rgb('+hex.slice(1).match(/../g).map(v=>parseInt(v,16)).join(', ')+')';

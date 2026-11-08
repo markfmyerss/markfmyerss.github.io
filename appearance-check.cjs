@@ -30,7 +30,7 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
     assert.equal(await page.locator('[data-appearance-choice='+mode+']').getAttribute('aria-pressed'),'true');
     assert.equal(await page.locator('.appearance-option[aria-pressed=true]').count(),1);
     const background=await page.locator('body').evaluate(e=>getComputedStyle(e).backgroundColor);
-    if(mode==='light')assert.equal(background,'rgb(245, 241, 232)');
+    if(mode==='light')assert.equal(background,'rgb(241, 244, 247)');
     if(mode==='black')assert.equal(background,'rgb(0, 0, 0)');
     for(const width of [320,390,768,1440]){
      await page.setViewportSize({width,height:1000});
@@ -75,7 +75,7 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
    assert.equal(await blocked.locator('html').getAttribute('data-appearance'),'light');
    await blocked.locator('[data-appearance-choice=black]').click();
    assert.equal(await blocked.locator('html').getAttribute('data-appearance'),'black');
-   console.log('PASS '+engine.name()+': three appearances, exact cream/black backgrounds, reload persistence, rankings preserved, 32 readable team accents, responsive results, keyboard and blocked storage');
+   console.log('PASS '+engine.name()+': three appearances, approved light/black backgrounds, reload persistence, rankings preserved, 32 readable team accents, responsive results, keyboard and blocked storage');
   }finally{await browser.close();}
  }
  }finally{await new Promise(r=>server.close(r));}

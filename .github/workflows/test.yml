@@ -82,6 +82,8 @@ jobs:
         run: node mobile-export-check.cjs
       - name: Check focused sorting and results flow
         run: node flow-check.cjs
+      - name: Check approved league branding and existing saves
+        run: node league-style-check.cjs
       - name: Check permanent Fresh design and responsive layouts
         run: node design-check.cjs
       - run: node tests.cjs

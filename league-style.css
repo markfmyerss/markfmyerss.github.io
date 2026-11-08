@@ -1,0 +1,110 @@
+/* Approved league styles: NFL field/scoreboard details and NBA court geometry. */
+html body[data-sport]{
+ --league-ui-bg:#0b1625;--league-ui-surface:#14263a;--league-ui-soft:#1c3047;--league-ui-ink:#f5f7fb;--league-ui-muted:#b9c6d5;--league-ui-line:#304359;
+ background:var(--league-ui-bg);color:var(--league-ui-ink);font-family:'DM Sans',system-ui,sans-serif;
+}
+html body[data-sport=NFL]{--league-primary:#013369;--league-red:#d50a0a;--league-link:#83b4eb;--league-ui-hero:#062c55;--league-ui-radius:9px;--league-ui-heading:'Barlow Condensed','Arial Narrow',sans-serif}
+html body[data-sport=NBA]{--league-primary:#1d428a;--league-red:#c8102e;--league-link:#9dbbf8;--league-ui-hero:#18366f;--league-ui-radius:24px;--league-ui-heading:'Archivo Black','DM Sans',sans-serif;--league-ui-bg:#101725;--league-ui-surface:#192437;--league-ui-soft:#243149;--league-ui-line:#34425c}
+html[data-appearance=light] body[data-sport]{--league-ui-bg:#f1f4f7;--league-ui-surface:#fff;--league-ui-soft:#e9eef4;--league-ui-ink:#142a43;--league-ui-muted:#596b7e;--league-ui-line:#d3dde7;--league-link:var(--league-primary)}
+html[data-appearance=light] body[data-sport=NBA]{--league-ui-bg:#f5f2ec;--league-ui-surface:#fffdfa;--league-ui-soft:#ece8e0;--league-ui-ink:#162a4d;--league-ui-muted:#666b77;--league-ui-line:#dcd8d1;--league-ui-hero:#fffdfa}
+html[data-appearance=black] body[data-sport]{--league-ui-bg:#000;--league-ui-surface:#080c12;--league-ui-soft:#151b24;--league-ui-ink:#f5f7fb;--league-ui-muted:#b9c6d5;--league-ui-line:#2a3544;--league-ui-hero:#06182e}
+html[data-appearance=black] body[data-sport=NBA]{--league-ui-hero:#0b1730;--league-ui-surface:#090d15;--league-ui-soft:#151c2a;--league-ui-line:#2c3548}
+html body[data-sport] main{max-width:1180px;padding-top:24px}
+html body[data-sport] header{isolation:isolate;overflow:hidden;padding:28px 32px 28px;margin-bottom:24px;background:var(--league-ui-hero);border:1px solid #ffffff18;border-radius:var(--league-ui-radius);color:#fff}
+html body[data-sport=NFL] header{border-left:7px solid var(--league-red);box-shadow:0 7px 0 color-mix(in srgb,var(--league-primary) 12%,transparent)}
+html body[data-sport=NBA] header{border-top:5px solid var(--league-red);padding:30px 34px}
+html[data-appearance=light] body[data-sport=NBA] header{color:var(--league-primary);border-color:#ddd9d0;border-top-color:var(--league-red)}
+.league-brandline{position:relative;z-index:1;display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.league-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.25rem;line-height:1;letter-spacing:.015em}
+body[data-sport=NFL] .league-wordmark{padding-right:14px;border-right:2px solid #ffffff45}
+body[data-sport=NBA] .league-wordmark{font-family:'Archivo Black',sans-serif;font-size:1.7rem;padding-left:13px;border-left:7px solid var(--league-red)}
+#league-tagline{font-size:.62rem;letter-spacing:.18em;font-weight:700}
+.league-season{font-size:.6rem;letter-spacing:.12em;margin-left:auto;opacity:.7}
+html body[data-sport] .header-topline{position:relative;z-index:1;max-width:700px;gap:12px}
+html body[data-sport] header .kicker{color:#fff;opacity:.75;font-size:.6rem;letter-spacing:.14em}
+html[data-appearance=light] body[data-sport=NBA] header .kicker{color:var(--league-primary)}
+html body[data-sport] header h1{position:relative;z-index:1;font-family:var(--league-ui-heading);text-transform:uppercase;line-height:.9;letter-spacing:-.015em;max-width:760px;margin:24px 0 22px;font-size:clamp(3.1rem,9vw,7.7rem);color:inherit}
+html body[data-sport=NBA] header h1{font-size:clamp(2.4rem,7vw,5.7rem);line-height:1.04;letter-spacing:-.055em;max-width:760px;margin-top:25px}
+html body[data-sport] header .lede{position:relative;z-index:1;max-width:590px;font-size:.93rem;color:#d3e2f2}
+html[data-appearance=light] body[data-sport=NBA] header .lede{color:#596b7e}
+html body[data-sport] header .edition{display:none}
+html body[data-sport] header .builder-credit{position:relative;z-index:1;color:#c7d7e8}
+html body[data-sport] header .builder-credit a{color:inherit}
+html[data-appearance=light] body[data-sport=NBA] header .builder-credit{color:#596b7e}
+html body[data-sport] header .compact-brand{color:inherit}
+.league-art{position:absolute;z-index:-1;pointer-events:none;right:-25px;top:13px;width:350px;height:100%;color:#fff;opacity:.26;transform:rotate(10deg)}
+.league-art svg{width:100%;height:100%;max-height:470px}
+.court-art{display:none}
+body[data-sport=NBA] .league-art{right:-20px;top:10px;opacity:.31;transform:rotate(-13deg)}
+body[data-sport=NBA] .court-art{display:block}
+body[data-sport=NBA] .field-art{display:none}
+html[data-appearance=light] body[data-sport=NBA] .league-art{color:#1d428a;opacity:.22}
+body[data-view=sorting] .league-art,body[data-view=results] .league-art{display:none}
+html body[data-sport][data-view=sorting] header,html body[data-sport][data-view=results] header{padding:20px 28px}
+body[data-view=sorting] .league-brandline,body[data-view=results] .league-brandline{margin-bottom:14px}
+html body[data-sport] h2,html body[data-sport] h3,html body[data-sport] .player-name,html body[data-sport] .team-tile strong{font-family:var(--league-ui-heading)}
+html body[data-sport=NFL] h2{font-size:clamp(2rem,4vw,3.2rem);text-transform:uppercase;letter-spacing:.01em}
+html body[data-sport=NBA] h2{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(1.65rem,3vw,2.45rem);letter-spacing:-.045em}
+html body[data-sport] .panel{background:var(--league-ui-surface);border-color:var(--league-ui-line);border-radius:var(--league-ui-radius);box-shadow:0 8px 22px #00000008}
+html body[data-sport] p,html body[data-sport] .muted,html body[data-sport] .source-line,html body[data-sport] .filter-info small,html body[data-sport] .controls label,html body[data-sport] .roster-date,html body[data-sport] #division-summary,html body[data-sport] #progress,html body[data-sport] #sort .progress-milestone{color:var(--league-ui-muted)}
+html body[data-sport] .kicker,html body[data-sport] .how b,html body[data-sport] a{color:var(--league-link)}
+html body[data-sport] .workspace,html body[data-sport] footer{border-color:var(--league-ui-line)}
+html body[data-sport] footer strong{color:var(--league-ui-ink)}
+html body[data-sport] #sport-picker{gap:10px}
+html body[data-sport] .sport-button{background:var(--league-ui-surface);border-color:var(--league-ui-line);color:var(--league-ui-muted);border-radius:var(--league-ui-radius);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;letter-spacing:.1em}
+html body[data-sport] .sport-button[aria-pressed=true],html body[data-sport] .conference-button[aria-pressed=true]{background:var(--league-primary);color:#fff;border-color:var(--league-primary)}
+html body[data-sport] .conference-button{color:var(--league-ui-muted);border-color:var(--league-ui-line)}
+html body[data-sport=NFL] .conference-button{border-radius:7px;letter-spacing:.13em}
+html body[data-sport=NBA] .conference-button{border-radius:999px;letter-spacing:.02em}
+html body[data-sport] #ranking-mode{background:var(--league-ui-soft);border-color:var(--league-ui-line);border-radius:var(--league-ui-radius)}
+html body[data-sport] #ranking-mode .mode-button{background:transparent;color:var(--league-ui-muted);border-color:transparent;border-radius:calc(var(--league-ui-radius) - 3px);box-shadow:none}
+html body[data-sport] #ranking-mode .mode-button[aria-pressed=true]{background:var(--league-primary);color:#fff;border-color:var(--league-primary)}
+html body[data-sport] #division-picker{background:var(--league-ui-soft);border-color:var(--league-ui-line);border-radius:var(--league-ui-radius)}
+html body[data-sport] .division-button{background:transparent;color:var(--league-ui-muted);border-radius:calc(var(--league-ui-radius) - 3px)}
+html body[data-sport] .division-button[aria-pressed=true]{background:var(--league-ui-surface);color:var(--league-ui-ink);border-color:var(--league-ui-line);box-shadow:inset 0 -3px var(--league-red)}
+html body[data-sport] .team-tile{background:var(--league-ui-surface);border-color:var(--league-ui-line);border-radius:var(--league-ui-radius);color:var(--league-ui-ink);box-shadow:none}
+html body[data-sport] .team-tile small,html body[data-sport] .player-team,html body[data-sport] .rank-text small,html body[data-sport] .podium-meta{color:var(--league-ui-muted)}
+html body[data-sport=NFL] .team-tile strong{font-size:1.8rem;text-transform:uppercase;font-weight:700;letter-spacing:.015em}
+html body[data-sport=NBA] .team-tile strong{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.04em}
+html body[data-sport] .team-tile[aria-pressed=true]{background:color-mix(in srgb,var(--tile-primary) 9%,var(--league-ui-surface));border-color:var(--tile-color);box-shadow:inset 0 -3px var(--tile-primary)}
+html body[data-sport] select,html body[data-sport] textarea{background:var(--league-ui-surface);color:var(--league-ui-ink);border-color:var(--league-ui-line);border-radius:calc(var(--league-ui-radius) - 2px)}
+html body[data-sport] #start,html body[data-sport] #share-ranking{background:var(--league-primary);color:#fff;border-radius:calc(var(--league-ui-radius) - 2px)}
+html body[data-sport] .secondary{background:var(--league-ui-soft);color:var(--league-ui-ink);border-color:var(--league-ui-line);border-radius:calc(var(--league-ui-radius) - 2px)}
+html body[data-sport] .player{background:var(--league-ui-surface);border-color:var(--league-ui-line);color:var(--league-ui-ink);border-radius:var(--league-ui-radius)}
+html body[data-sport=NBA] .player-name{font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-.045em}
+html body[data-sport] .portrait{background:radial-gradient(ellipse at 50% 70%,color-mix(in srgb,var(--primary) 13%,var(--league-ui-soft)),var(--league-ui-surface) 85%)}
+html body[data-sport] .portrait:after{background:none}
+html body[data-sport] .versus,html body[data-sport] .podium-card,html body[data-sport] .rank-thumb{background:var(--league-ui-soft);color:var(--league-ui-ink);border-color:var(--league-ui-line)}
+html body[data-sport] .podium-card{border-radius:var(--league-ui-radius)}
+html body[data-sport] .podium-card:first-child{border-color:var(--league-link);background:var(--league-ui-soft)}
+html body[data-sport] .podium-name{font-family:var(--league-ui-heading)}
+html body[data-sport] .rank{border-color:var(--league-ui-line)}
+html body[data-sport] .progress-track{background:var(--league-ui-soft)}
+html body[data-sport] #progressbar{background:var(--league-primary)}
+html body[data-sport] .shared-notice,html body[data-sport] .results-share,html body[data-sport] .roster-history{border-color:var(--league-ui-line)}
+html body[data-sport] .export-preview-wrap{background:var(--league-ui-soft)}
+html body[data-sport] .appearance-options{background:#ffffff12;border-color:#ffffff35}
+html body[data-sport] .appearance-option{background:transparent;color:inherit}
+html body[data-sport] .appearance-option[aria-pressed=true]{background:#ffffff25;color:inherit;border-color:#ffffff35}
+html[data-appearance=light] body[data-sport=NBA] .appearance-options{background:#edf1f7;border-color:#c5cfdf}
+html[data-appearance=light] body[data-sport=NBA] .appearance-option[aria-pressed=true]{background:#fff;border-color:#c5cfdf}
+@media(hover:hover){
+ html body[data-sport] .team-tile:hover{background:color-mix(in srgb,var(--tile-primary) 6%,var(--league-ui-surface));border-color:var(--tile-primary)}
+ html body[data-sport] .player:hover{background:var(--league-ui-surface);border-color:var(--primary)}
+ html body[data-sport] #ranking-mode .mode-button[aria-pressed=false]:hover{background:color-mix(in srgb,var(--league-ui-ink) 5%,transparent)}
+}
+@media(max-width:900px){.league-art{right:-75px;width:300px;opacity:.16}body[data-sport=NBA] .league-art{right:-70px;opacity:.14}html body[data-sport] .league-season{display:none}}
+@media(max-width:600px){
+ html body[data-sport] main{padding-top:15px}
+ html body[data-sport] header,html body[data-sport=NBA] header{padding:20px 17px 22px}
+ html body[data-sport] .header-topline{align-items:flex-start;flex-wrap:wrap;gap:10px}
+ .league-brandline{margin-bottom:19px;gap:11px}.league-wordmark{font-size:1.9rem}body[data-sport=NBA] .league-wordmark{font-size:1.4rem}
+ #league-tagline{font-size:.54rem;letter-spacing:.12em}
+ html body[data-sport] header h1{margin-top:24px}
+ html body[data-sport] header .lede{font-size:.82rem}
+ .league-art{right:-105px;width:270px}.league-art svg{min-height:280px}
+ html body[data-sport] .team-tile{padding:17px 13px}
+ html body[data-sport=NFL] .team-tile strong{font-size:1.55rem}
+ html body[data-sport=NBA] .team-tile strong{font-size:1.13rem}
+ html body[data-sport][data-view=sorting] header,html body[data-sport][data-view=results] header{padding:17px}
+}
