@@ -36,6 +36,42 @@
       "name": "Drew Lock",
       "position": "QB",
       "reason": "Explicit user-approved exception to 2026 minimum"
+    },
+    {
+      "id": "HOU-marvin-harrison-jr",
+      "name": "Marvin Harrison Jr.",
+      "position": "WR",
+      "reason": "Explicit user-approved noteworthy-player exception"
+    },
+    {
+      "id": "TEN-calvin-ridley",
+      "name": "Calvin Ridley",
+      "position": "WR",
+      "reason": "Explicit user-approved noteworthy-player exception"
+    },
+    {
+      "id": "HOU-tank-dell",
+      "name": "Tank Dell",
+      "position": "WR",
+      "reason": "Explicit user-approved noteworthy-player exception"
+    },
+    {
+      "id": "ATL-tua-tagovailoa",
+      "name": "Tua Tagovailoa",
+      "position": "QB",
+      "reason": "Explicit user-approved noteworthy-player exception"
+    },
+    {
+      "id": "WSH-austin-ekeler",
+      "name": "Austin Ekeler",
+      "position": "RB",
+      "reason": "Explicit user-approved noteworthy-player exception"
+    },
+    {
+      "id": "SEA-zach-charbonnet",
+      "name": "Zach Charbonnet",
+      "position": "RB",
+      "reason": "Explicit user-approved noteworthy-player exception"
     }
   ],
   "injuredPlayers": {
@@ -48,21 +84,21 @@
       "name": "Marvin Harrison Jr.",
       "observedStats": "Below 10 receptions",
       "source": "https://www.nfl.com/players/marvin-harrison-jr/stats/",
-      "approved": false
+      "approved": true
     },
     {
       "position": "WR",
       "name": "Calvin Ridley",
       "observedStats": "6 receptions in current game log",
       "source": "https://www.nfl.com/players/calvin-ridley/stats/",
-      "approved": false
+      "approved": true
     },
     {
       "position": "WR",
       "name": "Tank Dell",
       "observedStats": "1 reception",
       "source": "https://www.nfl.com/players/tank-dell/stats/",
-      "approved": false
+      "approved": true
     },
     {
       "position": "WR",
@@ -90,7 +126,7 @@
       "name": "Tua Tagovailoa",
       "observedStats": "3 passing attempts",
       "source": "https://www.nfl.com/players/tua-tagovailoa/stats/career",
-      "approved": false
+      "approved": true
     },
     {
       "position": "QB",
@@ -111,14 +147,14 @@
       "name": "Austin Ekeler",
       "observedStats": "16 rush attempts, 4 receptions in current summary",
       "source": "https://www.nfl.com/players/austin-ekeler/stats/",
-      "approved": false
+      "approved": true
     },
     {
       "position": "RB",
       "name": "Zach Charbonnet",
       "observedStats": "6 rush attempts, 3 receptions",
       "source": "https://www.nfl.com/players/zach-charbonnet/stats/",
-      "approved": false
+      "approved": true
     },
     {
       "position": "TE",
