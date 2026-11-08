@@ -1,12 +1,14 @@
 # NBA starter pools — review draft
 
-Prepared November 8, 2026 for the 2026–27 season. **184 players, five primary positions, no overlaps.** This is the candidate being tested; it is not live yet.
+Prepared November 8, 2026 for the 2026–27 season. **183 players, five primary positions, no overlaps.** This is the candidate being tested; it is not live yet.
 
-The pools include each team's latest confirmed starting five plus injured regular starters. Positions follow ESPN's single primary designation. Each name links to ESPN for reference.
+**Latest review changes:** Kristaps Porziņģis removed after stepping away; Bradley Beal assigned to SG.
+
+The pools include each team's latest confirmed starting five plus injured regular starters. Positions follow ESPN's single primary designation, with reviewed corrections. Each name links to ESPN for reference.
 
 | PG | SG | SF | PF | C |
 |---:|---:|---:|---:|---:|
-| 37 | 33 | 45 | 31 | 38 |
+| 37 | 34 | 44 | 31 | 37 |
 
 ## Point guards (37)
 
@@ -50,13 +52,14 @@ The pools include each team's latest confirmed starting five plus injured regula
 | [Tyrese Haliburton](https://www.espn.com/nba/player/_/id/4396993) | Indiana Pacers | Injured regular starter |
 | [Tyrese Maxey](https://www.espn.com/nba/player/_/id/4431678) | Philadelphia 76ers | Confirmed starter |
 
-## Shooting guards (33)
+## Shooting guards (34)
 
 | Player | Team | Inclusion |
 |---|---|---|
 | [Anthony Edwards](https://www.espn.com/nba/player/_/id/4594268) | Minnesota Timberwolves | Injured regular starter |
 | [Austin Reaves](https://www.espn.com/nba/player/_/id/4066457) | Los Angeles Lakers | Confirmed starter |
 | [Ayo Dosunmu](https://www.espn.com/nba/player/_/id/4397002) | Minnesota Timberwolves | Confirmed starter |
+| [Bradley Beal](https://www.espn.com/nba/player/_/id/6580) | LA Clippers | Injured regular starter |
 | [Brandin Podziemski](https://www.espn.com/nba/player/_/id/4709138) | Golden State Warriors | Confirmed starter |
 | [Brayden Burries](https://www.espn.com/nba/player/_/id/5082206) | Milwaukee Bucks | Confirmed starter |
 | [Caleb Martin](https://www.espn.com/nba/player/_/id/3138160) | Dallas Mavericks | Confirmed starter |
@@ -88,7 +91,7 @@ The pools include each team's latest confirmed starting five plus injured regula
 | [VJ Edgecombe](https://www.espn.com/nba/player/_/id/5124612) | Philadelphia 76ers | Confirmed starter |
 | [Zach LaVine](https://www.espn.com/nba/player/_/id/3064440) | Sacramento Kings | Confirmed starter |
 
-## Small forwards (45)
+## Small forwards (44)
 
 | Player | Team | Inclusion |
 |---|---|---|
@@ -99,7 +102,6 @@ The pools include each team's latest confirmed starting five plus injured regula
 | [Andrew Wiggins](https://www.espn.com/nba/player/_/id/3059319) | Miami Heat | Confirmed starter |
 | [Ausar Thompson](https://www.espn.com/nba/player/_/id/4684742) | Detroit Pistons | Confirmed starter |
 | [Bilal Coulibaly](https://www.espn.com/nba/player/_/id/5104155) | Washington Wizards | Confirmed starter |
-| [Bradley Beal](https://www.espn.com/nba/player/_/id/6580) | LA Clippers | Injured regular starter |
 | [Brandon Ingram](https://www.espn.com/nba/player/_/id/3913176) | LA Clippers | Injured regular starter |
 | [Brandon Miller](https://www.espn.com/nba/player/_/id/4433287) | Charlotte Hornets | Confirmed starter |
 | [Caleb Wilson](https://www.espn.com/nba/player/_/id/5095151) | Chicago Bulls | Confirmed starter |
@@ -174,7 +176,7 @@ The pools include each team's latest confirmed starting five plus injured regula
 | [Toumani Camara](https://www.espn.com/nba/player/_/id/4431736) | Portland Trail Blazers | Confirmed starter |
 | [Zion Williamson](https://www.espn.com/nba/player/_/id/4395628) | New Orleans Pelicans | Confirmed starter |
 
-## Centers (38)
+## Centers (37)
 
 | Player | Team | Inclusion |
 |---|---|---|
@@ -200,7 +202,6 @@ The pools include each team's latest confirmed starting five plus injured regula
 | [Jaylin Williams](https://www.espn.com/nba/player/_/id/4432823) | Oklahoma City Thunder | Injured regular starter |
 | [Joel Embiid](https://www.espn.com/nba/player/_/id/3059318) | Philadelphia 76ers | Confirmed starter |
 | [Karl-Anthony Towns](https://www.espn.com/nba/player/_/id/3136195) | New York Knicks | Confirmed starter |
-| [Kristaps Porziņģis](https://www.espn.com/nba/player/_/id/3102531) | Golden State Warriors | Injured regular starter |
 | [Mark Williams](https://www.espn.com/nba/player/_/id/4701232) | Phoenix Suns | Injured regular starter |
 | [Myles Turner](https://www.espn.com/nba/player/_/id/3133628) | Milwaukee Bucks | Confirmed starter |
 | [Naz Reid](https://www.espn.com/nba/player/_/id/4396971) | Charlotte Hornets | Confirmed starter |
