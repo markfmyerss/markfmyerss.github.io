@@ -1,4 +1,4 @@
-const T=require('./scripts/roster-tools.cjs');(async()=>{for(const [label,url]of [
+const T=require('./roster-tools.cjs');(async()=>{for(const [label,url]of [
 ['depthGS','https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/9/depthcharts'],
 ['rosterGS','https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/9/roster'],
 ['scheduleGS','https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/9/schedule'],
