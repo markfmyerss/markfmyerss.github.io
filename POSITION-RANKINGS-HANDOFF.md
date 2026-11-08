@@ -1,6 +1,6 @@
-# Paused: league-wide position rankings
+# In progress: league-wide position rankings
 
-User explicitly requested pausing and saving the work for tomorrow. Do not resume development until requested. This branch is a work in progress and has not been deployed or tested. The live site remains on the prior tested release, with Tuesday roster updates unchanged.
+The user resumed development on November 7, 2026. Continue the confirmed scope and validation checklist below. This branch is a work in progress and has not been deployed or tested. The live site remains on the prior tested release, with Tuesday roster updates unchanged.
 
 ## Confirmed scope
 Add a By team / By position tab inside each sport. By position ranks favorites across every current team in that sport, rather than one team's existing position filter.
@@ -35,5 +35,5 @@ Add a By team / By position tab inside each sport. By position ranks favorites a
 - Live: https://markfmyerss.github.io/
 - Work started from main commit f70fbab48b13e8a451e0a2b3aa2ccd47398194f8.
 - User prohibits downloading source, assets or development dependencies to the Mac. All implementation, source retrieval, tests, screenshots and image handling must stay on GitHub. GitHub connectors and in-memory orchestration have been used exclusively.
-- User previously authorized GitHub implementation and deployment, but has now explicitly paused. Do not deploy this work while paused.
+- User previously authorized GitHub implementation and deployment, and explicitly resumed on November 7, 2026. Deploy only after validation.
 - Existing production weekly workflow runs Tuesdays at 08:00 America/New_York. Its first real automatic run verified and published all 62 teams. Keep it intact.
