@@ -261,11 +261,16 @@ function choose(side) { if(sharedRanking)return;
   state.history=state.history||[];state.history.push(isLeaguePool(state.team)?JSON.stringify(packLeagueState({...state,history:[]},true)):JSON.stringify({...state,history:[]}));if(state.history.length>(isLeaguePool(state.team)?40:100))state.history.shift();
   const f=state.stack.at(-1);f.out.push(side==='left'?f.left[f.i++]:f.right[f.j++]);state.comparisons++;mergeNext();animateNextMatch();
 }
+function shuffledPlayers(players) {
+  const shuffled=[...players];
+  for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}
+  return shuffled;
+}
 function start() { if(sharedRanking)return;
   if(state)return;
   const team=$('team').value,pos=$('position').value,players=rosterFor(team).filter(p=>matchesPosition(p,pos));
   if(!players.length)return;
-  state={team,pos,players,rosterVerified:(isLeaguePool(team)?leagueVerified(activeSport):ALL_TEAM_INFO[team].verified)||(activeSport==='NFL'?'November 5, 2026':'November 6, 2026'),history:[],stack:[{items:players,stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
+  state={team,pos,players,rosterVerified:(isLeaguePool(team)?leagueVerified(activeSport):ALL_TEAM_INFO[team].verified)||(activeSport==='NFL'?'November 5, 2026':'November 6, 2026'),history:[],stack:[{items:shuffledPlayers(players),stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
 }
 function undo() { if(sharedRanking)return; if(!state?.history?.length)return;const history=state.history;state=unpackLeagueState(JSON.parse(history.pop()),state.players);state.history=history;save();render(); }
 function reset() { if(sharedRanking)return; if(state&&!confirm('Clear this '+ALL_TEAM_INFO[state.team].nickname+' ranking for '+(state.pos==='ALL'?'all positions':state.pos)+'? Other rankings stay saved.'))return;clearRanking($('team').value,$('position').value);state=null;render(); }
