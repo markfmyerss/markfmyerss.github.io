@@ -54,9 +54,13 @@ jobs:
         run: node nba-position-check.cjs
       - name: Check league-wide position pools and compact progress
         run: node position-rankings-check.cjs
+      - name: Check roster-change snapshots and baselines
+        run: node roster-changes-check.cjs
       - name: Check weekly roster safeguards and current data
         run: |
           node weekly-rosters-check.cjs
+          node scripts/build-roster-changes.cjs
+          node roster-changes-check.cjs
           node current-rosters-check.cjs
       - name: Check ranking links and roster dates
         run: node ranking-links-check.cjs
@@ -64,6 +68,8 @@ jobs:
         run: node scripts/expand-nfc-west.cjs
       - name: Install browser checks on GitHub runner
         run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - name: Check favorite teams, search and optional roster dialogs
+        run: node quality-of-life-browser-check.cjs
       - name: Check position tabs, mixed-team cards, links and dense images
         run: node position-rankings-browser-check.cjs
       - name: Export position archives for initial publication

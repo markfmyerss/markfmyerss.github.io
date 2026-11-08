@@ -1,0 +1,28 @@
+name: Check team shortcuts and roster dialogs
+on:
+  push:
+    branches: [team-shortcuts-and-roster-details]
+permissions:
+  contents: read
+jobs:
+  focused:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node roster-changes-check.cjs
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node quality-of-life-browser-check.cjs
+      - run: node design-check.cjs
+      - run: node flow-check.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quality-of-life-screenshots
+          path: qa/
+          retention-days: 7

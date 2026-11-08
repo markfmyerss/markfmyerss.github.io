@@ -208,6 +208,7 @@ function applyTheme() {
   $('roster-summary').textContent=league?`${sharedRanking?.players?.length||(state?.team===team&&state.pos===$('position').value?state.players.length:rankingRoster(team,$('position').value).length)} ${positionLabel(activeSport,$('position').value).toLowerCase()} across ${teamsFor(activeSport).length} teams · Verified ${rosterDate}`:`${sharedRanking?.players?.length||rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${rosterDate}`;
   $('position-count').textContent=(sharedRanking?.players||(state?.team===team&&state.pos===$('position').value?state.players:rankingRoster(team,$('position').value))).length+' players in this filter';
   if(!league)for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
+  globalThis.RankingExtras?.sync();
 }
 function selectTeam() {
  clearSharedLink();save();const team=$('team').value;
