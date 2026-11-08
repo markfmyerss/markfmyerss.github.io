@@ -1,0 +1,19 @@
+name: Prepare roster change summaries
+on:
+  push:
+    branches: [prepare-roster-change-summaries]
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/build-roster-changes.cjs
+      - run: |
+          node <<'NODE'
+          const fs=require('node:fs'),files={};for(const p of ['assets/roster-changes.json','assets/roster-change-baselines.json'])files[p]=fs.readFileSync(p,'utf8');const raw=JSON.stringify(files);for(let i=0;i<raw.length;i+=14000)console.log('ROSTER_CHANGE_CHUNK '+i+' '+raw.slice(i,i+14000));
+          NODE
