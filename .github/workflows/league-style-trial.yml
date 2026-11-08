@@ -1,0 +1,25 @@
+name: Review NFL and NBA visual trial
+on:
+  push:
+    branches: [trial-league-branding]
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node previews/league-styles/review.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: league-style-trial-screenshots
+          path: qa/league-trial/
+          retention-days: 7
