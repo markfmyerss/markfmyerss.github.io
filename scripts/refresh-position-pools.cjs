@@ -60,14 +60,15 @@ if(!role){if(share>=.25)unresolved.push('Role: '+p.name);continue;}if(share>=pol
 }
 assert(unresolved.length===0,'Unresolved participating identities/roles; retain published pools: '+unresolved.join(', '));
 }
-for(const p of (reviewed?Object.values(data.ROSTERS).flat():candidates).filter(p=>(p.positions||[p.position]).includes('OL')&&(reviewed||p.rosterStatus==='Active')))add(p,'OL');
+const offensiveLine=await require('./ol-pools.cjs').build(candidates.filter(p=>p.positions.includes('OL')),parseCSV);
+for(const row of offensiveLine.selected)add(row.player,row.group);
 const counts=new Map();for(const p of candidates)counts.set(p.imageCandidate,(counts.get(p.imageCandidate)||0)+1);
 await T.mapLimit([...selected.values()],6,async p=>{if(!shots[p.id]?.url){const original=candidates.find(c=>c.id===p.id)||p;shots[p.id]=await nflPortrait(original,counts);}});
-const players=[...selected.values()].sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0),groups=['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S'],tallies=Object.fromEntries(groups.map(g=>[g,players.filter(p=>p.positions.includes(g)).length]));
+const players=[...selected.values()].sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0),groups=['QB','RB','WR','TE','OT','OG','C','IDL','DE','ILB','EDGE','CB','S'],tallies=Object.fromEntries(groups.map(g=>[g,players.filter(p=>p.positions.includes(g)).length]));
 for(const g of groups)assert(tallies[g]>0&&tallies[g]<400,'Suspicious '+g+' pool');
 for(const p of players)assert(shots[p.id]?.url&&shots[p.id]?.source,'Portrait provenance '+p.name);
 const known={};for(const [team,ps]of Object.entries(history))known[team]=[...new Set([...ps.map(p=>p.id),...players.filter(p=>p.team===team).map(p=>p.id)])];
-const verified=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'long',day:'numeric',year:'numeric'}).format(new Date()),status={version:1,checkedAt:new Date().toISOString(),verified,season:2026,seasonType:'REG',mode:reviewed?'approved-reviewed-snapshot':'weekly-statistics',counts:tallies,sourceStatus,noParticipation,unresolved,teamSources,snapAttribution:'nflverse / Pro Football Reference, CC BY 4.0',sourceNote:'Official NFL regular-season attempts/receptions; defensive snap share in recorded appearances; ESPN detailed roles; approved named exceptions.'};
+const verified=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'long',day:'numeric',year:'numeric'}).format(new Date()),status={version:1,checkedAt:new Date().toISOString(),verified,season:2026,seasonType:'REG',mode:reviewed?'approved-reviewed-snapshot':'weekly-statistics',counts:tallies,offensiveLine:offensiveLine.summary,sourceStatus,noParticipation,unresolved,teamSources,snapAttribution:'nflverse / Pro Football Reference, CC BY 4.0',sourceNote:'Official NFL regular-season attempts/receptions; defensive snap share in recorded appearances; ESPN detailed roles; approved named exceptions.'};
 const source='// Generated and validated on GitHub. League-wide pools only; team rosters stay complete.\nconst NFL_POSITION_INFO = '+JSON.stringify(status)+';\nconst NFL_POSITION_PLAYERS = '+JSON.stringify(players)+';\nconst NFL_POSITION_HEADSHOTS = '+JSON.stringify(Object.fromEntries(players.map(p=>[p.id,shots[p.id]])))+';\nconst NFL_POSITION_KNOWN_IDS = '+JSON.stringify(known)+';\nObject.assign(HEADSHOTS,NFL_POSITION_HEADSHOTS);\n';
 fs.writeFileSync('nfl-position-data.js',source);T.writeJSON('assets/nfl-position-status.json',status);const hash=crypto.createHash('sha256').update(source).digest('hex').slice(0,12);fs.writeFileSync('index.html',fs.readFileSync('index.html','utf8').replace(/nfl-position-data\.js\?v=[^"]+/,'nfl-position-data.js?v='+hash));T.archiveData(T.loadData());console.log('POSITION_ELIGIBILITY '+JSON.stringify(status));
 }
