@@ -60,7 +60,7 @@ if(!role){if(share>=.25)unresolved.push('Role: '+p.name);continue;}if(share>=pol
 }
 assert(unresolved.length===0,'Unresolved participating identities/roles; retain published pools: '+unresolved.join(', '));
 }
-const offensiveLine=await require('./ol-pools.cjs').build(candidates.filter(p=>p.positions.includes('OL')),parseCSV);
+const offensiveLine=await require('./ol-pools.cjs').build(candidates.filter(p=>p.positions.includes('OL')),parseCSV,policy.offensiveLinePolicy);
 for(const row of offensiveLine.selected)add(row.player,row.group);
 const counts=new Map();for(const p of candidates)counts.set(p.imageCandidate,(counts.get(p.imageCandidate)||0)+1);
 await T.mapLimit([...selected.values()],6,async p=>{if(!shots[p.id]?.url){const original=candidates.find(c=>c.id===p.id)||p;shots[p.id]=await nflPortrait(original,counts);}});

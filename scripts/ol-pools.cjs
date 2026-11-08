@@ -3,7 +3,7 @@ const name=s=>T.normalize(s).replace(/(?:jr|sr|iii|ii|iv|v)$/,'');
 const aliases={'Vega Ioane':'Olaivavega Ioane','Nate Thomas':'Nathan Thomas','A.J. Cann':'AJ Cann','Francis "Sisi" Mauigoa':'Francis Mauigoa'};
 const role=s=>({LT:'LT',RT:'RT',LG:'LG',RG:'RG',C:'C',OC:'C'})[String(s||'').toUpperCase()]||null;
 function chooseMinimum(rows,cap){let minimum=25;while(rows.filter(p=>p.offensiveSnaps>=minimum).length>cap)minimum+=25;return {minimum,players:rows.filter(p=>p.offensiveSnaps>=minimum)};}
-async function build(candidates,parseCSV){
+async function build(candidates,parseCSV,options={}){
 const snapURL='https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv';
 const [snapText,crossText,teamsJSON]=await Promise.all([T.get(snapURL),T.get('https://github.com/nflverse/nflverse-data/releases/download/players/players.csv'),T.get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=100','json')]);
 const snaps=parseCSV(snapText).filter(r=>+r.season===2026&&r.game_type==='REG');assert(new Set(snaps.map(r=>r.game_id)).size>=122,'Incomplete offensive snap snapshot');
@@ -29,7 +29,7 @@ if(!group&&raw.length===1&&role(raw[0])){group=role(raw[0]);method='official-ros
 if(!group&&total>=25){console.log('OL_ROLE_REVIEW',JSON.stringify({name:p.name,team:p.team,raw:p.rosterPosition,espn:athletes[0]?.position,snaps:total,playedPositions:[...new Set(played.map(r=>r.position))]}));unresolved.push('Role: '+p.name);continue;}if(group)rows.push({player:p,group,offensiveSnaps:total,pfrId:ids[0]||played[0]?.pfr_player_id||null,espnId:athletes[0]?.id||null,method});
 }
 assert.equal(unresolved.length,0,'Unresolved OL records: '+unresolved.join(', '));
-const caps={LT:40,RT:40,LG:40,RG:40,C:40},selected=[],thresholds={},counts={},excluded=[];
+const caps=options.caps||{LT:40,RT:40,LG:40,RG:40,C:40},selected=[],thresholds={},counts={},excluded=[];
 for(const [g,cap]of Object.entries(caps)){const group=rows.filter(p=>p.group===g),chosen=chooseMinimum(group,cap);thresholds[g]=chosen.minimum;counts[g]=chosen.players.length;selected.push(...chosen.players);excluded.push(...group.filter(p=>p.offensiveSnaps<chosen.minimum));assert(counts[g]<=cap&&counts[g]>0);if(chosen.minimum>25)assert(group.filter(p=>p.offensiveSnaps>=chosen.minimum-25).length>cap);}
 assert.equal(new Set(selected.map(p=>p.player.id)).size,selected.length,'Repeated offensive lineman');
 const summary={season:2026,seasonType:'REG',caps,minimumOffensiveSnaps:thresholds,counts,reviewed:rows.length,injuredIncluded:selected.filter(p=>p.player.rosterStatus!=='Active').length,source:snapURL,sources,exclusions:excluded.map(p=>({name:p.player.name,team:p.player.team,group:p.group,snaps:p.offensiveSnaps})),method:'Total 2026 regular-season offensive snaps. Choose the lowest multiple of 25 that meets each hard pool cap; ties stay together. One primary listed side per player; ties at the same depth use the first ESPN-listed slot. Active and injury-reserve rosters are eligible.',unresolved};
