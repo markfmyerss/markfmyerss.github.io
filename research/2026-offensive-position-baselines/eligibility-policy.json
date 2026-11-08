@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "status": "research-only-not-deployed",
+  "season": 2026,
+  "seasonType": "REG",
+  "baseline": {
+    "QB": {
+      "passingAttempts": 50
+    },
+    "RB": {
+      "rushingAttempts": 25,
+      "OR_receptions": 10
+    },
+    "WR": {
+      "receptions": 10
+    },
+    "TE": {
+      "receptions": 10
+    }
+  },
+  "approvedPlayerExceptions": [
+    {
+      "id": "NE-a-j-brown",
+      "name": "A.J. Brown",
+      "position": "WR",
+      "reason": "Explicit user-approved exception to 2026 minimum"
+    },
+    {
+      "id": "NYG-j-j-mccarthy",
+      "name": "J.J. McCarthy",
+      "position": "QB",
+      "reason": "Explicit user-approved exception to 2026 minimum"
+    },
+    {
+      "id": "SEA-drew-lock",
+      "name": "Drew Lock",
+      "position": "QB",
+      "reason": "Explicit user-approved exception to 2026 minimum"
+    }
+  ],
+  "injuredPlayers": {
+    "eligibleIfThresholdMet": true,
+    "note": "Injury-related reserve status must not disqualify a threshold-qualified player. Verify current team/status and preserve unique league identity when constructing future pools."
+  },
+  "candidateExceptions": [
+    {
+      "position": "WR",
+      "name": "Marvin Harrison Jr.",
+      "observedStats": "Below 10 receptions",
+      "source": "https://www.nfl.com/players/marvin-harrison-jr/stats/",
+      "approved": false
+    },
+    {
+      "position": "WR",
+      "name": "Calvin Ridley",
+      "observedStats": "6 receptions in current game log",
+      "source": "https://www.nfl.com/players/calvin-ridley/stats/",
+      "approved": false
+    },
+    {
+      "position": "WR",
+      "name": "Tank Dell",
+      "observedStats": "1 reception",
+      "source": "https://www.nfl.com/players/tank-dell/stats/",
+      "approved": false
+    },
+    {
+      "position": "WR",
+      "name": "Marquise (Hollywood) Brown",
+      "observedStats": "4 receptions in current game log",
+      "source": "https://www.nfl.com/players/marquise-brown/stats/",
+      "approved": false
+    },
+    {
+      "position": "WR",
+      "name": "Jauan Jennings",
+      "observedStats": "6 receptions in current game log",
+      "source": "https://www.nfl.com/players/jauan-jennings/stats/",
+      "approved": false
+    },
+    {
+      "position": "WR",
+      "name": "Darnell Mooney",
+      "observedStats": "9 receptions",
+      "source": "https://www.nfl.com/players/darnell-mooney/stats/",
+      "approved": false
+    },
+    {
+      "position": "QB",
+      "name": "Tua Tagovailoa",
+      "observedStats": "3 passing attempts",
+      "source": "https://www.nfl.com/players/tua-tagovailoa/stats/career",
+      "approved": false
+    },
+    {
+      "position": "QB",
+      "name": "Anthony Richardson",
+      "observedStats": "2 passing attempts in current game log",
+      "source": "https://www.nfl.com/players/anthony-richardson/stats/",
+      "approved": false
+    },
+    {
+      "position": "QB",
+      "name": "Justin Fields",
+      "observedStats": "Below 50 attempts; no passing activity shown in current game log",
+      "source": "https://www.nfl.com/players/justin-fields/stats/",
+      "approved": false
+    },
+    {
+      "position": "RB",
+      "name": "Austin Ekeler",
+      "observedStats": "16 rush attempts, 4 receptions in current summary",
+      "source": "https://www.nfl.com/players/austin-ekeler/stats/",
+      "approved": false
+    },
+    {
+      "position": "RB",
+      "name": "Zach Charbonnet",
+      "observedStats": "6 rush attempts, 3 receptions",
+      "source": "https://www.nfl.com/players/zach-charbonnet/stats/",
+      "approved": false
+    },
+    {
+      "position": "TE",
+      "name": "Dawson Knox",
+      "observedStats": "9 receptions",
+      "source": "https://www.nfl.com/players/dawson-knox/stats/",
+      "approved": false
+    },
+    {
+      "position": "TE",
+      "name": "Jonnu Smith",
+      "observedStats": "6 receptions in current game log",
+      "source": "https://www.nfl.com/players/jonnu-smith/stats/",
+      "approved": false
+    }
+  ],
+  "originalStatisticCollection": "2026-11-08T02:29:59.064Z",
+  "notes": [
+    "Original counts in results.json and README.md are the baseline research snapshot and do not yet include approved exceptions or recovered injured players.",
+    "Marvin Harrison Jr. summary career row and current game log disagree on exact 2026 receptions; both are below ten. Use only below-threshold classification pending reconciliation.",
+    "Nickname identities such as Hollywood Brown / Marquise Brown must be explicitly matched in future collection. Candidate lists are review suggestions, not automatic additions."
+  ]
+}
