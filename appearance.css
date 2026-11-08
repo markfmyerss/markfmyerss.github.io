@@ -116,5 +116,4 @@ html[data-appearance=light] #ranking-mode{background:#ebe6dc;border-color:#d6d2c
 html[data-appearance=light] #ranking-mode .mode-button{background:transparent;color:#56616c}
 html[data-appearance=light] #ranking-mode .mode-button[aria-pressed=true]{background:var(--light-accent,#241773);color:#fff;border-color:var(--light-accent,#241773)}
 html[data-appearance=black] #ranking-mode{background:#080808;border-color:#303030}
-html[data-appearance=black] #ranking-mode .mode-button{background:transparent;color:#bdc7d4}
 @media(hover:hover){html #ranking-mode .mode-button[aria-pressed=false]:hover{background:#ffffff0a}html[data-appearance=light] #ranking-mode .mode-button[aria-pressed=false]:hover{background:#00000008}}
