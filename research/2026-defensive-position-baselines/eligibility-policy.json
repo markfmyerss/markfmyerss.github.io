@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "research-only-not-deployed",
+  "season": 2026,
+  "seasonType": "REG",
+  "positions": [
+    "DL",
+    "LB",
+    "DB"
+  ],
+  "minimumDefensiveSnapShare": 0.25,
+  "absoluteDefensiveSnapMinimum": null,
+  "absoluteMinimumApproved": false,
+  "proposedDenominator": "team defensive opportunities in games with a recorded player appearance, weighted by snaps",
+  "denominatorNeedsFinalReview": true,
+  "includeQualifiedInjuredPlayers": true,
+  "namedExceptions": [],
+  "source": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv",
+  "unmatchedHandling": "Review; do not assume zero or silently discard before deployment."
+}
