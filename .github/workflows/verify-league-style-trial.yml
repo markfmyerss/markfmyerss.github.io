@@ -1,0 +1,24 @@
+name: Verify live league design trial
+on:
+  push:
+    branches: [verify-league-style-trial-live]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify trial files and unchanged production files
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),hash=s=>crypto.createHash('sha256').update(s).digest('hex'),base='https://markfmyerss.github.io/';
+          (async()=>{for(const file of ['index.html','app.js','styles.css','appearance.css','appearance.js','previews/league-styles/index.html','previews/league-styles/league-style.css','previews/league-styles/bootstrap.js','previews/league-styles/app.js','previews/league-styles/appearance.js','previews/league-styles/trial-ui.js']){
+          const expected=fs.readFileSync(file,'utf8');let live;for(let i=0;i<30;i++){const r=await fetch(base+file+'?trialcheck='+Date.now());if(r.ok){live=await r.text();if(hash(live)===hash(expected))break;}await new Promise(r=>setTimeout(r,5000));}assert.equal(hash(live||''),hash(expected),'Public file mismatch '+file);console.log('PASS '+(file.startsWith('previews/')?'published trial ':'unchanged production ')+file);}
+          const preview=fs.readFileSync('previews/league-styles/index.html','utf8');assert(preview.includes('noindex,nofollow'));assert(preview.includes('<base href="/">'));assert(!fs.readFileSync('index.html','utf8').includes('previews/league-styles'));console.log('PASS opt-in preview is separate and not linked from production navigation');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
