@@ -1,0 +1,25 @@
+name: Verify live approved league design
+on:
+  push:
+    branches: [verify-approved-league-branding-live]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify public design and preserved ranking/data files
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),hash=s=>crypto.createHash('sha256').update(s).digest('hex'),base='https://markfmyerss.github.io/';
+          (async()=>{for(const file of ['index.html','league-style.css','league-style.js','app.js','appearance.js','nba-position-data.js','nfl-position-data.js']){
+          const expected=fs.readFileSync(file,'utf8');let live;for(let i=0;i<30;i++){const r=await fetch(base+file+'?approvedleague='+Date.now());if(r.ok){live=await r.text();if(hash(live)===hash(expected))break;}await new Promise(r=>setTimeout(r,5000));}assert.equal(hash(live||''),hash(expected),'Published file mismatch '+file);console.log('PASS public '+file);}
+          const html=fs.readFileSync('index.html','utf8'),js=fs.readFileSync('league-style.js','utf8');
+          assert(html.includes('league-style.css?v=approved-v1'));assert(html.includes('league-style.js?v=approved-v1'));assert(!html.includes('trial-banner'));assert(!html.includes('noindex'));assert(!html.includes('previewStorage'));assert(js.includes('Your teams.<br>Your favorites.'));assert(!js.includes('playmakers'));assert(!js.includes('Your court.'));console.log('PASS approved design is on the main site, original headline retained, trial UI absent, production ranking files preserved');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
