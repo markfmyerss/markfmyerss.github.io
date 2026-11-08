@@ -146,8 +146,10 @@ function openPreviousRanking(){
  if(state&&!state.done)mergeNext();else render();
 }
 function renderRosterHistory(){
+ const previousOL=!!state&&isLeaguePool(state.team)&&leagueFor(state.team)==='NFL'&&state.pos==='OL';
+ $('latest-roster').hidden=previousOL;
  const older=!sharedRanking&&earlierRoster(state);$('saved-roster-note').hidden=!older;
- if(older)$('saved-roster-message').textContent='Your saved ranking uses the '+(state.rosterVerified||'previous')+' roster. '+(state.done?'Keep this list, or rank the latest players.':'Keep going, or start with the latest players.');
+ if(older)$('saved-roster-message').textContent=previousOL?'This is your previous combined offensive-line ranking. Continue it here, or choose one of the five new line positions.':'Your saved ranking uses the '+(state.rosterVerified||'previous')+' roster. '+(state.done?'Keep this list, or rank the latest players.':'Keep going, or start with the latest players.');
  let list=[];try{list=JSON.parse(read(keyFor($('team').value,$('position').value)+':roster-archives'))||[];}catch{}
  if(!Array.isArray(list))list=[];
  const active=state?stampForScope(state.team,state.players):rankingStamp($('team').value,$('position').value);
@@ -201,7 +203,7 @@ function applyTheme() {
   const rosterDate=sharedRanking?.rosterVerified||(league?leagueVerified(activeSport):c.verified)||'November 5, 2026';
   $('roster-date').textContent=(league?'Oldest roster verification ':'Roster verified ')+rosterDate.replace('November ','Nov. ');
   $('roster-summary').textContent=league?`${sharedRanking?.players?.length||rankingRoster(team,$('position').value).length} ${positionLabel(activeSport,$('position').value).toLowerCase()} across ${teamsFor(activeSport).length} teams · Verified ${rosterDate}`:`${sharedRanking?.players?.length||rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${rosterDate}`;
-  $('position-count').textContent=rosterFor(team).filter(p=>matchesPosition(p,$('position').value)).length+' players in this filter';
+  $('position-count').textContent=(sharedRanking?.players||(state?.team===team&&state.pos===$('position').value?state.players:rankingRoster(team,$('position').value))).length+' players in this filter';
   if(!league)for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
 }
 function selectTeam() {
@@ -356,11 +358,12 @@ function selectDivision(division){
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 function populateSport(){
- const league=rankingMode==='positions',teams=league?[leagueTeam(activeSport)]:teamsFor(activeSport),allowed=selectablePositions(activeSport,league);
+ const league=rankingMode==='positions',teams=league?[leagueTeam(activeSport)]:teamsFor(activeSport),allowed=[...selectablePositions(activeSport,league)];
+ if(league&&activeSport==='NFL'&&stored(leagueTeam('NFL'),'OL'))allowed.push('OL');
  let selection=null;try{selection=JSON.parse(read(selectionKey(activeSport)));}catch{}
  $('team').replaceChildren();for(const team of teams)$('team').add(new Option(team,team));
  $('position').replaceChildren();for(const pos of allowed){
-  const label=league?positionLabel(activeSport,pos):pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
+  const label=league?(pos==='OL'&&activeSport==='NFL'?'Previous OL ranking':positionLabel(activeSport,pos)):pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
   $('position').add(new Option(label,pos));
  }
  $('team').value=teams.includes(selection?.team)?selection.team:teams[0];
