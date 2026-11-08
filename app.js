@@ -202,7 +202,7 @@ function applyTheme() {
   $('source').href=c.source;$('source').textContent=league?'League roster sources ↗':'Official '+c.nickname+' roster ↗';
   const rosterDate=sharedRanking?.rosterVerified||(league?leagueVerified(activeSport):c.verified)||'November 5, 2026';
   $('roster-date').textContent=(league?'Oldest roster verification ':'Roster verified ')+rosterDate.replace('November ','Nov. ');
-  $('roster-summary').textContent=league?`${sharedRanking?.players?.length||rankingRoster(team,$('position').value).length} ${positionLabel(activeSport,$('position').value).toLowerCase()} across ${teamsFor(activeSport).length} teams · Verified ${rosterDate}`:`${sharedRanking?.players?.length||rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${rosterDate}`;
+  $('roster-summary').textContent=league?`${sharedRanking?.players?.length||(state?.team===team&&state.pos===$('position').value?state.players.length:rankingRoster(team,$('position').value).length)} ${positionLabel(activeSport,$('position').value).toLowerCase()} across ${teamsFor(activeSport).length} teams · Verified ${rosterDate}`:`${sharedRanking?.players?.length||rosterFor(team).length} ${activeSport==='NBA'?'roster':'active-roster'} players · Verified ${rosterDate}`;
   $('position-count').textContent=(sharedRanking?.players||(state?.team===team&&state.pos===$('position').value?state.players:rankingRoster(team,$('position').value))).length+' players in this filter';
   if(!league)for(const b of $('team-grid').children){b.setAttribute('aria-pressed',String(b.dataset.team===team));const s=stored(b.dataset.team,$('position').value);b.querySelector('small').textContent=s?(s.done?'Ranking complete':s.comparisons+' picks saved'):'Ready to sort';}
 }
