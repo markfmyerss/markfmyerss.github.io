@@ -4,6 +4,7 @@ function csv(text){const out=[];let row=[],cell='',q=false;for(let i=0;i<text.le
 const alias=s=>normalize(s).replace(/(?:jr|sr|iii|ii|iv|v)$/,'');
 const codes={LA:'LAR',STL:'LAR',SD:'LAC',OAK:'LV',LVR:'LV',WSH:'WAS',JAC:'JAX'};
 const code=s=>codes[s]||s;
+const nameAliases={"Dax Hill":"Daxton Hill","T.J. Slaton Jr.":"Tedarrell Slaton","Mike Hall Jr.":"Michael Hall","Mike Danna":"Michael Danna","Greg Rousseau":"Gregory Rousseau","JuJu Brents":"Julius Brents","Josh Uche":"Joshua Uche","Cam Bynum":"Camryn Bynum","Jaylahn Tuimoloau":"JT Tuimoloau","Que Robinson":"Quandarrius Robinson","Pat Surtain II":"Patrick Surtain II","Chris Roland-Wallace":"Christian Roland-Wallace","Cam Lewis":"Cameron Lewis","Joshua Metellus":"Josh Metellus","Dru Phillips":"Andru Phillips","Mike Reid":"Michael Reid","Kam Curl":"Kamren Curl","Nate Landman":"Nathan Landman","Mike Jackson":"Michael Jackson"};
 const nameParts=s=>s.toLowerCase().replace(/\b(jr|sr|iii|ii|iv|v)\.?$/,'').trim().split(/\s+/);const sameInitialLast=(a,b)=>{const x=nameParts(a),y=nameParts(b);return x[0][0]===y[0][0]&&normalize(x.at(-1))===normalize(y.at(-1));};
 (async()=>{
 const source='https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv',raw=await get(source),all=csv(raw);
@@ -30,7 +31,7 @@ const teamTotals=new Map();for(const [key,g]of games){const team=key.slice(key.l
 const results=players.map(p=>{
 const currentCode=code(data.TEAM_INFO[p.team].code);
 let found=[...identities.values()].filter(x=>x.names.has(alias(p.name)));if(found.length>1)found=found.filter(x=>x.teams.has(currentCode));
-let matchMethod='normalized-name';if(!found.length){found=[...identities.values()].filter(x=>x.teams.has(currentCode)&&[...x.displayNames].some(n=>sameInitialLast(n,p.name)));matchMethod='unique-current-team-first-initial-last-name';}
+let matchMethod='normalized-name';if(!found.length){const expected=nameAliases[p.name];found=expected?[...identities.values()].filter(x=>x.names.has(alias(expected))):[];matchMethod='reviewed-explicit-alias';}
 if(found.length!==1)return {name:p.name,team:p.team,positions:p.positions,status:p.status,matchStatus:found.length?'ambiguous':'no-snap-record',games:0,defensiveSnaps:null,qualifiesGamesPlayed:null,qualifiesSeason:null};
 const identity=found[0],rows=identity.rows;const total=rows.reduce((n,r)=>n+r.defense_snaps,0);
 const opportunity=rows.reduce((v,r)=>{const g=games.get(r.game_id+':'+r.team);v.min+=g.min;v.max+=g.max;return v;},{min:0,max:0});
