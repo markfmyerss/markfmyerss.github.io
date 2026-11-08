@@ -8,7 +8,7 @@ for(const [cat,sort,index]of [['passing','passingattempts',3],['rushing','rushin
 let url='https://www.nfl.com/stats/player-stats/category/'+cat+'/2026/REG/all/'+sort+'/desc';const seen=new Set(),records=[];
 for(let page=1;url;page++){
 assert(page<=40,'Too many pages');if(seen.has(url)) { console.log('REPEAT_SOURCE',cat,url); break; }seen.add(url);
-const html=await get(url);fs.writeFileSync(out+'/'+cat+'-'+page+'.html',html);
+const requestURL=new URL(url);requestURL.searchParams.set('research',Date.now()+'-'+cat+'-'+page);const html=await get(requestURL.href);fs.writeFileSync(out+'/'+cat+'-'+page+'.html',html);
 const rows=[...html.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)];
 let n=0;
 for(const row of rows){
@@ -20,7 +20,7 @@ records.push({name:clean(a[2]),profile:new URL(a[1],url).href,value});n++;
 assert(n>0,'Empty statistics page '+url);
 sources.push({category:cat,page,url,rows:n});
 const anchors=[...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)];
-console.log('PAGE',cat,page,url,'rows',n,'links',JSON.stringify(anchors.filter(x=>/Page/i.test(clean(x[2]))).map(x=>({href:x[1],text:clean(x[2])}))));
+console.log('PAGE',cat,page,url,'rows',n,'first',records.at(-n),'last',records.at(-1),'links',JSON.stringify(anchors.filter(x=>/Page/i.test(clean(x[2]))).map(x=>({href:x[1],text:clean(x[2])}))));
 const nav=html.slice(html.lastIndexOf('<footer class="d3-o-table__footer">'));const next=nav.match(/<a\b[^>]*href="([^"]+)"[^>]*class="[^"]*nfl-o-table-pagination__next[^\"]*"/i);
 if(records.at(-1).value < (cat==='passing'?50:cat==='rushing'?25:10)){console.log('THRESHOLD_COVERED',cat,records.at(-1).value);url=null;break;}
 if(next){const u=new URL(next[1].replace(/&amp;/g,'&'),'https://www.nfl.com');const cursor=u.search.match(/[?&]aftercursor=([^&]+)/)?.[1];assert(cursor,'Missing pagination cursor');u.search='?aftercursor='+encodeURIComponent(decodeURIComponent(cursor));url=u.href;}else url=null;
