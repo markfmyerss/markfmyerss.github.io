@@ -1,0 +1,23 @@
+name: Verify live team and roster tools
+on:
+  push:
+    branches: [verify-team-roster-tools-live]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),hash=s=>crypto.createHash('sha256').update(s).digest('hex'),base='https://markfmyerss.github.io/';
+          (async()=>{for(const file of ['index.html','app.js','quality-of-life.js','quality-of-life.css','assets/roster-changes.json','assets/roster-change-baselines.json']){
+          const expected=fs.readFileSync(file,'utf8');let live;for(let i=0;i<30;i++){const r=await fetch(base+file+'?teamtools='+Date.now());if(r.ok){live=await r.text();if(hash(live)===hash(expected))break;}await new Promise(r=>setTimeout(r,5000));}assert.equal(hash(live||''),hash(expected),'Published mismatch '+file);console.log('PASS public '+file);}
+          const html=fs.readFileSync('index.html','utf8');assert(html.includes('id="preview-player-pool"'));assert(html.includes('<p class="roster-date" id="roster-date"></p><a href="#roster-changes"'));assert(html.includes('id="quick-team-navigation"'));const data=JSON.parse(fs.readFileSync('assets/roster-changes.json','utf8'));assert.equal(data.version,1);assert(Object.keys(data.reports).length>=400);console.log('PASS favorites/search, optional preview, changes link beside verification date and verified baseline summaries are published');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
