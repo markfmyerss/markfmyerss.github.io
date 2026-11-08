@@ -1,0 +1,1009 @@
+{
+  "checkedAt": "2026-11-08T02:38:38.546Z",
+  "baselineStatsCollectedAt": "2026-11-08T02:29:59.064Z",
+  "status": "research-only-not-deployed",
+  "policy": {
+    "version": 1,
+    "status": "research-only-not-deployed",
+    "season": 2026,
+    "seasonType": "REG",
+    "baseline": {
+      "QB": {
+        "passingAttempts": 50
+      },
+      "RB": {
+        "rushingAttempts": 25,
+        "OR_receptions": 10
+      },
+      "WR": {
+        "receptions": 10
+      },
+      "TE": {
+        "receptions": 10
+      }
+    },
+    "approvedPlayerExceptions": [
+      {
+        "id": "NE-a-j-brown",
+        "name": "A.J. Brown",
+        "position": "WR",
+        "reason": "Explicit user-approved exception to 2026 minimum"
+      },
+      {
+        "id": "NYG-j-j-mccarthy",
+        "name": "J.J. McCarthy",
+        "position": "QB",
+        "reason": "Explicit user-approved exception to 2026 minimum"
+      },
+      {
+        "id": "SEA-drew-lock",
+        "name": "Drew Lock",
+        "position": "QB",
+        "reason": "Explicit user-approved exception to 2026 minimum"
+      },
+      {
+        "id": "HOU-marvin-harrison-jr",
+        "name": "Marvin Harrison Jr.",
+        "position": "WR",
+        "reason": "Explicit user-approved noteworthy-player exception"
+      },
+      {
+        "id": "TEN-calvin-ridley",
+        "name": "Calvin Ridley",
+        "position": "WR",
+        "reason": "Explicit user-approved noteworthy-player exception"
+      },
+      {
+        "id": "HOU-tank-dell",
+        "name": "Tank Dell",
+        "position": "WR",
+        "reason": "Explicit user-approved noteworthy-player exception"
+      },
+      {
+        "id": "ATL-tua-tagovailoa",
+        "name": "Tua Tagovailoa",
+        "position": "QB",
+        "reason": "Explicit user-approved noteworthy-player exception"
+      },
+      {
+        "id": "WSH-austin-ekeler",
+        "name": "Austin Ekeler",
+        "position": "RB",
+        "reason": "Explicit user-approved noteworthy-player exception"
+      },
+      {
+        "id": "SEA-zach-charbonnet",
+        "name": "Zach Charbonnet",
+        "position": "RB",
+        "reason": "Explicit user-approved noteworthy-player exception"
+      }
+    ],
+    "injuredPlayers": {
+      "eligibleIfThresholdMet": true,
+      "note": "Injury-related reserve status must not disqualify a threshold-qualified player. Verify current team/status and preserve unique league identity when constructing future pools."
+    },
+    "candidateExceptions": [
+      {
+        "position": "WR",
+        "name": "Marvin Harrison Jr.",
+        "observedStats": "Below 10 receptions",
+        "source": "https://www.nfl.com/players/marvin-harrison-jr/stats/",
+        "approved": true
+      },
+      {
+        "position": "WR",
+        "name": "Calvin Ridley",
+        "observedStats": "6 receptions in current game log",
+        "source": "https://www.nfl.com/players/calvin-ridley/stats/",
+        "approved": true
+      },
+      {
+        "position": "WR",
+        "name": "Tank Dell",
+        "observedStats": "1 reception",
+        "source": "https://www.nfl.com/players/tank-dell/stats/",
+        "approved": true
+      },
+      {
+        "position": "WR",
+        "name": "Marquise (Hollywood) Brown",
+        "observedStats": "4 receptions in current game log",
+        "source": "https://www.nfl.com/players/marquise-brown/stats/",
+        "approved": false
+      },
+      {
+        "position": "WR",
+        "name": "Jauan Jennings",
+        "observedStats": "6 receptions in current game log",
+        "source": "https://www.nfl.com/players/jauan-jennings/stats/",
+        "approved": false
+      },
+      {
+        "position": "WR",
+        "name": "Darnell Mooney",
+        "observedStats": "9 receptions",
+        "source": "https://www.nfl.com/players/darnell-mooney/stats/",
+        "approved": false
+      },
+      {
+        "position": "QB",
+        "name": "Tua Tagovailoa",
+        "observedStats": "3 passing attempts",
+        "source": "https://www.nfl.com/players/tua-tagovailoa/stats/career",
+        "approved": true
+      },
+      {
+        "position": "QB",
+        "name": "Anthony Richardson",
+        "observedStats": "2 passing attempts in current game log",
+        "source": "https://www.nfl.com/players/anthony-richardson/stats/",
+        "approved": false
+      },
+      {
+        "position": "QB",
+        "name": "Justin Fields",
+        "observedStats": "Below 50 attempts; no passing activity shown in current game log",
+        "source": "https://www.nfl.com/players/justin-fields/stats/",
+        "approved": false
+      },
+      {
+        "position": "RB",
+        "name": "Austin Ekeler",
+        "observedStats": "16 rush attempts, 4 receptions in current summary",
+        "source": "https://www.nfl.com/players/austin-ekeler/stats/",
+        "approved": true
+      },
+      {
+        "position": "RB",
+        "name": "Zach Charbonnet",
+        "observedStats": "6 rush attempts, 3 receptions",
+        "source": "https://www.nfl.com/players/zach-charbonnet/stats/",
+        "approved": true
+      },
+      {
+        "position": "TE",
+        "name": "Dawson Knox",
+        "observedStats": "9 receptions",
+        "source": "https://www.nfl.com/players/dawson-knox/stats/",
+        "approved": false
+      },
+      {
+        "position": "TE",
+        "name": "Jonnu Smith",
+        "observedStats": "6 receptions in current game log",
+        "source": "https://www.nfl.com/players/jonnu-smith/stats/",
+        "approved": false
+      }
+    ],
+    "originalStatisticCollection": "2026-11-08T02:29:59.064Z",
+    "notes": [
+      "Original counts in results.json and README.md are the baseline research snapshot and do not yet include approved exceptions or recovered injured players.",
+      "Marvin Harrison Jr. summary career row and current game log disagree on exact 2026 receptions; both are below ten. Use only below-threshold classification pending reconciliation.",
+      "Nickname identities such as Hollywood Brown / Marquise Brown must be explicitly matched in future collection. Candidate lists are review suggestions, not automatic additions."
+    ]
+  },
+  "totals": [
+    {
+      "position": "QB",
+      "statisticalBaseline": 35,
+      "namedExceptions": [
+        "J.J. McCarthy",
+        "Drew Lock",
+        "Tua Tagovailoa"
+      ],
+      "injuredAdditions": [
+        "Tyler Huntley",
+        "Lamar Jackson",
+        "Jalen Hurts"
+      ],
+      "total": 41
+    },
+    {
+      "position": "RB",
+      "statisticalBaseline": 63,
+      "namedExceptions": [
+        "Austin Ekeler",
+        "Zach Charbonnet"
+      ],
+      "injuredAdditions": [
+        "Raheim Sanders",
+        "De'Von Achane",
+        "RJ Harvey",
+        "Tank Bigsby",
+        "Jacory Croskey-Merritt",
+        "Travis Etienne Jr.",
+        "Jeremiyah Love"
+      ],
+      "total": 72
+    },
+    {
+      "position": "WR",
+      "statisticalBaseline": 84,
+      "namedExceptions": [
+        "A.J. Brown",
+        "Marvin Harrison Jr.",
+        "Calvin Ridley",
+        "Tank Dell"
+      ],
+      "injuredAdditions": [
+        "Roman Wilson",
+        "Romeo Doubs",
+        "Jaylin Noel",
+        "Tyquan Thornton",
+        "Terry McLaurin",
+        "Kendrick Bourne",
+        "Davante Adams"
+      ],
+      "total": 95
+    },
+    {
+      "position": "TE",
+      "statisticalBaseline": 47,
+      "namedExceptions": [],
+      "injuredAdditions": [
+        "Cole Kmet"
+      ],
+      "total": 48
+    }
+  ],
+  "qualifiedInjuredAdditions": [
+    {
+      "name": "Tyler Huntley",
+      "team": "Baltimore Ravens",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "QB",
+      "positions": [
+        "QB"
+      ],
+      "profile": "https://www.baltimoreravens.com/team/players-roster/tyler-huntley/",
+      "injuryRelated": true,
+      "source": "https://www.baltimoreravens.com/team/players-roster/",
+      "statTotals": {
+        "passing": 110,
+        "rushing": 18,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "QB"
+      ]
+    },
+    {
+      "name": "Lamar Jackson",
+      "team": "Baltimore Ravens",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "QB",
+      "positions": [
+        "QB"
+      ],
+      "profile": "https://www.baltimoreravens.com/team/players-roster/lamar-jackson/",
+      "injuryRelated": true,
+      "source": "https://www.baltimoreravens.com/team/players-roster/",
+      "statTotals": {
+        "passing": 97,
+        "rushing": 19,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "QB"
+      ]
+    },
+    {
+      "name": "Raheim Sanders",
+      "team": "Cleveland Browns",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.clevelandbrowns.com/team/players-roster/raheim-sanders/",
+      "injuryRelated": true,
+      "source": "https://www.clevelandbrowns.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 11
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Roman Wilson",
+      "team": "Pittsburgh Steelers",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.steelers.com/team/players-roster/roman-wilson/",
+      "injuryRelated": true,
+      "source": "https://www.steelers.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 14
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    },
+    {
+      "name": "De'Von Achane",
+      "team": "Miami Dolphins",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.miamidolphins.com/team/players-roster/devon-achane/",
+      "injuryRelated": true,
+      "source": "https://www.miamidolphins.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 34,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Romeo Doubs",
+      "team": "New England Patriots",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.patriots.com/team/players-roster/romeo-doubs/",
+      "injuryRelated": true,
+      "source": "https://www.patriots.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 14
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    },
+    {
+      "name": "Jaylin Noel",
+      "team": "Houston Texans",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.houstontexans.com/team/players-roster/jaylin-noel/",
+      "injuryRelated": true,
+      "source": "https://www.houstontexans.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 19
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    },
+    {
+      "name": "RJ Harvey",
+      "team": "Denver Broncos",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.denverbroncos.com/team/players-roster/rj-harvey/",
+      "injuryRelated": true,
+      "source": "https://www.denverbroncos.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 24,
+        "receiving": 25
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Tyquan Thornton",
+      "team": "Kansas City Chiefs",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.chiefs.com/team/players-roster/tyquan-thornton/",
+      "injuryRelated": true,
+      "source": "https://www.chiefs.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 11
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    },
+    {
+      "name": "Cole Kmet",
+      "team": "Chicago Bears",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "TE",
+      "positions": [
+        "TE"
+      ],
+      "profile": "https://www.chicagobears.com/team/players-roster/cole-kmet/",
+      "injuryRelated": true,
+      "source": "https://www.chicagobears.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 10
+      },
+      "qualifyingPositions": [
+        "TE"
+      ]
+    },
+    {
+      "name": "Tank Bigsby",
+      "team": "Philadelphia Eagles",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/tank-bigsby/",
+      "injuryRelated": true,
+      "source": "https://www.philadelphiaeagles.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 28,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Jalen Hurts",
+      "team": "Philadelphia Eagles",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "QB",
+      "positions": [
+        "QB"
+      ],
+      "profile": "https://www.philadelphiaeagles.com/team/players-roster/jalen-hurts/",
+      "injuryRelated": true,
+      "source": "https://www.philadelphiaeagles.com/team/players-roster/",
+      "statTotals": {
+        "passing": 154,
+        "rushing": 23,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "QB"
+      ]
+    },
+    {
+      "name": "Jacory Croskey-Merritt",
+      "team": "Washington Commanders",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.commanders.com/team/players-roster/jacory-croskey-merritt/",
+      "injuryRelated": true,
+      "source": "https://www.commanders.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 67,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Terry McLaurin",
+      "team": "Washington Commanders",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.commanders.com/team/players-roster/terry-mclaurin/",
+      "injuryRelated": true,
+      "source": "https://www.commanders.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 15
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    },
+    {
+      "name": "Travis Etienne Jr.",
+      "team": "New Orleans Saints",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.neworleanssaints.com/team/players-roster/travis-etienne/",
+      "injuryRelated": true,
+      "source": "https://www.neworleanssaints.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 30,
+        "receiving": 11
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Kendrick Bourne",
+      "team": "Arizona Cardinals",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.azcardinals.com/team/players-roster/kendrick-bourne/",
+      "injuryRelated": true,
+      "source": "https://www.azcardinals.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 26
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    },
+    {
+      "name": "Jeremiyah Love",
+      "team": "Arizona Cardinals",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.azcardinals.com/team/players-roster/jeremiyah-love/",
+      "injuryRelated": true,
+      "source": "https://www.azcardinals.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 76,
+        "receiving": 11
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    },
+    {
+      "name": "Davante Adams",
+      "team": "Los Angeles Rams",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "WR",
+      "positions": [
+        "WR"
+      ],
+      "profile": "https://www.therams.com/team/players-roster/davante-adams/",
+      "injuryRelated": true,
+      "source": "https://www.therams.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": null,
+        "receiving": 30
+      },
+      "qualifyingPositions": [
+        "WR"
+      ]
+    }
+  ],
+  "qualifyingOtherReserveStatuses": [],
+  "alreadyInBaseline": [
+    {
+      "name": "Brian Robinson Jr.",
+      "team": "Atlanta Falcons",
+      "caption": "Reserve/Injured",
+      "rosterPosition": "RB",
+      "positions": [
+        "RB"
+      ],
+      "profile": "https://www.atlantafalcons.com/team/players-roster/brian-robinson/",
+      "injuryRelated": true,
+      "source": "https://www.atlantafalcons.com/team/players-roster/",
+      "statTotals": {
+        "passing": null,
+        "rushing": 53,
+        "receiving": null
+      },
+      "qualifyingPositions": [
+        "RB"
+      ]
+    }
+  ],
+  "teamAudits": [
+    {
+      "team": "Baltimore Ravens",
+      "source": "https://www.baltimoreravens.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Practice Squad"
+      ],
+      "reservePlayers": 12
+    },
+    {
+      "team": "Cleveland Browns",
+      "source": "https://www.clevelandbrowns.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Non-Football Illness",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 7
+    },
+    {
+      "team": "Pittsburgh Steelers",
+      "source": "https://www.steelers.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 8
+    },
+    {
+      "team": "Cincinnati Bengals",
+      "source": "https://www.bengals.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 8
+    },
+    {
+      "team": "Buffalo Bills",
+      "source": "https://www.buffalobills.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Non-Football Injury",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 4
+    },
+    {
+      "team": "Miami Dolphins",
+      "source": "https://www.miamidolphins.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Active/Physically Unable to Perform",
+        "Reserve/Injured",
+        "Practice Squad"
+      ],
+      "reservePlayers": 6
+    },
+    {
+      "team": "New York Jets",
+      "source": "https://www.newyorkjets.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 12
+    },
+    {
+      "team": "New England Patriots",
+      "source": "https://www.patriots.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 11
+    },
+    {
+      "team": "Houston Texans",
+      "source": "https://www.houstontexans.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 13
+    },
+    {
+      "team": "Indianapolis Colts",
+      "source": "https://www.colts.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad",
+        "Practice Squad/International"
+      ],
+      "reservePlayers": 7
+    },
+    {
+      "team": "Jacksonville Jaguars",
+      "source": "https://www.jaguars.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Practice Squad",
+        "Practice Squad/International"
+      ],
+      "reservePlayers": 11
+    },
+    {
+      "team": "Tennessee Titans",
+      "source": "https://www.tennesseetitans.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Practice Squad",
+        "TRC",
+        "Practice Squad/International"
+      ],
+      "reservePlayers": 8
+    },
+    {
+      "team": "Denver Broncos",
+      "source": "https://www.denverbroncos.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 10
+    },
+    {
+      "team": "Kansas City Chiefs",
+      "source": "https://www.chiefs.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Practice Squad"
+      ],
+      "reservePlayers": 9
+    },
+    {
+      "team": "Las Vegas Raiders",
+      "source": "https://www.raiders.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad"
+      ],
+      "reservePlayers": 6
+    },
+    {
+      "team": "Los Angeles Chargers",
+      "source": "https://www.chargers.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Non-Football Injury",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 10
+    },
+    {
+      "team": "Chicago Bears",
+      "source": "https://www.chicagobears.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad"
+      ],
+      "reservePlayers": 11
+    },
+    {
+      "team": "Detroit Lions",
+      "source": "https://www.detroitlions.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Non-Football Injury",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 12
+    },
+    {
+      "team": "Green Bay Packers",
+      "source": "https://www.packers.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad",
+        "Practice Squad/International"
+      ],
+      "reservePlayers": 12
+    },
+    {
+      "team": "Dallas Cowboys",
+      "source": "https://www.dallascowboys.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Designated to Return",
+        "Reserve/Injured",
+        "Practice Squad"
+      ],
+      "reservePlayers": 8
+    },
+    {
+      "team": "Minnesota Vikings",
+      "source": "https://www.vikings.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad",
+        "Practice Squad/Injured",
+        "Practice Squad/International"
+      ],
+      "reservePlayers": 5
+    },
+    {
+      "team": "Philadelphia Eagles",
+      "source": "https://www.philadelphiaeagles.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Non-Football Injury",
+        "Practice Squad",
+        "Practice Squad/Injured"
+      ],
+      "reservePlayers": 7
+    },
+    {
+      "team": "New York Giants",
+      "source": "https://www.giants.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Practice Squad"
+      ],
+      "reservePlayers": 12
+    },
+    {
+      "team": "Washington Commanders",
+      "source": "https://www.commanders.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Retired",
+        "Practice Squad"
+      ],
+      "reservePlayers": 13
+    },
+    {
+      "team": "Atlanta Falcons",
+      "source": "https://www.atlantafalcons.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Non-Football Injury",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 11
+    },
+    {
+      "team": "Carolina Panthers",
+      "source": "https://www.panthers.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 12
+    },
+    {
+      "team": "Tampa Bay Buccaneers",
+      "source": "https://www.buccaneers.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad"
+      ],
+      "reservePlayers": 4
+    },
+    {
+      "team": "New Orleans Saints",
+      "source": "https://www.neworleanssaints.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 8
+    },
+    {
+      "team": "Arizona Cardinals",
+      "source": "https://www.azcardinals.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Active/Physically Unable to Perform",
+        "Reserve/Injured",
+        "Reserve/Injured; Designated for Return",
+        "Practice Squad",
+        "Practice Squad/Injured",
+        "Practice Squad/International"
+      ],
+      "reservePlayers": 14
+    },
+    {
+      "team": "Los Angeles Rams",
+      "source": "https://www.therams.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad"
+      ],
+      "reservePlayers": 10
+    },
+    {
+      "team": "San Francisco 49ers",
+      "source": "https://www.49ers.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Reserve/Physically Unable to Perform",
+        "Practice Squad"
+      ],
+      "reservePlayers": 15
+    },
+    {
+      "team": "Seattle Seahawks",
+      "source": "https://www.seahawks.com/team/players-roster/",
+      "captions": [
+        "Active",
+        "Reserve/Injured",
+        "Practice Squad",
+        "Practice Squad/Injured",
+        "Commissioner Exempt"
+      ],
+      "reservePlayers": 6
+    }
+  ],
+  "notes": [
+    "Totals combine the saved statistic snapshot with current official team reserve tables. Named exceptions are unique current roster players. Injury-related reserve captions are eligible; other reserve reasons are listed for review, never automatically counted."
+  ]
+}

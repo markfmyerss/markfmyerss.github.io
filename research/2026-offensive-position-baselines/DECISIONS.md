@@ -4,15 +4,15 @@ Research only; no changes to live rankings.
 
 ## Approved by the user
 
-- Keep A.J. Brown, J.J. McCarthy, and Drew Lock as explicit exceptions.
+- Keep A.J. Brown, J.J. McCarthy, Drew Lock, Marvin Harrison Jr., Calvin Ridley, Tank Dell, Tua Tagovailoa, Austin Ekeler, and Zach Charbonnet as explicit exceptions.
 - Include injured players who meet their position's statistical minimum, even when absent from the Active roster table.
 - Retain the baseline QB 50 passing attempts; RB 25 rushing attempts OR 10 receptions; WR/TE 10 receptions.
 
-The previous baseline counts do not yet include these changes. The two QB overrides increase the current active-pool QB count from 35 to 37; A.J. Brown increases WR from 84 to 85. Adding eligible injured players requires a current reserve-roster reconciliation; no revised all-status totals are claimed yet.
+The original README and results.json preserve the initial baseline snapshot. Updated totals, including approved exceptions and all threshold-qualified injury-reserve additions found across 32 official team roster pages, are in [UPDATED-TALLY.md](UPDATED-TALLY.md) and [updated-eligibility.json](updated-eligibility.json).
 
 ## Other recognizable names below the minimum
 
-These are suggestions for user review, not approved additions. Recognition is subjective.
+Six additional names were approved: Marvin Harrison Jr., Calvin Ridley, Tank Dell, Tua Tagovailoa, Austin Ekeler, and Zach Charbonnet. Other names in the table remain suggestions for user review. See eligibility-policy.json for explicit approval flags. Recognition is subjective.
 
 | Position | Player | Current source observation | Source |
 |---|---|---|---|
