@@ -19,7 +19,7 @@ for(const pos of ['G','F','C']){
  const legacy=boot(storage);assert.deepEqual(Array.from(legacy.run('state.sorted.map(p=>p.id)')),old.sorted.map(p=>p.id),'Preserve old '+pos+' ranking');
  if(pos!=='C'){assert(legacy.e('position').children.some(o=>o.value===pos&&o.text==='Previous '+({G:'guards',F:'forwards'})[pos]+' ranking'));assert(legacy.e('latest-roster').hidden);}
  const link=legacy.run('encodeRankingLink(state)');assert(link.includes('#ranking=v2.NBA.NBA.'+pos+'.'));
- legacy.e('position').value='PG';legacy.run('selectTeam();start()');assert.deepEqual(JSON.parse(storage.get('nba-position-sorter-v1:'+pos)).sorted.map(p=>p.id),old.sorted.map(p=>p.id));
+ legacy.e('position').value='PG';legacy.run('selectTeam();start()');assert.deepEqual(Array.from(legacy.run('parseSavedState(read('+JSON.stringify('nba-position-sorter-v1:'+pos)+')).sorted.map(p=>p.id)')),old.sorted.map(p=>p.id));
 }
 b.run('selectRankingMode("teams")');assert.deepEqual(Array.from(b.run('selectablePositions("NBA",false)')),['ALL','G','F','C']);
 assert.equal(Object.values(data.NBA_ROSTERS).flat().length,524,'Full team rosters remain complete');
