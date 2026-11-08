@@ -71,7 +71,7 @@ function renderPositionPicker(){
    b.style.setProperty('--tile-primary',c.primary);b.style.setProperty('--tile-accent',c.accent);b.style.setProperty('--tile-color',c.highlight);
    const code=document.createElement('span');code.className='team-code';code.textContent=pos;
    const name=document.createElement('strong');name.textContent=positionLabel(activeSport,pos);
-   const status=document.createElement('small');b.append(code,name,status);b.onclick=()=>{$('position').value=pos;selectTeam();};return b;
+   const status=document.createElement('small');b.append(code,name,status);b.onclick=()=>{$('position').value=pos;selectTeam();start();};return b;
   }));$('league-position-grid').dataset.sport=activeSport;
  }
  for(const b of $('league-position-grid').children){
@@ -319,7 +319,7 @@ function teamButton(team,info) {
 }
 
 function renderTeamPicker(){
- const league=rankingMode==='positions';$('conference-picker').hidden=league;$('division-row').hidden=league;$('team-grid').hidden=league;$('league-position-grid').hidden=!league;
+ const league=rankingMode==='positions';$('conference-picker').hidden=league;$('division-row').hidden=league;$('team-grid').hidden=league;$('league-position-grid').hidden=!league||!!(sharedRanking||state);
  if(league){renderPositionPicker();return;}
  const team=$('team').value,division=divisionFor(team),conference=conferenceFor(team),teams=teamsFor(activeSport);
  if(read(conferenceKey(conference))!==team)write(conferenceKey(conference),team);
@@ -352,7 +352,7 @@ function populateSport(){
  let selection=null;try{selection=JSON.parse(read(selectionKey(activeSport)));}catch{}
  $('team').replaceChildren();for(const team of teams)$('team').add(new Option(team,team));
  $('position').replaceChildren();for(const pos of allowed){
-  const label=pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
+  const label=league?positionLabel(activeSport,pos):pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
   $('position').add(new Option(label,pos));
  }
  $('team').value=teams.includes(selection?.team)?selection.team:teams[0];

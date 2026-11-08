@@ -197,3 +197,11 @@ NBA.com is the primary portrait source. Missing, failed or known generic NBA ima
 Previous roster snapshots and their portrait mappings are archived before replacement. Existing shared links select their original roster through `assets/roster-snapshots/index.json`; malformed or unavailable snapshots never replace a recipient's own ranking. Existing browser progress can continue with its original players. Switching to the newest roster archives the previous ranking locally rather than silently adding, deleting or reordering players.
 
 A failed team source, unresolved new portrait or unexpected roster reduction retains the team's last published roster and date. Cross-team identity conflicts retain the whole affected league. Candidates publish only after data and browser checks; failures leave the live site intact. The first deployment is a validated refresh, and subsequent runs follow the Tuesday schedule. All work takes place on GitHub.
+
+## League-wide position pools
+
+The By position tab aggregates the same verified team snapshots across each sport. Players are ordered by stable ID before comparison, included once per matching group, and retain their actual club. NFL uses the existing QB/RB/WR/TE/OL/DL/LB/DB/ST groups; NBA uses the official G/F/C classifications, including hybrid memberships. These are favorites rankings rather than performance/statistical rankings.
+
+Each pool's verification date is the oldest verification among its sport's source teams, so a retained source is not presented as newly verified. The Tuesday refresh archives each position pool with names, roles, club membership and portrait mappings. League share links use a versioned 16-bit permutation and a club-aware roster stamp; existing team links retain their original format.
+
+No additional roster scraping or image providers are introduced for this feature. Team headshots and marks keep the existing rights limitations above. The two league-mode sport icons are original SVG artwork created for Fan Favorites and are not official NFL/NBA logos. Dense image exports use bounded thumbnail loading and higher output resolution; very large full lists are best viewed at their saved resolution, with Top 10 and Top 25 available for simpler sharing.

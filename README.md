@@ -1,6 +1,6 @@
 # Fan Favorites — NFL + NBA
 
-Pick your favorite players in pairs, then share your personal ranking.
+Pick your favorite players in pairs, then share your personal ranking. Choose **By team** for a club roster or **By position** for players across the entire NFL or NBA.
 
 Live: https://markfmyerss.github.io/
 
@@ -58,3 +58,13 @@ The refresh archives the previous and new roster versions together before publis
 Saved rankings stay in the visitor's browser. An earlier roster remains sortable, and **Start with latest roster** saves the old ranking under **Previous rankings** before starting a fresh one. Archived copies retain the full ranking and unfinished progress while starting a fresh undo history when reopened, which keeps browser storage small. A failed archive write leaves the current ranking untouched.
 
 The workflow stages changes on a GitHub runner, validates archives, identities and portraits, runs browser checks, and only then commits the candidate. Non-forced publishing rejects a candidate if main changed during validation. GitHub's Pages API explicitly rebuilds the bot commit and the workflow checks the live verification record. It needs no personal token or always-on computer.
+
+## League-wide position rankings
+
+Each sport includes By team and By position tabs. Position rankings include every current player in the selected group across all 32 NFL or 30 NBA teams, with each player appearing once per group. NFL groups are QB, RB, WR, TE, OL, DL, LB, DB and ST; NBA groups are Guards, Forwards and Centers. Hybrid players can appear in each relevant group.
+
+Team selections and rankings keep their existing keys. League position rankings have independent progress, selected positions and mode preferences for each sport. Compact index-based saves and recent undo records keep large position groups practical in browser storage. Each comparison card uses the player's actual club color and name.
+
+Position share links support pools larger than 255 players and preserve club membership. Weekly updates archive each league position's original roster and portrait mappings alongside the existing team archives. A transfer or roster change does not silently change a saved ranking or shared link.
+
+All image ratios and ranges remain available. Full league lists automatically use more resolution, capped at 4096 pixels per dimension and 16 megapixels, while retaining one image and every full name. Team labels identify players from different clubs. Mobile retains four ratios, PNG, All / Top 10 / Top 25, and native image saving. The sport icons on league exports are original Fan Favorites artwork rather than official league marks.
