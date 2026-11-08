@@ -107,3 +107,14 @@ html[data-appearance=light] .sport-button{background:#fffdf8;color:#56616c;borde
 html[data-appearance=light] .sport-button[aria-pressed=true]{background:var(--light-accent,#241773);color:#fff;border-color:var(--light-accent,#241773)}
 html[data-appearance=black] .sport-button{background:#080808;border-color:#383838}
 html[data-appearance=black] .sport-button[aria-pressed=true]{background:var(--highlight);color:#131923;border-color:var(--highlight)}
+
+/* Ranking mode must override general action-button colors in every appearance. */
+html #ranking-mode{background:#182330;border-color:#ffffff25}
+html #ranking-mode .mode-button{background:transparent;color:#bdc7d4;border-color:transparent;box-shadow:none}
+html #ranking-mode .mode-button[aria-pressed=true]{background:var(--highlight);color:#101014;border-color:var(--highlight);box-shadow:0 3px 12px #0002}
+html[data-appearance=light] #ranking-mode{background:#ebe6dc;border-color:#d6d2c8}
+html[data-appearance=light] #ranking-mode .mode-button{background:transparent;color:#56616c}
+html[data-appearance=light] #ranking-mode .mode-button[aria-pressed=true]{background:var(--light-accent,#241773);color:#fff;border-color:var(--light-accent,#241773)}
+html[data-appearance=black] #ranking-mode{background:#080808;border-color:#303030}
+html[data-appearance=black] #ranking-mode .mode-button{background:transparent;color:#bdc7d4}
+@media(hover:hover){html #ranking-mode .mode-button[aria-pressed=false]:hover{background:#ffffff0a}html[data-appearance=light] #ranking-mode .mode-button[aria-pressed=false]:hover{background:#00000008}}
