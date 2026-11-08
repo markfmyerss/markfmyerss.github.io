@@ -9,7 +9,7 @@
   document.querySelector('header .compact-brand').textContent='Your teams. Your favorites.';
  };
  const requested=new URL(location.href).searchParams.get('sport');
- if(requested&&SPORTS[requested]&&!sharedRanking)selectSport(requested);
+ if((requested==='NFL'||requested==='NBA')&&!sharedRanking)selectSport(requested);
  new MutationObserver(apply).observe(document.body,{attributes:true,attributeFilter:['data-sport']});
  apply();
 })();
