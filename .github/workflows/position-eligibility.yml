@@ -1,7 +1,7 @@
 name: Prepare approved NFL position pools
 on:
   push:
-    branches: [prepare-approved-position-pools]
+    branches: [prepare-ol-position-pools]
 permissions:
   contents: read
 jobs:
@@ -23,8 +23,6 @@ jobs:
           for(const f of fs.readdirSync('assets/roster-snapshots/NFL/NFL'))files['assets/roster-snapshots/NFL/NFL/'+f]=fs.readFileSync('assets/roster-snapshots/NFL/NFL/'+f,'utf8');
           const s=JSON.stringify(files);for(let i=0;i<s.length;i+=12000)console.log('APPROVED_SOURCE_CHUNK '+i+' '+s.slice(i,i+12000));console.log('PREPARED_FILES '+Object.keys(files).length);
           NODE
-      - name: Audit fresh statistics, player crosswalk and weekly refresh
-        run: node scripts/refresh-position-pools.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

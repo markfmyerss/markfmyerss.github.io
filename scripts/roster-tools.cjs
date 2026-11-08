@@ -47,7 +47,7 @@ function archiveLeagueData(data,root,index){
   const info=sport==='NFL'?data.TEAM_INFO:data.NBA_TEAM_INFO,rosters=sport==='NFL'?data.ROSTERS:data.NBA_ROSTERS,shots=sport==='NFL'?data.HEADSHOTS:data.NBA_HEADSHOTS,all=sport==='NFL'&&data.NFL_POSITION_PLAYERS?[...data.NFL_POSITION_PLAYERS].sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0):leaguePlayers(rosters);
   const verified=Object.values(info).map(t=>t.verified||(sport==='NFL'?'November 5, 2026':'November 6, 2026')).sort((a,b)=>new Date(a)-new Date(b))[0];
   assert.equal(new Set(all.map(p=>p.id)).size,all.length,'Duplicate league player identity');
-  for(const pos of (sport==='NFL'&&data.NFL_POSITION_PLAYERS?['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S']:sport==='NFL'?NFL_POS:NBA_POS).filter(p=>p!=='ALL')){
+  for(const pos of (sport==='NFL'&&data.NFL_POSITION_PLAYERS?['QB','RB','WR','TE','LT','RT','LG','RG','C','IDL','DE','ILB','EDGE','CB','S']:sport==='NFL'?NFL_POS:NBA_POS).filter(p=>p!=='ALL')){
    const players=filtered(all,pos);if(!players.length)continue;assert.ok(players.length<=1000,'Position pool too large');
    const hash=leagueStamp(players),file='assets/roster-snapshots/'+sport+'/'+sport+'/'+hash+'.json',key=[sport,sport,pos,hash].join('.');
    const snapshot={version:2,scope:'league',sport,team:sport+' League',code:sport,pos,verified,players,headshots:Object.fromEntries(players.map(p=>[p.id,shots[p.id]||data.NFL_POSITION_HEADSHOTS?.[p.id]||null]))};

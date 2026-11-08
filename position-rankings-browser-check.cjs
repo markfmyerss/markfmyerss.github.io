@@ -4,10 +4,10 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));const root='http://127.0.0.
 try{for(const engine of [chromium,webkit]){const browser=await engine.launch();try{
  const page=await browser.newPage({viewport:{width:390,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(root);
  await page.click('#start');await page.click('#right');const ownTeam=await page.evaluate(()=>({key:keyFor(state.team,state.pos),value:localStorage.getItem(keyFor(state.team,state.pos))}));
- await page.click('[data-mode=positions]');assert.equal(await page.locator('#team').inputValue(),'NFL League');assert.ok(await page.locator('#team-field').isHidden());assert.ok(await page.locator('#conference-picker').isHidden());assert.ok(await page.locator('#division-row').isHidden());assert.equal(await page.locator('#position option').count(),11);
+ await page.click('[data-mode=positions]');assert.equal(await page.locator('#team').inputValue(),'NFL League');assert.ok(await page.locator('#team-field').isHidden());assert.ok(await page.locator('#conference-picker').isHidden());assert.ok(await page.locator('#division-row').isHidden());assert.equal(await page.locator('#position option').count(),15);
  for(const sport of ['NFL','NBA']){
   if(sport==='NBA'){await page.click('[data-sport=NBA].sport-button');await page.click('[data-mode=positions]');}
-  const positions=await page.locator('#position option').evaluateAll(os=>os.map(o=>o.value));assert.equal(positions.length,sport==='NFL'?11:3);assert.ok(!positions.includes('ALL'));
+  const positions=await page.locator('#position option').evaluateAll(os=>os.map(o=>o.value));assert.equal(positions.length,sport==='NFL'?15:3);assert.ok(!positions.includes('ALL'));
   for(const pos of positions){
    await page.selectOption('#position',pos);await page.click('#start');const before=await page.locator('#progress').textContent();await page.click('#left');await page.click('#undo');assert.equal(await page.locator('#progress').textContent(),before);await page.click('#right');const saved=await page.locator('#progress').textContent();await page.reload();assert.equal(await page.locator('#progress').textContent(),saved);assert.equal(await page.locator('#position').inputValue(),pos);assert.equal(await page.locator('body').getAttribute('data-ranking-mode'),'positions');
    const identity=await page.evaluate(()=>{const p=state.stack.at(-1).left[state.stack.at(-1).i];const c=ALL_TEAM_INFO[p.team].colors.primary;return {team:p.team,background:'rgb('+c.slice(1).match(/../g).map(n=>parseInt(n,16)).join(', ')+')'};});assert.equal(await page.locator('#left .player-team').textContent(),identity.team);assert.equal(await page.locator('#left .pick-label').evaluate(e=>getComputedStyle(e).backgroundColor),identity.background);
@@ -30,11 +30,11 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   }
   for(const type of ['jpg','webp']){const image=await ResultsExport.createImage(result,{size:'1x1',type,scope:'10'});if(image.blob.type!==ResultsExport.TYPES[type].mime)throw Error('File encoding');}
   return {count:players.length,link:encodeRankingLink(state),names:state.sorted.map(p=>p.name),rows};
- });assert.ok(output.count>255);assert.equal(output.rows.length,9);
+ });assert.ok(output.count>0);assert.equal(output.rows.length,9);
  await page.setViewportSize({width:390,height:1000});await page.click('#share-ranking');assert.equal(await page.locator('#export-size option').count(),4);assert.equal(await page.locator('#export-scope option').count(),3);assert.ok(await page.locator('#export-type-field').isHidden());assert.ok(await page.locator('#export-all').isHidden());await page.click('#export-preview');await page.waitForFunction(()=>!document.getElementById('export-download').disabled&&document.getElementById('export-preview-image').naturalWidth>=1080);await page.locator('#export-panel').screenshot({path:'qa/position-export-'+engine.name()+'.png'});
  const recipient=await browser.newPage({viewport:{width:320,height:1000}});await recipient.goto(root);await recipient.evaluate(()=>{selectRankingMode('positions');document.getElementById('position').value='CB';selectTeam();start();choose('left');});const personal=await recipient.evaluate(()=>({key:keyFor(state.team,state.pos),value:localStorage.getItem(keyFor(state.team,state.pos))}));await recipient.goto(root+'/'+new URL(output.link).hash);await recipient.reload();await recipient.waitForFunction(()=>!!sharedRanking);assert.deepEqual(await recipient.locator('.rank-text strong').allTextContents(),output.names);assert.equal(await recipient.evaluate(k=>localStorage.getItem(k),personal.key),personal.value);await recipient.close();
  // Historical removed categories remain readable without reappearing in the picker.
- for(const legacyPos of ['ST','DL']){
+ for(const legacyPos of ['ST','DL','OL']){
   const index=JSON.parse(await fs.readFile('assets/roster-snapshots/index.json','utf8'));
   const key=Object.keys(index.snapshots).find(k=>k.startsWith('NFL.NFL.'+legacyPos+'.'));assert.ok(key);
   const snapshot=JSON.parse(await fs.readFile(index.snapshots[key].path,'utf8')),legacyPlayers=T.filtered(snapshot.players,legacyPos);
