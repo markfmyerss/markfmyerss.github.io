@@ -1,6 +1,6 @@
-# NBA starter pools — review draft
+# NBA starter pools — published list
 
-Prepared November 8, 2026 for the 2026–27 season. **183 players, five primary positions, no overlaps.** This is the candidate being tested; it is not live yet.
+Prepared November 8, 2026 for the 2026–27 season. **183 players, five primary positions, no overlaps.** **[Live on the site](https://markfmyerss.github.io/?v=nba-five-starters-v1).** All functional, browser, weekly-source and publication checks passed.
 
 **Latest review changes:** Kristaps Porziņģis removed after stepping away; Bradley Beal assigned to SG.
 
@@ -218,4 +218,4 @@ The pools include each team's latest confirmed starting five plus injured regula
 | [Yves Missi](https://www.espn.com/nba/player/_/id/5061589) | New Orleans Pelicans | Injured regular starter |
 | [Zach Edey](https://www.espn.com/nba/player/_/id/4600663) | Memphis Grizzlies | Confirmed starter |
 
-These are primary-position pools, so team lineup slots do not have to match these categories. Injured starters can appear alongside the players currently replacing them. Counts and membership may change after source verification or testing.
+These are primary-position pools, so team lineup slots do not have to match these categories. Injured starters can appear alongside the players currently replacing them. Counts and membership refresh after successful Tuesday roster updates.
