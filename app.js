@@ -183,6 +183,8 @@ function applyTheme() {
   document.body.dataset.team=c.code;
   document.body.dataset.sport=activeSport;
   $('lede').innerHTML=league?'Choose a position. Pick your favorites across the league.<br>Your progress saves separately for each position.':'Choose your team. Pick the player you like more.<br>Build a ranking that’s entirely yours.';
+  $('intro-kicker').textContent=league?'YOUR POSITION. YOUR ORDER.':'YOUR TEAM. YOUR ORDER.';
+  $('save-note').textContent='Saved automatically on this browser. Switch '+(league?'positions':'teams')+' whenever you like.';
   $('first-step').innerHTML=league?'<b>01</b> Choose a position':'<b>01</b> Pick a team';
   $('league-summary').textContent=activeSport+' · '+(league?'BY POSITION':divisionFor(team).toUpperCase());
   for(const b of $('sport-picker').children)b.setAttribute('aria-pressed',String(b.dataset.sport===activeSport));
