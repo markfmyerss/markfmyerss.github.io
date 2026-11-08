@@ -2,7 +2,7 @@ name: Position eligibility research
 on:
   push:
     branches: [research-position-stat-baselines]
-    paths: ['scripts/research-position-stats.cjs', 'scripts/research-injured-eligibility.cjs', 'scripts/research-defensive-snaps.cjs', '.github/workflows/position-stat-research.yml']
+    paths: ['scripts/research-position-stats.cjs', 'scripts/research-injured-eligibility.cjs', 'scripts/research-defensive-snaps.cjs', 'scripts/research-defensive-groups.cjs', '.github/workflows/position-stat-research.yml']
 permissions:
   contents: read
 jobs:
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/research-defensive-snaps.cjs
+      - run: node scripts/research-defensive-groups.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
