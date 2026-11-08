@@ -40,7 +40,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   const snapshot=JSON.parse(await fs.readFile(index.snapshots[key].path,'utf8')),legacyPlayers=T.filtered(snapshot.players,legacyPos);
   const bytes=Buffer.alloc(legacyPlayers.length*2);for(let i=0;i<legacyPlayers.length;i++)bytes.writeUInt16BE(legacyPlayers.length-1-i,i*2);
   const hash='#ranking=v2.NFL.NFL.'+legacyPos+'.'+key.split('.').at(-1)+'.'+bytes.toString('base64url');
-  await page.goto(root+'/'+hash);await page.waitForFunction(()=>!!sharedRanking);
+  await page.goto(root+'/'+hash);await page.waitForFunction(pos=>sharedRanking?.pos===pos,legacyPos);
   assert.equal(await page.evaluate(()=>sharedRanking.sorted.length),legacyPlayers.length);
   assert.equal(await page.locator('#league-position-grid [data-position=ST]').count(),0);
  }
