@@ -1,10 +1,12 @@
 'use strict';
 const $ = id => document.getElementById(id);
-const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST'];
+const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST','IDL','DE','ILB','EDGE','CB','S'];
+const LEAGUE_POSITIONS={NFL:['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S'],NBA:['G','F','C']};
+const selectablePositions=(sport,league=false)=>league?LEAGUE_POSITIONS[sport]:SPORTS[sport].positions.filter(p=>!['ST','IDL','DE','ILB','EDGE','CB','S'].includes(p));
 
 const nbaReady=typeof NBA_TEAM_INFO!=='undefined';
 const ALL_TEAM_INFO={...TEAM_INFO,...(nbaReady?NBA_TEAM_INFO:{})};
-const ALL_HEADSHOTS={...HEADSHOTS,...(nbaReady?NBA_HEADSHOTS:{})};
+const ALL_HEADSHOTS={...HEADSHOTS,...(typeof NFL_POSITION_HEADSHOTS==='undefined'?{}:NFL_POSITION_HEADSHOTS),...(nbaReady?NBA_HEADSHOTS:{})};
 const SPORTS={NFL:{teams:TEAM_INFO,positions},...(nbaReady?{NBA:{teams:NBA_TEAM_INFO,positions:['ALL','G','F','C']}}:{})};
 let activeSport='NFL';
 const leagueFor=team=>ALL_TEAM_INFO[team]?.league||'NFL';
@@ -15,19 +17,20 @@ const selectionKey=sport=>prefixFor(sport)+'-selection';
 
 
 const LEAGUE_NAMES={NFL:'NFL League',NBA:'NBA League'};
-const POSITION_LABELS={NFL:{QB:'Quarterbacks',RB:'Running backs',WR:'Wide receivers',TE:'Tight ends',OL:'Offensive line',DL:'Defensive line',LB:'Linebackers',DB:'Defensive backs',ST:'Special teams'},NBA:{G:'Guards',F:'Forwards',C:'Centers'}};
-const POSITION_SINGULAR={QB:'quarterback',RB:'running back',WR:'wide receiver',TE:'tight end',OL:'offensive lineman',DL:'defensive lineman',LB:'linebacker',DB:'defensive back',ST:'special teams player',G:'guard',F:'forward',C:'center'};
+const POSITION_LABELS={NFL:{QB:'Quarterbacks',RB:'Running backs',WR:'Wide receivers',TE:'Tight ends',OL:'Offensive line',DL:'Defensive line',LB:'Linebackers',DB:'Defensive backs',ST:'Special teams',IDL:'Interior defensive line',DE:'Defensive ends',ILB:'Inside linebackers',EDGE:'Edge rushers',CB:'Cornerbacks',S:'Safeties'},NBA:{G:'Guards',F:'Forwards',C:'Centers'}};
+const POSITION_SINGULAR={QB:'quarterback',RB:'running back',WR:'wide receiver',TE:'tight end',OL:'offensive lineman',DL:'defensive lineman',LB:'linebacker',DB:'defensive back',ST:'special teams player',IDL:'interior defensive lineman',DE:'defensive end',ILB:'inside linebacker',EDGE:'edge rusher',CB:'cornerback',S:'safety',G:'guard',F:'forward',C:'center'};
 const leaguePoolCache=new Map();
 const leagueTeam=sport=>LEAGUE_NAMES[sport];
 const isLeaguePool=team=>ALL_TEAM_INFO[team]?.scope==='league';
 const positionLabel=(sport,pos)=>POSITION_LABELS[sport]?.[pos]||pos;
 function leaguePlayers(sport){
- const rows=Object.values(sport==='NBA'?NBA_ROSTERS:ROSTERS),cached=leaguePoolCache.get(sport);
+ const rows=sport==='NFL'&&typeof NFL_POSITION_PLAYERS!=='undefined'?[NFL_POSITION_PLAYERS]:Object.values(sport==='NBA'?NBA_ROSTERS:ROSTERS),cached=leaguePoolCache.get(sport);
  if(cached&&cached.rows.length===rows.length&&rows.every((row,i)=>row===cached.rows[i]&&row.length===cached.lengths[i]))return cached.players;
  const players=rows.flat().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0);
  leaguePoolCache.set(sport,{rows,lengths:rows.map(row=>row.length),players});return players;
 }
 function leagueVerified(sport){
+ if(sport==='NFL'&&typeof NFL_POSITION_INFO!=='undefined')return NFL_POSITION_INFO.verified;
  const dates=Object.values(SPORTS[sport].teams).map(t=>t.verified||(sport==='NFL'?'November 5, 2026':'November 6, 2026'));
  return dates.sort((a,b)=>new Date(a)-new Date(b))[0];
 }
@@ -66,7 +69,7 @@ function selectRankingMode(mode){
 function renderPositionPicker(){
  const team=leagueTeam(activeSport),selected=$('position').value;
  if($('league-position-grid').dataset.sport!==activeSport){
-  $('league-position-grid').replaceChildren(...SPORTS[activeSport].positions.filter(p=>p!=='ALL').map(pos=>{
+  $('league-position-grid').replaceChildren(...selectablePositions(activeSport,true).map(pos=>{
    const b=document.createElement('button');b.className='team-tile position-tile';b.dataset.position=pos;const c=ALL_TEAM_INFO[team].colors;
    b.style.setProperty('--tile-primary',c.primary);b.style.setProperty('--tile-accent',c.accent);b.style.setProperty('--tile-color',c.highlight);
    const code=document.createElement('span');code.className='team-code';code.textContent=pos;
@@ -108,7 +111,9 @@ function valid(s, team, pos, snapshot=rosterFor(team)) {
 function earlierRoster(s){return !!s&&stampForScope(s.team,s.players)!==rankingStamp(s.team,s.pos);}
 function knownSnapshot(s,team,pos){
  if(!s?.players?.length||s.players.length>(isLeaguePool(team)?1000:leagueFor(team)==='NBA'?25:100))return false;
- const catalog=typeof ROSTER_KNOWN_IDS!=='undefined'?ROSTER_KNOWN_IDS[leagueFor(team)]:null;
+ const originalCatalog=typeof ROSTER_KNOWN_IDS!=='undefined'?ROSTER_KNOWN_IDS[leagueFor(team)]:null;
+ const extra=leagueFor(team)==='NFL'&&typeof NFL_POSITION_KNOWN_IDS!=='undefined'?NFL_POSITION_KNOWN_IDS:{};
+ const catalog=originalCatalog?Object.fromEntries(Object.keys({...originalCatalog,...extra}).map(t=>[t,[...new Set([...(originalCatalog[t]||[]),...(extra[t]||[])])]])):extra;
  const known=isLeaguePool(team)?catalog:catalog?.[team];
  const groups=SPORTS[leagueFor(team)].positions;
  return !!known&&s.players.every(p=>p&&(isLeaguePool(team)?catalog[p.team]?.includes(p.id):known.includes(p.id))&&belongsToRanking(p,team)&&typeof p.name==='string'&&p.name.length>0&&p.name.length<150&&Array.isArray(p.positions||[p.position])&&(p.positions||[p.position]).every(v=>groups.includes(v)&&v!=='ALL')&&matchesPosition(p,pos));
@@ -350,7 +355,7 @@ function selectDivision(division){
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 function populateSport(){
- const league=rankingMode==='positions',teams=league?[leagueTeam(activeSport)]:teamsFor(activeSport),allowed=SPORTS[activeSport].positions.filter(p=>!league||p!=='ALL');
+ const league=rankingMode==='positions',teams=league?[leagueTeam(activeSport)]:teamsFor(activeSport),allowed=selectablePositions(activeSport,league);
  let selection=null;try{selection=JSON.parse(read(selectionKey(activeSport)));}catch{}
  $('team').replaceChildren();for(const team of teams)$('team').add(new Option(team,team));
  $('position').replaceChildren();for(const pos of allowed){
@@ -480,7 +485,7 @@ async function openSharedRanking(){
  if(ticket!==sharedRequest)return;
  if(!incoming){if(sharedRanking)viewOwnRanking();return;}
  save();sharedRanking=incoming;activeSport=leagueFor(incoming.team);rankingMode=isLeaguePool(incoming.team)?'positions':'teams';populateSport();
- $('team').value=incoming.team;$('position').value=incoming.pos;state=stored(incoming.team,incoming.pos);
+ $('team').value=incoming.team;if(!Array.from($('position').children).some(o=>o.value===incoming.pos)){const historical=new Option(positionLabel(activeSport,incoming.pos)+' · Previous category',incoming.pos);historical.hidden=true;$('position').add(historical);}$('position').value=incoming.pos;state=stored(incoming.team,incoming.pos);
  $('shared-status').hidden=true;render();
 }
 async function shareRankingLink(){
