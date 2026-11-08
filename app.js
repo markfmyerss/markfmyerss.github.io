@@ -1,8 +1,8 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST'];
-const LEAGUE_POSITIONS={NFL:['QB','RB','WR','TE','OT','OG','C','IDL','DE','ILB','EDGE','CB','S'],NBA:['G','F','C']};
-const selectablePositions=(sport,league=false)=>league?LEAGUE_POSITIONS[sport]:SPORTS[sport].positions.filter(p=>!(sport==='NFL'?['ST','IDL','DE','ILB','EDGE','CB','S','OT','OG','C']:[]).includes(p));
+const LEAGUE_POSITIONS={NFL:['QB','RB','WR','TE','LT','RT','LG','RG','C','IDL','DE','ILB','EDGE','CB','S'],NBA:['G','F','C']};
+const selectablePositions=(sport,league=false)=>league?LEAGUE_POSITIONS[sport]:SPORTS[sport].positions.filter(p=>!(sport==='NFL'?['ST','IDL','DE','ILB','EDGE','CB','S','LT','RT','LG','RG','C']:[]).includes(p));
 
 const nbaReady=typeof NBA_TEAM_INFO!=='undefined';
 const ALL_TEAM_INFO={...TEAM_INFO,...(nbaReady?NBA_TEAM_INFO:{})};
@@ -17,8 +17,8 @@ const selectionKey=sport=>prefixFor(sport)+'-selection';
 
 
 const LEAGUE_NAMES={NFL:'NFL League',NBA:'NBA League'};
-const POSITION_LABELS={NFL:{QB:'Quarterbacks',RB:'Running backs',WR:'Wide receivers',TE:'Tight ends',OL:'Offensive line',OT:'Tackles',OG:'Guards',C:'Centers',DL:'Defensive line',LB:'Linebackers',DB:'Defensive backs',ST:'Special teams',IDL:'Interior defensive line',DE:'Defensive ends',ILB:'Inside linebackers',EDGE:'Edge rushers',CB:'Cornerbacks',S:'Safeties'},NBA:{G:'Guards',F:'Forwards',C:'Centers'}};
-const POSITION_SINGULAR={QB:'quarterback',RB:'running back',WR:'wide receiver',TE:'tight end',OL:'offensive lineman',OT:'offensive tackle',OG:'offensive guard',DL:'defensive lineman',LB:'linebacker',DB:'defensive back',ST:'special teams player',IDL:'interior defensive lineman',DE:'defensive end',ILB:'inside linebacker',EDGE:'edge rusher',CB:'cornerback',S:'safety',G:'guard',F:'forward',C:'center'};
+const POSITION_LABELS={NFL:{QB:'Quarterbacks',RB:'Running backs',WR:'Wide receivers',TE:'Tight ends',OL:'Offensive line',LT:'Left tackles',RT:'Right tackles',LG:'Left guards',RG:'Right guards',C:'Centers',DL:'Defensive line',LB:'Linebackers',DB:'Defensive backs',ST:'Special teams',IDL:'Interior defensive line',DE:'Defensive ends',ILB:'Inside linebackers',EDGE:'Edge rushers',CB:'Cornerbacks',S:'Safeties'},NBA:{G:'Guards',F:'Forwards',C:'Centers'}};
+const POSITION_SINGULAR={QB:'quarterback',RB:'running back',WR:'wide receiver',TE:'tight end',OL:'offensive lineman',LT:'left tackle',RT:'right tackle',LG:'left guard',RG:'right guard',DL:'defensive lineman',LB:'linebacker',DB:'defensive back',ST:'special teams player',IDL:'interior defensive lineman',DE:'defensive end',ILB:'inside linebacker',EDGE:'edge rusher',CB:'cornerback',S:'safety',G:'guard',F:'forward',C:'center'};
 const leaguePoolCache=new Map();
 const leagueTeam=sport=>LEAGUE_NAMES[sport];
 const isLeaguePool=team=>ALL_TEAM_INFO[team]?.scope==='league';

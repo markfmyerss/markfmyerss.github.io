@@ -64,7 +64,7 @@ const offensiveLine=await require('./ol-pools.cjs').build(candidates.filter(p=>p
 for(const row of offensiveLine.selected)add(row.player,row.group);
 const counts=new Map();for(const p of candidates)counts.set(p.imageCandidate,(counts.get(p.imageCandidate)||0)+1);
 await T.mapLimit([...selected.values()],6,async p=>{if(!shots[p.id]?.url){const original=candidates.find(c=>c.id===p.id)||p;shots[p.id]=await nflPortrait(original,counts);}});
-const players=[...selected.values()].sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0),groups=['QB','RB','WR','TE','OT','OG','C','IDL','DE','ILB','EDGE','CB','S'],tallies=Object.fromEntries(groups.map(g=>[g,players.filter(p=>p.positions.includes(g)).length]));
+const players=[...selected.values()].sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0),groups=['QB','RB','WR','TE','LT','RT','LG','RG','C','IDL','DE','ILB','EDGE','CB','S'],tallies=Object.fromEntries(groups.map(g=>[g,players.filter(p=>p.positions.includes(g)).length]));
 for(const g of groups)assert(tallies[g]>0&&tallies[g]<400,'Suspicious '+g+' pool');
 for(const p of players)assert(shots[p.id]?.url&&shots[p.id]?.source,'Portrait provenance '+p.name);
 const known={};for(const [team,ps]of Object.entries(history))known[team]=[...new Set([...ps.map(p=>p.id),...players.filter(p=>p.team===team).map(p=>p.id)])];
