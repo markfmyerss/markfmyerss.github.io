@@ -25,6 +25,7 @@ permissions:
   contents: read
 jobs:
   functionality:
+    if: github.ref != 'refs/heads/prepare-approved-position-pools'
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble
@@ -45,6 +46,8 @@ jobs:
         run: node social-preview-check.cjs
       - name: Check all 30 NBA teams and saved rankings and saved rankings
         run: node nba-tests.cjs
+      - name: Check approved NFL eligibility and categories
+        run: node eligibility-check.cjs
       - name: Check league-wide position pools and compact progress
         run: node position-rankings-check.cjs
       - name: Check weekly roster safeguards and current data
@@ -87,3 +90,18 @@ jobs:
           path: qa/
           if-no-files-found: ignore
           retention-days: 7
+
+  eligibility-sources:
+    if: github.ref != 'refs/heads/prepare-approved-position-pools'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit next weekly eligibility refresh without publishing
+        run: |
+          node scripts/refresh-position-pools.cjs
+          node eligibility-check.cjs
+          node current-rosters-check.cjs

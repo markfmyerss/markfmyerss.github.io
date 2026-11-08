@@ -1,0 +1,36 @@
+name: Prepare approved NFL position pools
+on:
+  push:
+    branches: [prepare-approved-position-pools]
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/refresh-position-pools.cjs
+      - run: node scripts/refresh-position-pools.cjs --reviewed
+      - name: Export generated source and historical archives
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),T=require('./scripts/roster-tools.cjs');
+          const files={};for(const p of ['index.html','nfl-position-data.js','assets/nfl-position-status.json','assets/roster-snapshots/index.json'])files[p]=fs.readFileSync(p,'utf8');
+          for(const f of fs.readdirSync('assets/roster-snapshots/NFL/NFL'))files['assets/roster-snapshots/NFL/NFL/'+f]=fs.readFileSync('assets/roster-snapshots/NFL/NFL/'+f,'utf8');
+          const s=JSON.stringify(files);for(let i=0;i<s.length;i+=12000)console.log('APPROVED_SOURCE_CHUNK '+i+' '+s.slice(i,i+12000));console.log('PREPARED_FILES '+Object.keys(files).length);
+          NODE
+      - name: Audit fresh statistics, player crosswalk and weekly refresh
+        run: node scripts/refresh-position-pools.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: approved-position-candidate
+          path: |
+            nfl-position-data.js
+            assets/nfl-position-status.json
+            assets/roster-snapshots/NFL/NFL/
+          retention-days: 7
