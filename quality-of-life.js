@@ -25,7 +25,7 @@
  function open(title,button){request++;opener=button;el('roster-dialog-title').textContent=title;el('roster-dialog-content').replaceChildren();if(!dialog.open)dialog.showModal();document.body.classList.add('has-roster-dialog');return request;}
  function close(){if(dialog.open)dialog.close();}
  dialog.addEventListener('keydown',e=>e.stopPropagation());
- dialog.addEventListener('close',()=>{request++;document.body.classList.remove('has-roster-dialog');opener?.focus?.({preventScroll:true});});
+ dialog.addEventListener('close',()=>{if(dialog.open)return;request++;document.body.classList.remove('has-roster-dialog');const active=document.activeElement;if(active===document.body||dialog.contains(active))opener?.focus?.({preventScroll:true});});
  el('roster-dialog-close').onclick=close;
  function injuryLabel(p,c){
   if(c.sport==='NFL')return /injur|pup|physically/i.test(p.rosterStatus||'')?'Injury inclusion':'';
