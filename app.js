@@ -414,7 +414,7 @@ function encodePositionLink(result){
  for(const p of result.sorted){const i=indices.get(p.id);if(i===undefined||roster[i].name!==p.name||roster[i].team!==p.team)throw Error('This ranking cannot be shared.');bytes.push(i>>>8,i&255);}
  if(new Set(result.sorted.map(p=>p.id)).size!==roster.length)throw Error('Duplicate ranked player');
  const encoded=btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
- return 'https://markfmyerss.github.io/#ranking='+['v2',sport,sport,result.pos,stampForScope(result.team,roster),encoded].join('.');
+ return 'https://markfmyerss.github.io/?v=positions#ranking='+['v2',sport,sport,result.pos,stampForScope(result.team,roster),encoded].join('.');
 }
 function encodeRankingLink(result){
  if(isLeaguePool(result.team))return encodePositionLink(result);
