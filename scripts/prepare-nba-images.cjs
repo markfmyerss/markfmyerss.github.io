@@ -1,21 +1,15 @@
-// Fetch original NBA thumbnails on GitHub and emit immutable, reviewable PNG assets.
-const fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-(async()=>{
- const box={};vm.runInNewContext(fs.readFileSync('nba-data.js','utf8')+';result={info:NBA_TEAM_INFO,rosters:NBA_ROSTERS,shots:NBA_HEADSHOTS};',box);
- const {info,rosters,shots}=box.result,code=process.argv[2],team=Object.values(info).find(t=>t.code===code);assert.ok(team,'known NBA team');
- let count=0;
- for(const player of rosters[team.name]){
-  const meta=shots[player.id];if(!meta?.url){console.log('NBA_IMAGE_FALLBACK '+player.id);continue;}
-  const remote=(meta.originalUrl||meta.url).replace('/1040x760/','/260x190/');
-  assert.equal(new URL(remote).hostname,'cdn.nba.com');
-  const r=await fetch(remote,{headers:{accept:'image/png'},signal:AbortSignal.timeout(25000)});assert.ok(r.ok,'NBA image '+player.name+' '+r.status);
-  const bytes=Buffer.from(await r.arrayBuffer());assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
-  const sha=crypto.createHash('sha256').update(bytes).digest('hex');
-  if(sha==='b3ebe78bfd1cecb8880e51e6a48c9093c5cfb7065f981826d12fb4c01a1b0965'){console.log('NBA_IMAGE_FALLBACK '+player.id);continue;}
-  assert.equal(bytes.readUInt32BE(16),260);assert.equal(bytes.readUInt32BE(20),190);
-  const encoded=bytes.toString('base64');
-  for(let i=0,n=0;i<encoded.length;i+=16000,n++)console.log('NBA_IMAGE_'+player.nbaId+'_CHUNK_'+String(n).padStart(4,'0')+':'+encoded.slice(i,i+16000));
-  console.log('NBA_IMAGE_SOURCE '+JSON.stringify({id:player.nbaId,url:remote,bytes:bytes.length,sha256:sha}));count++;
- }
- console.log('PASS '+team.name+': '+count+' official PNG thumbnails prepared on GitHub');
-})().catch(e=>{console.error(e);process.exitCode=1;});
+const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict'),T=require('./roster-tools.cjs'),{chromium}=require('@playwright/test');
+(async()=>{const root='https://markfmyerss.github.io/',get=async p=>{const r=await fetch(root+p+(p.includes('?')?'&':'?')+'verify='+Date.now(),{signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,p);return r;};
+const html=await(await get('?v=positions')).text();for(const marker of ['id="ranking-mode"','id="league-position-grid"','id="intro-kicker"','id="save-note"'])assert.ok(html.includes(marker),marker);
+for(const file of ['app.js','exports.js','styles.css']){const bytes=Buffer.from(await(await get(file)).arrayBuffer());assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),file);}
+const data=T.loadData(),index=await(await get('assets/roster-snapshots/index.json')).json();let pools=0;
+for(const sport of ['NFL','NBA']){const rosters=sport==='NFL'?data.ROSTERS:data.NBA_ROSTERS;for(const pos of (sport==='NFL'?T.NFL_POS:T.NBA_POS).filter(p=>p!=='ALL')){const players=T.filtered(T.leaguePlayers(rosters),pos),key=[sport,sport,pos,T.leagueStamp(players)].join('.'),entry=index.snapshots[key];assert.ok(entry,key);const snapshot=await(await get(entry.path)).json();assert.equal(snapshot.scope,'league');assert.equal(snapshot.version,2);assert.equal(T.leagueCanonical(snapshot.players),T.leagueCanonical(players));pools++;}}
+for(const p of ['assets/league-nfl.svg','assets/league-nba.svg'])assert.ok((await(await get(p)).text()).includes('<svg'));
+const browser=await chromium.launch();try{const page=await browser.newPage({viewport:{width:390,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(root+'?v=positions');
+await page.click('[data-mode=positions]');assert.equal(await page.locator('#position option').count(),9);await page.click('[data-position=QB]');assert.equal(await page.evaluate(()=>state.team),'NFL League');assert.ok(await page.locator('#sort').isVisible());await page.click('#right');const before=await page.locator('#progress').textContent();await page.reload();assert.equal(await page.locator('#progress').textContent(),before);
+await page.click('[data-sport=NBA].sport-button');await page.click('[data-mode=positions]');assert.equal(await page.locator('#position option').count(),3);await page.click('[data-position=G]');assert.equal(await page.evaluate(()=>state.team),'NBA League');await page.click('#left');assert.ok(await page.evaluate(()=>state.comparisons>0));
+const link=await page.evaluate(()=>{const players=state.players;state={...state,done:true,sorted:[...players].reverse(),stack:[],history:[]};render();return encodeRankingLink(state);});assert.ok(new URL(link).search);await page.goto(link);await page.waitForFunction(()=>!!sharedRanking);assert.equal(await page.evaluate(()=>sharedRanking.team),'NBA League');assert.equal(await page.locator('.rank').count(),await page.evaluate(()=>sharedRanking.players.length));assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
+console.log('PASS public NFL/NBA position tabs, one-click sorting, separate saved progress, reload, mobile layout and v2 share links');
+}finally{await browser.close();}
+console.log('PASS '+pools+' public league-wide snapshots, original sport icons and deployed app/export/style hashes');
+})().catch(e=>{console.error(e);process.exit(1)});
