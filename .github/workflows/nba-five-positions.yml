@@ -1,16 +1,25 @@
-name: Inspect NBA starter sources
+name: Prepare NBA starter position pools
 on:
   push:
     branches: [prepare-nba-five-position-pools]
 permissions:
   contents: read
 jobs:
-  inspect:
+  prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/inspect-nba-starters.cjs
+      - run: node --check scripts/refresh-nba-position-pools.cjs
+      - run: node scripts/refresh-nba-position-pools.cjs --reviewed
+      - name: Export reviewed NBA pools and immutable ranking archives
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),files={};
+          for(const p of ['index.html','nba-position-data.js','assets/nba-position-status.json','assets/roster-snapshots/index.json'])files[p]=fs.readFileSync(p,'utf8');
+          const index=JSON.parse(files['assets/roster-snapshots/index.json']);for(const [key,v]of Object.entries(index.snapshots))if(/^NBA\.NBA\.(PG|SG|SF|PF|C)\./.test(key))files[v.path]=fs.readFileSync(v.path,'utf8');
+          const raw=JSON.stringify(files);for(let i=0;i<raw.length;i+=12000)console.log('NBA_SOURCE_CHUNK '+i+' '+raw.slice(i,i+12000));
+          NODE
