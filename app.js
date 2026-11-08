@@ -1,13 +1,13 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const positions = ['ALL','QB','RB','WR','TE','OL','DL','LB','DB','ST'];
-const LEAGUE_POSITIONS={NFL:['QB','RB','WR','TE','LT','RT','LG','RG','C','IDL','DE','ILB','EDGE','CB','S'],NBA:['G','F','C']};
-const selectablePositions=(sport,league=false)=>league?LEAGUE_POSITIONS[sport]:SPORTS[sport].positions.filter(p=>!(sport==='NFL'?['ST','IDL','DE','ILB','EDGE','CB','S','LT','RT','LG','RG','C']:[]).includes(p));
+const LEAGUE_POSITIONS={NFL:['QB','RB','WR','TE','LT','RT','LG','RG','C','IDL','DE','ILB','EDGE','CB','S'],NBA:['PG','SG','SF','PF','C']};
+const selectablePositions=(sport,league=false)=>league?LEAGUE_POSITIONS[sport]:sport==='NBA'?['ALL','G','F','C']:SPORTS[sport].positions.filter(p=>!['ST','IDL','DE','ILB','EDGE','CB','S','LT','RT','LG','RG','C'].includes(p));
 
 const nbaReady=typeof NBA_TEAM_INFO!=='undefined';
 const ALL_TEAM_INFO={...TEAM_INFO,...(nbaReady?NBA_TEAM_INFO:{})};
 const ALL_HEADSHOTS={...HEADSHOTS,...(typeof NFL_POSITION_HEADSHOTS==='undefined'?{}:NFL_POSITION_HEADSHOTS),...(nbaReady?NBA_HEADSHOTS:{})};
-const SPORTS={NFL:{teams:TEAM_INFO,positions:[...new Set([...positions,...LEAGUE_POSITIONS.NFL])]},...(nbaReady?{NBA:{teams:NBA_TEAM_INFO,positions:['ALL','G','F','C']}}:{})};
+const SPORTS={NFL:{teams:TEAM_INFO,positions:[...new Set([...positions,...LEAGUE_POSITIONS.NFL])]},...(nbaReady?{NBA:{teams:NBA_TEAM_INFO,positions:['ALL','G','F','C','PG','SG','SF','PF']}}:{})};
 let activeSport='NFL';
 const leagueFor=team=>ALL_TEAM_INFO[team]?.league||'NFL';
 const rosterFor=team=>isLeaguePool(team)?leaguePlayers(leagueFor(team)):leagueFor(team)==='NBA'?NBA_ROSTERS[team]:ROSTERS[team];
@@ -17,19 +17,20 @@ const selectionKey=sport=>prefixFor(sport)+'-selection';
 
 
 const LEAGUE_NAMES={NFL:'NFL League',NBA:'NBA League'};
-const POSITION_LABELS={NFL:{QB:'Quarterbacks',RB:'Running backs',WR:'Wide receivers',TE:'Tight ends',OL:'Offensive line',LT:'Left tackles',RT:'Right tackles',LG:'Left guards',RG:'Right guards',C:'Centers',DL:'Defensive line',LB:'Linebackers',DB:'Defensive backs',ST:'Special teams',IDL:'Interior defensive line',DE:'Defensive ends',ILB:'Inside linebackers',EDGE:'Edge rushers',CB:'Cornerbacks',S:'Safeties'},NBA:{G:'Guards',F:'Forwards',C:'Centers'}};
-const POSITION_SINGULAR={QB:'quarterback',RB:'running back',WR:'wide receiver',TE:'tight end',OL:'offensive lineman',LT:'left tackle',RT:'right tackle',LG:'left guard',RG:'right guard',DL:'defensive lineman',LB:'linebacker',DB:'defensive back',ST:'special teams player',IDL:'interior defensive lineman',DE:'defensive end',ILB:'inside linebacker',EDGE:'edge rusher',CB:'cornerback',S:'safety',G:'guard',F:'forward',C:'center'};
+const POSITION_LABELS={NFL:{QB:'Quarterbacks',RB:'Running backs',WR:'Wide receivers',TE:'Tight ends',OL:'Offensive line',LT:'Left tackles',RT:'Right tackles',LG:'Left guards',RG:'Right guards',C:'Centers',DL:'Defensive line',LB:'Linebackers',DB:'Defensive backs',ST:'Special teams',IDL:'Interior defensive line',DE:'Defensive ends',ILB:'Inside linebackers',EDGE:'Edge rushers',CB:'Cornerbacks',S:'Safeties'},NBA:{G:'Guards',F:'Forwards',PG:'Point guards',SG:'Shooting guards',SF:'Small forwards',PF:'Power forwards',C:'Centers'}};
+const POSITION_SINGULAR={QB:'quarterback',RB:'running back',WR:'wide receiver',TE:'tight end',OL:'offensive lineman',LT:'left tackle',RT:'right tackle',LG:'left guard',RG:'right guard',DL:'defensive lineman',LB:'linebacker',DB:'defensive back',ST:'special teams player',IDL:'interior defensive lineman',DE:'defensive end',ILB:'inside linebacker',EDGE:'edge rusher',CB:'cornerback',S:'safety',PG:'point guard',SG:'shooting guard',SF:'small forward',PF:'power forward',G:'guard',F:'forward',C:'center'};
 const leaguePoolCache=new Map();
 const leagueTeam=sport=>LEAGUE_NAMES[sport];
 const isLeaguePool=team=>ALL_TEAM_INFO[team]?.scope==='league';
 const positionLabel=(sport,pos)=>POSITION_LABELS[sport]?.[pos]||pos;
 function leaguePlayers(sport){
- const rows=sport==='NFL'&&typeof NFL_POSITION_PLAYERS!=='undefined'?[NFL_POSITION_PLAYERS]:Object.values(sport==='NBA'?NBA_ROSTERS:ROSTERS),cached=leaguePoolCache.get(sport);
+ const rows=sport==='NFL'&&typeof NFL_POSITION_PLAYERS!=='undefined'?[NFL_POSITION_PLAYERS]:sport==='NBA'&&typeof NBA_POSITION_PLAYERS!=='undefined'?[NBA_POSITION_PLAYERS]:Object.values(sport==='NBA'?NBA_ROSTERS:ROSTERS),cached=leaguePoolCache.get(sport);
  if(cached&&cached.rows.length===rows.length&&rows.every((row,i)=>row===cached.rows[i]&&row.length===cached.lengths[i]))return cached.players;
  const players=rows.flat().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0);
  leaguePoolCache.set(sport,{rows,lengths:rows.map(row=>row.length),players});return players;
 }
 function leagueVerified(sport){
+ if(sport==='NBA'&&typeof NBA_POSITION_INFO!=='undefined')return NBA_POSITION_INFO.verified;
  if(sport==='NFL'&&typeof NFL_POSITION_INFO!=='undefined')return NFL_POSITION_INFO.verified;
  const dates=Object.values(SPORTS[sport].teams).map(t=>t.verified||(sport==='NFL'?'November 5, 2026':'November 6, 2026'));
  return dates.sort((a,b)=>new Date(a)-new Date(b))[0];
@@ -147,9 +148,10 @@ function openPreviousRanking(){
 }
 function renderRosterHistory(){
  const previousOL=!!state&&isLeaguePool(state.team)&&leagueFor(state.team)==='NFL'&&state.pos==='OL';
- $('latest-roster').hidden=previousOL;
+ const previousNBA=!!state&&isLeaguePool(state.team)&&leagueFor(state.team)==='NBA'&&['G','F'].includes(state.pos);
+ $('latest-roster').hidden=previousOL||previousNBA;
  const older=!sharedRanking&&earlierRoster(state);$('saved-roster-note').hidden=!older;
- if(older)$('saved-roster-message').textContent=previousOL?'This is your previous combined offensive-line ranking. Continue it here, or choose one of the five new line positions.':'Your saved ranking uses the '+(state.rosterVerified||'previous')+' roster. '+(state.done?'Keep this list, or rank the latest players.':'Keep going, or start with the latest players.');
+ if(older)$('saved-roster-message').textContent=previousNBA?'This is your previous combined '+positionLabel('NBA',state.pos).toLowerCase()+' ranking. Continue it here, or choose one of the five new positions.':previousOL?'This is your previous combined offensive-line ranking. Continue it here, or choose one of the five new line positions.':'Your saved ranking uses the '+(state.rosterVerified||'previous')+' roster. '+(state.done?'Keep this list, or rank the latest players.':'Keep going, or start with the latest players.');
  let list=[];try{list=JSON.parse(read(keyFor($('team').value,$('position').value)+':roster-archives'))||[];}catch{}
  if(!Array.isArray(list))list=[];
  const active=state?stampForScope(state.team,state.players):rankingStamp($('team').value,$('position').value);
@@ -185,6 +187,7 @@ function applyTheme() {
   for(const b of $('ranking-mode').children)b.setAttribute('aria-pressed',String(b.dataset.mode===rankingMode));
   $('team-field').hidden=league;$('save-scope-note').textContent=league?'Each position saves separately':'Each team and filter saves separately';
  if(league&&activeSport==='NFL'){const pos=$('position').value,lineMinimum=typeof NFL_POSITION_INFO!=='undefined'?NFL_POSITION_INFO.offensiveLine?.minimumOffensiveSnaps?.[pos]:null,minimum=lineMinimum?lineMinimum+' offensive snaps':{QB:'50 passing attempts',RB:'25 rushes or 10 receptions',WR:'10 receptions',TE:'10 receptions',IDL:'50% defensive snaps',DE:'25% defensive snaps',ILB:'60% defensive snaps',EDGE:'40% defensive snaps',CB:'65% defensive snaps',S:'60% defensive snaps'}[pos];if(minimum)$('save-scope-note').textContent=minimum+(lineMinimum?' · Regular season':' · Notable exceptions included');}
+  if(league&&activeSport==='NBA')$('save-scope-note').textContent='Starters · Injured starters included';
   for(const [key,value] of Object.entries(c.colors))document.documentElement.style.setProperty('--'+key,value);
   document.documentElement.style.setProperty('--pick-ink',primaryTextColor(c.colors.primary));
   globalThis.SiteAppearance?.setTeamColors(c.colors);
@@ -365,10 +368,11 @@ function selectDivision(division){
 function populateSport(){
  const league=rankingMode==='positions',teams=league?[leagueTeam(activeSport)]:teamsFor(activeSport),allowed=[...selectablePositions(activeSport,league)];
  if(league&&activeSport==='NFL'&&stored(leagueTeam('NFL'),'OL'))allowed.push('OL');
+ if(league&&activeSport==='NBA')for(const pos of ['G','F'])if(stored(leagueTeam('NBA'),pos))allowed.push(pos);
  let selection=null;try{selection=JSON.parse(read(selectionKey(activeSport)));}catch{}
  $('team').replaceChildren();for(const team of teams)$('team').add(new Option(team,team));
  $('position').replaceChildren();for(const pos of allowed){
-  const label=league?(pos==='OL'&&activeSport==='NFL'?'Previous OL ranking':positionLabel(activeSport,pos)):pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
+  const label=league?(pos==='OL'&&activeSport==='NFL'?'Previous OL ranking':activeSport==='NBA'&&['G','F'].includes(pos)?'Previous '+positionLabel('NBA',pos).toLowerCase()+' ranking':positionLabel(activeSport,pos)):pos==='ALL'?'All positions':activeSport==='NBA'?{G:'Guards',F:'Forwards',C:'Centers'}[pos]:pos;
   $('position').add(new Option(label,pos));
  }
  $('team').value=teams.includes(selection?.team)?selection.team:teams[0];

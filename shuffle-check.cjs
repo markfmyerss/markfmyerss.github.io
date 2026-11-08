@@ -5,7 +5,7 @@ for(const [sport,mode,team,pos] of [
  ['NFL','teams','Baltimore Ravens','ALL'],
  ['NBA','teams','Boston Celtics','ALL'],
  ['NFL','positions','NFL League','QB'],
- ['NBA','positions','NBA League','G']
+ ['NBA','positions','NBA League','PG']
 ]){
  let b=boot();b.run('selectSport('+JSON.stringify(sport)+');selectRankingMode('+JSON.stringify(mode)+')');
  b.e('team').value=team;b.e('position').value=pos;b.run('selectTeam()');
