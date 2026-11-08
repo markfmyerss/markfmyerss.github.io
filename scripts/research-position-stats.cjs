@@ -8,17 +8,27 @@ for(const [cat,sort,index]of [['passing','passingattempts',3],['rushing','rushin
 let url='https://www.nfl.com/stats/player-stats/category/'+cat+'/2026/REG/all/'+sort+'/desc';const seen=new Set(),records=[];
 for(let page=1;url;page++){
 assert(page<=40,'Too many pages');if(seen.has(url)) { console.log('REPEAT_SOURCE',cat,url); break; }seen.add(url);
-const requestURL=new URL(url);requestURL.searchParams.set('research',Date.now()+'-'+cat+'-'+page);const html=await get(requestURL.href);fs.writeFileSync(out+'/'+cat+'-'+page+'.html',html);
-const rows=[...html.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)];
-let n=0;
-for(const row of rows){
+let html,pageRows,accepted=false,actualURL=url;
+const variants=[url,url.replace('/REG/','/reg/'),url.replace('www.nfl.com','amp.nfl.com'),url.replace('/DESC','/desc'),url.replace('/REG/','/reg/').replace('/DESC','/desc')];
+for(let attempt=0;attempt<variants.length;attempt++){
+const requestURL=new URL(variants[attempt]);if(attempt===4)requestURL.searchParams.set('research',Date.now()+'-'+cat+'-'+page);
+try{
+html=await get(requestURL.href);pageRows=[];
+for(const row of html.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){
 const cells=[...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)].map(x=>x[1]);if(!cells.length)continue;
 const a=[...cells[0].matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)].find(x=>/\/players\//.test(x[1])&&clean(x[2]));
 assert(a,'No player link');const value=Number(clean(cells[index]).replace(/,/g,''));assert(Number.isInteger(value)&&value>=0,'Invalid statistic');
-records.push({name:clean(a[2]),profile:new URL(a[1],url).href,value});n++;
+pageRows.push({name:clean(a[2]),profile:new URL(a[1],'https://www.nfl.com').href,value});
 }
+if(!pageRows.length||pageRows.some(p=>records.some(r=>r.profile===p.profile))){console.log('RETRY_STALE_PAGE',cat,page,attempt);continue;}
+if(records.length)assert(pageRows[0].value<=records.at(-1).value,'Statistic sort order changed');
+accepted=true;actualURL=requestURL.href;break;
+}catch(e){console.log('RETRY_SOURCE',cat,page,attempt,e.message);}
+}
+assert(accepted,'No fresh source page for '+cat+' page '+page);
+fs.writeFileSync(out+'/'+cat+'-'+page+'.html',html);records.push(...pageRows);const n=pageRows.length;
 assert(n>0,'Empty statistics page '+url);
-sources.push({category:cat,page,url,rows:n});
+sources.push({category:cat,page,url:actualURL,rows:n});
 const anchors=[...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)];
 console.log('PAGE',cat,page,url,'rows',n,'first',records.at(-n),'last',records.at(-1),'links',JSON.stringify(anchors.filter(x=>/Page/i.test(clean(x[2]))).map(x=>({href:x[1],text:clean(x[2])}))));
 const nav=html.slice(html.lastIndexOf('<footer class="d3-o-table__footer">'));const next=nav.match(/<a\b[^>]*href="([^"]+)"[^>]*class="[^"]*nfl-o-table-pagination__next[^\"]*"/i);
