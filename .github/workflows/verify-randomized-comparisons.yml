@@ -1,0 +1,25 @@
+name: Verify published randomized comparisons
+on:
+  push:
+    branches: [verify-randomized-comparisons-live]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+          const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+          (async()=>{for(const file of ['index.html','app.js']){
+            const expected=fs.readFileSync(file,'utf8');let live;
+            for(let i=0;i<30;i++){const r=await fetch('https://markfmyerss.github.io/'+file+'?shuffle='+Date.now());if(r.ok){live=await r.text();if(hash(live)===hash(expected))break;}await new Promise(r=>setTimeout(r,5000));}
+            assert.equal(hash(live||''),hash(expected),'Public file mismatch '+file);console.log('PASS published '+file);
+          }})().catch(e=>{console.error(e);process.exit(1)});
+          NODE
