@@ -1,0 +1,31 @@
+const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict'),T=require('./roster-tools.cjs'),{chromium}=require('@playwright/test');
+const root='https://markfmyerss.github.io/';
+const get=async p=>{const r=await fetch(root+p+(p.includes('?')?'&':'?')+'verify='+Date.now(),{signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,p);return r;};
+const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+(async()=>{
+for(let attempt=0;attempt<60;attempt++){try{const live=Buffer.from(await(await get('app.js')).arrayBuffer());if(sha(live)===sha(fs.readFileSync('app.js')))break;if(attempt===59)throw Error('Public app did not update');}catch(e){if(attempt===59)throw e;}await new Promise(r=>setTimeout(r,10000));}
+for(const p of ['app.js','nfl-position-data.js','exports.js'])assert.equal(sha(Buffer.from(await(await get(p)).arrayBuffer())),sha(fs.readFileSync(p)),p);
+const expected=JSON.parse(fs.readFileSync('assets/nfl-position-status.json')),status=await(await get('assets/nfl-position-status.json')).json();assert.deepEqual(status.counts,expected.counts);
+const data=T.loadData(),index=await(await get('assets/roster-snapshots/index.json')).json();
+for(const pos of ['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S']){const ps=T.filtered(data.NFL_POSITION_PLAYERS,pos),key=['NFL','NFL',pos,T.leagueStamp(ps)].join('.');assert(index.snapshots[key],key);const s=await(await get(index.snapshots[key].path)).json();assert.equal(T.leagueCanonical(s.players),T.leagueCanonical(ps));}
+const browser=await chromium.launch();try{
+const page=await browser.newPage({viewport:{width:390,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(root+'?v=eligible-v1');
+assert.equal(await page.locator('#position option[value=ST]').count(),0);await page.click('[data-mode=positions]');
+assert.deepEqual(await page.locator('#position option').evaluateAll(os=>os.map(o=>o.value)),['QB','RB','WR','TE','OL','IDL','DE','ILB','EDGE','CB','S']);
+assert.equal(await page.locator('#league-position-grid [data-position=ST]').count(),0);
+for(const [pos,count]of Object.entries(expected.counts)){await page.selectOption('#position',pos);await page.click('#start');assert.equal(await page.evaluate(()=>state.players.length),count,pos);await page.click('#right');const progress=await page.locator('#progress').textContent();await page.reload();assert.equal(await page.locator('#progress').textContent(),progress);await page.click('#undo');}
+await page.selectOption('#position','CB');if(await page.locator('#start').isVisible())await page.click('#start');
+const link=await page.evaluate(()=>{state={...state,done:true,sorted:[...state.players].reverse(),stack:[],history:[]};render();return encodeRankingLink(state);});assert.equal(new URL(link).search,'?v=eligible-v1');await page.goto(link);await page.waitForFunction(()=>sharedRanking?.pos==='CB');assert.equal(await page.evaluate(()=>sharedRanking.players.length),81);
+const image=await page.evaluate(async()=>{const image=await ResultsExport.createImage({team:sharedRanking.team,pos:sharedRanking.pos,players:sharedRanking.sorted},{size:'1x1',type:'png',scope:'all'});return {missing:image.missingPhotos,players:image.players.length,pages:image.pages};});assert.equal(image.players,81);assert.equal(image.pages,1);assert.equal(image.missing,0);
+await page.goto(root+'?v=eligible-v1');
+const legacyKey=Object.keys(index.snapshots).find(k=>k.startsWith('NFL.NFL.QB.')&&k!==['NFL','NFL','QB',T.leagueStamp(T.filtered(data.NFL_POSITION_PLAYERS,'QB'))].join('.'));
+assert(legacyKey);const old=await(await get(index.snapshots[legacyKey].path)).json();const oldPlayers=T.filtered(old.players,'QB');
+await page.evaluate(ps=>{localStorage.setItem('fan-favorites-sport','NFL');localStorage.setItem('nfl-sorter-ranking-mode','positions');localStorage.setItem('nfl-sorter-league-position','QB');localStorage.setItem('nfl-position-sorter-v1:QB',JSON.stringify({team:'NFL League',pos:'QB',players:ps,sorted:[...ps].reverse(),done:true,stack:[],history:[],comparisons:0}));},oldPlayers);
+await page.reload();assert.equal(await page.evaluate(()=>state.players.length),oldPlayers.length);assert(await page.locator('#saved-roster-note').isVisible());await page.click('#latest-roster');assert.equal(await page.evaluate(()=>state.players.length),41);assert(await page.locator('#previous-rankings').isVisible());
+await page.click('[data-sport=NBA].sport-button');await page.click('[data-mode=positions]');assert.equal(await page.locator('#position option').count(),3);await page.click('[data-position=G]');assert.equal(await page.evaluate(()=>state.team),'NBA League');assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
+await page.goto(root+'?v=eligible-v1');await page.click('[data-sport=NFL].sport-button');await page.click('[data-mode=positions]');await page.evaluate(()=>{state=null;render();});await fs.promises.mkdir('qa',{recursive:true});await page.screenshot({path:'qa/approved-positions-live.png',fullPage:true});
+const visual=fs.readFileSync('qa/approved-positions-live.png').toString('base64');for(let i=0;i<visual.length;i+=12000)console.log('ELIGIBLE_VISUAL '+i+' '+visual.slice(i,i+12000));
+console.log('PASS public approved pool counts, six defensive groups, Special Teams removal, all 11 filters, save/reload/undo, sharing, single-image portraits, legacy QB preservation/latest switch and NBA isolation');
+}finally{await browser.close();}
+console.log('PASS public deployed app/data/export hashes and all 11 NFL snapshot archives');
+})().catch(e=>{console.error(e);process.exit(1)});
