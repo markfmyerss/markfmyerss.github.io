@@ -97,11 +97,12 @@ html[data-appearance=light] body[data-sport=NBA] .appearance-option[aria-pressed
 @media(max-width:600px){
  html body[data-sport] main{padding-top:15px}
  html body[data-sport] header,html body[data-sport=NBA] header{padding:20px 17px 22px}
- html body[data-sport] .header-topline{align-items:flex-start;flex-wrap:wrap;gap:10px}
+ html body[data-sport] .header-topline{align-items:center;flex-wrap:wrap;gap:10px}
  .league-brandline{margin-bottom:19px;gap:11px}.league-wordmark{font-size:1.9rem}body[data-sport=NBA] .league-wordmark{font-size:1.4rem}
  #league-tagline{font-size:.54rem;letter-spacing:.12em}
  html body[data-sport] header h1{margin-top:24px}
  html body[data-sport] header .lede{font-size:.82rem}
+ html body[data-sport] header .kicker{font-size:.55rem;letter-spacing:.1em}
  .league-art{right:-105px;width:270px}.league-art svg{min-height:280px}
  html body[data-sport] .team-tile{padding:17px 13px}
  html body[data-sport=NFL] .team-tile strong{font-size:1.55rem}
