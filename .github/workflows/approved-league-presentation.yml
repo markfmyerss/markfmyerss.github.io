@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node flow-check.cjs
+      - run: node design-check.cjs
       - run: node league-style-check.cjs
       - run: node appearance-check.cjs
       - name: Export review screenshots
