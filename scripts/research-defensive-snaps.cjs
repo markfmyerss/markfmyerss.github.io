@@ -1,0 +1,43 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {get,clean,loadData,normalize,group,mapLimit}=require('./roster-tools.cjs');
+function csv(text){const out=[];let row=[],cell='',q=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(q&&text[i+1]==='"'){cell+='"';i++;}else q=!q;}else if(c===','&&!q){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))out.push(row);row=[];cell='';}else cell+=c;}if(cell||row.length){row.push(cell);out.push(row);}const head=out.shift();return out.map(r=>Object.fromEntries(head.map((k,i)=>[k,r[i]??''])));}
+const alias=s=>normalize(s).replace(/(?:jr|sr|iii|ii|iv|v)$/,'');
+const codes={LA:'LAR',STL:'LAR',SD:'LAC',OAK:'LV',LVR:'LV',WSH:'WAS',JAC:'JAX'};
+const code=s=>codes[s]||s;
+(async()=>{
+const source='https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv',raw=await get(source),all=csv(raw);
+console.log('SNAP_SCHEMA',Object.keys(all[0]),'sample',JSON.stringify(all[0]));
+for(const k of ['season','game_type','game_id','week','player','pfr_player_id','team','defense_snaps','defense_pct'])assert(k in all[0],'Missing '+k);
+const stats=all.filter(r=>+r.season===2026&&r.game_type==='REG');assert(stats.length>1000,'Incomplete regular season data');
+for(const r of stats){r.team=code(r.team);r.defense_snaps=+r.defense_snaps;r.defense_pct=+r.defense_pct;r.week=+r.week;assert(r.defense_snaps>=0&&Number.isInteger(r.defense_snaps));assert(r.defense_pct>=0&&r.defense_pct<=1);}
+const keys=new Set();for(const r of stats){const k=[r.game_id,r.team,r.pfr_player_id].join(':');assert(!keys.has(k),'Duplicate game player');keys.add(k);}
+const byGame=new Map();for(const r of stats){const k=r.game_id+':'+r.team;if(!byGame.has(k))byGame.set(k,[]);byGame.get(k).push(r);}
+const games=new Map();for(const [k,rows]of byGame){const high=Math.max(...rows.map(r=>r.defense_snaps));const candidates=[];for(let n=high;n<=Math.max(400,high);n++){if(rows.every(r=>Math.abs(r.defense_snaps/n-r.defense_pct)<=.005000001))candidates.push(n);}assert(candidates.length,'Cannot infer team defensive snaps '+k);games.set(k,{min:candidates[0],max:candidates.at(-1),week:rows[0].week});}
+const data=loadData();const audits=await mapLimit(Object.entries(data.TEAM_INFO),4,async([team,info])=>{
+const html=await get(info.source);const reserves=[];let active=false;const captions=[];
+for(const t of html.matchAll(/<table\b[\s\S]*?<\/table>/gi)){const table=t[0],caption=clean(table.match(/<caption[^>]*>([\s\S]*?)<\/caption>/i)?.[1]||'');captions.push(caption);if(caption==='Active')active=true;
+if(!/injur|physically|non.football|pup/i.test(caption)||/practice/i.test(caption))continue;
+for(const row of table.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){const cells=[...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)].map(m=>m[1]);if(!cells.length)continue;
+const name=clean(cells[0].match(/class="[^"]*\bnfl-o-roster__player-name\b[^"]*"[^>]*>([\s\S]*?)<\/span>/)?.[1]||'');assert(name);
+const rosterPosition=clean(cells[2]).toUpperCase(),positions=[...new Set(rosterPosition.split(/[/-]/).map(group))];
+if(positions.some(p=>['DL','LB','DB'].includes(p)))reserves.push({name,team,rosterPosition,positions,status:caption,source:info.source});
+}}assert(active,'No Active table '+team);return {team,source:info.source,captions,reserves};});
+const players=Object.values(data.ROSTERS).flat().filter(p=>(p.positions||[p.position]).some(x=>['DL','LB','DB'].includes(x))).map(p=>({...p,positions:p.positions||[p.position],status:'Current site pool'}));
+for(const p of audits.flatMap(x=>x.reserves))if(!players.some(x=>alias(x.name)===alias(p.name)))players.push(p);
+const identities=new Map();for(const r of stats){if(!identities.has(r.pfr_player_id))identities.set(r.pfr_player_id,{id:r.pfr_player_id,names:new Set(),teams:new Set(),rows:[]});const v=identities.get(r.pfr_player_id);v.names.add(alias(r.player));v.teams.add(r.team);v.rows.push(r);}
+const teamTotals=new Map();for(const [key,g]of games){const team=key.slice(key.lastIndexOf(':')+1);const v=teamTotals.get(team)||{min:0,max:0,games:0};v.min+=g.min;v.max+=g.max;v.games++;teamTotals.set(team,v);}
+const results=players.map(p=>{
+const currentCode=code(data.TEAM_INFO[p.team].code);
+let found=[...identities.values()].filter(x=>x.names.has(alias(p.name)));if(found.length>1)found=found.filter(x=>x.teams.has(currentCode));
+if(found.length!==1)return {name:p.name,team:p.team,positions:p.positions,status:p.status,matchStatus:found.length?'ambiguous':'no-snap-record',games:0,defensiveSnaps:null,qualifiesGamesPlayed:null,qualifiesSeason:null};
+const identity=found[0],rows=identity.rows;const total=rows.reduce((n,r)=>n+r.defense_snaps,0);
+const opportunity=rows.reduce((v,r)=>{const g=games.get(r.game_id+':'+r.team);v.min+=g.min;v.max+=g.max;return v;},{min:0,max:0});
+const current=rows.filter(r=>r.team===currentCode).reduce((n,r)=>n+r.defense_snaps,0),season=teamTotals.get(currentCode);assert(season,'Missing team '+currentCode);
+const lower=total/opportunity.max,upper=total/opportunity.min,seasonLower=current/season.max,seasonUpper=current/season.min;
+return {name:p.name,team:p.team,positions:p.positions,status:p.status,pfrId:identity.id,matchStatus:'matched',games:rows.length,defensiveSnaps:total,currentClubDefensiveSnaps:current,playedShareMin:lower,playedShareMax:upper,seasonShareMin:seasonLower,seasonShareMax:seasonUpper,qualifiesGamesPlayed:lower>=.25?true:upper<.25?false:'boundary-uncertain',qualifiesSeason:seasonLower>=.25?true:seasonUpper<.25?false:'boundary-uncertain',multipleClubs:identity.teams.size>1};
+});
+const summary=['DL','LB','DB'].map(position=>{const rows=results.filter(p=>p.positions.includes(position));return {position,currentPool:rows.filter(p=>p.status==='Current site pool').length,injuredReviewed:rows.filter(p=>p.status!=='Current site pool').length,qualifiesGamesPlayed:rows.filter(p=>p.qualifiesGamesPlayed===true).length,qualifiesSeason:rows.filter(p=>p.qualifiesSeason===true).length,uncertainGamesPlayed:rows.filter(p=>p.qualifiesGamesPlayed==='boundary-uncertain').length,uncertainSeason:rows.filter(p=>p.qualifiesSeason==='boundary-uncertain').length,unmatched:rows.filter(p=>p.matchStatus!=='matched').length,floors:[0,50,100,150].map(minimumDefensiveSnaps=>({minimumDefensiveSnaps,count:rows.filter(p=>p.qualifiesGamesPlayed===true&&p.defensiveSnaps>=minimumDefensiveSnaps).length})),lowSampleQualifiers:rows.filter(p=>p.qualifiesGamesPlayed===true&&p.defensiveSnaps<100).map(p=>({name:p.name,defensiveSnaps:p.defensiveSnaps,games:p.games,status:p.status}))};});
+const report={status:'research-only-not-deployed',checkedAt:new Date().toISOString(),season:2026,seasonType:'REG',minimumShare:.25,approvedRule:'25% defensive snap share',denominatorPendingReview:true,absoluteSnapFloorPendingReview:true,source,attribution:'nflverse-data snap counts, sourced from Pro Football Reference; CC BY 4.0 https://github.com/nflverse/nflverse-data/blob/main/LICENSE.md',sourceSHA256:crypto.createHash('sha256').update(raw).digest('hex'),regularSeasonRows:stats.length,games:games.size/2,weeks:[...new Set(stats.map(r=>r.week))].sort((a,b)=>a-b),ambiguousTeamGameDenominators:[...games.values()].filter(g=>g.min!==g.max).length,summary,players:results,teamAudits:audits.map(x=>({team:x.team,source:x.source,captions:x.captions})),notes:['Played-game share is total defensive snaps divided by team defensive opportunities in every game with a recorded appearance, across clubs if traded; zero-defensive-snap special-team appearances remain in the denominator.','Season share uses defensive snaps with current club divided by all that club defensive opportunities in the dataset; traded players may differ.','Team game opportunities are inferred from per-player snaps and rounded percentages. Bounds are preserved; uncertain 25% decisions are not counted.','No absolute snap minimum is approved; floor comparisons are research only. Unmatched players are unresolved, not assumed zero.','Includes current site DL/LB/DB players plus injury-reserve defenders from 32 official team pages. No live filter has changed.']};
+fs.mkdirSync('research-output',{recursive:true});fs.writeFileSync('research-output/snap_counts_2026.csv',raw);fs.writeFileSync('research-output/defensive-eligibility.json',JSON.stringify(report,null,2));
+console.log('DEF_SUMMARY',JSON.stringify(summary));const text=JSON.stringify(report);for(let i=0;i<text.length;i+=12000)console.log('DEF_CHUNK',i,text.slice(i,i+12000));console.log('DEF_COMPLETE',report.checkedAt);
+})().catch(e=>{console.error(e);process.exit(1)});
