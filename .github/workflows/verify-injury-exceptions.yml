@@ -1,0 +1,35 @@
+name: Verify published injury exceptions
+on:
+  push:
+    branches: [verify-injury-exceptions-live]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify public files, approved players, headshots and caps
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),vm=require('node:vm');
+          const base='https://markfmyerss.github.io/',hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+          (async()=>{
+          for(const file of ['index.html','nfl-position-data.js','assets/nfl-position-status.json']){
+            const expected=fs.readFileSync(file,'utf8');let live;
+            for(let attempt=0;attempt<30;attempt++){const r=await fetch(base+file+'?injury='+Date.now());if(r.ok){live=await r.text();if(hash(live)===hash(expected))break;}await new Promise(r=>setTimeout(r,5000));}
+            assert.equal(hash(live||''),hash(expected),'Published file mismatch '+file);console.log('PASS public file '+file);
+          }
+          const source=await (await fetch(base+'nfl-position-data.js?verify='+Date.now())).text();
+          const d=vm.runInNewContext('const HEADSHOTS={};'+source+';({players:NFL_POSITION_PLAYERS,shots:NFL_POSITION_HEADSHOTS,info:NFL_POSITION_INFO})');
+          const names=["Micah Parsons","Jordyn Tyson","Kerby Joseph","Laremy Tunsil","Ikem Ekwonu","Tyler Biadasz","Harold Landry III","Jalon Walker","Nic Scourton","Ricky Pearsall","Bryan Bresee","Josh Simmons"];
+          for(const name of names){const p=d.players.find(p=>p.name===name);assert(p,'Missing '+name);const shot=d.shots[p.id];assert(shot.url&&shot.source,'Portrait provenance '+name);const r=await fetch(shot.url);assert(r.ok&&r.headers.get('content-type').startsWith('image/'),'Live portrait '+name);console.log('PASS live player and headshot '+name);}
+          for(const name of ['Jeremiah Owusu-Koramoah','Jayden Higgins','Denzel Perryman','Jamal Adams'])assert(!d.players.some(p=>p.name===name),'Unapproved '+name);
+          for(const g of ['LT','RT','LG','RG','C'])assert(d.info.counts[g]<=40,g+' cap');
+          console.log('PASS all twelve approved additions, four declined omissions, five OL caps');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
