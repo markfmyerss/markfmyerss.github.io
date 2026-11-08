@@ -22,7 +22,7 @@ sources.push({category:cat,page,url,rows:n});
 const anchors=[...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)];
 console.log('PAGE',cat,page,url,'rows',n,'links',JSON.stringify(anchors.filter(x=>/Page/i.test(clean(x[2]))).map(x=>({href:x[1],text:clean(x[2])}))));
 const next=anchors.find(x=>/Next Page/i.test(clean(x[2])));
-url=next?new URL(next[1].replace(/&amp;/g,'&'),'https://www.nfl.com').href:null;
+if(next){const u=new URL(next[1].replace(/&amp;/g,'&'),'https://www.nfl.com');const cursor=u.search.match(/[?&]aftercursor=([^&]+)/)?.[1];assert(cursor,'Missing pagination cursor');u.search='?aftercursor='+encodeURIComponent(decodeURIComponent(cursor));url=u.href;}else url=null;
 }
 const unique=new Map();for(const r of records){const old=unique.get(r.profile);if(old)assert.equal(old.value,r.value,'Conflicting repeated player');unique.set(r.profile,r);}
 stats[cat]=[...unique.values()];console.log('SOURCE_TOTAL',cat,stats[cat].length,'pages',seen.size);
