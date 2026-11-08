@@ -83,6 +83,11 @@ jobs:
       - run: node tests.cjs
       - run: node headshots-check.cjs
       - run: node browser-check.cjs
+      - name: Audit next weekly eligibility refresh without publishing
+        run: |
+          node scripts/refresh-position-pools.cjs
+          node eligibility-check.cjs
+          node current-rosters-check.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
