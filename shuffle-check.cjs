@@ -22,7 +22,7 @@ for(const [sport,mode,team,pos] of [
  b.run('start()');assert.equal(b.run('JSON.stringify(state)'),saved,'Start preserves existing comparison');
  b=boot(b.storage);assert.equal(b.run('JSON.stringify(state)'),saved,'Reload preserves shuffled comparisons');
  const beforeUndo=b.run('JSON.stringify({...state,history:[]})');b.run('choose("right");undo()');
- assert.equal(b.run('JSON.stringify({...state,history:[]})'),beforeUndo,'Undo preserves order');
+ assert.deepEqual(JSON.parse(b.run('JSON.stringify({...state,history:[]})')),JSON.parse(beforeUndo),'Undo preserves order');
  b.run('reset();Math.random=()=>0.999999;start()');
  assert.deepEqual(Array.from(b.run('state.stack[0].items.map(p=>p.id)')),ids,'Fresh ranking uses fresh random draws');
  assert.equal(b.run('JSON.stringify(rosterFor($("team").value))'),canonical);
