@@ -1,20 +1,228 @@
 {
-  "version": 1,
-  "status": "research-only-not-deployed",
+  "version": 2,
+  "status": "approved-policy-not-deployed",
   "season": 2026,
   "seasonType": "REG",
-  "positions": [
-    "DL",
-    "LB",
-    "DB"
-  ],
-  "minimumDefensiveSnapShare": 0.25,
+  "minimumDefensiveSharePercent": {
+    "IDL": 50,
+    "DE": 25,
+    "ILB": 60,
+    "EDGE": 40,
+    "CB": 65,
+    "S": 60
+  },
+  "denominator": "Team defensive opportunities in games with a recorded player appearance, weighted by snaps; zero-defensive-snap special-teams appearances remain in the denominator.",
+  "denominatorApprovedWithThresholdSelection": true,
   "absoluteDefensiveSnapMinimum": null,
-  "absoluteMinimumApproved": false,
-  "proposedDenominator": "team defensive opportunities in games with a recorded player appearance, weighted by snaps",
-  "denominatorNeedsFinalReview": true,
   "includeQualifiedInjuredPlayers": true,
-  "namedExceptions": [],
-  "source": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv",
-  "unmatchedHandling": "Review; do not assume zero or silently discard before deployment."
+  "approvedPlayerExceptions": [
+    {
+      "name": "Ed Oliver",
+      "group": "IDL",
+      "pfrId": "OlivEd00",
+      "espnId": "4039303",
+      "teamAtReview": "Buffalo Bills",
+      "shareAtReview": 0.49818181818181817,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Christian Barmore",
+      "group": "IDL",
+      "pfrId": "BarmCh00",
+      "espnId": "4372030",
+      "teamAtReview": "New England Patriots",
+      "shareAtReview": 0.4954337899543379,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Javon Hargrave",
+      "group": "IDL",
+      "pfrId": "HargJa00",
+      "espnId": "2983055",
+      "teamAtReview": "Green Bay Packers",
+      "shareAtReview": 0.458955223880597,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Dalvin Tomlinson",
+      "group": "IDL",
+      "pfrId": "TomlDa00",
+      "espnId": "2979860",
+      "teamAtReview": "Los Angeles Chargers",
+      "shareAtReview": 0.47619047619047616,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Jadeveon Clowney",
+      "group": "DE",
+      "pfrId": "ClowJa00",
+      "espnId": "16734",
+      "teamAtReview": "Houston Texans",
+      "shareAtReview": 0.37202380952380953,
+      "alreadyMeetsThreshold": true,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Calais Campbell",
+      "group": "DE",
+      "pfrId": "CampCa99",
+      "espnId": "11284",
+      "teamAtReview": "Baltimore Ravens",
+      "shareAtReview": 0.44982698961937717,
+      "alreadyMeetsThreshold": true,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Leo Chenal",
+      "group": "ILB",
+      "pfrId": "ChenLe00",
+      "espnId": "4426901",
+      "teamAtReview": "Washington Commanders",
+      "shareAtReview": 0.4745762711864407,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Willie Gay Jr.",
+      "group": "ILB",
+      "pfrId": "GayJWi00",
+      "espnId": "4259804",
+      "teamAtReview": "Miami Dolphins",
+      "shareAtReview": 0.49866666666666665,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Devin White",
+      "group": "ILB",
+      "pfrId": "WhitDe02",
+      "espnId": "4035434",
+      "teamAtReview": "Detroit Lions",
+      "shareAtReview": 0.28270042194092826,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Jonathan Greenard",
+      "group": "EDGE",
+      "pfrId": "GreeJo04",
+      "espnId": "3916409",
+      "teamAtReview": "Philadelphia Eagles",
+      "shareAtReview": 0.325068870523416,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Kyle Van Noy",
+      "group": "EDGE",
+      "pfrId": "VanNKy00",
+      "espnId": "16772",
+      "teamAtReview": "Minnesota Vikings",
+      "shareAtReview": 0.3247663551401869,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Cameron Jordan",
+      "group": "EDGE",
+      "pfrId": "JordCa00",
+      "espnId": "13971",
+      "teamAtReview": "New Orleans Saints",
+      "shareAtReview": 0.473551637279597,
+      "alreadyMeetsThreshold": true,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Will McDonald IV",
+      "group": "EDGE",
+      "pfrId": "McDoWi00",
+      "espnId": "4361767",
+      "teamAtReview": "New York Jets",
+      "shareAtReview": 0.4764595103578154,
+      "alreadyMeetsThreshold": true,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Joey Porter Jr.",
+      "group": "CB",
+      "pfrId": "PortJo02",
+      "espnId": "4426506",
+      "teamAtReview": "Dallas Cowboys",
+      "shareAtReview": 0.5342960288808665,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Paulson Adebo",
+      "group": "CB",
+      "pfrId": "AdebPa00",
+      "espnId": "4242547",
+      "teamAtReview": "New York Giants",
+      "shareAtReview": 0.5966386554621849,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "L'Jarius Sneed",
+      "group": "CB",
+      "pfrId": "SneeLJ00",
+      "espnId": "4040432",
+      "teamAtReview": "Kansas City Chiefs",
+      "shareAtReview": 0.6292682926829268,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Rasul Douglas",
+      "group": "CB",
+      "pfrId": "DougRa00",
+      "espnId": "3943270",
+      "teamAtReview": "Washington Commanders",
+      "shareAtReview": 0.6414686825053996,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Kenny Moore II",
+      "group": "CB",
+      "pfrId": "MoorKe03",
+      "espnId": "4218312",
+      "teamAtReview": "Philadelphia Eagles",
+      "shareAtReview": 0.4573002754820937,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Brian Branch",
+      "group": "S",
+      "pfrId": "BranBr00",
+      "espnId": "4692025",
+      "teamAtReview": "Detroit Lions",
+      "shareAtReview": 0.5666666666666667,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    },
+    {
+      "name": "Harrison Smith",
+      "group": "S",
+      "pfrId": "SmitHa00",
+      "espnId": "14945",
+      "teamAtReview": "Minnesota Vikings",
+      "shareAtReview": 0.5397196261682243,
+      "alreadyMeetsThreshold": false,
+      "reason": "User-approved named notable-player inclusion"
+    }
+  ],
+  "identityPolicy": "Match player identity by validated identifiers; names/teamAtReview are review labels. Preserve the exception through a verified team change.",
+  "unmatchedHandling": "Unresolved snap identities remain flagged for review; do not assume zero or silently remove before deployment.",
+  "sourceSnapshot": "six-groups.json",
+  "sourceSnapshotCheckedAt": "2026-11-08T02:51:49.589Z",
+  "limitations": [
+    "Counts are based on the reviewed snapshot; unresolved snap-source identities may change totals after reconciliation.",
+    "Approving this research policy does not modify live site assets or filters."
+  ]
 }
