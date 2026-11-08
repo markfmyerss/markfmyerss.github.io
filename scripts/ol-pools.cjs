@@ -20,11 +20,12 @@ const verifiedIds={'Francis "Sisi" Mauigoa':'MauiFr01','Bill Murray':'MurrBi00'}
 const played=ids.length?snaps.filter(r=>r.pfr_player_id===ids[0]):snaps.filter(r=>names.has(name(r.player)));
 const total=played.reduce((n,r)=>{assert(Number.isInteger(+r.offense_snaps)&&+r.offense_snaps>=0);return n+(+r.offense_snaps);},0);
 if(!played.length&&!ids.length){unresolved.push(p.name);continue;}
-const raw=p.rosterPosition.split(/[/-]/),direct=[...new Set(raw.map(role).filter(Boolean))];let group=direct.length===1?direct[0]:null,method=group?'official-roster':null;
+const raw=p.rosterPosition.split(/[/-]/),direct=[...new Set(raw.map(role).filter(Boolean))];let group=direct.length===1&&direct[0]!=='C'?direct[0]:null,method=group?'official-roster-side':null;
+const slots=[];for(const chart of t.depth.depthchart||[])for(const s of Object.values(chart.positions||{}))for(const [rank,a]of (s.athletes||[]).entries())if(athletes[0]?a.id===athletes[0].id:names.has(name(a.displayName))){const g=role(s.position?.abbreviation);if(g)slots.push({group:g,rank});}
+if(!group){const best=slots.length?Math.min(...slots.map(s=>s.rank)):Infinity,bestGroups=[...new Set(slots.filter(s=>s.rank===best).map(s=>s.group))];if(bestGroups.length){group=raw.length===1&&bestGroups.includes(role(raw[0]))?role(raw[0]):bestGroups[0];method=bestGroups.length===1?'ESPN-depth-chart-primary-slot':'ESPN-depth-chart-first-listed-at-best-depth';}}
 if(!group){const usage={};for(const r of played){const g=role(r.position);if(g)usage[g]=(usage[g]||0)+(+r.offense_snaps);}const sorted=Object.entries(usage).sort((a,b)=>b[1]-a[1]);if(sorted.length&&(!sorted[1]||sorted[0][1]>sorted[1][1])){group=sorted[0][0];method='snap-source-primary-role';}}
 if(!group&&athletes[0]){group=role(athletes[0].position?.abbreviation);if(group)method='ESPN-roster';}
-if(!group){const slots=[];for(const chart of t.depth.depthchart||[])for(const s of Object.values(chart.positions||{}))for(const [rank,a]of (s.athletes||[]).entries())if(athletes[0]?a.id===athletes[0].id:names.has(name(a.displayName))){const g=role(s.position?.abbreviation);if(g)slots.push({group:g,rank});}
-const best=slots.length?Math.min(...slots.map(s=>s.rank)):Infinity,bestGroups=[...new Set(slots.filter(s=>s.rank===best).map(s=>s.group))];if(bestGroups.length){group=bestGroups[0];method=bestGroups.length===1?'ESPN-depth-chart-primary-slot':'ESPN-depth-chart-first-listed-at-best-depth';}}
+if(!group&&raw.length===1&&role(raw[0])){group=role(raw[0]);method='official-roster';}
 if(!group&&total>=25){console.log('OL_ROLE_REVIEW',JSON.stringify({name:p.name,team:p.team,raw:p.rosterPosition,espn:athletes[0]?.position,snaps:total,playedPositions:[...new Set(played.map(r=>r.position))]}));unresolved.push('Role: '+p.name);continue;}if(group)rows.push({player:p,group,offensiveSnaps:total,pfrId:ids[0]||played[0]?.pfr_player_id||null,espnId:athletes[0]?.id||null,method});
 }
 assert.equal(unresolved.length,0,'Unresolved OL records: '+unresolved.join(', '));
