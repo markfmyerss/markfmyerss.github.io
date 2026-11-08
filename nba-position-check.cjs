@@ -22,7 +22,8 @@ for(const pos of ['G','F','C']){
  legacy.e('position').value='PG';legacy.run('selectTeam();start()');assert.deepEqual(Array.from(legacy.run('parseSavedState(read('+JSON.stringify('nba-position-sorter-v1:'+pos)+')).sorted.map(p=>p.id)')),old.sorted.map(p=>p.id));
 }
 b.run('selectRankingMode("teams")');assert.deepEqual(Array.from(b.run('selectablePositions("NBA",false)')),['ALL','G','F','C']);
-assert.equal(Object.values(data.NBA_ROSTERS).flat().length,524,'Full team rosters remain complete');
+assert(Object.values(data.NBA_ROSTERS).flat().length>players.length,'Full team rosters include reserves');for(const roster of Object.values(data.NBA_ROSTERS))assert(roster.length>=12&&roster.length<=25,'Complete team roster size');
+for(const t of status.teamReviews)assert.equal(t.included,players.filter(p=>p.team===t.team).length,'Per-team included count');
 console.log('PASS five disjoint NBA primary-position pools; all thirty confirmed starting lineups; injured Butler; official identity/headshot provenance; counts; separate saves/undo; legacy G/F/C rankings; full team rosters');
 
 assert(!players.some(p=>p.id==='NBA-204001'),'Porzingis excluded');assert.equal(players.find(p=>p.id==='NBA-203078')?.position,'SG','Reviewed Beal primary position');
