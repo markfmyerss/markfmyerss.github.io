@@ -49,3 +49,10 @@ html body[data-sport] .ranking-tools-dialog[open]{display:grid;grid-template-row
 html body[data-sport] #ranking-tools-close{font-family:system-ui,sans-serif;font-size:1.5rem;flex-shrink:0;min-width:40px;min-height:40px;padding:4px;background:var(--league-ui-soft);color:var(--league-ui-ink);border:1px solid var(--league-ui-line);border-radius:9px}
 
 html body[data-sport] .unfamiliar-help{font-size:.72rem;text-align:center;color:var(--league-ui-muted);margin:14px 0 0}
+
+/* Keep sorting focused while retaining the account control above appearance. */
+html body[data-sport][data-view=sorting] header .account-row,html body[data-sport][data-view=results] header .account-row{position:absolute;top:20px;right:28px;margin:0}
+html body[data-sport][data-view=sorting] header .compact-brand,html body[data-sport][data-view=results] header .compact-brand{max-width:calc(100% - 140px);font-size:clamp(1.05rem,2.5vw,1.65rem);line-height:1.15;margin-bottom:12px}
+@media(max-width:600px){
+ html body[data-sport][data-view=sorting] header .account-row,html body[data-sport][data-view=results] header .account-row{top:17px;right:17px}
+}

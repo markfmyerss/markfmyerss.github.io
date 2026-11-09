@@ -45,7 +45,7 @@
    count.textContent=shown.length+' '+(shown.length===1?'ranking':'rankings');list.replaceChildren();
    if(!shown.length){list.append(node('li','No saved rankings match these filters.','rankings-empty'));return;}
    for(const row of shown){
-    const li=node('li',undefined,'saved-ranking'),image=node('img');image.src=ALL_TEAM_INFO[row.team].logo;image.alt='';image.loading='lazy';image.onerror=()=>image.hidden=true;
+    const li=node('li',undefined,'saved-ranking'),image=node('img');image.src=globalThis.ResultsExport?.logoUrl(row.team)||ALL_TEAM_INFO[row.team].logo||'';image.alt='';image.loading='lazy';image.onerror=()=>image.hidden=true;
     const info=node('div',undefined,'saved-ranking-info');info.append(node('strong',row.title),node('span',row.sport+' · '+row.subtitle),node('small',(row.saved.done?'Complete':'In progress · '+row.saved.comparisons+' picks made')+' · '+includedPlayers(row.saved).length+' players'+(row.saved.excluded?.length?' · '+row.saved.excluded.length+' excluded':'')));
     const openButton=button(row.saved.done?'View results →':'Resume →',()=>openSaved(row.team,row.pos),'saved-ranking-open');openButton.setAttribute('aria-label',(row.saved.done?'View ':'Resume ')+row.title+' '+row.subtitle);
     li.append(image,info,openButton);list.append(li);
