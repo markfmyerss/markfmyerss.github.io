@@ -60,4 +60,14 @@ for(const [key,entry]of Object.entries(index.snapshots)){
  if(actual!==stamp){console.log('REMOVED_UNPUBLISHED_MLB_ARCHIVE_KEY '+key);delete index.snapshots[key];}
 }
 T.writeJSON('assets/roster-snapshots/index.json',index);
+
+const multiCount=Object.values(d.MLB_ROSTERS).flat().filter(p=>p.positions.length>1).length;
+let multiDoc='# MLB 2026: Multi-position team cards\n\n'+multiCount+' players have multiple positions listed on their team cards. **Bold** marks the primary position. This document matches the site’s 2026 roster snapshots and injury inclusions.\n\nBy Position uses the primary position only. **Shohei Ohtani is the sole exception:** he appears in both DH and SP pools, and his primary role is DH.\n\nSecondary positions reflect substantial playing time or established utility work, rather than occasional appearances. [Roster dates, position rules and injury sources](MLB-SOURCES.md).\n';
+for(const [team,info]of Object.entries(d.MLB_TEAM_INFO)){
+ const ps=d.MLB_ROSTERS[team].filter(p=>p.positions.length>1).sort((a,b)=>a.name.localeCompare(b.name));
+ multiDoc+='\n## '+team+'\n\n'+info.conference+' '+info.division+' · '+info.snapshotRound+' · '+info.snapshotDate+'\n\n';
+ multiDoc+=ps.length?'| Player | Team-card positions |\n|---|---|\n'+ps.map(p=>'| '+p.name+' | '+p.positions.map(pos=>pos===p.position?'**'+pos+'**':pos).join(' / ')+' |').join('\n')+'\n':'No multi-position team cards.\n';
+}
+fs.writeFileSync('MLB-MULTI-POSITION-PLAYERS.md',multiDoc);
+
 console.log('MLB_FINALIZED '+JSON.stringify({clement:d.MLB_ROSTERS['Toronto Blue Jays'].find(p=>p.name==='Ernie Clement'),ohtani:d.MLB_ROSTERS['Los Angeles Dodgers'].find(p=>p.mlbId===660271),multipleTeams:Object.values(d.MLB_ROSTERS).flat().filter(p=>p.positions.length>1).length}));
