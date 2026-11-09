@@ -17,10 +17,7 @@ jobs:
           node-version: '22'
       - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
       - run: node verify-full-portraits-cream-live.cjs
-      - run: node mlb-portrait-framing-check.cjs
+      - run: node verify-cream-outline-check.cjs
         env:
-          PORTRAIT_CHECK_URL: https://markfmyerss.github.io/?v=full-portraits-cream-v2
-      - run: node cream-export-check.cjs
-        env:
-          CREAM_EXPORT_CHECK_URL: https://markfmyerss.github.io/?v=full-portraits-cream-v2
+          CREAM_EXPORT_CHECK_URL: https://markfmyerss.github.io/?v=cream-team-outlines-v3
       - run: node mobile-export-check.cjs
