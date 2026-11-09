@@ -64,6 +64,23 @@
    image.crossOrigin='anonymous';image.referrerPolicy='no-referrer';image.onload=async()=>{if(!image.naturalWidth){finish(null);return;}if(thumbnail&&globalThis.createImageBitmap){try{const ratio=Math.min(1,160/image.naturalWidth,160/image.naturalHeight),bitmap=await createImageBitmap(image,{resizeWidth:Math.max(1,Math.round(image.naturalWidth*ratio)),resizeHeight:Math.max(1,Math.round(image.naturalHeight*ratio))});finish({drawable:bitmap,naturalWidth:bitmap.width,naturalHeight:bitmap.height});image.src='';return;}catch{}}finish(image);};image.onerror=()=>finish(null);image.src=url;
   });if(photoCache.size>=96)photoCache.delete(photoCache.keys().next().value);photoCache.set(key,promise);return promise;
  }
+ const photoBackgrounds=new WeakMap();
+ function photoBackdrop(image,fallback){
+  if(!image)return fallback;
+  const source=image.drawable||image;
+  if(photoBackgrounds.has(source))return photoBackgrounds.get(source)||fallback;
+  let color=null;
+  try{
+   const sample=document.createElement('canvas');sample.width=sample.height=16;
+   const ctx=sample.getContext('2d',{willReadFrequently:true});ctx.drawImage(source,0,0,16,16);
+   const pixels=ctx.getImageData(0,0,16,2).data;
+   const corners=[0,15,16,31].map(i=>Array.from(pixels.slice(i*4,i*4+4)));
+   if(corners.every(p=>p[3]>=250)&&[0,1,2].every(c=>Math.max(...corners.map(p=>p[c]))-Math.min(...corners.map(p=>p[c]))<=12)){
+    color='#'+[0,1,2].map(c=>Math.round(corners.reduce((n,p)=>n+p[c],0)/corners.length).toString(16).padStart(2,'0')).join('');
+   }
+  }catch{}
+  photoBackgrounds.set(source,color);return color||fallback;
+ }
  function logoUrl(team){
   const info=ALL_TEAM_INFO[team];
   if(info?.scope==='league')return new URL(info.logo,document.baseURI).href;
@@ -149,7 +166,7 @@
    const photoY=podium?b.y+12:mid-photoSize/2,photoMid=photoY+photoSize/2;
    text(ctx,String(rank),b.x+(featured?14:8),podium?b.y+29:mid+(featured?10:6),rankWidth-8,featured?(podium?22:28):Math.min(22,b.height*.68),brandInk,700);
    ctx.save();ctx.beginPath();ctx.arc(photoX+photoSize/2,photoMid,photoSize/2,0,Math.PI*2);ctx.clip();
-   ctx.fillStyle=blend(colors.primary,paper,.85);ctx.fillRect(photoX,photoY,photoSize,photoSize);
+   ctx.fillStyle=photoBackdrop(photos[i],blend(colors.primary,paper,.85));ctx.fillRect(photoX,photoY,photoSize,photoSize);
    if(photos[i]){
     const image=photos[i],scale=Math.min(photoSize/image.naturalWidth,photoSize/image.naturalHeight),iw=image.naturalWidth*scale,ih=image.naturalHeight*scale;
     ctx.drawImage(image.drawable||image,photoX+(photoSize-iw)/2,photoY+(photoSize-ih)/2,iw,ih);
