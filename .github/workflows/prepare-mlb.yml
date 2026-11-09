@@ -1,0 +1,26 @@
+name: Prepare MLB 2026 source data
+on:
+  push:
+    branches: [mlb-expansion]
+    paths: ['scripts/prepare-mlb-2026.cjs', '.github/workflows/prepare-mlb.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/prepare-mlb-2026.cjs
+      - name: Save verified candidate data on GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- mlb-data.js assets/mlb MLB-SOURCES.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Add verified 2026 MLB historical rosters, injury inclusions and official imagery"
+            git push origin HEAD:mlb-expansion
+          fi
