@@ -9,7 +9,7 @@ function sum(p,group,key){const rows=splits(p,group),totals=rows.filter(s=>!s.te
 function field(p){const m={};for(const s of splits(p,'fielding')){const pos=s.position?.abbreviation||s.stat.position?.abbreviation;if(pos)m[pos]=(m[pos]||0)+(s.stat.gamesStarted||0);}return m;}
 function primary(p,prior,roster){
  const f=field(p),old=field(prior),roles=Object.entries(Object.keys(f).length?f:old).filter(([pos])=>positions.includes(pos)||pos==='P').sort((a,b)=>b[1]-a[1]);
- let role=roles[0]?.[0]||roster.position?.abbreviation||p.primaryPosition?.abbreviation;
+ let role=roles[0]?.[0]||({'2':'C','3':'1B','4':'2B','5':'3B','6':'SS','7':'LF','8':'CF','9':'RF','10':'DH','1':'P'}[roster.position?.code])||roster.position?.abbreviation||p.primaryPosition?.abbreviation;
  if(role==='P'||role==='TWP'){const source=sum(p,'pitching','gamesPlayed')?p:prior,gs=sum(source,'pitching','gamesStarted'),gp=sum(source,'pitching','gamesPlayed');return gs>=Math.max(1,gp/2)?'SP':'RP';}
  assert(positions.includes(role),'Unknown role '+p.fullName+' '+role);return role;
 }
@@ -18,8 +18,11 @@ function primary(p,prior,roster){
  const calendar=await get(api+'schedule?sportId=1&season=2026&gameType=R,F,D,L,W'),games=calendar.dates.flatMap(d=>d.games.filter(g=>g.status.abstractGameState==='Final').map(g=>({...g,date:d.date})));
  const records=await parallel(teams,async t=>{
   const played=games.filter(g=>[g.teams.home.team.id,g.teams.away.team.id].includes(t.id)),latest=played.at(-1);assert(latest);
-  const type=latest.gameType,series=played.filter(g=>g.gameType===type),date=series.at(-1).date,rosterUrl=api+'teams/'+t.id+'/roster?rosterType=active&season=2026&date='+date+'&hydrate=person';
-  const active=await get(rosterUrl),full=await get(api+'teams/'+t.id+'/roster?rosterType=40Man&season=2026&date='+date+'&hydrate=person');
+  const type=latest.gameType,series=played.filter(g=>g.gameType===type);let date=series.at(-1).date,rosterUrl,active;
+  const dates=type==='R'?Array.from({length:10},(_,i)=>new Date(Date.parse(date+'T12:00:00Z')-i*86400000).toISOString().slice(0,10)):[...new Set(series.map(g=>g.date))].reverse();
+  for(const candidate of dates){date=candidate;rosterUrl=api+'teams/'+t.id+'/roster?rosterType=active&season=2026&date='+date+'&hydrate=person';active=await get(rosterUrl);if(active.roster.length===(type==='R'?28:26))break;}
+  console.log('MLB_ROSTER_COUNT '+JSON.stringify({team:t.name,type,date,count:active.roster.length}));
+  const full=await get(api+'teams/'+t.id+'/roster?rosterType=40Man&season=2026&date='+date+'&hydrate=person');
   assert.equal(active.roster.length,type==='R'?28:26,t.name+' incorrect historical active roster');
   assert(active.roster.every(p=>p.status.code==='A'));assert.equal(new Set(active.roster.map(p=>p.person.id)).size,active.roster.length);
   return {t,type,date,rosterUrl,active:active.roster,full:full.roster};
@@ -38,7 +41,10 @@ function primary(p,prior,roster){
   });
   const players=[...r.active,...injured].map(row=>{
    const p=people[2026].get(row.person.id)||row.person,prior=people[2025].get(row.person.id),pos=primary(p,prior,row),injury=!base.has(p.id);
-   const item={id:'MLB-'+p.id,mlbId:p.id,name:p.fullName,number:String(row.jerseyNumber||p.primaryNumber||''),position:pos,rosterPosition:pos,team:name,profile:'https://www.mlb.com/player/'+(p.nameSlug||p.id),...(injury?{injuryInclusion:p.id===676059?'Missed the 2026 season; elbow surgery':row.status.description+' at the 2026 snapshot'}:{})};
+   const multi=Object.entries(field(p)).filter(([pos,n])=>positions.includes(pos)&&n>0).map(([pos])=>pos);
+   if(['SP','RP'].includes(pos)){multi.push(pos);if(sum(p,'pitching','gamesStarted')>0)multi.push('SP');if(sum(p,'pitching','gamesPlayed')>sum(p,'pitching','gamesStarted'))multi.push('RP');}
+   const teamPositions=[pos,...new Set(multi.filter(x=>x!==pos))];
+   const item={id:'MLB-'+p.id,mlbId:p.id,name:p.fullName,number:String(row.jerseyNumber||p.primaryNumber||''),position:pos,positions:teamPositions,rosterPosition:teamPositions.join('/'),team:name,profile:'https://www.mlb.com/player/'+(p.nameSlug||p.id),...(injury?{injuryInclusion:p.id===676059?'Missed the 2026 season; elbow surgery':row.status.description+' at the 2026 snapshot'}:{})};
    audit.roles.push({id:item.id,name:item.name,team:name,position:pos,sourcePosition:row.position,starts2026:field(p),starts2025:field(prior),pa2026:sum(p,'hitting','plateAppearances'),pa2025:sum(prior,'hitting','plateAppearances'),ipOuts2026:sum(p,'pitching','outs'),startsPitching2026:sum(p,'pitching','gamesStarted'),gamesPitching2026:sum(p,'pitching','gamesPlayed'),saves2026:sum(p,'pitching','saves'),injury});
    return item;
   }).sort((a,b)=>a.name.localeCompare(b.name));rosters[name]=players;
@@ -51,7 +57,7 @@ function primary(p,prior,roster){
  const all=Object.values(rosters).flat();assert.equal(new Set(all.map(p=>p.id)).size,all.length,'Player on multiple snapshots');
  const byId=new Map(audit.roles.map(r=>[r.id,r])),pool=[];
  for(const pos of positions){
-  const eligible=all.filter(p=>p.position===pos),special=eligible.filter(p=>p.injuryInclusion);
+  const eligible=all.filter(p=>p.position===pos||(p.mlbId===660271&&pos==='SP')),special=eligible.filter(p=>p.injuryInclusion||(p.mlbId===660271&&pos==='SP'));
   let chosen=[];
   if(['SP','RP'].includes(pos)){
    const candidates=eligible.filter(p=>{const r=byId.get(p.id);return pos==='SP'?r.ipOuts2026>=300&&r.startsPitching2026>=15:r.ipOuts2026>=120||r.saves2026>=10;}).sort((a,b)=>{
@@ -65,9 +71,9 @@ function primary(p,prior,roster){
    }
    chosen=[...new Map([...chosen,...special].map(p=>[p.id,p])).values()];
   }
-  assert(chosen.length>=10&&chosen.length<=75,'Suspicious position pool '+pos+' '+chosen.length);pool.push(...chosen);
+  assert(chosen.length>=10&&chosen.length<=75,'Suspicious position pool '+pos+' '+chosen.length);pool.push(...chosen.map(p=>({...p,positions:p.mlbId===660271?['DH','SP']:[p.position],rosterPosition:p.position})));
  }
- assert.equal(new Set(pool.map(p=>p.id)).size,pool.length,'Position overlap');
+ const uniquePool=[...new Map(pool.map(p=>[p.id,p])).values()];pool.splice(0,pool.length,...uniquePool);
  await parallel(all,async p=>{
   const source='https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/'+p.mlbId+'/headshot/67/current';
   try{const bytes=await get(source,true);assert(bytes.length>1500,'Small portrait');const file='assets/mlb/headshots/'+p.mlbId+'.jpg';await write(file,bytes);heads[p.id]={url:file,source,provider:'MLB',captured:'2026-11-09',sha256:sha(bytes)};}catch(e){audit.portraitFallbacks.push({id:p.id,name:p.name,source,error:e.message});}
@@ -75,10 +81,10 @@ function primary(p,prior,roster){
  // Reject repeated generic silhouette responses instead of presenting them as player photos.
  const frequencies=new Map();for(const h of Object.values(heads))frequencies.set(h.sha256,(frequencies.get(h.sha256)||0)+1);
  for(const [id,h]of Object.entries(heads))if(frequencies.get(h.sha256)>3){audit.portraitFallbacks.push({id,source:h.source,error:'Repeated provider placeholder'});delete heads[id];}
- const known=Object.fromEntries(Object.entries(rosters).map(([t,ps])=>[t,ps.map(p=>p.id)])),positionInfo={season:2026,verified:'November 9, 2026',source:'MLB-SOURCES.md',counts:Object.fromEntries(positions.map(pos=>[pos,pool.filter(p=>p.position===pos).length])),rules:{batters:'Highest-2026-PA primary-position regular per team (150 PA; catchers 100 PA), plus documented injured regulars.',SP:'100 innings and 15 starts; up to 75, including protected injured regulars.',RP:'40 innings or 10 saves; up to 75, including protected injured regulars. Usage order: outs plus six per save.',primary:'Most 2026 starts by position; 2025 starts then official roster position for injured players with no 2026 position starts. Pitchers use starting/relief appearance majority. Two-way players appear only in their more frequent role.'}};
+ const known=Object.fromEntries(Object.entries(rosters).map(([t,ps])=>[t,ps.map(p=>p.id)])),positionInfo={season:2026,verified:'November 9, 2026',source:'MLB-SOURCES.md',counts:Object.fromEntries(positions.map(pos=>[pos,pool.filter(p=>p.positions.includes(pos)).length])),rules:{batters:'Highest-2026-PA primary-position regular per team (150 PA; catchers 100 PA), plus documented injured regulars.',SP:'100 innings and 15 starts; up to 75, including protected injured regulars.',RP:'40 innings or 10 saves; up to 75, including protected injured regulars. Usage order: outs plus six per save.',primary:'Most 2026 starts by position; 2025 starts then official roster position for injured players with no 2026 position starts. Pitchers use starting/relief appearance majority. Shohei Ohtani is the sole exception and appears in both DH and SP. Team cards retain multiple played positions.'}};
  const data='// MLB 2026 historical roster snapshots, generated on GitHub from official MLB data.\n'+[['MLB_TEAM_INFO',info],['MLB_ROSTERS',rosters],['MLB_HEADSHOTS',heads],['MLB_POSITION_PLAYERS',pool.sort((a,b)=>a.id.localeCompare(b.id))],['MLB_POSITION_INFO',positionInfo],['MLB_KNOWN_IDS',known]].map(([name,value])=>'const '+name+' = '+JSON.stringify(value,null,2)+';').join('\n');
  await write('mlb-data.js',data);await write('assets/mlb/roster-audit.json',audit);
- await write('MLB-SOURCES.md','# MLB 2026 roster sources\n\nThis is a fixed 2026 snapshot. Offseason transactions do not replace the requested end-of-season teams.\n\n## Scope\n\nNon-playoff teams use the active 28-man roster on their last regular-season game date. Playoff teams use the active 26-man roster on the final game date of the furthest round reached. Documented injured regulars are additional inclusions, never described as official active/postseason roster members. Injury candidates must appear on that team\'s historical injured list and have meaningful 2026 or 2025 major-league playing time. Jordan Westburg is explicitly included.\n\n## Position pools\n\n'+Object.values(positionInfo.rules).join('\n\n')+'\n\nNo player appears in more than one position pool. Complete per-player position starts, playing-time inputs, injury statuses and roster membership are in [the audit](assets/mlb/roster-audit.json).\n\n## Team snapshots\n\n| Team | Round | Snapshot date | Official roster | Injury additions |\n|---|---|---|---:|---|\n'+audit.teams.map(t=>'| '+t.team+' | '+t.round+' | '+t.date+' | ['+t.activeIds.length+']('+t.source+') | '+t.injuryAdditions.map(p=>p.name).join(', ')+' |').join('\n')+'\n\n## Imagery\n\nPortraits and logos come from official MLB static assets, identified by MLB person/team ID. Copies are hosted with this site for reliable image exports. Source URLs, hashes and capture dates accompany each headshot. MLB\'s current headshot endpoint is used because its year-specific endpoint was unavailable; capture freezes the image used at publication but cannot guarantee the cap shown matches every historical roster assignment. Failed or generic images use jersey fallbacks. Public availability does not grant an open redistribution license; MLB and relevant rights holders retain their rights.\n');
+ await write('MLB-SOURCES.md','# MLB 2026 roster sources\n\nThis is a fixed 2026 snapshot. Offseason transactions do not replace the requested end-of-season teams.\n\n## Scope\n\nNon-playoff teams use the active 28-man roster on their latest date with exactly 28 active players at or before the final regular-season game (excluding temporary 29th-player expansion). Playoff teams use the active 26-man roster on the latest available 26-player game date in the furthest round reached. Documented injured regulars are additional inclusions, never described as official active/postseason roster members. Injury candidates must appear on that team\'s historical injured list and have meaningful 2026 or 2025 major-league playing time. Jordan Westburg is explicitly included.\n\n## Position pools\n\n'+Object.values(positionInfo.rules).join('\n\n')+'\n\nOnly Shohei Ohtani appears in more than one position pool (DH and SP). Team cards show multiple played positions. Complete per-player position starts, playing-time inputs, injury statuses and roster membership are in [the audit](assets/mlb/roster-audit.json).\n\n## Team snapshots\n\n| Team | Round | Snapshot date | Official roster | Injury additions |\n|---|---|---|---:|---|\n'+audit.teams.map(t=>'| '+t.team+' | '+t.round+' | '+t.date+' | ['+t.activeIds.length+']('+t.source+') | '+t.injuryAdditions.map(p=>p.name).join(', ')+' |').join('\n')+'\n\n## Imagery\n\nPortraits and logos come from official MLB static assets, identified by MLB person/team ID. Copies are hosted with this site for reliable image exports. Source URLs, hashes and capture dates accompany each headshot. MLB\'s current headshot endpoint is used because its year-specific endpoint was unavailable; capture freezes the image used at publication but cannot guarantee the cap shown matches every historical roster assignment. Failed or generic images use jersey fallbacks. Public availability does not grant an open redistribution license; MLB and relevant rights holders retain their rights.\n');
 
  const T=require('./roster-tools.cjs'),index=JSON.parse(await fs.readFile('assets/roster-snapshots/index.json','utf8'));
  for(const [team,ps] of Object.entries(rosters)){
