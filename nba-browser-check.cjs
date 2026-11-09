@@ -11,7 +11,7 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
   try{
    const page=await browser.newPage({viewport:{width:390,height:1000}}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));await page.goto(url);
-   assert.equal(await page.locator('.sport-button').count(),2);
+   assert.equal(await page.locator('.sport-button').count(),await page.evaluate(()=>Object.keys(SPORTS).length));
    await page.selectOption('#team','Philadelphia Eagles');await page.click('#start');await page.click('#left');
    const nfl=await page.evaluate(()=>localStorage.getItem('nfl-sorter-v3:PHI:ALL'));
    await page.click('[data-sport=NBA].sport-button');

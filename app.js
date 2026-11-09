@@ -38,7 +38,7 @@ function leagueVerified(sport){
  return dates.sort((a,b)=>new Date(a)-new Date(b))[0];
 }
 for(const sport of Object.keys(SPORTS)){
- const colors=sport==='NFL'?{primary:'#263B50',accent:'#91ADCC',highlight:'#b9d7f2',ink:'#101014'}:{primary:'#3E344E',accent:'#DFB974',highlight:'#e6d2a6',ink:'#101014'};
+ const colors=sport==='MLB'?{primary:'#002D72',accent:'#D50032',highlight:'#BBD4F5',ink:'#101014'}:sport==='NFL'?{primary:'#263B50',accent:'#91ADCC',highlight:'#b9d7f2',ink:'#101014'}:{primary:'#3E344E',accent:'#DFB974',highlight:'#e6d2a6',ink:'#101014'};
  ALL_TEAM_INFO[leagueTeam(sport)]={name:leagueTeam(sport),code:sport,nickname:sport,singular:'player',league:sport,scope:'league',source:'DATA-SOURCES.md',logo:'assets/league-'+sport.toLowerCase()+'.svg',colors};
 }
 let rankingMode='teams';

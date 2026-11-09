@@ -143,3 +143,6 @@ html body[data-sport=MLB] .conference-button{border-radius:8px;min-width:100px}
 @media(max-width:380px){html body[data-sport=MLB] header h1{font-size:2.45rem}}
 
 .saved-ranking img[src*="/mlb/logos/CWS"]{background:#27251f;border-radius:8px;padding:4px}
+
+html body[data-sport=MLB] .player-meta{color:var(--league-ui-muted)}
+html body[data-sport=MLB] .team-tile[aria-pressed=true]{border-color:var(--tile-primary)}

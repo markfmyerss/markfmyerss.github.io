@@ -29,6 +29,6 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
  await page.locator('#my-rankings').tap();await page.selectOption('#dashboard-sport','MLB');assert.equal(await page.locator('.saved-ranking').count(),41);await page.keyboard.press('Escape');
  await page.evaluate(()=>{selectRankingMode('teams');$('team').value='Toronto Blue Jays';$('position').value='ALL';selectTeam();const p=rosterFor(state.team).find(p=>p.name==='Ernie Clement');renderPlayer('left',p);});assert.match(await page.locator('#left .player-meta').textContent(),/2B\/3B\/SS/);
  await page.locator('[data-appearance-choice=light]').tap();console.log('MLB_SCREENSHOT '+engine.name()+' '+(await page.locator('header').screenshot()).toString('base64'));
- const saved=await page.evaluate(()=>Object.fromEntries([...memory].filter(([k])=>/^(?:nfl|nba)-sorter-v[13]:/.test(k))));for(const [k,v]of Object.entries(old))assert.equal(saved[k],v);
+ const saved=await page.evaluate(keys=>Object.fromEntries(keys.map(k=>[k,read(k)])),Object.keys(old));for(const [k,v]of Object.entries(old))assert.equal(saved[k],v);
  assert.deepEqual(errors,[]);console.log('PASS '+engine.name()+': 30 MLB teams, 11 position pools, 3 appearances, 320–1440px, Ohtani roles, Clement, editing, exclusions, all mobile image sizes, shared order and My Rankings');
  }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exit(1)});
