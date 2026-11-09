@@ -66,7 +66,7 @@
   const cancel=button('Cancel',close),saveButton=button('Save changes',()=>{
    if(state!==editingState||sharedRanking||!state?.done){status.textContent='This ranking changed. Close and reopen the editor.';return;}
    const ids=[...draft];if(!applyEditedRanking(ids)){status.textContent='These changes could not be saved.';return;}
-   close();announce('Ranking updated. Shared links and saved images now use this order.');el('results-title').tabIndex=-1;el('results-title').focus({preventScroll:true});
+   close();announce('Ranking updated. New shares and images will use this order.');el('results-title').tabIndex=-1;el('results-title').focus({preventScroll:true});
   },'save-ranking-edits');saveButton.id='save-ranking-edits';cancel.id='cancel-ranking-edits';footer.append(cancel,saveButton);footer.hidden=false;
   function move(id,target,focus){
    const from=draft.indexOf(id);if(!Number.isInteger(target)||target<0||target>=draft.length||from<0){status.textContent='Enter a rank from 1 to '+draft.length+'.';return;}
@@ -97,7 +97,7 @@
   el('edit-ranking').parentElement.hidden=!canEdit;
   for(const side of ['left','right']){
    const b=el('exclude-'+side),card=el(side),name=card.querySelector('.player-name')?.textContent;
-   b.textContent='Not familiar with '+(name||'this player')+'?';b.disabled=!!sharedRanking||!state||state.done||includedPlayers(state).length<2;
+   b.textContent='Skip '+(name||'this player');b.setAttribute('aria-label','Exclude '+(name||'this player')+' from this ranking');b.disabled=!!sharedRanking||!state||state.done||includedPlayers(state).length<2;
   }
   const excluded=result?.excluded?.length||0;el('excluded-summary').hidden=!excluded;el('excluded-count').textContent=excluded+' '+(excluded===1?'player':'players')+' excluded.';
   for(const id of ['undo','undo-result'])el(id).textContent=result?.lastAction==='edit'?'↶ Undo last change':result?.lastAction==='exclude'?'↶ Undo exclusion':'↶ Undo last pick';

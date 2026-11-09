@@ -47,3 +47,5 @@ html body[data-sport] .ranking-editor-row input{width:66px}
 html body[data-sport] .ranking-tools-dialog[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden}
 .ranking-tools-dialog .roster-dialog-content{min-height:0;max-height:calc(100dvh - 190px)}
 html body[data-sport] #ranking-tools-close{font-family:system-ui,sans-serif;font-size:1.5rem;flex-shrink:0;min-width:40px;min-height:40px;padding:4px;background:var(--league-ui-soft);color:var(--league-ui-ink);border:1px solid var(--league-ui-line);border-radius:9px}
+
+html body[data-sport] .unfamiliar-help{font-size:.72rem;text-align:center;color:var(--league-ui-muted);margin:14px 0 0}
