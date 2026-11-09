@@ -169,7 +169,15 @@
    ctx.fillStyle=photoBackdrop(photos[i],blend(colors.primary,paper,.85));ctx.fillRect(photoX,photoY,photoSize,photoSize);
    if(photos[i]){
     const image=photos[i],scale=Math.min(photoSize/image.naturalWidth,photoSize/image.naturalHeight),iw=image.naturalWidth*scale,ih=image.naturalHeight*scale;
-    ctx.drawImage(image.drawable||image,photoX+(photoSize-iw)/2,photoY+(photoSize-ih)/2,iw,ih);
+    const source=image.drawable||image,dx=photoX+(photoSize-iw)/2,dy=photoY+(photoSize-ih)/2;
+    // Extend the actual edge backdrop, including its shading, into the circle's side gaps.
+    // Transparent cutouts retain the team tint beneath them.
+    if(photoBackgrounds.get(source)&&iw<photoSize){
+     const gap=(photoSize-iw)/2;
+     ctx.drawImage(source,0,0,1,image.naturalHeight,photoX,dy,gap,ih);
+     ctx.drawImage(source,image.naturalWidth-1,0,1,image.naturalHeight,dx+iw,dy,gap,ih);
+    }
+    ctx.drawImage(source,dx,dy,iw,ih);
    }else{
     missingPhotos++;text(ctx,player.number||'—',photoX+photoSize/2,photoMid+photoSize*.16,photoSize-4,photoSize*.4,ink,600,'center');
    }

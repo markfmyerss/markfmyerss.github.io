@@ -25,9 +25,9 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    out.push({team,count:image.players.length});
   }
    // Opaque tall portraits keep their full height with a continuous circular backdrop.
-   for(const background of ['#cccccc','#101820',null]){
+   for(const background of ['#cccccc','#101820','gradient',null]){
     const source=document.createElement('canvas');source.width=300;source.height=451;
-    const sc=source.getContext('2d');if(background){sc.fillStyle=background;sc.fillRect(0,0,300,451);}
+    const sc=source.getContext('2d');if(background){const gradient=sc.createLinearGradient(0,0,0,451);gradient.addColorStop(0,'#cccccc');gradient.addColorStop(1,'#888888');sc.fillStyle=background==='gradient'?gradient:background;sc.fillRect(0,0,300,451);}
     sc.fillStyle='#ff0000';sc.fillRect(140,0,20,30);sc.fillRect(140,421,20,30);
     const players=rosterFor('Baltimore Orioles').slice(0,3).map(p=>({...p,headshotUrl:source.toDataURL()})),result={team:'Baltimore Orioles',pos:'ALL',players};
     for(const size of ['1x1','3x4','4x5','9x16','16x9']){
@@ -36,7 +36,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
      for(const b of plan.boxes){
       const wide=plan.W/plan.H>=1.25,podium=!wide,photoSize=podium?Math.min(96,b.height-68):Math.min(52,b.height-12),photoX=podium?b.x+(b.width-photoSize)/2:b.x+32+12,photoY=podium?b.y+12:b.y+(b.height-photoSize)/2;
       const at=(x,y)=>Array.from(ctx.getImageData(Math.round(x*scale),Math.round(y*scale),1,1).data).slice(0,3);
-      const expected=background?rgb(background):rgb('#f6d5be'),outside=at(photoX+photoSize*.09,photoY+photoSize/2),inside=at(photoX+photoSize*.25,photoY+photoSize/2);
+      const expected=background==='gradient'?[170,170,170]:background?rgb(background):rgb('#f6d5be'),outside=at(photoX+photoSize*.09,photoY+photoSize/2),inside=at(photoX+photoSize*.25,photoY+photoSize/2);
       if(background&&[outside,inside].some(p=>p.some((v,c)=>Math.abs(v-expected[c])>2)))throw Error('Portrait background seam '+size+' '+background+': '+outside+' / '+inside);
       if(!background&&outside.some((v,c)=>Math.abs(v-inside[c])>2))throw Error('Transparent portrait lost continuous team tint');
       for(const y of [photoY+photoSize*.03,photoY+photoSize*.97]){const p=at(photoX+photoSize/2,y);if(p[0]<240||p[1]>20||p[2]>20)throw Error('Portrait top/bottom cropped '+size);}
