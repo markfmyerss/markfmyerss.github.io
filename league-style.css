@@ -146,3 +146,13 @@ html body[data-sport=MLB] .conference-button{border-radius:8px;min-width:100px}
 
 html body[data-sport=MLB] .player-meta{color:var(--league-ui-muted)}
 html body[data-sport=MLB] .team-tile[aria-pressed=true]{border-color:var(--tile-primary)}
+
+/* Tall MLB portraits must size to the visible slot, not their intrinsic grid minimum. */
+html body[data-sport=MLB] .portrait,
+html body[data-sport=MLB] .podium-photo,
+html body[data-sport=MLB] .rank-thumb,
+html body[data-sport=MLB] .pool-player-photo{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+html body[data-sport=MLB] .portrait img,
+html body[data-sport=MLB] .podium-photo img,
+html body[data-sport=MLB] .rank-thumb img,
+html body[data-sport=MLB] .pool-player-photo img{display:block;min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
