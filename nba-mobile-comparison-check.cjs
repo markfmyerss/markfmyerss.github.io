@@ -20,12 +20,12 @@ const assert=require('node:assert/strict'),fs=require('node:fs/promises'),http=r
   return {overflow:document.documentElement.scrollWidth-innerWidth,cards:['left','right'].map(id=>{
    const c=document.getElementById(id),p=c.querySelector('.pick-label'),s=getComputedStyle(c),ps=getComputedStyle(p);
    const rgb=hex=>'rgb('+hex.replace('#','').match(/../g).map(x=>parseInt(x,16)).join(', ')+')';
-   return {card:rect(c),portrait:rect(c.querySelector('.portrait')),choice:rect(p),filter:s.filter,transform:s.transform,background:ps.backgroundColor,expected:rgb(getComputedStyle(c).getPropertyValue('--primary').trim()),ink:ps.color,expectedInk:rgb(getComputedStyle(c).getPropertyValue('--pick-ink').trim()),clipped:[...c.querySelectorAll('.player-name,.player-team,.pick-label')].some(e=>e.scrollWidth>e.clientWidth+1)};
+   return {card:rect(c),portrait:rect(c.querySelector('.portrait')),choice:rect(p),filter:s.filter,transform:s.transform,tapHighlight:s.webkitTapHighlightColor,background:ps.backgroundColor,expected:rgb(getComputedStyle(c).getPropertyValue('--primary').trim()),ink:ps.color,expectedInk:rgb(getComputedStyle(c).getPropertyValue('--pick-ink').trim()),clipped:[...c.querySelectorAll('.player-name,.player-team,.pick-label')].some(e=>e.scrollWidth>e.clientWidth+1)};
   })};
  });
  const check=r=>{
   assert.equal(r.overflow,0,'Page overflows');
-  for(const c of r.cards){assert.equal(c.filter,'none','Touch hover changes team colors');assert.equal(c.transform,'none','Touch hover lifts one card');assert.equal(c.background,c.expected,'Choice does not use player team primary');assert.equal(c.ink,c.expectedInk,'Choice contrast ink changed');assert(!c.clipped,'Player text is clipped');assert(c.choice.height>=44,'Choice touch target too small');}
+  for(const c of r.cards){assert.equal(c.filter,'none','Touch hover changes team colors');assert.equal(c.tapHighlight,'rgba(0, 0, 0, 0)','Native tap highlight tints the player card');assert.equal(c.transform,'none','Touch hover lifts one card');assert.equal(c.background,c.expected,'Choice does not use player team primary');assert.equal(c.ink,c.expectedInk,'Choice contrast ink changed');assert(!c.clipped,'Player text is clipped');assert(c.choice.height>=44,'Choice touch target too small');}
   for(const key of ['card','portrait','choice'])for(const dim of ['width','height','y','bottom'])assert(Math.abs(r.cards[0][key][dim]-r.cards[1][key][dim])<1,'Asymmetric '+key+' '+dim);
  };
  check(await inspect());

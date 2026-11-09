@@ -116,7 +116,12 @@ body[data-view=sorting] .league-brandline,body[data-view=results] .league-brandl
 
 /* Equal comparison lanes and complete names, including wide NBA surnames. */
 html body[data-sport] .match{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
-html body[data-sport] .player{min-width:0;width:100%;align-items:stretch;appearance:none;-webkit-appearance:none}
+html body[data-sport] .player{min-width:0;width:100%;align-items:stretch;appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 html body[data-sport] .player-body{min-width:0;width:100%}
 html body[data-sport] .player-name,html body[data-sport] .player-team{max-width:100%;overflow-wrap:anywhere}
 html body[data-sport] .pick-label{display:flex;align-items:center;justify-content:center;min-height:44px;flex-shrink:0}
+
+/* Touch feedback should not move a comparison lane or tint its team colors. */
+@media(hover:none){
+ html body[data-sport] .player:enabled:active{transform:none;border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}
+}
