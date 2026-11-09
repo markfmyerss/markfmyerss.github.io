@@ -103,11 +103,14 @@ function valid(s, team, pos, snapshot=rosterFor(team)) {
   if (!s || s.team !== team || s.pos !== pos || !Array.isArray(s.players) || !s.players.length || !Array.isArray(s.stack) || !Number.isInteger(s.comparisons) || s.comparisons < 0) return false;
   const allowed = new Set(snapshot.filter(p => matchesPosition(p,pos)).map(p=>p.id));
   const ids = s.players.map(p=>p.id);
-  const listOK = items => Array.isArray(items) && items.every(p=>p && allowed.has(p.id) && belongsToRanking(p,team));
-  if (ids.length !== allowed.size || new Set(ids).size !== ids.length || !listOK(s.players)) return false;
-  if (s.done) return listOK(s.sorted) && s.sorted.length === ids.length && new Set(s.sorted.map(p=>p.id)).size===ids.length;
+  const excluded=s.excluded||[];
+  if(!Array.isArray(excluded)||new Set(excluded).size!==excluded.length||excluded.some(id=>!allowed.has(id))||excluded.length>=ids.length)return false;
+  const omitted=new Set(excluded);
+  const listOK = (items,source=false) => Array.isArray(items) && items.every(p=>p && allowed.has(p.id) && belongsToRanking(p,team)&&(source||!omitted.has(p.id)));
+  if (ids.length !== allowed.size || new Set(ids).size !== ids.length || !listOK(s.players,true)) return false;
+  if (s.done) return listOK(s.sorted) && s.sorted.length === ids.length-excluded.length && new Set(s.sorted.map(p=>p.id)).size===ids.length-excluded.length;
   const last=s.stack.at(-1);
-  return last?.stage===2 && listOK(last.left) && listOK(last.right) && last.i<last.left.length && last.j<last.right.length && s.stack.every(f => listOK(f.items) && [0,1,2].includes(f.stage) && (f.stage!==2 || (listOK(f.left) && (!f.right || (listOK(f.right) && listOK(f.out) && Number.isInteger(f.i) && Number.isInteger(f.j) && f.i>=0 && f.j>=0 && f.i<=f.left.length && f.j<=f.right.length)))));
+  return last?.stage===2 && listOK(last.left) && listOK(last.right) && last.i<last.left.length && last.j<last.right.length && s.stack.every(f => listOK(f.items,true) && [0,1,2].includes(f.stage) && (f.stage!==2 || (listOK(f.left) && (!f.right || (listOK(f.right) && listOK(f.out) && Number.isInteger(f.i) && Number.isInteger(f.j) && f.i>=0 && f.j>=0 && f.i<=f.left.length && f.j<=f.right.length)))));
 }
 function earlierRoster(s){return !!s&&stampForScope(s.team,s.players)!==rankingStamp(s.team,s.pos);}
 function knownSnapshot(s,team,pos){
@@ -222,7 +225,7 @@ function receive(items) { const p=state.stack.at(-1);if(p.stage===1)p.left=items
 function finish(items) { state.sorted=items;state.done=true;save();render(); }
 function mergeNext() {
   while(state.stack.length){const f=state.stack.at(-1);
-    if(f.stage===0){if(f.items.length<=1){state.stack.pop();if(state.stack.length)receive(f.items);else finish(f.items);continue;}f.stage=1;state.stack.push({items:f.items.slice(0,Math.floor(f.items.length/2)),stage:0});continue;}
+    if(f.stage===0){f.items=f.items.filter(p=>!(state.excluded||[]).includes(p.id));if(f.items.length<=1){state.stack.pop();if(state.stack.length)receive(f.items);else finish(f.items);continue;}f.stage=1;state.stack.push({items:f.items.slice(0,Math.floor(f.items.length/2)),stage:0});continue;}
     if(f.stage===1){f.stage=2;state.stack.push({items:f.items.slice(Math.floor(f.items.length/2)),stage:0});continue;}
     if(f.i<f.left.length&&f.j<f.right.length){save();render();return;}
     f.out.push(...f.left.slice(f.i),...f.right.slice(f.j));state.stack.pop();if(state.stack.length)receive(f.out);else finish(f.out);
@@ -260,9 +263,36 @@ function renderTopThree(result=state) {
   }));
 }
 
+function rememberUndo() {
+ state.history=state.history||[];
+ state.history.push(isLeaguePool(state.team)?JSON.stringify(packLeagueState({...state,history:[]},true)):JSON.stringify({...state,history:[]}));
+ if(state.history.length>(isLeaguePool(state.team)?40:100))state.history.shift();
+}
+const includedPlayers=s=>s.players.filter(p=>!(s.excluded||[]).includes(p.id));
+function excludePlayer(side){
+ if(sharedRanking||!state||state.done||!['left','right'].includes(side)||includedPlayers(state).length<2)return;
+ const frame=state.stack.at(-1),player=side==='left'?frame.left[frame.i]:frame.right[frame.j];
+ rememberUndo();state.excluded=[...(state.excluded||[]),player.id];state.lastAction='exclude';state.updatedAt=Date.now();
+ // Keep each frame's original items: stage 1 still needs its original split boundary.
+ for(const f of state.stack){
+  for(const [list,index] of [['left','i'],['right','j']])if(Array.isArray(f[list])){
+   if(Number.isInteger(f[index]))f[index]-=f[list].slice(0,f[index]).filter(p=>p.id===player.id).length;
+   f[list]=f[list].filter(p=>p.id!==player.id);
+  }
+  if(Array.isArray(f.out))f.out=f.out.filter(p=>p.id!==player.id);
+ }
+ mergeNext();globalThis.RankingTools?.announce(player.name+' was excluded. Undo restores the previous step.');
+}
+function applyEditedRanking(ids){
+ if(sharedRanking||!state?.done||!Array.isArray(ids))return false;
+ const ranked=new Map(state.sorted.map(p=>[p.id,p]));
+ if(ids.length!==ranked.size||new Set(ids).size!==ids.length||ids.some(id=>!ranked.has(id)))return false;
+ if(ids.every((id,i)=>id===state.sorted[i].id))return true;
+ rememberUndo();state.sorted=ids.map(id=>ranked.get(id));state.lastAction='edit';state.updatedAt=Date.now();save();render();return true;
+}
 function choose(side) { if(sharedRanking)return;
   if(!state||state.done||!['left','right'].includes(side))return;
-  state.history=state.history||[];state.history.push(isLeaguePool(state.team)?JSON.stringify(packLeagueState({...state,history:[]},true)):JSON.stringify({...state,history:[]}));if(state.history.length>(isLeaguePool(state.team)?40:100))state.history.shift();
+  rememberUndo();state.lastAction='pick';state.updatedAt=Date.now();
   const f=state.stack.at(-1);f.out.push(side==='left'?f.left[f.i++]:f.right[f.j++]);state.comparisons++;mergeNext();animateNextMatch();
 }
 function shuffledPlayers(players) {
@@ -274,7 +304,7 @@ function start() { if(sharedRanking)return;
   if(state)return;
   const team=$('team').value,pos=$('position').value,players=rosterFor(team).filter(p=>matchesPosition(p,pos));
   if(!players.length)return;
-  state={team,pos,players,rosterVerified:(isLeaguePool(team)?leagueVerified(activeSport):ALL_TEAM_INFO[team].verified)||(activeSport==='NFL'?'November 5, 2026':'November 6, 2026'),history:[],stack:[{items:shuffledPlayers(players),stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
+  state={team,pos,players,rosterVerified:(isLeaguePool(team)?leagueVerified(activeSport):ALL_TEAM_INFO[team].verified)||(activeSport==='NFL'?'November 5, 2026':'November 6, 2026'),history:[],updatedAt:Date.now(),stack:[{items:shuffledPlayers(players),stage:0}],comparisons:0,done:false,sorted:null};mergeNext();
 }
 function undo() { if(sharedRanking)return; if(!state?.history?.length)return;const history=state.history;state=unpackLeagueState(JSON.parse(history.pop()),state.players);state.history=history;save();render(); }
 function reset() { if(sharedRanking)return; if(state&&!confirm('Clear this '+ALL_TEAM_INFO[state.team].nickname+' ranking for '+(state.pos==='ALL'?'all positions':state.pos)+'? Other rankings stay saved.'))return;clearRanking($('team').value,$('position').value);state=null;render(); }
@@ -289,7 +319,8 @@ function renderPlayer(id,p) {
   const pick=document.createElement('span');pick.className='pick-label';pick.textContent='Choose favorite →';
   body.append(meta,name,team,pick);b.append(photo,body);
 }
-function render() {
+function render(){renderView();globalThis.RankingTools?.sync();}
+function renderView() {
   const result=sharedRanking||state;
   renderRosterHistory();
   document.body.dataset.view=!result?'intro':result.done?'results':'sorting';
@@ -316,7 +347,7 @@ function render() {
   renderPlayer('left',f.left[f.i]);renderPlayer('right',f.right[f.j]);
   const remaining=remainingPicks();
   const percent=Math.min(99,Math.floor(100*state.comparisons/Math.max(1,state.comparisons+remaining)));
-  $('progress').textContent=`${state.comparisons} picks made · ${state.players.length} players · At least ${percent}% complete`;
+  $('progress').textContent=`${state.comparisons} picks made · ${includedPlayers(state).length} players · At least ${percent}% complete`;
   $('progress-estimate').textContent=percent+'%';
   $('progress-milestone').textContent=percent<35?'Finding your favorites':percent<75?'Your ranking is taking shape':'The final stretch';
   $('progressbar').style.width=percent+'%';$('progress-track').setAttribute('aria-valuenow',percent);
@@ -417,7 +448,7 @@ $('share-ranking').onclick=()=>{
 };
 $('again').onclick=()=>{reset();if(!state)start();};
 $('copy').onclick=async()=>{const result=sharedRanking||state;if(!result?.done)return;const s=`My ${rankingTitle(result)} favorites (${result.pos})\n`+result.sorted.map((p,i)=>`${i+1}. ${p.name} (${p.position})`).join('\n');try{await navigator.clipboard.writeText(s);$('copy-status').textContent='Rankings copied.';}catch{$('copy-text').value=s;$('copy-text').hidden=false;$('copy-text').focus();$('copy-text').select();$('copy-status').textContent='Select and copy the rankings below.';}};
-document.addEventListener('keydown',e=>{if(e.target.closest?.('input,select,textarea')||e.altKey)return;if(!sharedRanking&&(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){if(state?.history?.length){e.preventDefault();undo();}return;}if(sharedRanking||!state||state.done||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowLeft'){e.preventDefault();choose('left');}if(e.key==='ArrowRight'){e.preventDefault();choose('right');}});
+document.addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||e.target.closest?.('input,select,textarea')||e.altKey)return;if(!sharedRanking&&(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){if(state?.history?.length){e.preventDefault();undo();}return;}if(sharedRanking||!state||state.done||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowLeft'){e.preventDefault();choose('left');}if(e.key==='ArrowRight'){e.preventDefault();choose('right');}});
 
 function rankingRoster(team,pos){return rosterFor(team).filter(p=>matchesPosition(p,pos));}
 function rankingStamp(team,pos){return stampForScope(team,rankingRoster(team,pos));}
@@ -428,7 +459,17 @@ function stampForPlayers(players){
  let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}
  return (hash>>>0).toString(16).padStart(8,'0');
 }
+function encodePartialRankingLink(result){
+ const sport=leagueFor(result.team),roster=result.players,order=result.sorted;
+ if(!Array.isArray(roster)||!roster.length||roster.length>1000||!order?.length||order.length>roster.length)throw Error('This ranking cannot be shared.');
+ const indices=new Map(roster.map((p,i)=>[p.id,i])),bytes=[];
+ for(const p of order){const i=indices.get(p.id);if(i===undefined||roster[i].name!==p.name||roster[i].team!==p.team)throw Error('Invalid ranked player');bytes.push(i>>>8,i&255);}
+ if(new Set(order.map(p=>p.id)).size!==order.length)throw Error('Duplicate ranked player');
+ const encoded=btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+ return 'https://markfmyerss.github.io/#ranking='+['v3',sport,isLeaguePool(result.team)?sport:ALL_TEAM_INFO[result.team].code,result.pos,stampForScope(result.team,roster),encoded].join('.');
+}
 function encodePositionLink(result){
+ if(result.excluded?.length)return encodePartialRankingLink(result);
  const sport=leagueFor(result.team),roster=result.players||rankingRoster(result.team,result.pos);
  if(!roster.length||roster.length>1000||result.pos==='ALL'||result.sorted.length!==roster.length)throw Error('This position ranking cannot be shared.');
  const indices=new Map(roster.map((p,i)=>[p.id,i])),bytes=[];
@@ -439,6 +480,7 @@ function encodePositionLink(result){
 }
 function encodeRankingLink(result){
  if(isLeaguePool(result.team))return encodePositionLink(result);
+ if(result.excluded?.length)return encodePartialRankingLink(result);
  const sport=leagueFor(result.team),roster=result.players||rankingRoster(result.team,result.pos);
  if(!roster.length||roster.length>255||result.sorted.length!==roster.length)throw Error('This ranking cannot be shared as a link.');
  const order=result.sorted.map(p=>{const i=roster.findIndex(r=>r.id===p.id&&r.name===p.name);if(i<0)throw Error('This ranking uses an older roster. Save an image or start a fresh ranking to share a link.');return i;});
@@ -452,18 +494,18 @@ function decodeRankingLink(hash,snapshot=null){
  if(hash.length>8192)invalid();
  const parts=hash.slice(9).split('.');if(parts.length!==6)invalid();
  const [version,sport,code,pos,stamp,encoded]=parts;
- if(!['v1','v2'].includes(version)||!Object.prototype.hasOwnProperty.call(SPORTS,sport)||!SPORTS[sport].positions.includes(pos)||! /^[a-f0-9]{8}$/.test(stamp)||! /^[A-Za-z0-9_-]+$/.test(encoded))invalid();
- const league=version==='v2';if(league&&(code!==sport||pos==='ALL'))invalid();
+ if(!['v1','v2','v3'].includes(version)||!Object.prototype.hasOwnProperty.call(SPORTS,sport)||!SPORTS[sport].positions.includes(pos)||! /^[a-f0-9]{8}$/.test(stamp)||! /^[A-Za-z0-9_-]+$/.test(encoded))invalid();
+ const partial=version==='v3',wide=version!=='v1',league=version==='v2'||(partial&&code===sport);if(league&&(code!==sport||pos==='ALL'))invalid();
  const team=league?leagueTeam(sport):teamsFor(sport).find(t=>ALL_TEAM_INFO[t].code===code);if(!team)invalid();
  const roster=snapshot?snapshot.players.filter(p=>matchesPosition(p,pos)):rankingRoster(team,pos);
  if(stamp!==stampForScope(team,roster)){const e=Error('This link uses a different roster snapshot. Loading its saved roster will preserve the original ranking.');e.archiveKey=[sport,code,pos,stamp].join('.');throw e;}
  let binary;try{const base=encoded.replace(/-/g,'+').replace(/_/g,'/');binary=atob(base.padEnd(Math.ceil(base.length/4)*4,'='));}catch{invalid();}
  if(btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')!==encoded)invalid();
- const bytes=Array.from(binary,c=>c.charCodeAt(0));if(league&&bytes.length%2)invalid();
- const order=league?Array.from({length:bytes.length/2},(_,i)=>(bytes[i*2]<<8)|bytes[i*2+1]):bytes;
- if(roster.length>(league?1000:255)||order.length!==roster.length||new Set(order).size!==roster.length||order.some(i=>i>=roster.length))invalid();
+ const bytes=Array.from(binary,c=>c.charCodeAt(0));if(wide&&bytes.length%2)invalid();
+ const order=wide?Array.from({length:bytes.length/2},(_,i)=>(bytes[i*2]<<8)|bytes[i*2+1]):bytes;
+ if(roster.length>(wide?1000:255)||!order.length||(partial?order.length>roster.length:order.length!==roster.length)||new Set(order).size!==order.length||order.some(i=>i>=roster.length))invalid();
  const players=snapshot?roster.map(p=>({...p,headshotUrl:snapshot.headshots?.[p.id]?.url||null})):roster;
- return {team,pos,players,sorted:order.map(i=>players[i]),done:true,rosterVerified:snapshot?.verified||(league?leagueVerified(sport):ALL_TEAM_INFO[team].verified)||(sport==='NFL'?'November 5, 2026':'November 6, 2026')};
+ return {team,pos,players,...(partial?{excluded:players.filter((p,i)=>!order.includes(i)).map(p=>p.id)}:{}),sorted:order.map(i=>players[i]),done:true,rosterVerified:snapshot?.verified||(league?leagueVerified(sport):ALL_TEAM_INFO[team].verified)||(sport==='NFL'?'November 5, 2026':'November 6, 2026')};
 }
 function clearSharedLink(){
  sharedRequest++;sharedRanking=null;

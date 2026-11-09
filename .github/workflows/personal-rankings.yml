@@ -1,0 +1,20 @@
+name: Personal rankings tools
+on:
+  push:
+    paths: ['app.js', 'index.html', 'ranking-tools.js', 'ranking-tools.css', 'ranking-tools-check.cjs', 'ranking-tools-browser-check.cjs', '.github/workflows/personal-rankings.yml']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  ranking-state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check app.js && node --check ranking-tools.js
+      - run: node ranking-tools-check.cjs
+      - run: node tests.cjs
+      - run: node nba-tests.cjs
+      - run: node position-rankings-check.cjs

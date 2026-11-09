@@ -1,0 +1,49 @@
+/* Personal ranking controls follow the active league and appearance. */
+.account-row{display:flex;justify-content:flex-end;margin:0 0 8px;position:relative;z-index:2}
+html header #my-rankings{display:inline-flex;align-items:center;gap:7px;background:#ffffff12;color:inherit;border:1px solid #ffffff40;border-radius:99px;min-height:32px;padding:6px 11px;font:600 .72rem 'DM Sans',sans-serif;letter-spacing:0;text-transform:none}
+html body[data-sport] .header-topline{max-width:none}
+html[data-appearance=light] body[data-sport=NBA] #my-rankings{background:#edf1f7;border-color:#c5cfdf}
+.unfamiliar-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin-top:9px}
+html body[data-sport] .unfamiliar-player{min-width:0;min-height:44px;padding:7px 8px;border:1px solid var(--league-ui-line);border-radius:12px;background:transparent;color:var(--league-ui-muted);font:500 .75rem/1.35 'DM Sans',sans-serif;text-transform:none;letter-spacing:0;overflow-wrap:anywhere;-webkit-tap-highlight-color:transparent}
+.ranking-edit-toolbar{display:flex;align-items:center;gap:12px;margin:18px 0}
+.ranking-edit-toolbar span{font-size:.8rem;color:var(--league-ui-muted)}
+.excluded-summary{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;font-size:.78rem;color:var(--league-ui-muted)}
+.ranking-tools-status{font-size:.8rem;color:var(--league-ui-muted)}
+.ranking-tools-status:empty{display:none}
+.has-ranking-dialog{overflow:hidden}
+html body[data-sport] .ranking-tools-dialog{width:min(780px,calc(100vw - 24px));max-height:calc(100dvh - 24px)}
+.ranking-tools-dialog .roster-dialog-header h2{font-family:'DM Sans',sans-serif;font-size:1.5rem;letter-spacing:-.04em}
+.ranking-tools-footer{display:flex;justify-content:flex-end;gap:10px;padding:14px 20px;border-top:1px solid var(--league-ui-line);background:var(--league-ui-surface)}
+html body[data-sport] .save-ranking-edits,html body[data-sport] .saved-ranking-open{background:var(--league-primary);color:#fff}
+.dashboard-filters{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dashboard-filters label{display:grid;gap:6px;font-size:.75rem;font-weight:600;color:var(--league-ui-muted)}
+.dashboard-search{grid-column:1/-1}
+html body[data-sport] .dashboard-filters input,html body[data-sport] .ranking-editor-row input{font:400 16px 'DM Sans',sans-serif;background:var(--league-ui-surface);border:1px solid var(--league-ui-line);color:var(--league-ui-ink);border-radius:9px;min-height:44px;padding:9px 10px;min-width:0}
+.saved-ranking-list,.ranking-editor-list,.excluded-player-list{padding:0;margin:14px 0;list-style:none}
+.saved-ranking{display:flex;align-items:center;gap:12px;border:1px solid var(--league-ui-line);border-radius:14px;padding:14px;margin-bottom:10px}
+.saved-ranking>img{width:40px;height:40px;object-fit:contain;flex-shrink:0}
+.saved-ranking-info{flex:1;min-width:0;display:grid;gap:5px}
+.saved-ranking-info strong{font-size:.95rem;overflow-wrap:anywhere}
+.saved-ranking-info span,.saved-ranking-info small{font-size:.75rem;color:var(--league-ui-muted)}
+html body[data-sport] .saved-ranking-open{flex-shrink:0;font:600 .75rem 'DM Sans',sans-serif;padding:11px 13px;min-height:44px;border-radius:10px;text-transform:none;letter-spacing:0}
+.rankings-empty{padding:20px 0;color:var(--league-ui-muted);line-height:1.5}
+.ranking-editor-row{display:grid;grid-template-columns:28px 42px minmax(0,1fr);align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--league-ui-line)}
+.ranking-editor-row.is-dragging{opacity:.45}
+.editor-rank{font-size:1rem;font-weight:700;color:var(--league-ui-muted)}
+.ranking-editor-row .rank-thumb{width:42px;height:42px}
+.editor-identity{min-width:0;display:grid;gap:4px}
+.editor-identity strong{font-size:.95rem;overflow-wrap:anywhere}
+.editor-identity small{color:var(--league-ui-muted);font-size:.72rem}
+.editor-row-controls{grid-column:2/-1;display:flex;align-items:center;gap:7px}
+html body[data-sport] .editor-row-controls button{background:var(--league-ui-soft);border:1px solid var(--league-ui-line);color:var(--league-ui-ink);border-radius:9px;min-height:44px;min-width:44px;padding:9px;font:600 .8rem 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;touch-action:manipulation}
+html body[data-sport] .ranking-editor-row input{width:66px}
+.editor-status{font-size:.8rem;color:var(--league-ui-muted)}
+.editor-status:empty{display:none}
+.excluded-player-list li{display:grid;gap:5px;padding:12px 0;border-bottom:1px solid var(--league-ui-line)}
+.excluded-player-list small{color:var(--league-ui-muted);font-size:.75rem}
+@media(max-width:480px){.unfamiliar-actions{gap:12px}.saved-ranking{flex-wrap:wrap;gap:10px;padding:12px}.saved-ranking-info{flex-basis:calc(100% - 52px)}html body[data-sport] .saved-ranking-open{margin-left:50px}.ranking-edit-toolbar{align-items:flex-start;flex-direction:column;gap:7px}}
+@media(hover:hover){html header #my-rankings:hover{background:#ffffff25}html body[data-sport] .unfamiliar-player:hover{background:var(--league-ui-soft);color:var(--league-ui-ink)}}
+
+html body[data-sport] .ranking-tools-dialog[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden}
+.ranking-tools-dialog .roster-dialog-content{min-height:0;max-height:calc(100dvh - 190px)}
+html body[data-sport] #ranking-tools-close{font-family:system-ui,sans-serif;font-size:1.5rem;flex-shrink:0;min-width:40px;min-height:40px;padding:4px;background:var(--league-ui-soft);color:var(--league-ui-ink);border:1px solid var(--league-ui-line);border-radius:9px}
