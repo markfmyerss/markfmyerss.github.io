@@ -36,6 +36,10 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    }
    for(const scope of ['10','25']){const image=await ResultsExport.createImage(r,{size:'4x5',type:'png',scope});out.push({team,scope,count:image.players.length,pages:image.pages,logo:image.logoIncluded});}
   }
+  for(const team of ['Chicago White Sox','Pittsburgh Pirates','Colorado Rockies']){
+   const image=await ResultsExport.createImage({team,pos:'ALL',players:rosterFor(team)},{size:'1x1',type:'png',scope:'all'});
+   out.push({team,size:'1x1',type:'png',count:image.players.length,pages:image.pages,logo:image.logoIncluded,mime:image.blob.type});
+  }
   return out;
  });
  for(const r of formats){assert.equal(r.pages,1);assert(r.logo);if(r.scope)assert.equal(r.count,Math.min(Number(r.scope),await real.evaluate(team=>rosterFor(team).length,r.team)));else{assert.equal(r.count,await real.evaluate(team=>rosterFor(team).length,r.team));assert(['image/png','image/jpeg','image/webp'].includes(r.mime));}}
