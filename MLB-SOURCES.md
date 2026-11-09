@@ -56,3 +56,7 @@ Only Shohei Ohtani appears in more than one position pool (DH and SP). Team card
 ## Imagery
 
 Portraits and logos come from official MLB static assets, identified by MLB person/team ID. Copies are hosted with this site for reliable image exports. Source URLs, hashes and capture dates accompany each headshot. MLB's current headshot endpoint is used because its year-specific endpoint was unavailable; capture freezes the image used at publication but cannot guarantee the cap shown matches every historical roster assignment. Failed or generic images use jersey fallbacks. Public availability does not grant an open redistribution license; MLB and relevant rights holders retain their rights.
+
+## Team-card secondary positions
+
+Primary position plus substantial secondary roles. Infield: 20 starts and 15% of position starts, or 10 current starts plus 25 prior-season starts. Outfield: 25 starts and 25% of outfield starts. DH: 25 starts and 25% of position starts. Injured players without current starts use established prior-season roles. Ohtani is the sole two-way exception.

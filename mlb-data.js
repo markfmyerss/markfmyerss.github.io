@@ -1,4 +1,4 @@
-// MLB 2026 historical roster snapshots, generated on GitHub from official MLB data.
+// Verified 2026 MLB snapshot with substantial team roles and primary-only league pools.
 const MLB_TEAM_INFO = {
   "Athletics": {
     "name": "Athletics",
@@ -232,7 +232,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/147/roster?rosterType=active&season=2026&date=2026-10-07&hydrate=person",
     "logo": "assets/mlb/logos/NYY.svg",
     "colors": {
-      "primary": "#003087",
+      "primary": "#132448",
       "accent": "#E4002C",
       "highlight": "#E4002C",
       "ink": "#101014"
@@ -341,7 +341,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/114/roster?rosterType=active&season=2026&date=2026-10-19&hydrate=person",
     "logo": "assets/mlb/logos/CLE.svg",
     "colors": {
-      "primary": "#00385D",
+      "primary": "#002B5C",
       "accent": "#E50022",
       "highlight": "#E50022",
       "ink": "#101014"
@@ -374,7 +374,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/116/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
     "logo": "assets/mlb/logos/DET.svg",
     "colors": {
-      "primary": "#0C2340",
+      "primary": "#0C2C56",
       "accent": "#FA4616",
       "highlight": "#FA4616",
       "ink": "#101014"
@@ -436,7 +436,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/142/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
     "logo": "assets/mlb/logos/MIN.svg",
     "colors": {
-      "primary": "#002B5C",
+      "primary": "#091F40",
       "accent": "#D31145",
       "highlight": "#D31145",
       "ink": "#101014"
@@ -462,7 +462,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
     "logo": "assets/mlb/logos/AZ.svg",
     "colors": {
-      "primary": "#A71930",
+      "primary": "#AA182C",
       "accent": "#E3D4AD",
       "highlight": "#E3D4AD",
       "ink": "#101014"
@@ -543,7 +543,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=active&season=2026&date=2026-10-07&hydrate=person",
     "logo": "assets/mlb/logos/SD.svg",
     "colors": {
-      "primary": "#2F241D",
+      "primary": "#2F241C",
       "accent": "#FFC425",
       "highlight": "#FFC425",
       "ink": "#101014"
@@ -838,7 +838,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/134/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
     "logo": "assets/mlb/logos/PIT.svg",
     "colors": {
-      "primary": "#FDB827",
+      "primary": "#FFCE34",
       "accent": "#27251F",
       "highlight": "#27251F",
       "ink": "#101014"
@@ -863,7 +863,7 @@ const MLB_TEAM_INFO = {
     "source": "https://statsapi.mlb.com/api/v1/teams/138/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
     "logo": "assets/mlb/logos/STL.svg",
     "colors": {
-      "primary": "#C41E3A",
+      "primary": "#BE0A14",
       "accent": "#0C2340",
       "highlight": "#0C2340",
       "ink": "#101014"
@@ -879,10 +879,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B"
+        "SS"
       ],
-      "rosterPosition": "SS/2B",
+      "rosterPosition": "SS",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/alika-williams-675961"
     },
@@ -907,11 +906,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF",
-        "RF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF/RF",
+      "rosterPosition": "DH",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/brent-rooker-667670",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -923,10 +920,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/brian-serven-661531"
     },
@@ -938,10 +934,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "LF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "RF/LF/DH",
+      "rosterPosition": "RF/LF",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/carlos-cortes-666126"
     },
@@ -979,11 +974,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "3B",
-        "DH",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "2B/3B/DH/SS",
+      "rosterPosition": "2B/3B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/donovan-walton-622268"
     },
@@ -1047,12 +1040,9 @@ const MLB_ROSTERS = {
       "number": "33",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF/DH",
+      "rosterPosition": "CF",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/henry-bolte-703607"
     },
@@ -1076,10 +1066,9 @@ const MLB_ROSTERS = {
       "number": "35",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/j-t-ginn-669372",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -1105,10 +1094,9 @@ const MLB_ROSTERS = {
       "number": "57",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/jacob-lopez-682052"
     },
@@ -1119,10 +1107,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/jacob-wilson-805779",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -1135,10 +1122,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "2B/1B/DH",
+      "rosterPosition": "2B/1B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/jeff-mcneil-643446"
     },
@@ -1162,11 +1148,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "C",
       "positions": [
-        "C",
-        "1B",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/jonah-heim-641680"
     },
@@ -1177,11 +1161,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/SS",
+      "rosterPosition": "3B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/joshua-kuroda-grauer-811965"
     },
@@ -1206,11 +1188,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "RF",
       "positions": [
-        "RF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/CF/DH",
+      "rosterPosition": "RF",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/lawrence-butler-671732"
     },
@@ -1221,10 +1201,9 @@ const MLB_ROSTERS = {
       "number": "46",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/luis-medina-665622"
     },
@@ -1277,11 +1256,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "3B",
       "positions": [
-        "3B",
-        "LF",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/LF/DH",
+      "rosterPosition": "3B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/max-muncy-691777",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -1293,10 +1270,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B"
+        "2B"
       ],
-      "rosterPosition": "2B/3B",
+      "rosterPosition": "2B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/michael-stefanic-683021"
     },
@@ -1307,10 +1283,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/nick-kurtz-701762",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -1335,10 +1310,9 @@ const MLB_ROSTERS = {
       "number": "52",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/seth-johnson-686751"
     },
@@ -1364,10 +1338,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "1B/3B/DH",
+      "rosterPosition": "1B/3B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/tommy-white-695720"
     },
@@ -1378,10 +1351,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "LF",
       "positions": [
-        "LF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/DH",
+      "rosterPosition": "LF",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/tyler-soderstrom-691016",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -1407,13 +1379,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "2B",
-        "LF",
-        "CF",
-        "RF",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "3B/2B/LF/CF/RF/DH",
+      "rosterPosition": "3B/2B",
       "team": "Athletics",
       "profile": "https://www.mlb.com/player/zack-gelof-680869"
     }
@@ -1439,10 +1407,9 @@ const MLB_ROSTERS = {
       "number": "62",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/bennett-sousa-656986"
     },
@@ -1466,10 +1433,9 @@ const MLB_ROSTERS = {
       "number": "74",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/bryan-king-687911"
     },
@@ -1521,10 +1487,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/christian-walker-572233"
     },
@@ -1561,12 +1526,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "3B",
       "positions": [
-        "3B",
-        "1B",
-        "2B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/1B/2B/DH",
+      "rosterPosition": "3B",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/isaac-paredes-670623"
     },
@@ -1591,10 +1553,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/jeremy-pena-665161"
     },
@@ -1605,11 +1566,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/joey-loperfido-694388"
     },
@@ -1620,10 +1579,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/jose-altuve-514888"
     },
@@ -1686,10 +1644,9 @@ const MLB_ROSTERS = {
       "number": "66",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/miguel-ullola-699044"
     },
@@ -1700,10 +1657,9 @@ const MLB_ROSTERS = {
       "number": "50",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/mike-burrows-681347",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -1715,11 +1671,9 @@ const MLB_ROSTERS = {
       "number": "30",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/nelson-velazquez-676369"
     },
@@ -1730,11 +1684,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "3B"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/3B",
+      "rosterPosition": "SS",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/nick-allen-669397"
     },
@@ -1758,11 +1710,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/SS",
+      "rosterPosition": "3B",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/raynel-delgado-669384"
     },
@@ -1773,10 +1723,9 @@ const MLB_ROSTERS = {
       "number": "45",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/tatsuya-imai-837227"
     },
@@ -1788,10 +1737,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF/CF",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/taylor-trammell-666211"
     },
@@ -1802,10 +1750,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/yainer-diaz-673237"
     },
@@ -1816,10 +1763,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF",
+      "rosterPosition": "DH",
       "team": "Houston Astros",
       "profile": "https://www.mlb.com/player/yordan-alvarez-670541"
     }
@@ -1832,11 +1778,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "2B",
       "positions": [
-        "2B",
-        "LF",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/LF/DH",
+      "rosterPosition": "2B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/adam-frazier-624428"
     },
@@ -1874,10 +1818,9 @@ const MLB_ROSTERS = {
       "number": "22",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF",
+      "rosterPosition": "LF",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/bryce-teodosio-669326"
     },
@@ -1888,11 +1831,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "2B",
       "positions": [
-        "2B",
-        "LF",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/LF/DH",
+      "rosterPosition": "2B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/christian-moore-695681"
     },
@@ -1903,10 +1844,9 @@ const MLB_ROSTERS = {
       "number": "23",
       "position": "3B",
       "positions": [
-        "3B",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "3B/SS",
+      "rosterPosition": "3B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/denzer-guzman-694203"
     },
@@ -1972,10 +1912,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF/CF",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/jose-siri-642350"
     },
@@ -1987,10 +1926,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
         "RF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF/RF",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/josh-lowe-666139"
     },
@@ -2014,10 +1952,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/mike-trout-545361"
     },
@@ -2042,10 +1979,9 @@ const MLB_ROSTERS = {
       "position": "DH",
       "positions": [
         "DH",
-        "C",
-        "1B"
+        "C"
       ],
-      "rosterPosition": "DH/C/1B",
+      "rosterPosition": "DH/C",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/moises-ballesteros-694208"
     },
@@ -2056,10 +1992,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/nolan-schanuel-694384",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -2072,12 +2007,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "1B",
-        "3B",
-        "SS",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "2B/1B/3B/SS/DH",
+      "rosterPosition": "2B/3B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/oswald-peraza-672724"
     },
@@ -2101,10 +2033,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/ryan-johnson-696270"
     },
@@ -2141,10 +2072,9 @@ const MLB_ROSTERS = {
       "number": "67",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/sammy-peralta-671111"
     },
@@ -2182,10 +2112,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/travis-d-arnaud-518595"
     },
@@ -2224,10 +2153,9 @@ const MLB_ROSTERS = {
       "positions": [
         "1B",
         "2B",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "1B/2B/3B/DH",
+      "rosterPosition": "1B/2B/3B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/vaughn-grissom-687093"
     },
@@ -2238,11 +2166,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/wade-meckler-685133"
     },
@@ -2253,10 +2179,9 @@ const MLB_ROSTERS = {
       "number": "57",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/walbert-urena-700712"
     },
@@ -2267,10 +2192,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/yoan-moncada-660162",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -2295,10 +2219,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Los Angeles Angels",
       "profile": "https://www.mlb.com/player/zach-neto-687263"
     }
@@ -2325,10 +2248,9 @@ const MLB_ROSTERS = {
       "number": "33",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B"
+        "3B"
       ],
-      "rosterPosition": "3B/2B",
+      "rosterPosition": "3B",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/brendan-donovan-680977",
       "injuryInclusion": "Injured 7-Day at the 2026 snapshot"
@@ -2353,10 +2275,9 @@ const MLB_ROSTERS = {
       "number": "50",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/bryce-miller-682243"
     },
@@ -2367,10 +2288,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/cal-raleigh-663728"
     },
@@ -2394,10 +2314,9 @@ const MLB_ROSTERS = {
       "number": "2",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/SS",
+      "rosterPosition": "2B",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/cole-young-702284"
     },
@@ -2408,10 +2327,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "SS",
       "positions": [
-        "SS",
-        "3B"
+        "SS"
       ],
-      "rosterPosition": "SS/3B",
+      "rosterPosition": "SS",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/colt-emerson-806068",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -2569,10 +2487,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/julio-rodriguez-677594"
     },
@@ -2596,10 +2513,9 @@ const MLB_ROSTERS = {
       "number": "99",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/lazaro-montes-703155"
     },
@@ -2610,10 +2526,9 @@ const MLB_ROSTERS = {
       "number": "76",
       "position": "3B",
       "positions": [
-        "3B",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "3B/SS",
+      "rosterPosition": "3B",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/leo-rivas-660844"
     },
@@ -2651,12 +2566,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF/DH",
+      "rosterPosition": "RF",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/luke-raley-670042",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -2682,11 +2594,9 @@ const MLB_ROSTERS = {
       "number": "96",
       "position": "2B",
       "positions": [
-        "2B",
-        "LF",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/LF/DH",
+      "rosterPosition": "2B",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/michael-arroyo-703197"
     },
@@ -2710,11 +2620,9 @@ const MLB_ROSTERS = {
       "number": "56",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/DH",
+      "rosterPosition": "LF",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/randy-arozarena-668227"
     },
@@ -2739,10 +2647,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "DH",
-        "RF"
+        "DH"
       ],
-      "rosterPosition": "LF/DH/RF",
+      "rosterPosition": "LF/DH",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/taylor-ward-621493"
     },
@@ -2766,11 +2673,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/victor-robles-645302"
     },
@@ -2781,13 +2686,9 @@ const MLB_ROSTERS = {
       "number": "31",
       "position": "3B",
       "positions": [
-        "3B",
-        "LF",
-        "1B",
-        "RF",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/LF/1B/RF/DH",
+      "rosterPosition": "3B",
       "team": "Seattle Mariners",
       "profile": "https://www.mlb.com/player/weston-wilson-642215"
     }
@@ -2800,12 +2701,9 @@ const MLB_ROSTERS = {
       "number": "19",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/alejandro-osuna-696030"
     },
@@ -2816,10 +2714,9 @@ const MLB_ROSTERS = {
       "number": "24",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/brandon-nimmo-607043"
     },
@@ -2830,10 +2727,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "CF",
       "positions": [
-        "CF",
-        "2B"
+        "CF"
       ],
-      "rosterPosition": "CF/2B",
+      "rosterPosition": "CF",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/cam-cauley-695508"
     },
@@ -2857,10 +2753,9 @@ const MLB_ROSTERS = {
       "number": "61",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/cody-bradford-674003"
     },
@@ -2871,11 +2766,9 @@ const MLB_ROSTERS = {
       "number": "39",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "LF"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/LF",
+      "rosterPosition": "3B",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/cody-freeman-683227"
     },
@@ -2886,10 +2779,9 @@ const MLB_ROSTERS = {
       "number": "60",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/cole-winn-668390",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -2901,10 +2793,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/corey-seager-608369"
     },
@@ -2915,10 +2806,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/danny-jansen-643376"
     },
@@ -2929,10 +2819,9 @@ const MLB_ROSTERS = {
       "number": "35",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/elias-diaz-553869"
     },
@@ -2957,14 +2846,10 @@ const MLB_ROSTERS = {
       "position": "SS",
       "positions": [
         "SS",
-        "1B",
         "2B",
-        "3B",
-        "LF",
-        "CF",
-        "RF"
+        "3B"
       ],
-      "rosterPosition": "SS/1B/2B/3B/LF/CF/RF",
+      "rosterPosition": "SS/2B/3B",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/ezequiel-duran-677649"
     },
@@ -3002,10 +2887,9 @@ const MLB_ROSTERS = {
       "number": "67",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/jacob-latz-656641"
     },
@@ -3029,10 +2913,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/jakob-junis-596001"
     },
@@ -3057,11 +2940,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "DH",
       "positions": [
-        "DH",
-        "1B",
-        "RF"
+        "DH"
       ],
-      "rosterPosition": "DH/1B/RF",
+      "rosterPosition": "DH",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/joc-pederson-592626",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -3086,10 +2967,9 @@ const MLB_ROSTERS = {
       "number": "6",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/josh-jung-673962",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -3101,11 +2981,9 @@ const MLB_ROSTERS = {
       "number": "14",
       "position": "2B",
       "positions": [
-        "2B",
-        "1B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/1B/DH",
+      "rosterPosition": "2B",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/justin-foscue-679822"
     },
@@ -3116,10 +2994,9 @@ const MLB_ROSTERS = {
       "number": "80",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/kumar-rocker-677958"
     },
@@ -3130,10 +3007,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/kyle-higashioka-543309",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -3158,10 +3034,9 @@ const MLB_ROSTERS = {
       "number": "23",
       "position": "CF",
       "positions": [
-        "CF",
-        "SS"
+        "CF"
       ],
-      "rosterPosition": "CF/SS",
+      "rosterPosition": "CF",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/michael-helman-680737"
     },
@@ -3172,10 +3047,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/nathan-eovaldi-543135"
     },
@@ -3186,10 +3060,9 @@ const MLB_ROSTERS = {
       "number": "33",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/SS",
+      "rosterPosition": "2B",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/nicky-lopez-670032"
     },
@@ -3239,10 +3112,9 @@ const MLB_ROSTERS = {
       "number": "51",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/trevor-williams-592866"
     },
@@ -3253,10 +3125,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/tyler-alexander-641302"
     },
@@ -3267,11 +3138,9 @@ const MLB_ROSTERS = {
       "number": "36",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/DH",
+      "rosterPosition": "LF",
       "team": "Texas Rangers",
       "profile": "https://www.mlb.com/player/wyatt-langford-694671"
     }
@@ -3336,14 +3205,9 @@ const MLB_ROSTERS = {
       "number": "23",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "SS",
-        "LF",
-        "CF",
-        "RF"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/SS/LF/CF/RF",
+      "rosterPosition": "3B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/blaze-alexander-677942",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -3394,10 +3258,9 @@ const MLB_ROSTERS = {
       "number": "40",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/chris-bassitt-605135"
     },
@@ -3408,10 +3271,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/christian-encarnacion-strand-687952"
     },
@@ -3422,10 +3284,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF",
+      "rosterPosition": "LF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/christian-franklin-681047"
     },
@@ -3451,12 +3312,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF/DH",
+      "rosterPosition": "CF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/colton-cowser-681297"
     },
@@ -3468,11 +3326,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "LF/CF/RF/DH",
+      "rosterPosition": "LF/RF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/dylan-beavers-687637"
     },
@@ -3509,10 +3365,9 @@ const MLB_ROSTERS = {
       "number": "2",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/gunnar-henderson-683002"
     },
@@ -3536,11 +3391,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/SS/DH",
+      "rosterPosition": "2B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/jackson-holliday-702616",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -3552,12 +3405,9 @@ const MLB_ROSTERS = {
       "number": "82",
       "position": "2B",
       "positions": [
-        "2B",
-        "LF",
-        "RF",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/LF/RF/DH",
+      "rosterPosition": "2B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/jeremiah-jackson-669236"
     },
@@ -3568,9 +3418,10 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "3B",
       "positions": [
-        "3B"
+        "3B",
+        "2B"
       ],
-      "rosterPosition": "3B",
+      "rosterPosition": "3B/2B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/jordan-westburg-676059",
       "injuryInclusion": "Missed the 2026 season; elbow surgery"
@@ -3582,10 +3433,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/SS",
+      "rosterPosition": "2B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/jose-barrero-676480"
     },
@@ -3609,10 +3459,9 @@ const MLB_ROSTERS = {
       "number": "45",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/keegan-akin-669211",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -3639,10 +3488,9 @@ const MLB_ROSTERS = {
       "position": "CF",
       "positions": [
         "CF",
-        "LF",
         "RF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF/RF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/leody-taveras-665750"
     },
@@ -3653,11 +3501,9 @@ const MLB_ROSTERS = {
       "number": "88",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/DH",
+      "rosterPosition": "CF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/luis-robert-jr-673357",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -3669,10 +3515,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/pete-alonso-624413"
     },
@@ -3683,12 +3528,9 @@ const MLB_ROSTERS = {
       "number": "62",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF/DH",
+      "rosterPosition": "RF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/rece-hinds-677956"
     },
@@ -3726,10 +3568,9 @@ const MLB_ROSTERS = {
       "number": "6",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/ryan-mountcastle-663624",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -3742,10 +3583,9 @@ const MLB_ROSTERS = {
       "position": "C",
       "positions": [
         "C",
-        "1B",
         "DH"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C/DH",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/samuel-basallo-694212",
       "injuryInclusion": "Injured 7-Day at the 2026 snapshot"
@@ -3783,10 +3623,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/tyler-o-neill-641933",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -3811,10 +3650,9 @@ const MLB_ROSTERS = {
       "number": "79",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Baltimore Orioles",
       "profile": "https://www.mlb.com/player/yohel-pozo-650968"
     },
@@ -3841,10 +3679,9 @@ const MLB_ROSTERS = {
       "number": "31",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/adley-rutschman-668939"
     },
@@ -3855,10 +3692,9 @@ const MLB_ROSTERS = {
       "number": "68",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/alec-gamboa-687941"
     },
@@ -3869,13 +3705,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "SS",
       "positions": [
-        "SS",
-        "1B",
-        "2B",
-        "3B",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/1B/2B/3B/DH",
+      "rosterPosition": "SS",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/andruw-monasterio-655316"
     },
@@ -3939,10 +3771,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/connor-wong-657136"
     },
@@ -3954,10 +3785,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "2B",
         "1B"
       ],
-      "rosterPosition": "3B/2B/1B",
+      "rosterPosition": "3B/1B",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/curtis-mead-678554"
     },
@@ -3970,10 +3800,9 @@ const MLB_ROSTERS = {
       "positions": [
         "RF",
         "LF",
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "RF/LF/CF/DH",
+      "rosterPosition": "RF/LF/CF",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/eli-white-642201",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -3985,10 +3814,9 @@ const MLB_ROSTERS = {
       "number": "67",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/erik-miller-669062"
     },
@@ -4039,10 +3867,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "3B",
         "SS"
       ],
-      "rosterPosition": "2B/3B/SS",
+      "rosterPosition": "2B/SS",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/isiah-kiner-falefa-643396"
     },
@@ -4053,11 +3880,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF",
-        "RF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF/RF",
+      "rosterPosition": "DH",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/jahmai-jones-663330"
     },
@@ -4068,10 +3893,9 @@ const MLB_ROSTERS = {
       "number": "64",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/jake-bennett-687562"
     },
@@ -4082,11 +3906,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/DH",
+      "rosterPosition": "LF",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/jarren-duran-680776"
     },
@@ -4111,11 +3933,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/nate-eaton-681987"
     },
@@ -4126,12 +3946,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "2B",
       "positions": [
-        "2B",
-        "1B",
-        "3B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/1B/3B/SS",
+      "rosterPosition": "2B",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/nick-sogard-686765"
     },
@@ -4181,10 +3998,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/trevor-story-596115"
     },
@@ -4195,10 +4011,9 @@ const MLB_ROSTERS = {
       "number": "40",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/willson-contreras-575929"
     },
@@ -4209,10 +4024,9 @@ const MLB_ROSTERS = {
       "number": "52",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Boston Red Sox",
       "profile": "https://www.mlb.com/player/wilyer-abreu-677800"
     },
@@ -4251,11 +4065,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "3B"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/3B",
+      "rosterPosition": "SS",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/anthony-volpe-683011"
     },
@@ -4332,13 +4144,9 @@ const MLB_ROSTERS = {
       "number": "35",
       "position": "LF",
       "positions": [
-        "LF",
-        "1B",
-        "CF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/1B/CF/RF/DH",
+      "rosterPosition": "LF",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/cody-bellinger-641355"
     },
@@ -4415,11 +4223,9 @@ const MLB_ROSTERS = {
       "number": "34",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/heliot-ramos-671218"
     },
@@ -4458,12 +4264,9 @@ const MLB_ROSTERS = {
       "positions": [
         "SS",
         "2B",
-        "3B",
-        "LF",
-        "CF",
-        "RF"
+        "3B"
       ],
-      "rosterPosition": "SS/2B/3B/LF/CF/RF",
+      "rosterPosition": "SS/2B/3B",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/jose-caballero-676609"
     },
@@ -4474,10 +4277,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/luis-garcia-jr-671277"
     },
@@ -4501,10 +4303,9 @@ const MLB_ROSTERS = {
       "number": "58",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/paul-blackburn-621112"
     },
@@ -4515,10 +4316,9 @@ const MLB_ROSTERS = {
       "number": "48",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/paul-goldschmidt-502671"
     },
@@ -4529,10 +4329,9 @@ const MLB_ROSTERS = {
       "number": "19",
       "position": "3B",
       "positions": [
-        "3B",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "3B/SS",
+      "rosterPosition": "3B",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/ryan-mcmahon-641857"
     },
@@ -4556,10 +4355,9 @@ const MLB_ROSTERS = {
       "number": "33",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/ryan-yarbrough-642232"
     },
@@ -4571,11 +4369,9 @@ const MLB_ROSTERS = {
       "position": "CF",
       "positions": [
         "CF",
-        "LF",
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "CF/LF/RF/DH",
+      "rosterPosition": "CF/RF",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/spencer-jones-682987"
     },
@@ -4586,10 +4382,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/trent-grisham-663757"
     },
@@ -4600,10 +4395,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "New York Yankees",
       "profile": "https://www.mlb.com/player/will-warren-701542"
     }
@@ -4669,10 +4463,9 @@ const MLB_ROSTERS = {
       "number": "14",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF",
+      "rosterPosition": "LF",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/chandler-simpson-802415"
     },
@@ -4683,10 +4476,9 @@ const MLB_ROSTERS = {
       "number": "71",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/cole-sulser-642121"
     },
@@ -4750,9 +4542,10 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "DH",
       "positions": [
-        "DH"
+        "DH",
+        "LF"
       ],
-      "rosterPosition": "DH",
+      "rosterPosition": "DH/LF",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/gavin-lux-666158",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -4792,10 +4585,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/jonathan-aranda-666018"
     },
@@ -4807,10 +4599,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "LF",
         "CF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF/CF",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/jonny-deluca-676356"
     },
@@ -4821,11 +4612,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/DH",
+      "rosterPosition": "SS",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/jorge-mateo-622761"
     },
@@ -4903,11 +4692,9 @@ const MLB_ROSTERS = {
       "number": "1",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B",
-        "LF"
+        "2B"
       ],
-      "rosterPosition": "2B/3B/LF",
+      "rosterPosition": "2B",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/richie-palacios-680700"
     },
@@ -4932,12 +4719,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "RF",
       "positions": [
-        "RF",
-        "1B",
-        "2B",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/1B/2B/LF",
+      "rosterPosition": "RF",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/ryan-vilade-668723"
     },
@@ -4988,11 +4772,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "Tampa Bay Rays",
       "profile": "https://www.mlb.com/player/victor-mesa-jr-683748"
     },
@@ -5032,10 +4814,9 @@ const MLB_ROSTERS = {
       "number": "30",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/alejandro-kirk-672386"
     },
@@ -5073,11 +4854,9 @@ const MLB_ROSTERS = {
       "number": "59",
       "position": "C",
       "positions": [
-        "C",
-        "1B",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/brandon-valenzuela-678218"
     },
@@ -5088,10 +4867,9 @@ const MLB_ROSTERS = {
       "number": "63",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/braydon-fisher-680755"
     },
@@ -5128,10 +4906,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "CF",
       "positions": [
-        "CF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/RF",
+      "rosterPosition": "CF",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/brett-bateman-703520"
     },
@@ -5155,12 +4932,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "2B",
       "positions": [
-        "2B",
-        "1B",
-        "3B",
-        "LF"
+        "2B"
       ],
-      "rosterPosition": "2B/1B/3B/LF",
+      "rosterPosition": "2B",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/charles-mcadoo-807727"
     },
@@ -5184,10 +4958,9 @@ const MLB_ROSTERS = {
       "number": "36",
       "position": "LF",
       "positions": [
-        "LF",
-        "2B"
+        "LF"
       ],
-      "rosterPosition": "LF/2B",
+      "rosterPosition": "LF",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/davis-schneider-676914"
     },
@@ -5227,10 +5000,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF",
+      "rosterPosition": "DH",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/george-springer-543807"
     },
@@ -5296,11 +5068,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "1B",
-        "3B",
-        "LF"
+        "3B"
       ],
-      "rosterPosition": "2B/1B/3B/LF",
+      "rosterPosition": "2B/3B",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/josh-smith-669701"
     },
@@ -5311,11 +5081,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "3B",
       "positions": [
-        "3B",
-        "1B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/1B/DH",
+      "rosterPosition": "3B",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/kazuma-okamoto-672960"
     },
@@ -5353,10 +5121,9 @@ const MLB_ROSTERS = {
       "number": "68",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/mason-fluharty-689254"
     },
@@ -5380,11 +5147,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/myles-straw-664702"
     },
@@ -5395,11 +5160,9 @@ const MLB_ROSTERS = {
       "number": "38",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/nathan-lukes-664770"
     },
@@ -5410,10 +5173,9 @@ const MLB_ROSTERS = {
       "number": "46",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/patrick-corbin-571578",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -5438,11 +5200,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/3B/DH",
+      "rosterPosition": "1B",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/sean-keys-815873"
     },
@@ -5467,10 +5227,9 @@ const MLB_ROSTERS = {
       "number": "62",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/spencer-miles-693686"
     },
@@ -5507,10 +5266,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Toronto Blue Jays",
       "profile": "https://www.mlb.com/player/vladimir-guerrero-jr-665489"
     }
@@ -5523,10 +5281,9 @@ const MLB_ROSTERS = {
       "number": "23",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF",
+      "rosterPosition": "DH",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/andrew-benintendi-643217"
     },
@@ -5537,10 +5294,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/anthony-kay-641743"
     },
@@ -5591,10 +5347,9 @@ const MLB_ROSTERS = {
       "number": "60",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/bryan-hudson-663542"
     },
@@ -5605,10 +5360,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/SS",
+      "rosterPosition": "2B",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/chase-meidroth-805367"
     },
@@ -5620,10 +5374,9 @@ const MLB_ROSTERS = {
       "position": "SS",
       "positions": [
         "SS",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "SS/3B/DH",
+      "rosterPosition": "SS/3B",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/colson-montgomery-695657"
     },
@@ -5634,10 +5387,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/david-sandlin-689818"
     },
@@ -5648,10 +5400,9 @@ const MLB_ROSTERS = {
       "number": "65",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/davis-martin-663436"
     },
@@ -5676,10 +5427,9 @@ const MLB_ROSTERS = {
       "number": "31",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/grant-taylor-691799"
     },
@@ -5690,10 +5440,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/hagen-smith-696146"
     },
@@ -5717,10 +5466,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/jordan-hicks-663855"
     },
@@ -5731,10 +5479,9 @@ const MLB_ROSTERS = {
       "number": "49",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/jordan-leasure-673929",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -5759,11 +5506,9 @@ const MLB_ROSTERS = {
       "number": "0",
       "position": "SS",
       "positions": [
-        "SS",
-        "LF",
-        "CF"
+        "SS"
       ],
-      "rosterPosition": "SS/LF/CF",
+      "rosterPosition": "SS",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/luisangel-acuna-682668"
     },
@@ -5775,10 +5520,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "3B/1B/DH",
+      "rosterPosition": "3B/1B",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/miguel-vargas-678246"
     },
@@ -5803,10 +5547,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/munetaka-murakami-808959"
     },
@@ -5817,10 +5560,9 @@ const MLB_ROSTERS = {
       "number": "22",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/noah-schultz-702273"
     },
@@ -5832,10 +5574,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "RF",
         "DH"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF/DH",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/randal-grichuk-545341"
     },
@@ -5846,11 +5587,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "LF",
       "positions": [
-        "LF",
-        "2B",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/2B/DH",
+      "rosterPosition": "LF",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/sam-antonacci-803011"
     },
@@ -5861,10 +5600,9 @@ const MLB_ROSTERS = {
       "number": "59",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/sean-burke-680732"
     },
@@ -5875,10 +5613,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/sean-newcomb-656794"
     },
@@ -5889,10 +5626,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF",
+      "rosterPosition": "DH",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/tommy-pham-502054"
     },
@@ -5903,11 +5639,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF",
       "team": "Chicago White Sox",
       "profile": "https://www.mlb.com/player/tristan-peters-671976"
     },
@@ -5933,11 +5667,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/3B/SS",
+      "rosterPosition": "2B",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/angel-genao-694197"
     },
@@ -5949,10 +5681,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
         "RF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF/RF",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/angel-martinez-682657"
     },
@@ -5963,10 +5694,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/austin-hedges-595978"
     },
@@ -6018,10 +5748,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/daniel-espino-682982"
     },
@@ -6032,13 +5761,9 @@ const MLB_ROSTERS = {
       "number": "6",
       "position": "LF",
       "positions": [
-        "LF",
-        "C",
-        "1B",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/C/1B/RF/DH",
+      "rosterPosition": "LF",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/david-fry-681807"
     },
@@ -6101,12 +5826,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF/DH",
+      "rosterPosition": "RF",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/jo-adell-666176"
     },
@@ -6117,10 +5839,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/joey-cantillo-676282"
     },
@@ -6131,10 +5852,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/jose-ramirez-608070"
     },
@@ -6198,10 +5918,9 @@ const MLB_ROSTERS = {
       "number": "0",
       "position": "CF",
       "positions": [
-        "CF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/RF",
+      "rosterPosition": "CF",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/petey-halpin-690984"
     },
@@ -6225,10 +5944,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/slade-cecconi-677944"
     },
@@ -6240,10 +5958,9 @@ const MLB_ROSTERS = {
       "position": "CF",
       "positions": [
         "CF",
-        "LF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "CF/LF/DH",
+      "rosterPosition": "CF/LF",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/steven-kwan-680757"
     },
@@ -6280,10 +5997,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Cleveland Guardians",
       "profile": "https://www.mlb.com/player/travis-bazzana-683953"
     }
@@ -6309,10 +6025,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF",
+      "rosterPosition": "RF",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/ben-malgeri-701162"
     },
@@ -6323,10 +6038,9 @@ const MLB_ROSTERS = {
       "number": "34",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "LF/RF",
+      "rosterPosition": "LF",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/brett-callahan-814430"
     },
@@ -6338,10 +6052,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "1B",
         "DH"
       ],
-      "rosterPosition": "3B/1B/DH",
+      "rosterPosition": "3B/DH",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/colt-keith-690993",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -6353,10 +6066,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/dillon-dingler-693307"
     },
@@ -6367,10 +6079,9 @@ const MLB_ROSTERS = {
       "number": "38",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/drew-anderson-623454"
     },
@@ -6394,10 +6105,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/eduardo-valencia-680664"
     },
@@ -6421,10 +6131,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/gleyber-torres-650402"
     },
@@ -6436,10 +6145,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "2B/3B/DH",
+      "rosterPosition": "2B/3B",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/hao-yu-lee-701678"
     },
@@ -6463,10 +6171,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/jack-flaherty-656427"
     },
@@ -6490,10 +6197,9 @@ const MLB_ROSTERS = {
       "number": "58",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/jacob-waguespack-621097"
     },
@@ -6504,13 +6210,9 @@ const MLB_ROSTERS = {
       "number": "28",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "LF",
-        "CF",
-        "RF"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/LF/CF/RF",
+      "rosterPosition": "SS",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/javier-baez-595879"
     },
@@ -6547,10 +6249,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/keider-montero-672456"
     },
@@ -6574,11 +6275,9 @@ const MLB_ROSTERS = {
       "number": "30",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/DH",
+      "rosterPosition": "RF",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/kerry-carpenter-681481",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -6591,10 +6290,9 @@ const MLB_ROSTERS = {
       "position": "SS",
       "positions": [
         "SS",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "SS/3B/DH",
+      "rosterPosition": "SS/3B",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/kevin-mcgonigle-805808"
     },
@@ -6619,11 +6317,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/matt-vierling-663837",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -6662,10 +6358,9 @@ const MLB_ROSTERS = {
       "number": "31",
       "position": "LF",
       "positions": [
-        "LF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/DH",
+      "rosterPosition": "LF",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/riley-greene-682985"
     },
@@ -6730,10 +6425,9 @@ const MLB_ROSTERS = {
       "number": "36",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/ty-madden-680744"
     },
@@ -6744,10 +6438,9 @@ const MLB_ROSTERS = {
       "number": "87",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/tyler-holton-663947"
     },
@@ -6771,10 +6464,9 @@ const MLB_ROSTERS = {
       "number": "46",
       "position": "RF",
       "positions": [
-        "RF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/CF",
+      "rosterPosition": "RF",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/wenceel-perez-672761",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -6802,12 +6494,9 @@ const MLB_ROSTERS = {
       "positions": [
         "RF",
         "2B",
-        "3B",
-        "SS",
-        "LF",
-        "CF"
+        "SS"
       ],
-      "rosterPosition": "RF/2B/3B/SS/LF/CF",
+      "rosterPosition": "RF/2B/SS",
       "team": "Detroit Tigers",
       "profile": "https://www.mlb.com/player/zach-mckinstry-656716"
     }
@@ -6846,10 +6535,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/bobby-witt-jr-677951"
     },
@@ -6915,10 +6603,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/daniel-lynch-iv-663738"
     },
@@ -6929,11 +6616,9 @@ const MLB_ROSTERS = {
       "number": "1",
       "position": "LF",
       "positions": [
-        "LF",
-        "2B",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/2B/DH",
+      "rosterPosition": "LF",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/isaac-collins-686555"
     },
@@ -6945,10 +6630,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "RF/1B/DH",
+      "rosterPosition": "RF/1B",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/jac-caglianone-695506"
     },
@@ -6972,11 +6656,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/john-rave-670231"
     },
@@ -7014,12 +6696,9 @@ const MLB_ROSTERS = {
       "number": "40",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "SS",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/SS/DH",
+      "rosterPosition": "3B",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/josh-rojas-668942"
     },
@@ -7056,10 +6735,9 @@ const MLB_ROSTERS = {
       "number": "58",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/luinder-avila-679883",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -7084,11 +6762,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "3B",
       "positions": [
-        "3B",
-        "SS",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/SS/DH",
+      "rosterPosition": "3B",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/maikel-garcia-672580"
     },
@@ -7099,10 +6775,9 @@ const MLB_ROSTERS = {
       "number": "24",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "LF/RF",
+      "rosterPosition": "LF",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/matthew-lugo-683090"
     },
@@ -7113,10 +6788,9 @@ const MLB_ROSTERS = {
       "number": "19",
       "position": "2B",
       "positions": [
-        "2B",
-        "LF"
+        "2B"
       ],
-      "rosterPosition": "2B/LF",
+      "rosterPosition": "2B",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/michael-massey-686681"
     },
@@ -7167,10 +6841,9 @@ const MLB_ROSTERS = {
       "number": "65",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/noah-cameron-702070"
     },
@@ -7194,10 +6867,9 @@ const MLB_ROSTERS = {
       "number": "62",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/randy-dobnak-677976"
     },
@@ -7263,14 +6935,9 @@ const MLB_ROSTERS = {
       "number": "2",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "3B",
-        "LF",
-        "CF",
-        "RF"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/3B/LF/CF/RF",
+      "rosterPosition": "SS",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/tyler-tolbert-686475"
     },
@@ -7281,10 +6948,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Kansas City Royals",
       "profile": "https://www.mlb.com/player/vinnie-pasquantino-686469"
     }
@@ -7323,11 +6989,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/DH",
+      "rosterPosition": "RF",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/alan-roden-702176"
     },
@@ -7338,10 +7002,9 @@ const MLB_ROSTERS = {
       "number": "78",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/andrew-morris-702193"
     },
@@ -7367,10 +7030,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF/LF",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/austin-martin-668885"
     },
@@ -7381,10 +7043,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/bailey-ober-641927"
     },
@@ -7422,10 +7083,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/byron-buxton-621439",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -7451,10 +7111,9 @@ const MLB_ROSTERS = {
       "number": "61",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/connor-prielipp-687570"
     },
@@ -7492,10 +7151,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF",
+      "rosterPosition": "LF",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/emmanuel-rodriguez-691181"
     },
@@ -7561,12 +7219,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "1B",
-        "LF",
-        "CF",
-        "RF"
+        "1B"
       ],
-      "rosterPosition": "2B/1B/LF/CF/RF",
+      "rosterPosition": "2B/1B",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/kody-clemens-665019"
     },
@@ -7591,10 +7246,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "CF",
         "RF"
       ],
-      "rosterPosition": "2B/CF/RF",
+      "rosterPosition": "2B/RF",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/luke-keaschall-807712"
     },
@@ -7605,10 +7259,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/mike-paredes-702474",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -7635,10 +7288,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "2B",
         "3B"
       ],
-      "rosterPosition": "1B/2B/3B",
+      "rosterPosition": "1B/3B",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/royce-lewis-668904"
     },
@@ -7649,10 +7301,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/ryan-jeffers-680777"
     },
@@ -7663,13 +7314,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "3B",
-        "LF",
-        "CF"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/3B/LF/CF",
+      "rosterPosition": "SS",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/ryan-kreidler-668952"
     },
@@ -7732,10 +7379,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "LF",
       "positions": [
-        "LF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/DH",
+      "rosterPosition": "LF",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/trevor-larnach-663616",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -7748,10 +7394,9 @@ const MLB_ROSTERS = {
       "position": "C",
       "positions": [
         "C",
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C/1B",
       "team": "Minnesota Twins",
       "profile": "https://www.mlb.com/player/victor-caratini-605170"
     },
@@ -7803,10 +7448,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "DH",
       "positions": [
-        "DH",
-        "C"
+        "DH"
       ],
-      "rosterPosition": "DH/C",
+      "rosterPosition": "DH",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/adrian-del-castillo-680728"
     },
@@ -7858,10 +7502,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/corbin-carroll-682998"
     },
@@ -7898,10 +7541,9 @@ const MLB_ROSTERS = {
       "number": "14",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/gabriel-moreno-672515"
     },
@@ -7926,12 +7568,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "2B",
-        "3B",
-        "SS",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "1B/2B/3B/SS/DH",
+      "rosterPosition": "1B/2B",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/ildemaro-vargas-545121"
     },
@@ -7968,10 +7607,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF",
+      "rosterPosition": "CF",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/jordan-lawlar-691783"
     },
@@ -7982,10 +7620,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/jose-cabrera-703615"
     },
@@ -7996,12 +7633,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B",
-        "SS",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/3B/SS/DH",
+      "rosterPosition": "1B",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/jose-fernandez-699912"
     },
@@ -8038,10 +7672,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/ketel-marte-606466"
     },
@@ -8065,12 +7698,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH/CF",
+      "rosterPosition": "LF",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/lars-nootbaar-663457"
     },
@@ -8094,10 +7724,9 @@ const MLB_ROSTERS = {
       "number": "34",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/michael-soroka-647336"
     },
@@ -8108,10 +7737,9 @@ const MLB_ROSTERS = {
       "number": "28",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/nolan-arenado-571448"
     },
@@ -8122,10 +7750,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/pavin-smith-656976"
     },
@@ -8150,10 +7777,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF",
+      "rosterPosition": "CF",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/ryan-waldschmidt-814439"
     },
@@ -8164,10 +7790,9 @@ const MLB_ROSTERS = {
       "number": "19",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/ryne-nelson-669194"
     },
@@ -8178,10 +7803,9 @@ const MLB_ROSTERS = {
       "number": "45",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/taylor-clarke-664199"
     },
@@ -8192,14 +7816,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B",
-        "LF",
-        "CF",
-        "RF",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/3B/LF/CF/RF/DH",
+      "rosterPosition": "1B",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/tim-tawa-694374"
     },
@@ -8210,10 +7829,9 @@ const MLB_ROSTERS = {
       "number": "23",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Arizona Diamondbacks",
       "profile": "https://www.mlb.com/player/zac-gallen-668678"
     }
@@ -8226,10 +7844,9 @@ const MLB_ROSTERS = {
       "number": "1",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/adael-amador-691182"
     },
@@ -8240,10 +7857,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/braxton-fulford-690924"
     },
@@ -8254,10 +7870,9 @@ const MLB_ROSTERS = {
       "number": "83",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/brennan-bernardino-657514"
     },
@@ -8268,10 +7883,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/brett-sullivan-664954"
     },
@@ -8282,10 +7896,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/chase-dollander-801403",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -8297,10 +7910,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "CF",
       "positions": [
-        "CF",
-        "SS"
+        "CF"
       ],
-      "rosterPosition": "CF/SS",
+      "rosterPosition": "CF",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/cole-carrigg-694249"
     },
@@ -8312,11 +7924,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "2B",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "1B/2B/3B/DH",
+      "rosterPosition": "1B/3B",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/connor-norby-681393"
     },
@@ -8368,11 +7978,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
-        "RF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "LF/CF/RF/DH",
+      "rosterPosition": "LF/CF",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/jake-mccarthy-664983"
     },
@@ -8383,10 +7991,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/jimmy-herget-623474"
     },
@@ -8397,10 +8004,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF",
+      "rosterPosition": "RF",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/jordan-beck-687597"
     },
@@ -8437,10 +8043,9 @@ const MLB_ROSTERS = {
       "number": "47",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/juan-mejia-675848"
     },
@@ -8504,11 +8109,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
-        "RF",
         "DH"
       ],
-      "rosterPosition": "LF/CF/RF/DH",
+      "rosterPosition": "LF/DH",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/mickey-moniak-666160"
     },
@@ -8532,10 +8135,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/ryan-feltner-663372"
     },
@@ -8560,10 +8162,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/tj-rumfield-681198"
     },
@@ -8587,12 +8188,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "RF",
       "positions": [
-        "RF",
-        "1B",
-        "LF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/1B/LF/DH",
+      "rosterPosition": "RF",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/troy-johnston-687859"
     },
@@ -8604,12 +8202,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "1B",
-        "3B",
-        "SS",
-        "LF"
+        "3B"
       ],
-      "rosterPosition": "2B/1B/3B/SS/LF",
+      "rosterPosition": "2B/3B",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/willi-castro-650489",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -8621,11 +8216,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/zac-veen-691728"
     },
@@ -8636,10 +8229,9 @@ const MLB_ROSTERS = {
       "number": "36",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Colorado Rockies",
       "profile": "https://www.mlb.com/player/zach-agnos-688642"
     }
@@ -8665,10 +8257,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/andy-pages-681624"
     },
@@ -8706,10 +8297,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/brock-stewart-592779"
     },
@@ -8720,10 +8310,9 @@ const MLB_ROSTERS = {
       "number": "60",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/edgardo-henriquez-683618"
     },
@@ -8747,13 +8336,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "3B",
       "positions": [
-        "3B",
-        "1B",
-        "2B",
-        "LF",
-        "CF"
+        "3B"
       ],
-      "rosterPosition": "3B/1B/2B/LF/CF",
+      "rosterPosition": "3B",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/enrique-hernandez-571771"
     },
@@ -8764,10 +8349,9 @@ const MLB_ROSTERS = {
       "number": "33",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/eric-lauer-641778",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -8792,10 +8376,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/freddie-freeman-518692"
     },
@@ -8819,10 +8402,9 @@ const MLB_ROSTERS = {
       "number": "95",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF",
+      "rosterPosition": "DH",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/josue-de-paula-800543"
     },
@@ -8833,10 +8415,9 @@ const MLB_ROSTERS = {
       "number": "70",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/justin-wrobleski-680736"
     },
@@ -8847,10 +8428,9 @@ const MLB_ROSTERS = {
       "number": "40",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/kris-bubic-663460"
     },
@@ -8874,10 +8454,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/max-muncy-571970"
     },
@@ -8888,12 +8467,9 @@ const MLB_ROSTERS = {
       "number": "72",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B",
-        "SS",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/3B/SS/DH",
+      "rosterPosition": "2B",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/miguel-rojas-500743"
     },
@@ -8917,10 +8493,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/roki-sasaki-808963"
     },
@@ -8931,9 +8506,10 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "DH",
       "positions": [
-        "DH"
+        "DH",
+        "SP"
       ],
-      "rosterPosition": "DH",
+      "rosterPosition": "DH/SP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/shohei-ohtani-660271"
     },
@@ -8970,11 +8546,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/teoscar-hernandez-606192"
     },
@@ -8985,12 +8559,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B",
-        "LF",
-        "CF"
+        "2B"
       ],
-      "rosterPosition": "2B/3B/LF/CF",
+      "rosterPosition": "2B",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/tommy-edman-669242"
     },
@@ -9014,10 +8585,9 @@ const MLB_ROSTERS = {
       "number": "61",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/will-klein-694361",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9029,10 +8599,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Los Angeles Dodgers",
       "profile": "https://www.mlb.com/player/will-smith-669257"
     },
@@ -9071,11 +8640,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/austin-hays-669720"
     },
@@ -9086,10 +8653,9 @@ const MLB_ROSTERS = {
       "number": "72",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/bradgley-rodriguez-699134"
     },
@@ -9128,10 +8694,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "RF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "LF/RF/CF",
+      "rosterPosition": "LF/RF",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/dustin-harris-687957"
     },
@@ -9142,10 +8707,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/ethan-salas-806956"
     },
@@ -9157,10 +8721,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "RF/2B/DH",
+      "rosterPosition": "RF/2B",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/fernando-tatis-jr-665487"
     },
@@ -9186,10 +8749,9 @@ const MLB_ROSTERS = {
       "positions": [
         "1B",
         "LF",
-        "RF",
         "DH"
       ],
-      "rosterPosition": "1B/LF/RF/DH",
+      "rosterPosition": "1B/LF/DH",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/gavin-sheets-657757"
     },
@@ -9200,10 +8762,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/jackson-merrill-701538"
     },
@@ -9214,13 +8775,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "2B",
       "positions": [
-        "2B",
-        "1B",
-        "3B",
-        "SS",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/1B/3B/SS/DH",
+      "rosterPosition": "2B",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/jake-cronenworth-630105"
     },
@@ -9231,11 +8788,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/jase-bowen-687749"
     },
@@ -9272,10 +8827,9 @@ const MLB_ROSTERS = {
       "number": "55",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/lucas-giolito-608337",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9287,10 +8841,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/luis-campusano-669134"
     },
@@ -9301,13 +8854,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "LF",
-        "DH",
-        "1B"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/LF/DH/1B",
+      "rosterPosition": "3B",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/luis-rengifo-650859",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9319,10 +8868,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/manny-machado-592518"
     },
@@ -9359,10 +8907,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "DH",
       "positions": [
-        "DH",
-        "3B"
+        "DH"
       ],
-      "rosterPosition": "DH/3B",
+      "rosterPosition": "DH",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/miguel-andujar-609280"
     },
@@ -9386,11 +8933,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/ramon-laureano-657656",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9402,10 +8947,9 @@ const MLB_ROSTERS = {
       "number": "38",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/robbie-ray-592662"
     },
@@ -9416,11 +8960,9 @@ const MLB_ROSTERS = {
       "number": "0",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/samad-taylor-669392"
     },
@@ -9431,10 +8973,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/ty-france-664034"
     },
@@ -9458,10 +8999,9 @@ const MLB_ROSTERS = {
       "number": "2",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "San Diego Padres",
       "profile": "https://www.mlb.com/player/xander-bogaerts-593428"
     },
@@ -9515,10 +9055,9 @@ const MLB_ROSTERS = {
       "number": "45",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/anthony-molina-683627"
     },
@@ -9529,10 +9068,9 @@ const MLB_ROSTERS = {
       "number": "46",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/blade-tidwell-694918",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9544,10 +9082,9 @@ const MLB_ROSTERS = {
       "number": "94",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/bo-davidson-815589"
     },
@@ -9571,10 +9108,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B"
+        "1B"
       ],
-      "rosterPosition": "1B/3B",
+      "rosterPosition": "1B",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/brett-harris-695391"
     },
@@ -9613,10 +9149,9 @@ const MLB_ROSTERS = {
       "number": "77",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/carson-seymour-693313"
     },
@@ -9642,13 +9177,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "1B",
-        "2B",
-        "3B",
-        "SS",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "LF/1B/2B/3B/SS/DH",
+      "rosterPosition": "LF/3B",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/casey-schmitt-669477",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9660,11 +9191,9 @@ const MLB_ROSTERS = {
       "number": "50",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "3B"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/3B",
+      "rosterPosition": "SS",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/christian-koss-683766"
     },
@@ -9688,11 +9217,9 @@ const MLB_ROSTERS = {
       "number": "0",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/drew-gilbert-687551"
     },
@@ -9729,11 +9256,9 @@ const MLB_ROSTERS = {
       "number": "58",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/grant-mccray-687529"
     },
@@ -9798,10 +9323,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "CF",
       "positions": [
-        "CF",
-        "2B"
+        "CF"
       ],
-      "rosterPosition": "CF/2B",
+      "rosterPosition": "CF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/jonah-cox-813841"
     },
@@ -9826,10 +9350,9 @@ const MLB_ROSTERS = {
       "number": "34",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/jt-brubaker-664141",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -9841,11 +9364,9 @@ const MLB_ROSTERS = {
       "number": "51",
       "position": "RF",
       "positions": [
-        "RF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/CF/DH",
+      "rosterPosition": "RF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/jung-hoo-lee-808982",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -9899,11 +9420,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "SS",
-        "3B",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "2B/SS/3B/DH",
+      "rosterPosition": "2B/SS",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/marcelo-mayer-691785"
     },
@@ -9914,10 +9433,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/matt-chapman-656305",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -9943,10 +9461,9 @@ const MLB_ROSTERS = {
       "number": "71",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/matt-wilkinson-683363"
     },
@@ -9957,11 +9474,9 @@ const MLB_ROSTERS = {
       "number": "39",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/3B/DH",
+      "rosterPosition": "2B",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/osleivis-basabe-678545"
     },
@@ -10014,11 +9529,9 @@ const MLB_ROSTERS = {
       "number": "91",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/scott-bandura-814154"
     },
@@ -10042,13 +9555,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "3B",
       "positions": [
-        "3B",
-        "1B",
-        "SS",
-        "LF",
-        "2B"
+        "3B"
       ],
-      "rosterPosition": "3B/1B/SS/LF/2B",
+      "rosterPosition": "3B",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/shay-whitcomb-694376"
     },
@@ -10099,11 +9608,9 @@ const MLB_ROSTERS = {
       "number": "52",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/DH",
+      "rosterPosition": "LF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/turner-hill-806367"
     },
@@ -10114,12 +9621,9 @@ const MLB_ROSTERS = {
       "number": "78",
       "position": "LF",
       "positions": [
-        "LF",
-        "1B",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/1B/RF/DH",
+      "rosterPosition": "LF",
       "team": "San Francisco Giants",
       "profile": "https://www.mlb.com/player/victor-bericoto-682674"
     },
@@ -10146,10 +9650,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/aj-smith-shawver-700363"
     },
@@ -10173,10 +9676,9 @@ const MLB_ROSTERS = {
       "number": "39",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/brent-suter-608718"
     },
@@ -10187,10 +9689,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF",
+      "rosterPosition": "RF",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/brewer-hicklen-676551"
     },
@@ -10214,10 +9715,9 @@ const MLB_ROSTERS = {
       "number": "72",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/didier-fuentes-800311"
     },
@@ -10268,10 +9768,9 @@ const MLB_ROSTERS = {
       "number": "66",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/grant-holmes-656550"
     },
@@ -10309,10 +9808,9 @@ const MLB_ROSTERS = {
       "number": "60",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/jr-ritchie-702275"
     },
@@ -10324,11 +9822,9 @@ const MLB_ROSTERS = {
       "position": "CF",
       "positions": [
         "CF",
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "CF/LF/RF/DH",
+      "rosterPosition": "CF/LF",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/lane-thomas-657041"
     },
@@ -10353,12 +9849,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "2B",
-        "3B",
-        "SS",
-        "CF"
+        "SS"
       ],
-      "rosterPosition": "LF/2B/3B/SS/CF",
+      "rosterPosition": "LF/SS",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/mauricio-dubon-643289"
     },
@@ -10369,11 +9862,9 @@ const MLB_ROSTERS = {
       "number": "23",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/DH",
+      "rosterPosition": "CF",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/michael-harris-ii-671739"
     },
@@ -10385,10 +9876,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF/RF",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/mike-yastrzemski-573262"
     },
@@ -10399,10 +9889,9 @@ const MLB_ROSTERS = {
       "number": "1",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/ozzie-albies-645277"
     },
@@ -10426,10 +9915,9 @@ const MLB_ROSTERS = {
       "number": "62",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/ray-kerr-678061"
     },
@@ -10453,10 +9941,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/ronald-acuna-jr-660670"
     },
@@ -10480,10 +9967,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Atlanta Braves",
       "profile": "https://www.mlb.com/player/sean-murphy-669221"
     },
@@ -10618,10 +10104,9 @@ const MLB_ROSTERS = {
       "number": "58",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/cade-gibson-806188"
     },
@@ -10658,10 +10143,9 @@ const MLB_ROSTERS = {
       "number": "63",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/deyvison-de-los-santos-691277"
     },
@@ -10672,11 +10156,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/esteury-ruiz-665923"
     },
@@ -10687,10 +10169,9 @@ const MLB_ROSTERS = {
       "number": "39",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/eury-perez-691587"
     },
@@ -10701,10 +10182,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "3B",
       "positions": [
-        "3B",
-        "1B"
+        "3B"
       ],
-      "rosterPosition": "3B/1B",
+      "rosterPosition": "3B",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/graham-pauley-688363"
     },
@@ -10715,12 +10195,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "RF",
       "positions": [
-        "RF",
-        "1B",
-        "LF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/1B/LF/DH",
+      "rosterPosition": "RF",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/griffin-conine-665052"
     },
@@ -10731,11 +10208,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/heriberto-hernandez-681715"
     },
@@ -10746,10 +10221,9 @@ const MLB_ROSTERS = {
       "number": "79",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/jack-ralston-667652"
     },
@@ -10760,10 +10234,9 @@ const MLB_ROSTERS = {
       "number": "87",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/jakob-marsee-805300"
     },
@@ -10774,10 +10247,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/janson-junk-676083"
     },
@@ -10801,14 +10273,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "SS",
-        "LF",
-        "CF",
-        "RF"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/SS/LF/CF/RF",
+      "rosterPosition": "3B",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/javier-sanoja-691594"
     },
@@ -10846,11 +10313,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "1B/LF/RF/DH",
+      "rosterPosition": "1B/LF",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/kyle-stowers-669065"
     },
@@ -10888,10 +10353,9 @@ const MLB_ROSTERS = {
       "number": "6",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/otto-lopez-672640"
     },
@@ -10902,10 +10366,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/owen-caissie-683357",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -10917,10 +10380,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/pete-fairbanks-664126",
       "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
@@ -10946,10 +10408,9 @@ const MLB_ROSTERS = {
       "number": "65",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/ryan-gusto-687473"
     },
@@ -10960,10 +10421,9 @@ const MLB_ROSTERS = {
       "number": "22",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/sandy-alcantara-645261"
     },
@@ -11028,10 +10488,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Miami Marlins",
       "profile": "https://www.mlb.com/player/xavier-edwards-669364"
     }
@@ -11044,11 +10503,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/a-j-ewing-805999"
     },
@@ -11059,10 +10516,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/austin-warren-681810"
     },
@@ -11074,10 +10530,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "3B/SS/DH",
+      "rosterPosition": "3B/SS",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/bo-bichette-666182"
     },
@@ -11089,14 +10544,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "1B",
-        "2B",
-        "SS",
-        "LF",
-        "RF",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "3B/1B/2B/SS/LF/RF/DH",
+      "rosterPosition": "3B/2B",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/brett-baty-683146"
     },
@@ -11107,12 +10557,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF/DH",
+      "rosterPosition": "RF",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/carson-benge-701807"
     },
@@ -11150,11 +10597,9 @@ const MLB_ROSTERS = {
       "number": "28",
       "position": "1B",
       "positions": [
-        "1B",
-        "LF",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/LF/DH",
+      "rosterPosition": "1B",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/christopher-morel-666624"
     },
@@ -11165,10 +10610,9 @@ const MLB_ROSTERS = {
       "number": "52",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/cionel-perez-672335"
     },
@@ -11218,10 +10662,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/francisco-alvarez-682626"
     },
@@ -11232,10 +10675,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/francisco-lindor-596019"
     },
@@ -11246,11 +10688,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "1B",
       "positions": [
-        "1B",
-        "LF",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/LF/DH",
+      "rosterPosition": "1B",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/jared-young-676724",
       "injuryInclusion": "Injured 7-Day at the 2026 snapshot"
@@ -11262,10 +10702,9 @@ const MLB_ROSTERS = {
       "number": "84",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/jefry-yan-642376"
     },
@@ -11276,10 +10715,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/jonah-tong-804636"
     },
@@ -11290,10 +10728,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "DH",
       "positions": [
-        "DH",
-        "1B"
+        "DH"
       ],
-      "rosterPosition": "DH/1B",
+      "rosterPosition": "DH",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/jorge-polanco-593871",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -11319,10 +10756,9 @@ const MLB_ROSTERS = {
       "number": "47",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/justin-hagenman-663795"
     },
@@ -11373,11 +10809,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/3B/DH",
+      "rosterPosition": "1B",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/mark-vientos-668901"
     },
@@ -11401,10 +10835,9 @@ const MLB_ROSTERS = {
       "number": "55",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF",
+      "rosterPosition": "LF",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/nick-morabito-703492"
     },
@@ -11442,10 +10875,9 @@ const MLB_ROSTERS = {
       "number": "89",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/robert-stock-476594",
       "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
@@ -11457,12 +10889,9 @@ const MLB_ROSTERS = {
       "number": "0",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "3B",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/3B/DH",
+      "rosterPosition": "SS",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/ronny-mauricio-677595"
     },
@@ -11487,10 +10916,9 @@ const MLB_ROSTERS = {
       "number": "32",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "New York Mets",
       "profile": "https://www.mlb.com/player/tobias-myers-668964"
     },
@@ -11543,10 +10971,9 @@ const MLB_ROSTERS = {
       "number": "53",
       "position": "RF",
       "positions": [
-        "RF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/CF",
+      "rosterPosition": "RF",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/adolis-garcia-666969",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -11585,10 +11012,9 @@ const MLB_ROSTERS = {
       "number": "24",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/andrew-painter-691725"
     },
@@ -11613,11 +11039,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF/RF",
+      "rosterPosition": "LF",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/brandon-marsh-669016"
     },
@@ -11628,10 +11052,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF",
+      "rosterPosition": "RF",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/bryan-de-la-cruz-650559"
     },
@@ -11643,10 +11066,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "1B/RF/DH",
+      "rosterPosition": "1B/RF",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/bryce-harper-547180"
     },
@@ -11712,10 +11134,9 @@ const MLB_ROSTERS = {
       "position": "CF",
       "positions": [
         "CF",
-        "LF",
         "RF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF/RF",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/derek-hill-656537"
     },
@@ -11727,12 +11148,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "2B",
-        "3B",
-        "SS",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "LF/2B/3B/SS/DH",
+      "rosterPosition": "LF/2B",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/edmundo-sosa-624641"
     },
@@ -11743,10 +11161,9 @@ const MLB_ROSTERS = {
       "number": "21",
       "position": "C",
       "positions": [
-        "C",
-        "LF"
+        "C"
       ],
-      "rosterPosition": "C/LF",
+      "rosterPosition": "C",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/garrett-stubbs-596117"
     },
@@ -11770,10 +11187,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/jesus-luzardo-666200"
     },
@@ -11836,11 +11252,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "DH",
       "positions": [
-        "DH",
-        "1B",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/1B/LF",
+      "rosterPosition": "DH",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/kyle-schwarber-656941"
     },
@@ -11877,10 +11291,9 @@ const MLB_ROSTERS = {
       "number": "58",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/tanner-banks-621383"
     },
@@ -11891,10 +11304,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/tim-mayza-641835"
     },
@@ -11905,10 +11317,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Philadelphia Phillies",
       "profile": "https://www.mlb.com/player/trea-turner-607208"
     },
@@ -11934,10 +11345,9 @@ const MLB_ROSTERS = {
       "number": "81",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/abimelec-ortiz-694673"
     },
@@ -11948,11 +11358,9 @@ const MLB_ROSTERS = {
       "number": "87",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/3B/DH",
+      "rosterPosition": "1B",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/andres-chaparro-665953"
     },
@@ -11963,10 +11371,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/andrew-alvarez-674841"
     },
@@ -11977,10 +11384,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/brad-lord-695418"
     },
@@ -11991,10 +11397,9 @@ const MLB_ROSTERS = {
       "number": "12",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/brady-house-691781"
     },
@@ -12018,11 +11423,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "SS",
       "positions": [
-        "SS",
-        "2B",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/2B/DH",
+      "rosterPosition": "SS",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/cj-abrams-682928"
     },
@@ -12046,11 +11449,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/daylen-lile-695734"
     },
@@ -12075,10 +11476,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "LF",
         "CF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF/CF",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/dylan-crews-686611"
     },
@@ -12115,10 +11515,9 @@ const MLB_ROSTERS = {
       "number": "17",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/harry-ford-695670"
     },
@@ -12155,10 +11554,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/jake-irvin-663623"
     },
@@ -12169,11 +11567,9 @@ const MLB_ROSTERS = {
       "number": "29",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/DH",
+      "rosterPosition": "RF",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/james-wood-695578"
     },
@@ -12185,10 +11581,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "2B/3B/DH",
+      "rosterPosition": "2B/3B",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/jorbit-vivas-678391"
     },
@@ -12199,12 +11594,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "DH",
       "positions": [
-        "DH",
-        "2B",
-        "3B",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/2B/3B/LF",
+      "rosterPosition": "DH",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/jose-tena-677588"
     },
@@ -12298,10 +11690,9 @@ const MLB_ROSTERS = {
       "number": "55",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/richard-lovelady-663992"
     },
@@ -12312,10 +11703,9 @@ const MLB_ROSTERS = {
       "number": "74",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/riley-cornelio-683000"
     },
@@ -12326,10 +11716,9 @@ const MLB_ROSTERS = {
       "number": "76",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/will-dion-702021"
     },
@@ -12340,10 +11729,9 @@ const MLB_ROSTERS = {
       "number": "28",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Washington Nationals",
       "profile": "https://www.mlb.com/player/yohandy-morales-691002"
     },
@@ -12383,10 +11771,9 @@ const MLB_ROSTERS = {
       "number": "3",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/alex-bregman-608324"
     },
@@ -12426,11 +11813,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "C",
       "positions": [
-        "C",
-        "1B",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/carson-kelly-608348"
     },
@@ -12481,10 +11866,9 @@ const MLB_ROSTERS = {
       "number": "7",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/dansby-swanson-621020"
     },
@@ -12495,10 +11879,9 @@ const MLB_ROSTERS = {
       "number": "19",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/david-peterson-656849"
     },
@@ -12510,11 +11893,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "1B",
-        "2B",
         "SS"
       ],
-      "rosterPosition": "3B/1B/2B/SS",
+      "rosterPosition": "3B/SS",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/gabriel-arias-672356"
     },
@@ -12525,10 +11906,9 @@ const MLB_ROSTERS = {
       "number": "8",
       "position": "LF",
       "positions": [
-        "LF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/DH",
+      "rosterPosition": "LF",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/ian-happ-664023"
     },
@@ -12579,15 +11959,9 @@ const MLB_ROSTERS = {
       "number": "6",
       "position": "RF",
       "positions": [
-        "RF",
-        "1B",
-        "2B",
-        "3B",
-        "LF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/1B/2B/3B/LF/CF/DH",
+      "rosterPosition": "RF",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/matt-shaw-807713"
     },
@@ -12624,11 +11998,9 @@ const MLB_ROSTERS = {
       "number": "20",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF",
-        "RF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF/RF",
+      "rosterPosition": "DH",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/michael-conforto-624424"
     },
@@ -12639,10 +12011,9 @@ const MLB_ROSTERS = {
       "number": "9",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/miguel-amaya-665804"
     },
@@ -12667,12 +12038,9 @@ const MLB_ROSTERS = {
       "number": "75",
       "position": "2B",
       "positions": [
-        "2B",
-        "1B",
-        "3B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/1B/3B/DH",
+      "rosterPosition": "2B",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/pedro-ramirez-699393"
     },
@@ -12683,10 +12051,9 @@ const MLB_ROSTERS = {
       "number": "4",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/pete-crow-armstrong-691718"
     },
@@ -12711,10 +12078,9 @@ const MLB_ROSTERS = {
       "number": "33",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/ryan-rolison-669020"
     },
@@ -12738,10 +12104,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/seiya-suzuki-673548"
     },
@@ -12780,11 +12145,9 @@ const MLB_ROSTERS = {
       "position": "LF",
       "positions": [
         "LF",
-        "CF",
-        "RF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "LF/CF/RF/DH",
+      "rosterPosition": "LF/CF",
       "team": "Chicago Cubs",
       "profile": "https://www.mlb.com/player/tyrone-taylor-621438"
     }
@@ -12823,10 +12186,9 @@ const MLB_ROSTERS = {
       "number": "55",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/brandon-williamson-682227"
     },
@@ -12850,10 +12212,9 @@ const MLB_ROSTERS = {
       "number": "38",
       "position": "CF",
       "positions": [
-        "CF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/RF",
+      "rosterPosition": "CF",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/carlos-jorge-699115"
     },
@@ -12904,10 +12265,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/elly-de-la-cruz-682829"
     },
@@ -12958,11 +12318,9 @@ const MLB_ROSTERS = {
       "number": "43",
       "position": "RF",
       "positions": [
-        "RF",
-        "CF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/CF/DH",
+      "rosterPosition": "RF",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/hector-rodriguez-699302"
     },
@@ -12987,11 +12345,9 @@ const MLB_ROSTERS = {
       "number": "22",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/jj-bleday-668709"
     },
@@ -13015,11 +12371,9 @@ const MLB_ROSTERS = {
       "number": "46",
       "position": "2B",
       "positions": [
-        "2B",
-        "3B",
-        "RF"
+        "2B"
       ],
-      "rosterPosition": "2B/3B/RF",
+      "rosterPosition": "2B",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/juan-brito-682877"
     },
@@ -13071,10 +12425,9 @@ const MLB_ROSTERS = {
       "position": "2B",
       "positions": [
         "2B",
-        "SS",
-        "CF"
+        "SS"
       ],
-      "rosterPosition": "2B/SS/CF",
+      "rosterPosition": "2B/SS",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/matt-mclain-680574"
     },
@@ -13085,11 +12438,9 @@ const MLB_ROSTERS = {
       "number": "48",
       "position": "1B",
       "positions": [
-        "1B",
-        "LF",
-        "RF"
+        "1B"
       ],
-      "rosterPosition": "1B/LF/RF",
+      "rosterPosition": "1B",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/michael-toglia-669911",
       "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
@@ -13114,11 +12465,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "3B",
       "positions": [
-        "3B",
-        "SS",
-        "LF"
+        "3B"
       ],
-      "rosterPosition": "3B/SS/LF",
+      "rosterPosition": "3B",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/oswaldo-cabrera-665828"
     },
@@ -13142,10 +12491,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/rhett-lowder-695076"
     },
@@ -13157,11 +12505,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "2B",
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "1B/2B/3B/DH",
+      "rosterPosition": "1B/3B",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/sal-stewart-701398"
     },
@@ -13173,12 +12519,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "2B",
-        "LF",
-        "CF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "1B/2B/LF/CF/RF",
+      "rosterPosition": "1B/LF",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/spencer-steer-668715"
     },
@@ -13216,10 +12559,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Cincinnati Reds",
       "profile": "https://www.mlb.com/player/tyler-stephenson-663886"
     },
@@ -13258,10 +12600,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/aaron-ashby-676879"
     },
@@ -13285,11 +12626,9 @@ const MLB_ROSTERS = {
       "number": "28",
       "position": "1B",
       "positions": [
-        "1B",
-        "3B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/3B/DH",
+      "rosterPosition": "1B",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/andrew-vaughn-683734"
     },
@@ -13340,10 +12679,9 @@ const MLB_ROSTERS = {
       "number": "2",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/SS",
+      "rosterPosition": "2B",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/brice-turang-668930"
     },
@@ -13354,10 +12692,9 @@ const MLB_ROSTERS = {
       "number": "22",
       "position": "DH",
       "positions": [
-        "DH",
-        "LF"
+        "DH"
       ],
-      "rosterPosition": "DH/LF",
+      "rosterPosition": "DH",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/christian-yelich-592885"
     },
@@ -13382,10 +12719,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "2B",
         "SS"
       ],
-      "rosterPosition": "3B/2B/SS",
+      "rosterPosition": "3B/SS",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/david-hamilton-666152"
     },
@@ -13396,10 +12732,9 @@ const MLB_ROSTERS = {
       "number": "37",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/dl-hall-669084"
     },
@@ -13423,10 +12758,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/garrett-mitchell-669003"
     },
@@ -13437,11 +12771,9 @@ const MLB_ROSTERS = {
       "number": "99",
       "position": "C",
       "positions": [
-        "C",
-        "1B",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/gary-sanchez-596142"
     },
@@ -13452,10 +12784,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "LF",
       "positions": [
-        "LF",
-        "CF"
+        "LF"
       ],
-      "rosterPosition": "LF/CF",
+      "rosterPosition": "LF",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/jackson-chourio-694192"
     },
@@ -13480,11 +12811,9 @@ const MLB_ROSTERS = {
       "position": "1B",
       "positions": [
         "1B",
-        "LF",
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "1B/LF/RF/DH",
+      "rosterPosition": "1B/RF",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/jake-bauers-641343"
     },
@@ -13522,10 +12851,9 @@ const MLB_ROSTERS = {
       "number": "52",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/kyle-harrison-690986"
     },
@@ -13549,11 +12877,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF",
-        "CF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF/CF",
+      "rosterPosition": "RF",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/luis-lara-800325"
     },
@@ -13578,10 +12904,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/robert-gasser-688107"
     },
@@ -13592,10 +12917,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF",
+      "rosterPosition": "RF",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/sal-frelick-686217"
     },
@@ -13633,10 +12957,9 @@ const MLB_ROSTERS = {
       "number": "24",
       "position": "C",
       "positions": [
-        "C",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/DH",
+      "rosterPosition": "C",
       "team": "Milwaukee Brewers",
       "profile": "https://www.mlb.com/player/william-contreras-661388"
     }
@@ -13662,12 +12985,9 @@ const MLB_ROSTERS = {
       "number": "25",
       "position": "CF",
       "positions": [
-        "CF",
-        "1B",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/1B/LF/RF",
+      "rosterPosition": "CF",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/billy-cook-695257"
     },
@@ -13678,10 +12998,9 @@ const MLB_ROSTERS = {
       "number": "14",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/brandon-eisert-685126"
     },
@@ -13692,10 +13011,9 @@ const MLB_ROSTERS = {
       "number": "5",
       "position": "2B",
       "positions": [
-        "2B",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "2B/DH",
+      "rosterPosition": "2B",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/brandon-lowe-664040"
     },
@@ -13720,11 +13038,9 @@ const MLB_ROSTERS = {
       "number": "10",
       "position": "LF",
       "positions": [
-        "LF",
-        "RF",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/RF/DH",
+      "rosterPosition": "LF",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/bryan-reynolds-668804"
     },
@@ -13735,10 +13051,9 @@ const MLB_ROSTERS = {
       "number": "36",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/bubba-chandler-696149"
     },
@@ -13763,10 +13078,9 @@ const MLB_ROSTERS = {
       "number": "55",
       "position": "RF",
       "positions": [
-        "RF",
-        "LF"
+        "RF"
       ],
-      "rosterPosition": "RF/LF",
+      "rosterPosition": "RF",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/esmerlyn-valdez-699013",
       "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
@@ -13847,10 +13161,9 @@ const MLB_ROSTERS = {
       "position": "CF",
       "positions": [
         "CF",
-        "LF",
-        "RF"
+        "LF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF/LF",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/jake-mangum-663968"
     },
@@ -13875,11 +13188,9 @@ const MLB_ROSTERS = {
       "position": "SS",
       "positions": [
         "SS",
-        "1B",
-        "3B",
-        "RF"
+        "3B"
       ],
-      "rosterPosition": "SS/1B/3B/RF",
+      "rosterPosition": "SS/3B",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/jared-triolo-669707"
     },
@@ -13890,10 +13201,9 @@ const MLB_ROSTERS = {
       "number": "54",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/kirby-yates-489446"
     },
@@ -13904,10 +13214,9 @@ const MLB_ROSTERS = {
       "number": "6",
       "position": "SS",
       "positions": [
-        "SS",
-        "DH"
+        "SS"
       ],
-      "rosterPosition": "SS/DH",
+      "rosterPosition": "SS",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/konnor-griffin-804606"
     },
@@ -13918,10 +13227,9 @@ const MLB_ROSTERS = {
       "number": "71",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/lake-bachar-669199"
     },
@@ -13945,10 +13253,9 @@ const MLB_ROSTERS = {
       "number": "46",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/mason-montgomery-682254"
     },
@@ -13974,11 +13281,9 @@ const MLB_ROSTERS = {
       "position": "3B",
       "positions": [
         "3B",
-        "2B",
-        "SS",
-        "DH"
+        "2B"
       ],
-      "rosterPosition": "3B/2B/SS/DH",
+      "rosterPosition": "3B/2B",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/nick-gonzales-693304"
     },
@@ -14002,10 +13307,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "CF",
       "positions": [
-        "CF",
-        "DH"
+        "CF"
       ],
-      "rosterPosition": "CF/DH",
+      "rosterPosition": "CF",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/oneil-cruz-665833"
     },
@@ -14029,10 +13333,9 @@ const MLB_ROSTERS = {
       "number": "43",
       "position": "C",
       "positions": [
-        "C",
-        "1B"
+        "C"
       ],
-      "rosterPosition": "C/1B",
+      "rosterPosition": "C",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/rafael-flores-jr-804668"
     },
@@ -14043,10 +13346,9 @@ const MLB_ROSTERS = {
       "number": "63",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/ronny-simon-682927"
     },
@@ -14058,10 +13360,9 @@ const MLB_ROSTERS = {
       "position": "RF",
       "positions": [
         "RF",
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "RF/1B/DH",
+      "rosterPosition": "RF/1B",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/ryan-o-hearn-656811"
     },
@@ -14072,10 +13373,9 @@ const MLB_ROSTERS = {
       "number": "2",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/spencer-horwitz-687462"
     },
@@ -14086,10 +13386,9 @@ const MLB_ROSTERS = {
       "number": "49",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "Pittsburgh Pirates",
       "profile": "https://www.mlb.com/player/yohan-ramirez-670990"
     }
@@ -14102,10 +13401,9 @@ const MLB_ROSTERS = {
       "number": "41",
       "position": "1B",
       "positions": [
-        "1B",
-        "DH"
+        "1B"
       ],
-      "rosterPosition": "1B/DH",
+      "rosterPosition": "1B",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/alec-burleson-676475"
     },
@@ -14129,12 +13427,9 @@ const MLB_ROSTERS = {
       "number": "39",
       "position": "LF",
       "positions": [
-        "LF",
-        "2B",
-        "3B",
-        "DH"
+        "LF"
       ],
-      "rosterPosition": "LF/2B/3B/DH",
+      "rosterPosition": "LF",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/bryan-torres-663494"
     },
@@ -14145,10 +13440,9 @@ const MLB_ROSTERS = {
       "number": "52",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/brycen-mautz-802408"
     },
@@ -14172,11 +13466,9 @@ const MLB_ROSTERS = {
       "number": "31",
       "position": "3B",
       "positions": [
-        "3B",
-        "2B",
-        "SS"
+        "3B"
       ],
-      "rosterPosition": "3B/2B/SS",
+      "rosterPosition": "3B",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/cesar-prieto-693409"
     },
@@ -14200,10 +13492,9 @@ const MLB_ROSTERS = {
       "number": "44",
       "position": "RP",
       "positions": [
-        "RP",
-        "SP"
+        "RP"
       ],
-      "rosterPosition": "RP/SP",
+      "rosterPosition": "RP",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/gordon-graceffo-700669"
     },
@@ -14227,10 +13518,9 @@ const MLB_ROSTERS = {
       "number": "40",
       "position": "SP",
       "positions": [
-        "SP",
-        "RP"
+        "SP"
       ],
-      "rosterPosition": "SP/RP",
+      "rosterPosition": "SP",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/hunter-dobbins-690928",
       "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
@@ -14256,10 +13546,9 @@ const MLB_ROSTERS = {
       "number": "26",
       "position": "2B",
       "positions": [
-        "2B",
-        "SS"
+        "2B"
       ],
-      "rosterPosition": "2B/SS",
+      "rosterPosition": "2B",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/jj-wetherholt-802139"
     },
@@ -14270,10 +13559,9 @@ const MLB_ROSTERS = {
       "number": "18",
       "position": "RF",
       "positions": [
-        "RF",
-        "DH"
+        "RF"
       ],
-      "rosterPosition": "RF/DH",
+      "rosterPosition": "RF",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/jordan-walker-691023"
     },
@@ -14284,16 +13572,9 @@ const MLB_ROSTERS = {
       "number": "15",
       "position": "3B",
       "positions": [
-        "3B",
-        "1B",
-        "2B",
-        "SS",
-        "LF",
-        "CF",
-        "RF",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/1B/2B/SS/LF/CF/RF/DH",
+      "rosterPosition": "3B",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/jose-fermin-665877"
     },
@@ -14330,11 +13611,9 @@ const MLB_ROSTERS = {
       "number": "13",
       "position": "C",
       "positions": [
-        "C",
-        "1B",
-        "DH"
+        "C"
       ],
-      "rosterPosition": "C/1B/DH",
+      "rosterPosition": "C",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/leo-bernal-699024"
     },
@@ -14397,11 +13676,9 @@ const MLB_ROSTERS = {
       "number": "27",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF",
-        "RF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF/RF",
+      "rosterPosition": "CF",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/nathan-church-701675"
     },
@@ -14412,10 +13689,9 @@ const MLB_ROSTERS = {
       "number": "16",
       "position": "3B",
       "positions": [
-        "3B",
-        "DH"
+        "3B"
       ],
-      "rosterPosition": "3B/DH",
+      "rosterPosition": "3B",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/nolan-gorman-669357"
     },
@@ -14479,11 +13755,9 @@ const MLB_ROSTERS = {
       "position": "SS",
       "positions": [
         "SS",
-        "2B",
-        "3B",
-        "LF"
+        "2B"
       ],
-      "rosterPosition": "SS/2B/3B/LF",
+      "rosterPosition": "SS/2B",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/thomas-saggese-695336"
     },
@@ -14494,10 +13768,9 @@ const MLB_ROSTERS = {
       "number": "11",
       "position": "CF",
       "positions": [
-        "CF",
-        "LF"
+        "CF"
       ],
-      "rosterPosition": "CF/LF",
+      "rosterPosition": "CF",
       "team": "St. Louis Cardinals",
       "profile": "https://www.mlb.com/player/victor-scott-ii-687363"
     }
@@ -27083,7 +26356,8 @@ const MLB_POSITION_INFO = {
     "batters": "Highest-2026-PA primary-position regular per team (150 PA; catchers 100 PA), plus documented injured regulars.",
     "SP": "100 innings and 15 starts; up to 75, including protected injured regulars.",
     "RP": "40 innings or 10 saves; up to 75, including protected injured regulars. Usage order: outs plus six per save.",
-    "primary": "Most 2026 starts by position; 2025 starts then official roster position for injured players with no 2026 position starts. Pitchers use starting/relief appearance majority. Shohei Ohtani is the sole exception and appears in both DH and SP. Team cards retain multiple played positions."
+    "primary": "Most 2026 starts by position; 2025 starts then official roster position for injured players with no 2026 position starts. Pitchers use starting/relief appearance majority. Shohei Ohtani is the sole exception and appears in both DH and SP. Team cards retain multiple played positions.",
+    "teamPositions": "Primary position plus substantial secondary roles. Infield: 20 starts and 15% of position starts, or 10 current starts plus 25 prior-season starts. Outfield: 25 starts and 25% of outfield starts. DH: 25 starts and 25% of position starts. Injured players without current starts use established prior-season roles. Ohtani is the sole two-way exception."
   }
 };
 const MLB_KNOWN_IDS = {
