@@ -1,0 +1,26 @@
+name: Verify live personal rankings tools
+on:
+  push:
+    branches: [verify-personal-rankings-live]
+permissions:
+  contents: read
+jobs:
+  public-tools:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node verify-personal-rankings-live.cjs
+      - run: node ranking-tools-browser-check.cjs
+        env:
+          PERSONAL_RANKINGS_URL: https://markfmyerss.github.io/?v=personal-rankings-v1
+      - run: node flow-check.cjs
+      - run: node appearance-check.cjs
+      - run: node design-check.cjs
+      - run: node league-style-check.cjs
