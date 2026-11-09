@@ -29,7 +29,7 @@ for(const [team,pos,width]of [['Baltimore Ravens','ALL',320],['Philadelphia Eagl
  await receiver.screenshot({path:'qa/shared-'+engine.name()+'-'+team.replace(/ /g,'-')+'.png',fullPage:true});
  await receiver.reload();assert.deepEqual(await receiver.locator('.rank-text strong').allTextContents(),result.names);assert.equal(await receiver.evaluate(k=>localStorage.getItem(k),own.key),own.value);
  await receiver.click('#rank-yours');assert.ok(await receiver.locator('#shared-notice').isHidden());assert.equal(await receiver.evaluate(()=>location.hash),'');assert.equal(await receiver.evaluate(k=>localStorage.getItem(k),own.key),own.value);
- await receiver.goto(origin+'/#ranking=v2.bad');assert.ok(await receiver.locator('#shared-status').isVisible());assert.ok(await receiver.locator('#shared-notice').isHidden());assert.equal(await receiver.evaluate(k=>localStorage.getItem(k),own.key),own.value);
+ await receiver.goto(origin+'/#ranking=v2.bad');await receiver.locator('#shared-status').waitFor({state:'visible'});assert.ok(await receiver.locator('#shared-status').isVisible());assert.ok(await receiver.locator('#shared-notice').isHidden());assert.equal(await receiver.evaluate(k=>localStorage.getItem(k),own.key),own.value);
  assert.deepEqual(errors,[]);await sender.close();await receiver.close();console.log('PASS '+engine.name()+' '+team+' shared order, reload, progress isolation, copy/manual/native sharing, cancellation, roster date and '+width+'px layout');
 }
 const blocked=await browser.newPage({viewport:{width:390,height:1000}});await blocked.addInitScript(()=>{Object.defineProperty(Storage.prototype,'setItem',{value(){throw new DOMException('Blocked','SecurityError');}});});

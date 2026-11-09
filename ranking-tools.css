@@ -56,3 +56,5 @@ html body[data-sport][data-view=sorting] header .compact-brand,html body[data-sp
 @media(max-width:600px){
  html body[data-sport][data-view=sorting] header .account-row,html body[data-sport][data-view=results] header .account-row{top:17px;right:17px}
 }
+
+html body[data-sport] #my-rankings,html body[data-sport] .ranking-tools-dialog button{-webkit-tap-highlight-color:transparent}
