@@ -1,0 +1,635 @@
+{
+  "version": 2,
+  "scope": "league",
+  "sport": "MLB",
+  "team": "MLB League",
+  "code": "MLB",
+  "pos": "C",
+  "verified": "November 9, 2026",
+  "players": [
+    {
+      "id": "MLB-543309",
+      "mlbId": 543309,
+      "name": "Kyle Higashioka",
+      "number": "11",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Texas Rangers",
+      "profile": "https://www.mlb.com/player/kyle-higashioka-543309",
+      "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
+    },
+    {
+      "id": "MLB-553869",
+      "mlbId": 553869,
+      "name": "Elias Díaz",
+      "number": "35",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Texas Rangers",
+      "profile": "https://www.mlb.com/player/elias-diaz-553869"
+    },
+    {
+      "id": "MLB-592663",
+      "mlbId": 592663,
+      "name": "J.T. Realmuto",
+      "number": "10",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Philadelphia Phillies",
+      "profile": "https://www.mlb.com/player/j-t-realmuto-592663"
+    },
+    {
+      "id": "MLB-605170",
+      "mlbId": 605170,
+      "name": "Victor Caratini",
+      "number": "37",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Minnesota Twins",
+      "profile": "https://www.mlb.com/player/victor-caratini-605170"
+    },
+    {
+      "id": "MLB-608348",
+      "mlbId": 608348,
+      "name": "Carson Kelly",
+      "number": "15",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Chicago Cubs",
+      "profile": "https://www.mlb.com/player/carson-kelly-608348"
+    },
+    {
+      "id": "MLB-623168",
+      "mlbId": 623168,
+      "name": "Tyler Heineman",
+      "number": "31",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Los Angeles Angels",
+      "profile": "https://www.mlb.com/player/tyler-heineman-623168"
+    },
+    {
+      "id": "MLB-660688",
+      "mlbId": 660688,
+      "name": "Keibert Ruiz",
+      "number": "20",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Washington Nationals",
+      "profile": "https://www.mlb.com/player/keibert-ruiz-660688"
+    },
+    {
+      "id": "MLB-661388",
+      "mlbId": 661388,
+      "name": "William Contreras",
+      "number": "24",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Milwaukee Brewers",
+      "profile": "https://www.mlb.com/player/william-contreras-661388"
+    },
+    {
+      "id": "MLB-663728",
+      "mlbId": 663728,
+      "name": "Cal Raleigh",
+      "number": "29",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Seattle Mariners",
+      "profile": "https://www.mlb.com/player/cal-raleigh-663728"
+    },
+    {
+      "id": "MLB-663886",
+      "mlbId": 663886,
+      "name": "Tyler Stephenson",
+      "number": "37",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Cincinnati Reds",
+      "profile": "https://www.mlb.com/player/tyler-stephenson-663886"
+    },
+    {
+      "id": "MLB-666023",
+      "mlbId": 666023,
+      "name": "Freddy Fermin",
+      "number": "54",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "San Diego Padres",
+      "profile": "https://www.mlb.com/player/freddy-fermin-666023"
+    },
+    {
+      "id": "MLB-668670",
+      "mlbId": 668670,
+      "name": "Jake Rogers",
+      "number": "28",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Chicago White Sox",
+      "profile": "https://www.mlb.com/player/jake-rogers-668670"
+    },
+    {
+      "id": "MLB-668939",
+      "mlbId": 668939,
+      "name": "Adley Rutschman",
+      "number": "31",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Boston Red Sox",
+      "profile": "https://www.mlb.com/player/adley-rutschman-668939"
+    },
+    {
+      "id": "MLB-669127",
+      "mlbId": 669127,
+      "name": "Shea Langeliers",
+      "number": "23",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Athletics",
+      "profile": "https://www.mlb.com/player/shea-langeliers-669127"
+    },
+    {
+      "id": "MLB-669224",
+      "mlbId": 669224,
+      "name": "Austin Wells",
+      "number": "28",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "New York Yankees",
+      "profile": "https://www.mlb.com/player/austin-wells-669224"
+    },
+    {
+      "id": "MLB-669257",
+      "mlbId": 669257,
+      "name": "Will Smith",
+      "number": "16",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Los Angeles Dodgers",
+      "profile": "https://www.mlb.com/player/will-smith-669257"
+    },
+    {
+      "id": "MLB-672275",
+      "mlbId": 672275,
+      "name": "Patrick Bailey",
+      "number": "16",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/patrick-bailey-672275"
+    },
+    {
+      "id": "MLB-672386",
+      "mlbId": 672386,
+      "name": "Alejandro Kirk",
+      "number": "30",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Toronto Blue Jays",
+      "profile": "https://www.mlb.com/player/alejandro-kirk-672386"
+    },
+    {
+      "id": "MLB-672515",
+      "mlbId": 672515,
+      "name": "Gabriel Moreno",
+      "number": "14",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Arizona Diamondbacks",
+      "profile": "https://www.mlb.com/player/gabriel-moreno-672515"
+    },
+    {
+      "id": "MLB-673237",
+      "mlbId": 673237,
+      "name": "Yainer Diaz",
+      "number": "21",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Houston Astros",
+      "profile": "https://www.mlb.com/player/yainer-diaz-673237"
+    },
+    {
+      "id": "MLB-680779",
+      "mlbId": 680779,
+      "name": "Henry Davis",
+      "number": "32",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Pittsburgh Pirates",
+      "profile": "https://www.mlb.com/player/henry-davis-680779"
+    },
+    {
+      "id": "MLB-682626",
+      "mlbId": 682626,
+      "name": "Francisco Alvarez",
+      "number": "4",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "New York Mets",
+      "profile": "https://www.mlb.com/player/francisco-alvarez-682626"
+    },
+    {
+      "id": "MLB-686780",
+      "mlbId": 686780,
+      "name": "Pedro Pagés",
+      "number": "43",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "St. Louis Cardinals",
+      "profile": "https://www.mlb.com/player/pedro-pages-686780"
+    },
+    {
+      "id": "MLB-686948",
+      "mlbId": 686948,
+      "name": "Drake Baldwin",
+      "number": "30",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Atlanta Braves",
+      "profile": "https://www.mlb.com/player/drake-baldwin-686948"
+    },
+    {
+      "id": "MLB-689414",
+      "mlbId": 689414,
+      "name": "Liam Hicks",
+      "number": "34",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Tampa Bay Rays",
+      "profile": "https://www.mlb.com/player/liam-hicks-689414"
+    },
+    {
+      "id": "MLB-691788",
+      "mlbId": 691788,
+      "name": "Joe Mack",
+      "number": "80",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Miami Marlins",
+      "profile": "https://www.mlb.com/player/joe-mack-691788"
+    },
+    {
+      "id": "MLB-693307",
+      "mlbId": 693307,
+      "name": "Dillon Dingler",
+      "number": "13",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Detroit Tigers",
+      "profile": "https://www.mlb.com/player/dillon-dingler-693307"
+    },
+    {
+      "id": "MLB-694212",
+      "mlbId": 694212,
+      "name": "Samuel Basallo",
+      "number": "29",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Baltimore Orioles",
+      "profile": "https://www.mlb.com/player/samuel-basallo-694212",
+      "injuryInclusion": "Injured 7-Day at the 2026 snapshot"
+    },
+    {
+      "id": "MLB-695600",
+      "mlbId": 695600,
+      "name": "Carter Jensen",
+      "number": "22",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Kansas City Royals",
+      "profile": "https://www.mlb.com/player/carter-jensen-695600"
+    },
+    {
+      "id": "MLB-696100",
+      "mlbId": 696100,
+      "name": "Hunter Goodman",
+      "number": "15",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Colorado Rockies",
+      "profile": "https://www.mlb.com/player/hunter-goodman-696100"
+    },
+    {
+      "id": "MLB-701852",
+      "mlbId": 701852,
+      "name": "Drew Cavanaugh",
+      "number": "61",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "San Francisco Giants",
+      "profile": "https://www.mlb.com/player/drew-cavanaugh-701852"
+    }
+  ],
+  "headshots": {
+    "MLB-543309": {
+      "url": "assets/mlb/headshots/543309.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/543309/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "47549e0bf983cf31f7e6d8d067e5c6be56fff0b6d1995c9780ff93d1449b1334"
+    },
+    "MLB-553869": {
+      "url": "assets/mlb/headshots/553869.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/553869/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "267209169e31fa5e8757af9a99d2c47d456c0e7eae51aee5cd926e5acab7b60a"
+    },
+    "MLB-592663": {
+      "url": "assets/mlb/headshots/592663.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/592663/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "49fca10a8e4324a3c295514a72572c2212e146dd6cda880353e07a0c817ac1ad"
+    },
+    "MLB-605170": {
+      "url": "assets/mlb/headshots/605170.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/605170/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "6cc122dd43c4f495882347206ef863ae40b604ab8bf0542e03088d61945ef433"
+    },
+    "MLB-608348": {
+      "url": "assets/mlb/headshots/608348.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/608348/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "eb10e8fb9fdfe283b12357115d4d5730e53b5ccb0e59f005cb68d8de43ad6481"
+    },
+    "MLB-623168": {
+      "url": "assets/mlb/headshots/623168.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/623168/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "14138f491eb1c164be23bc7c27a1738db0a4b2bcca932430259383ed18cc66ae"
+    },
+    "MLB-660688": {
+      "url": "assets/mlb/headshots/660688.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/660688/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "bc5d521b33e5206f7cee8d09b37f80a598d0a5dee2c892bab36785ecf0d856af"
+    },
+    "MLB-661388": {
+      "url": "assets/mlb/headshots/661388.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/661388/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "9f26f3b7cfbcd1c78bd779f898c085c9ef172265ec77c4029a62df4dd8f6bfbe"
+    },
+    "MLB-663728": {
+      "url": "assets/mlb/headshots/663728.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/663728/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "4a4c1ceb35eb4f5eb079abf20faadb1281b2c871a234e0d1ceb5b04da6fc8d34"
+    },
+    "MLB-663886": {
+      "url": "assets/mlb/headshots/663886.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/663886/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "56b91c7380f6d3b06458a475163527d12992e7a57790b5c0761c1bc0fd205a94"
+    },
+    "MLB-666023": {
+      "url": "assets/mlb/headshots/666023.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/666023/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "1b3462600db6b4e4c4fe5edecd42e1dd00bd0f35532253712657ffc4d66dc333"
+    },
+    "MLB-668670": {
+      "url": "assets/mlb/headshots/668670.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/668670/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "eb946d39c8be379a6be0522a11dcbe6280213b8acca64d4d75da69bb968051d8"
+    },
+    "MLB-668939": {
+      "url": "assets/mlb/headshots/668939.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/668939/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "ea3f99145913c600c5ddccb442bb934fcdc968e6b0dc233b72cfe09041a2b979"
+    },
+    "MLB-669127": {
+      "url": "assets/mlb/headshots/669127.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/669127/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "fd3968defcaac86a3cca27c371459177c76c5d38293d0a825d73e009274fb425"
+    },
+    "MLB-669224": {
+      "url": "assets/mlb/headshots/669224.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/669224/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "edbb508e3b85bd0204c6eedb30e7535bd323ce88a3d7fba5b7f5ea141de98c72"
+    },
+    "MLB-669257": {
+      "url": "assets/mlb/headshots/669257.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/669257/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "bde062014b30630b59aa59e32aeb09f39c9faf1212692dbdcac28853e1467cb3"
+    },
+    "MLB-672275": {
+      "url": "assets/mlb/headshots/672275.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/672275/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "17efd26496e97d342bab45ce959fe41cfbe8d423603da0230c4f1f126f39ba01"
+    },
+    "MLB-672386": {
+      "url": "assets/mlb/headshots/672386.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/672386/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "a201abb82b54237fd2226b906e982cbdb398b86a0649234cde1a6826ad223af9"
+    },
+    "MLB-672515": {
+      "url": "assets/mlb/headshots/672515.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/672515/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "79e66ca4bb00b0d6e0751c063f5c8732484b31d77890f3e99791a4d7582160e5"
+    },
+    "MLB-673237": {
+      "url": "assets/mlb/headshots/673237.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/673237/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "0c87efd5e54504f4a5a654a4cd07f8786805b26aede203df4e7b6ecfad1622e0"
+    },
+    "MLB-680779": {
+      "url": "assets/mlb/headshots/680779.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/680779/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "3895fd2ac1e57f37c6fc47500de46f4da3a95edc810a2333eeed587c822d0cee"
+    },
+    "MLB-682626": {
+      "url": "assets/mlb/headshots/682626.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/682626/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "ffdc0c27ad052875289bd42d283d3e27bb3aea3f5fc1f3d9dcbe794f1cd24e86"
+    },
+    "MLB-686780": {
+      "url": "assets/mlb/headshots/686780.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/686780/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "7d0603f18b66e5564366fa6f45cd22245c1989c24081e9c9a4afdd9dd11da884"
+    },
+    "MLB-686948": {
+      "url": "assets/mlb/headshots/686948.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/686948/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "046580c9b0626214bfdd512b96dd8f25ff53095846b13038ea5a886315628130"
+    },
+    "MLB-689414": {
+      "url": "assets/mlb/headshots/689414.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/689414/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "c3b870977ac92602136e05780ee0fda44c8bdee65d086e2930e90aa0c248c369"
+    },
+    "MLB-691788": {
+      "url": "assets/mlb/headshots/691788.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/691788/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "fd3213313a83c5d2b56564a4168df82c5c5c368c23c5f7492b0aeabdcc67eec1"
+    },
+    "MLB-693307": {
+      "url": "assets/mlb/headshots/693307.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/693307/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "2b832a637b00204275e40919d97c88b4099e646c635ab4664b10fca85c6be1d0"
+    },
+    "MLB-694212": {
+      "url": "assets/mlb/headshots/694212.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/694212/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "24b11afd7636a17c286b888f6b391ef28f6d78385420c9837452438dd8129de1"
+    },
+    "MLB-695600": {
+      "url": "assets/mlb/headshots/695600.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/695600/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "ad413bba129c59d63582b387b91affa7b4bcd95a79c66c6e81ed9fa30ba0f5d0"
+    },
+    "MLB-696100": {
+      "url": "assets/mlb/headshots/696100.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/696100/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "5a8809b6250768b75f80bfb96c5cf5f290129c117c646f7822d02a03f1c0ad67"
+    },
+    "MLB-701852": {
+      "url": "assets/mlb/headshots/701852.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/701852/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "c1cf07734bfa939c3a43869e2abbbf5e9633b20feceac7c5d0eaa1842767350b"
+    }
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "sport": "MLB",
+  "team": "Cleveland Guardians",
+  "code": "CLE",
+  "verified": "November 9, 2026",
+  "players": [
+    {
+      "id": "MLB-694197",
+      "mlbId": 694197,
+      "name": "Angel Genao",
+      "number": "17",
+      "position": "2B",
+      "positions": [
+        "2B",
+        "3B",
+        "SS"
+      ],
+      "rosterPosition": "2B/3B/SS",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/angel-genao-694197"
+    },
+    {
+      "id": "MLB-682657",
+      "mlbId": 682657,
+      "name": "Angel Martínez",
+      "number": "1",
+      "position": "LF",
+      "positions": [
+        "LF",
+        "CF",
+        "RF"
+      ],
+      "rosterPosition": "LF/CF/RF",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/angel-martinez-682657"
+    },
+    {
+      "id": "MLB-595978",
+      "mlbId": 595978,
+      "name": "Austin Hedges",
+      "number": "27",
+      "position": "C",
+      "positions": [
+        "C",
+        "DH"
+      ],
+      "rosterPosition": "C/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/austin-hedges-595978"
+    },
+    {
+      "id": "MLB-677587",
+      "mlbId": 677587,
+      "name": "Brayan Rocchio",
+      "number": "4",
+      "position": "SS",
+      "positions": [
+        "SS",
+        "2B"
+      ],
+      "rosterPosition": "SS/2B",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/brayan-rocchio-677587"
+    },
+    {
+      "id": "MLB-671922",
+      "mlbId": 671922,
+      "name": "Cade Smith",
+      "number": "36",
+      "position": "RP",
+      "positions": [
+        "RP"
+      ],
+      "rosterPosition": "RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/cade-smith-671922"
+    },
+    {
+      "id": "MLB-800050",
+      "mlbId": 800050,
+      "name": "Chase DeLauter",
+      "number": "24",
+      "position": "RF",
+      "positions": [
+        "RF",
+        "DH"
+      ],
+      "rosterPosition": "RF/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/chase-delauter-800050"
+    },
+    {
+      "id": "MLB-682982",
+      "mlbId": 682982,
+      "name": "Daniel Espino",
+      "number": "41",
+      "position": "RP",
+      "positions": [
+        "RP",
+        "SP"
+      ],
+      "rosterPosition": "RP/SP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/daniel-espino-682982"
+    },
+    {
+      "id": "MLB-681807",
+      "mlbId": 681807,
+      "name": "David Fry",
+      "number": "6",
+      "position": "LF",
+      "positions": [
+        "LF",
+        "C",
+        "1B",
+        "RF",
+        "DH"
+      ],
+      "rosterPosition": "LF/C/1B/RF/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/david-fry-681807"
+    },
+    {
+      "id": "MLB-681870",
+      "mlbId": 681870,
+      "name": "Erik Sabrowski",
+      "number": "62",
+      "position": "RP",
+      "positions": [
+        "RP"
+      ],
+      "rosterPosition": "RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/erik-sabrowski-681870"
+    },
+    {
+      "id": "MLB-656492",
+      "mlbId": 656492,
+      "name": "Foster Griffin",
+      "number": "22",
+      "position": "SP",
+      "positions": [
+        "SP"
+      ],
+      "rosterPosition": "SP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/foster-griffin-656492"
+    },
+    {
+      "id": "MLB-668909",
+      "mlbId": 668909,
+      "name": "Gavin Williams",
+      "number": "32",
+      "position": "SP",
+      "positions": [
+        "SP"
+      ],
+      "rosterPosition": "SP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/gavin-williams-668909"
+    },
+    {
+      "id": "MLB-683769",
+      "mlbId": 683769,
+      "name": "Hunter Gaddis",
+      "number": "33",
+      "position": "RP",
+      "positions": [
+        "RP"
+      ],
+      "rosterPosition": "RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/hunter-gaddis-683769"
+    },
+    {
+      "id": "MLB-666176",
+      "mlbId": 666176,
+      "name": "Jo Adell",
+      "number": "7",
+      "position": "RF",
+      "positions": [
+        "RF",
+        "LF",
+        "CF",
+        "DH"
+      ],
+      "rosterPosition": "RF/LF/CF/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/jo-adell-666176"
+    },
+    {
+      "id": "MLB-676282",
+      "mlbId": 676282,
+      "name": "Joey Cantillo",
+      "number": "54",
+      "position": "SP",
+      "positions": [
+        "SP",
+        "RP"
+      ],
+      "rosterPosition": "SP/RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/joey-cantillo-676282"
+    },
+    {
+      "id": "MLB-608070",
+      "mlbId": 608070,
+      "name": "José Ramírez",
+      "number": "11",
+      "position": "3B",
+      "positions": [
+        "3B",
+        "DH"
+      ],
+      "rosterPosition": "3B/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/jose-ramirez-608070"
+    },
+    {
+      "id": "MLB-670036",
+      "mlbId": 670036,
+      "name": "Matt Festa",
+      "number": "52",
+      "position": "RP",
+      "positions": [
+        "RP"
+      ],
+      "rosterPosition": "RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/matt-festa-670036"
+    },
+    {
+      "id": "MLB-663993",
+      "mlbId": 663993,
+      "name": "Nathaniel Lowe",
+      "number": "46",
+      "position": "1B",
+      "positions": [
+        "1B",
+        "DH"
+      ],
+      "rosterPosition": "1B/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/nathaniel-lowe-663993"
+    },
+    {
+      "id": "MLB-800048",
+      "mlbId": 800048,
+      "name": "Parker Messick",
+      "number": "77",
+      "position": "SP",
+      "positions": [
+        "SP"
+      ],
+      "rosterPosition": "SP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/parker-messick-800048"
+    },
+    {
+      "id": "MLB-672275",
+      "mlbId": 672275,
+      "name": "Patrick Bailey",
+      "number": "16",
+      "position": "C",
+      "positions": [
+        "C"
+      ],
+      "rosterPosition": "C",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/patrick-bailey-672275"
+    },
+    {
+      "id": "MLB-690984",
+      "mlbId": 690984,
+      "name": "Petey Halpin",
+      "number": "0",
+      "position": "CF",
+      "positions": [
+        "CF",
+        "RF"
+      ],
+      "rosterPosition": "CF/RF",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/petey-halpin-690984"
+    },
+    {
+      "id": "MLB-542888",
+      "mlbId": 542888,
+      "name": "Shawn Armstrong",
+      "number": "43",
+      "position": "RP",
+      "positions": [
+        "RP"
+      ],
+      "rosterPosition": "RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/shawn-armstrong-542888"
+    },
+    {
+      "id": "MLB-677944",
+      "mlbId": 677944,
+      "name": "Slade Cecconi",
+      "number": "44",
+      "position": "SP",
+      "positions": [
+        "SP",
+        "RP"
+      ],
+      "rosterPosition": "SP/RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/slade-cecconi-677944"
+    },
+    {
+      "id": "MLB-680757",
+      "mlbId": 680757,
+      "name": "Steven Kwan",
+      "number": "38",
+      "position": "CF",
+      "positions": [
+        "CF",
+        "LF",
+        "DH"
+      ],
+      "rosterPosition": "CF/LF/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/steven-kwan-680757"
+    },
+    {
+      "id": "MLB-676440",
+      "mlbId": 676440,
+      "name": "Tanner Bibee",
+      "number": "28",
+      "position": "SP",
+      "positions": [
+        "SP"
+      ],
+      "rosterPosition": "SP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/tanner-bibee-676440"
+    },
+    {
+      "id": "MLB-682120",
+      "mlbId": 682120,
+      "name": "Tim Herrin",
+      "number": "29",
+      "position": "RP",
+      "positions": [
+        "RP"
+      ],
+      "rosterPosition": "RP",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/tim-herrin-682120"
+    },
+    {
+      "id": "MLB-683953",
+      "mlbId": 683953,
+      "name": "Travis Bazzana",
+      "number": "37",
+      "position": "2B",
+      "positions": [
+        "2B",
+        "DH"
+      ],
+      "rosterPosition": "2B/DH",
+      "team": "Cleveland Guardians",
+      "profile": "https://www.mlb.com/player/travis-bazzana-683953"
+    }
+  ],
+  "headshots": {
+    "MLB-694197": {
+      "url": "assets/mlb/headshots/694197.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/694197/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "4f506590dec1331b47f84a5ed66a356d7b5b0aa5f6ae462b39f44fb28a5ed5e5"
+    },
+    "MLB-682657": {
+      "url": "assets/mlb/headshots/682657.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/682657/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "3e37dee414bdfd832322fceab8277bb3bccba3b3224736df5a1b6b00bba695e6"
+    },
+    "MLB-595978": {
+      "url": "assets/mlb/headshots/595978.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/595978/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "fc9cacf7050cedf763de14fa1ae085af7fa7ec9f10ad05bf231fe632ffa7531c"
+    },
+    "MLB-677587": {
+      "url": "assets/mlb/headshots/677587.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/677587/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "8cdc8188765f4dd270cc4fc5152b8fcb972f337f8215b1cfa1722a99868720a5"
+    },
+    "MLB-671922": {
+      "url": "assets/mlb/headshots/671922.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/671922/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "9577d3bc8251c5459c293f382be29d01530ad70b6e2bf07a604e936da11fac8a"
+    },
+    "MLB-800050": {
+      "url": "assets/mlb/headshots/800050.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/800050/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "aecb64aea8240c92c9d5093b5d71a897804b7dfb7f0af589be8877dd54a0d505"
+    },
+    "MLB-682982": {
+      "url": "assets/mlb/headshots/682982.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/682982/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "a578603d85ada60c700ac4935d52cff4e5cad525d7ed3abcdbae4b37a6049421"
+    },
+    "MLB-681807": {
+      "url": "assets/mlb/headshots/681807.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/681807/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "563b1dd8e445691e3f5e6edc1b4d73d9a00b7ba79bb4bb4ea4d15d1e0b9e8071"
+    },
+    "MLB-681870": {
+      "url": "assets/mlb/headshots/681870.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/681870/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "bd4e343c0c44d9dbdae8ae546eb1b343ccf2b5417b0fdfab13ec8631d82c5aab"
+    },
+    "MLB-656492": {
+      "url": "assets/mlb/headshots/656492.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/656492/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "e4e559c2dd13811596083c62b04443c1ee5a9ee4e92a7d47b51ad83d5d636f1d"
+    },
+    "MLB-668909": {
+      "url": "assets/mlb/headshots/668909.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/668909/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "b0137f8448727f974ec213a3278af29eeafa920a5069f0653f141ed1ff931b43"
+    },
+    "MLB-683769": {
+      "url": "assets/mlb/headshots/683769.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/683769/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "5b5765adf9ea55871d79526f526cb0c1a6b266e9762500db691e4f279fe0a47a"
+    },
+    "MLB-666176": {
+      "url": "assets/mlb/headshots/666176.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/666176/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "04520283017e7318709154e9d2c07b65e9ef19a0ca02787f3c1d8679bbfe6477"
+    },
+    "MLB-676282": {
+      "url": "assets/mlb/headshots/676282.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/676282/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "76a67d5ac3844fe826287fbeb97542a68d864c8d7a2c8e429d7b915eccef63fb"
+    },
+    "MLB-608070": {
+      "url": "assets/mlb/headshots/608070.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/608070/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "113101e4548284a22b505c7a63915230e6d82a35cd27467f0d23aae41737ff46"
+    },
+    "MLB-670036": {
+      "url": "assets/mlb/headshots/670036.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/670036/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "2b2d12452ade92722242854fb3300dc382e03cb7f2ccab54a775f6a6b1d10ab8"
+    },
+    "MLB-663993": {
+      "url": "assets/mlb/headshots/663993.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/663993/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "99748b709e439c3e4dba427560a596e9c5ed08db38f6d295c9f2f59c62387095"
+    },
+    "MLB-800048": {
+      "url": "assets/mlb/headshots/800048.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/800048/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "9d808f5ee6c472308bddfd92dc7fb8b9e987dc02e28da73c9b860549b6dc2e02"
+    },
+    "MLB-672275": {
+      "url": "assets/mlb/headshots/672275.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/672275/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "17efd26496e97d342bab45ce959fe41cfbe8d423603da0230c4f1f126f39ba01"
+    },
+    "MLB-690984": {
+      "url": "assets/mlb/headshots/690984.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/690984/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "0f2290c6ca06c2249a06b4d6ee57c0078afac03458dbaf430613bfafbec16634"
+    },
+    "MLB-542888": {
+      "url": "assets/mlb/headshots/542888.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/542888/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "6b23ad03708b51339ddf527fbb4dba4cdbb125eb5f4d70bc095c958ec898edf4"
+    },
+    "MLB-677944": {
+      "url": "assets/mlb/headshots/677944.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/677944/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "3c727f7abf946429440c4e12c3dbd9683191383e7b2a0483f1f9f60ffb2acfb3"
+    },
+    "MLB-680757": {
+      "url": "assets/mlb/headshots/680757.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/680757/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "8c2ba47abbc7c7164daa9f114cb728169675c5a48ba12aba51e1705202e230ec"
+    },
+    "MLB-676440": {
+      "url": "assets/mlb/headshots/676440.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/676440/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "5d3635d3b270280b8e2945194c770d2cba0938a893878174d089ecaf64491d58"
+    },
+    "MLB-682120": {
+      "url": "assets/mlb/headshots/682120.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/682120/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "77e8b9d2e385a2f9bd42a0590acd4ee3617f7d6f282c8264b47448f1bb6fa4cf"
+    },
+    "MLB-683953": {
+      "url": "assets/mlb/headshots/683953.jpg",
+      "source": "https://img.mlbstatic.com/mlb-photos/image/upload/w_300,q_auto:best/v1/people/683953/headshot/67/current",
+      "provider": "MLB",
+      "captured": "2026-11-09",
+      "sha256": "87db0a058ba08548eba8f017dcced4c905ffb75f6895d1929fe35e4ce2a7e7e3"
+    }
+  }
+}
