@@ -1,0 +1,16 @@
+name: Research 2026 MLB roster snapshots
+on:
+  push:
+    branches: [mlb-roster-research]
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/research-mlb.cjs
