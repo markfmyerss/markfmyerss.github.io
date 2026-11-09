@@ -30,7 +30,7 @@ const {chromium,webkit}=require('@playwright/test'),assert=require('node:assert/
    const initial=await page.evaluate(()=>state.sorted.map(p=>p.id)),rankKey=await page.evaluate(()=>keyFor(state.team,state.pos));
    assert.equal(await page.locator('#rankings>li').count(),initial.length);
    // Draft arrows and Cancel cannot alter saved results.
-   await page.locator('#edit-ranking').tap();const first=page.locator('.ranking-editor-row').first();await first.locator('.editor-down').tap();
+   await page.locator('#edit-ranking').tap();console.log('EDITOR_SCREENSHOT '+engine.name()+' '+(await page.locator('#ranking-tools-dialog').screenshot()).toString('base64'));const first=page.locator('.ranking-editor-row').first();await first.locator('.editor-down').tap();
    assert.deepEqual(await page.evaluate(()=>state.sorted.map(p=>p.id)),initial);
    await page.locator('#cancel-ranking-edits').tap();assert.deepEqual(await page.evaluate(()=>state.sorted.map(p=>p.id)),initial);
    // Direct rank entry and Save update podium, list, storage and export/share order.
@@ -39,6 +39,7 @@ const {chromium,webkit}=require('@playwright/test'),assert=require('node:assert/
    assert.equal(await page.locator('.ranking-editor-row').first().getAttribute('data-player-id'),moved);
    await page.locator('#save-ranking-edits').tap();const edited=await page.evaluate(()=>state.sorted.map(p=>p.id));assert.equal(edited[0],moved);assert.notDeepEqual(edited,initial);
    assert.equal(await page.locator('#top-three .podium-name').first().textContent(),await page.evaluate(()=>state.sorted[0].name));
+   const image=await page.evaluate(async()=>{const r=await ResultsExport.createImage({team:state.team,pos:state.pos,players:state.sorted},{size:'1x1',type:'png',scope:'all'});return {ids:r.players,width:r.width,height:r.height,bytes:r.blob.size,type:r.blob.type};});assert.deepEqual(image.ids,edited);assert.equal(image.width,image.height);assert(image.bytes>1000);assert.equal(image.type,'image/png');
    const stored=await page.evaluate(k=>localStorage.getItem(k),rankKey);await page.reload();assert.deepEqual(await page.evaluate(()=>state.sorted.map(p=>p.id)),edited);assert.equal(await page.evaluate(k=>localStorage.getItem(k),rankKey),stored);
    const link=await page.evaluate(()=>encodeRankingLink(state));const shared=await browser.newPage({viewport:{width:390,height:1000},isMobile:true,hasTouch:true});
    await shared.goto(root.replace(/#.*$/,'')+new URL(link).hash);await shared.locator('#shared-notice').waitFor();assert.deepEqual(await shared.evaluate(()=>sharedRanking.sorted.map(p=>p.id)),edited);assert(await shared.locator('#edit-ranking').isHidden());await shared.close();
@@ -51,7 +52,7 @@ const {chromium,webkit}=require('@playwright/test'),assert=require('node:assert/
     for(const width of [320,375,390,430,768,1440]){
      await page.setViewportSize({width,height:1100});
      const layout=await page.evaluate(()=>{const r=e=>{const b=e.getBoundingClientRect();return {top:b.top,right:b.right,bottom:b.bottom};};return {overflow:document.documentElement.scrollWidth-innerWidth,account:r(document.getElementById('my-rankings')),appearance:r(document.querySelector('.appearance-options'))};});
-     assert.equal(layout.overflow,0);assert(layout.account.bottom<=layout.appearance.top,'Dashboard overlaps appearance');assert(Math.abs(layout.account.right-layout.appearance.right)<2,'Dashboard is not above appearance at right');
+     assert.equal(layout.overflow,0);assert(layout.account.bottom<=layout.appearance.top,'Dashboard overlaps appearance: '+JSON.stringify({appearance,width,...layout}));assert(Math.abs(layout.account.right-layout.appearance.right)<2,'Dashboard is not above appearance at right');
      await page.locator('#my-rankings').tap();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth),0);
      assert.equal(await page.evaluate(()=>{const d=document.getElementById('ranking-tools-dialog').getBoundingClientRect();return d.left>=0&&d.right<=innerWidth&&d.top>=0&&d.bottom<=innerHeight;}),true,'Dialog leaves viewport');
      await page.keyboard.press('Escape');
@@ -59,7 +60,7 @@ const {chromium,webkit}=require('@playwright/test'),assert=require('node:assert/
    }
    await page.setViewportSize({width:390,height:1100});await page.locator('#my-rankings').tap();
    console.log('RANKING_TOOLS_SCREENSHOT '+engine.name()+' '+(await page.locator('#ranking-tools-dialog').screenshot()).toString('base64'));
-   await page.keyboard.press('Escape');assert.deepEqual(errors,[]);
+   await page.keyboard.press('Escape');console.log('HEADER_SCREENSHOT '+engine.name()+' '+(await page.locator('header').screenshot()).toString('base64'));assert.deepEqual(errors,[]);
    // Desktop drag and drop offers the same order editing as mobile buttons.
    const desktop=await browser.newPage({viewport:{width:1200,height:1000}});await desktop.goto(root);
    await desktop.evaluate(()=>{start();while(!state.done)choose('left');});await desktop.locator('#edit-ranking').click();

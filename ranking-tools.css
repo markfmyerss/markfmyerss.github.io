@@ -52,7 +52,7 @@ html body[data-sport] .unfamiliar-help{font-size:.72rem;text-align:center;color:
 
 /* Keep sorting focused while retaining the account control above appearance. */
 html body[data-sport][data-view=sorting] header .account-row,html body[data-sport][data-view=results] header .account-row{position:absolute;top:20px;right:28px;margin:0}
-html body[data-sport][data-view=sorting] header .compact-brand,html body[data-sport][data-view=results] header .compact-brand{max-width:calc(100% - 140px);font-size:clamp(1.05rem,2.5vw,1.65rem);line-height:1.15;margin-bottom:12px}
+html body[data-sport][data-view=sorting] header .compact-brand,html body[data-sport][data-view=results] header .compact-brand{max-width:calc(100% - 140px);min-height:32px;font-size:clamp(1.05rem,2.5vw,1.65rem);line-height:1.15;margin-bottom:12px}
 @media(max-width:600px){
  html body[data-sport][data-view=sorting] header .account-row,html body[data-sport][data-view=results] header .account-row{top:17px;right:17px}
 }
