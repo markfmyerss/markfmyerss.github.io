@@ -1,0 +1,22 @@
+name: Verify live MLB division selection
+on:
+  push:
+    branches: [verify-mlb-divisions-live]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node verify-mlb-divisions-live.cjs
+      - run: node division-selection-check.cjs
+        env:
+          DIVISION_CHECK_URL: https://markfmyerss.github.io/?v=mlb-divisions-v2

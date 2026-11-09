@@ -1,0 +1,2 @@
+const fs=require('node:fs/promises'),assert=require('node:assert/strict');
+(async()=>{for(const file of ['index.html','app.js']){const expected=await fs.readFile(file,'utf8');let ok=false;for(let n=0;n<45;n++){const r=await fetch('https://markfmyerss.github.io/'+file+'?verify=mlb-divisions-v2-'+n,{cache:'no-store'});if(r.ok&&await r.text()===expected){ok=true;break;}await new Promise(r=>setTimeout(r,4000));}assert(ok,'Published file differs: '+file);console.log('PUBLIC FILE VERIFIED '+file);}})().catch(e=>{console.error(e);process.exit(1)});
