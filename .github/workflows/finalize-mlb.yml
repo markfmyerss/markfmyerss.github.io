@@ -1,0 +1,21 @@
+name: Finalize MLB team positions
+on:
+  push:
+    branches: [mlb-expansion]
+    paths: ['scripts/finalize-mlb-2026.cjs']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/finalize-mlb-2026.cjs
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- mlb-data.js assets/mlb/roster-audit.json MLB-SOURCES.md assets/roster-snapshots
+          if ! git diff --cached --quiet; then
+            git commit -m "Keep substantial MLB team roles; Clement utility roles and Ohtani two-way exception"
+            git push origin HEAD:mlb-expansion
+          fi

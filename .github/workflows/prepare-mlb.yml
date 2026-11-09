@@ -2,7 +2,7 @@ name: Prepare MLB 2026 source data
 on:
   push:
     branches: [mlb-expansion]
-    paths: ['scripts/prepare-mlb-2026.cjs', '.github/workflows/prepare-mlb.yml']
+    paths: ['scripts/prepare-mlb-2026.cjs']
 permissions:
   contents: write
 jobs:
@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/prepare-mlb-2026.cjs
+      - run: node scripts/finalize-mlb-2026.cjs
       - name: Save verified candidate data on GitHub
         run: |
           git config user.name "github-actions[bot]"
