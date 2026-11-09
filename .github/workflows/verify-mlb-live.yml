@@ -1,0 +1,24 @@
+name: Verify live MLB expansion
+on:
+  push:
+    branches: [verify-mlb-live]
+permissions:
+  contents: read
+jobs:
+  live-mlb:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node verify-mlb-live.cjs
+      - run: node mlb-browser-check.cjs
+        env:
+          MLB_CHECK_URL: https://markfmyerss.github.io/?v=mlb-2026-v1
+      - run: node verify-mlb-exports-live.cjs
+      - run: node current-rosters-check.cjs
