@@ -68,3 +68,13 @@ Team selections and rankings keep their existing keys. League position rankings 
 Position share links support pools larger than 255 players and preserve club membership. Weekly updates archive each league position's original roster and portrait mappings alongside the existing team archives. A transfer or roster change does not silently change a saved ranking or shared link.
 
 All image ratios and ranges remain available. Full league lists automatically use more resolution, capped at 4096 pixels per dimension and 16 megapixels, while retaining one image and every full name. Team labels identify players from different clubs. Mobile retains four ratios, PNG, All / Top 10 / Top 25, and native image saving. The sport icons on league exports are original Fan Favorites artwork rather than official league marks.
+
+
+## MLB 2026
+
+MLB includes all 30 teams and 11 league-wide position categories, using season-end or furthest-round postseason rosters plus documented injured players.
+
+- [Multi-position team cards — primary positions in bold](MLB-MULTI-POSITION-PLAYERS.md)
+- [Roster dates, injury inclusions, primary-position rules and image sources](MLB-SOURCES.md)
+
+Team cards list substantial secondary positions. League-wide position rankings use one primary position per player; Shohei Ohtani alone appears in both DH and SP.
