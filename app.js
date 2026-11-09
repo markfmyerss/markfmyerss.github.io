@@ -204,7 +204,7 @@ function applyTheme() {
   $('intro-kicker').textContent=league?'YOUR POSITION. YOUR ORDER.':'YOUR TEAM. YOUR ORDER.';
   $('save-note').textContent='Saved automatically on this browser. Switch '+(league?'positions':'teams')+' whenever you like.';
   $('first-step').innerHTML=league?'<b>01</b> Choose a position':'<b>01</b> Pick a team';
-  $('league-summary').textContent=activeSport+' · '+(league?'BY POSITION':divisionFor(team).toUpperCase());
+  $('league-summary').textContent=activeSport+' · '+(league?'BY POSITION':(activeSport==='MLB'?conferenceFor(team)+' ':'')+divisionFor(team).toUpperCase());
   for(const b of $('sport-picker').children)b.setAttribute('aria-pressed',String(b.dataset.sport===activeSport));
   $('eyebrow').textContent=league?activeSport+' · '+positionLabel(activeSport,$('position').value):team+' · Favorites sorter';
   $('question').textContent='Who is your favorite '+(league?(activeSport==='MLB'?({C:'catcher','1B':'first baseman','2B':'second baseman','3B':'third baseman',SS:'shortstop',LF:'left fielder',CF:'center fielder',RF:'right fielder',DH:'designated hitter',SP:'starting pitcher',RP:'relief pitcher'}[$('position').value]):POSITION_SINGULAR[$('position').value]):c.singular)+'?';
@@ -388,7 +388,7 @@ function renderTeamPicker(){
   $('team-grid').dataset.division=division;$('team-grid').dataset.sport=activeSport;
  }
  for(const b of $('division-picker').children)b.setAttribute('aria-pressed',String(b.dataset.division===division));
- $('division-summary').textContent=(activeSport==='NBA'?conference+' · ':'')+division+' · '+$('team-grid').children.length+' teams';
+ $('division-summary').textContent=(activeSport!=='NFL'?conference+' · ':'')+division+' · '+$('team-grid').children.length+' teams';
  $('team-grid').setAttribute('aria-label',division+' teams');
 }
 function selectConference(conference){

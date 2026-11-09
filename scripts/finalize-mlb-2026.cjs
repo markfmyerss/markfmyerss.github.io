@@ -43,7 +43,7 @@ d.MLB_TEAM_INFO=Object.fromEntries(Object.entries(d.MLB_TEAM_INFO).sort(([a,x],[
 
 fs.writeFileSync('mlb-data.js','// Verified 2026 MLB snapshot with substantial team roles and primary-only league pools.\n'+Object.entries(d).map(([k,v])=>'const '+k+' = '+JSON.stringify(v,null,2)+';').join('\n'));
 fs.writeFileSync('assets/mlb/roster-audit.json',JSON.stringify(audit,null,2)+'\n');
-let doc=fs.readFileSync('MLB-SOURCES.md','utf8').split('\n## Team-card secondary positions')[0];doc+='\n## Team-card secondary positions\n\n'+d.MLB_POSITION_INFO.rules.teamPositions+'\n';fs.writeFileSync('MLB-SOURCES.md',doc);
+let doc=fs.readFileSync('MLB-SOURCES.md','utf8').split('\n## Team-card secondary positions')[0];doc+='\n## Team-card secondary positions\n\n'+d.MLB_POSITION_INFO.rules.teamPositions+'\n\n## Injured pitcher pools\n\n'+d.MLB_POSITION_INFO.rules.pitcherInjuries+'\n';fs.writeFileSync('MLB-SOURCES.md',doc);
 const index=JSON.parse(fs.readFileSync('assets/roster-snapshots/index.json','utf8'));
 for(const [team,players]of Object.entries(d.MLB_ROSTERS)){
  const info=d.MLB_TEAM_INFO[team],file='assets/roster-snapshots/MLB/'+info.code+'/'+T.stamp(players)+'.json';
@@ -54,6 +54,10 @@ for(const role of Object.keys(d.MLB_POSITION_INFO.counts)){
  const players=d.MLB_POSITION_PLAYERS.filter(p=>p.positions.includes(role)),stamp=T.leagueStamp(players),file='assets/roster-snapshots/MLB/MLB/'+stamp+'.json';
  T.writeJSON(file,{version:2,scope:'league',sport:'MLB',team:'MLB League',code:'MLB',pos:role,verified:d.MLB_POSITION_INFO.verified,players,headshots:Object.fromEntries(players.map(p=>[p.id,d.MLB_HEADSHOTS[p.id]||null]))});
  index.snapshots[['MLB','MLB',role,stamp].join('.')]={path:file,verified:d.MLB_POSITION_INFO.verified};
+}
+for(const [key,entry]of Object.entries(index.snapshots)){
+ if(!key.startsWith('MLB.'))continue;const [sport,code,pos,stamp]=key.split('.'),snapshot=JSON.parse(fs.readFileSync(entry.path,'utf8')),actual=(snapshot.scope==='league'?T.leagueStamp:T.stamp)(T.filtered(snapshot.players,pos));
+ if(actual!==stamp){console.log('REMOVED_UNPUBLISHED_MLB_ARCHIVE_KEY '+key);delete index.snapshots[key];}
 }
 T.writeJSON('assets/roster-snapshots/index.json',index);
 console.log('MLB_FINALIZED '+JSON.stringify({clement:d.MLB_ROSTERS['Toronto Blue Jays'].find(p=>p.name==='Ernie Clement'),ohtani:d.MLB_ROSTERS['Los Angeles Dodgers'].find(p=>p.mlbId===660271),multipleTeams:Object.values(d.MLB_ROSTERS).flat().filter(p=>p.positions.length>1).length}));

@@ -90,7 +90,7 @@ function primary(p,prior,roster){
  for(const [team,ps] of Object.entries(rosters)){
   const meta=info[team],file='assets/roster-snapshots/MLB/'+meta.code+'/'+T.stamp(ps)+'.json';
   await write(file,{version:1,sport:'MLB',team,code:meta.code,verified:meta.verified,players:ps,headshots:Object.fromEntries(ps.map(p=>[p.id,heads[p.id]||null]))});
-  for(const pos of ['ALL',...positions]){const list=ps.filter(p=>pos==='ALL'||p.position===pos);if(list.length)index.snapshots[['MLB',meta.code,pos,T.stamp(list)].join('.')]={path:file,verified:meta.verified};}
+  for(const pos of ['ALL',...positions]){const list=T.filtered(ps,pos);if(list.length)index.snapshots[['MLB',meta.code,pos,T.stamp(list)].join('.')]={path:file,verified:meta.verified};}
  }
  for(const pos of positions){
   const ps=pool.filter(p=>p.position===pos).sort((a,b)=>a.id<b.id?-1:1),stamp=T.leagueStamp(ps),file='assets/roster-snapshots/MLB/MLB/'+stamp+'.json';

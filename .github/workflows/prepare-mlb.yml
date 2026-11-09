@@ -1,12 +1,11 @@
 name: Prepare MLB 2026 source data
 on:
-  push:
-    branches: [mlb-expansion]
-    paths: ['scripts/prepare-mlb-2026.cjs']
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
   prepare:
+    if: github.ref == 'refs/heads/mlb-expansion'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -22,6 +21,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- mlb-data.js assets/mlb MLB-SOURCES.md assets/roster-snapshots
           if ! git diff --cached --quiet; then
-            git commit -m "Add verified 2026 MLB historical rosters, injury inclusions and official imagery"
+            git commit -m "Prepare historical MLB source data for review"
             git push origin HEAD:mlb-expansion
           fi
