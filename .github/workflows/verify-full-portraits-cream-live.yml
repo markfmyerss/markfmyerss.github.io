@@ -19,5 +19,5 @@ jobs:
       - run: node verify-full-portraits-cream-live.cjs
       - run: node verify-cream-outline-check.cjs
         env:
-          CREAM_EXPORT_CHECK_URL: https://markfmyerss.github.io/?v=cream-team-outlines-v3
+          CREAM_EXPORT_CHECK_URL: https://markfmyerss.github.io/?v=portrait-backdrops-v4
       - run: node mobile-export-check.cjs
