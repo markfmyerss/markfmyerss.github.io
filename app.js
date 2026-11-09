@@ -220,7 +220,7 @@ function applyTheme() {
 function selectTeam() {
  clearSharedLink();save();const team=$('team').value;
  if(!ALL_TEAM_INFO[team]||leagueFor(team)!==activeSport)return;
- if(!isLeaguePool(team))write(prefixFor(activeSport)+'-last-team:'+divisionFor(team),team);
+ if(!isLeaguePool(team))write(divisionSelectionKey(team),team);
  state=stored(team,$('position').value);
  rememberSelection();
  if(state&&!state.done)mergeNext();else render();
@@ -361,6 +361,7 @@ function renderView() {
 const divisionFor=team=>ALL_TEAM_INFO[team].division||'AFC North';
 const conferenceFor=team=>ALL_TEAM_INFO[team].conference||divisionFor(team).split(' ')[0];
 const conferenceKey=conference=>prefixFor(activeSport)+'-last-conference-team:'+conference;
+const divisionSelectionKey=team=>prefixFor(leagueFor(team))+'-last-team:'+(leagueFor(team)==='MLB'?conferenceFor(team)+':':'')+divisionFor(team);
 function teamButton(team,info) {
  const b=document.createElement('button');b.className='team-tile';b.dataset.team=team;
  b.style.setProperty('--tile-color',info.colors.highlight);
@@ -383,22 +384,22 @@ function renderTeamPicker(){
   $('division-picker').dataset.conference=conference;$('division-picker').dataset.sport=activeSport;
  }
  for(const b of $('conference-picker').children)b.setAttribute('aria-pressed',String(b.dataset.conference===conference));
- if($('team-grid').dataset.division!==division||$('team-grid').dataset.sport!==activeSport){
-  $('team-grid').replaceChildren(...teams.filter(t=>divisionFor(t)===division).map(t=>teamButton(t,ALL_TEAM_INFO[t])));
-  $('team-grid').dataset.division=division;$('team-grid').dataset.sport=activeSport;
+ if($('team-grid').dataset.division!==division||$('team-grid').dataset.conference!==conference||$('team-grid').dataset.sport!==activeSport){
+  $('team-grid').replaceChildren(...teams.filter(t=>conferenceFor(t)===conference&&divisionFor(t)===division).map(t=>teamButton(t,ALL_TEAM_INFO[t])));
+  $('team-grid').dataset.division=division;$('team-grid').dataset.conference=conference;$('team-grid').dataset.sport=activeSport;
  }
  for(const b of $('division-picker').children)b.setAttribute('aria-pressed',String(b.dataset.division===division));
  $('division-summary').textContent=(activeSport!=='NFL'?conference+' · ':'')+division+' · '+$('team-grid').children.length+' teams';
- $('team-grid').setAttribute('aria-label',division+' teams');
+ $('team-grid').setAttribute('aria-label',(activeSport==='MLB'?conference+' ':'')+division+' teams');
 }
 function selectConference(conference){
  const teams=teamsFor(activeSport).filter(team=>conferenceFor(team)===conference);if(!teams.length)return;
  const previous=read(conferenceKey(conference));$('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 function selectDivision(division){
- write(prefixFor(activeSport)+'-last-team:'+divisionFor($('team').value),$('team').value);
- const teams=teamsFor(activeSport).filter(team=>divisionFor(team)===division);if(!teams.length)return;
- const previous=read(prefixFor(activeSport)+'-last-team:'+division);
+ write(divisionSelectionKey($('team').value),$('team').value);
+ const conference=conferenceFor($('team').value),teams=teamsFor(activeSport).filter(team=>conferenceFor(team)===conference&&divisionFor(team)===division);if(!teams.length)return;
+ const previous=read(divisionSelectionKey(teams[0]))||read(prefixFor(activeSport)+'-last-team:'+division);
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
 function populateSport(){
