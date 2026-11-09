@@ -126,7 +126,7 @@
   ctx.restore();
   const badge=wide?66:96,top=wide?18:26;
   const [logo,photos]=await Promise.all([loadLogo(result.team),loadPhotos(p.players,league)]),outputRatio=canvas.width/p.W;
-  rect(ctx,pad,top,badge,badge,wide?12:18,info.league==='MLB'&&info.code==='CWS'?'#27251f':blend(colors.primary,'#fffdf8',.94));
+  rect(ctx,pad,top,badge,badge,wide?12:18,info.league==='MLB'&&info.code==='CWS'&&logo?'#27251f':blend(colors.primary,'#fffdf8',.94));
   if(logo){
    const scale=Math.min((badge-12)/logo.naturalWidth,(badge-12)/logo.naturalHeight),w=logo.naturalWidth*scale,h=logo.naturalHeight*scale;
    ctx.drawImage(logo,pad+(badge-w)/2,top+(badge-h)/2,w,h);
