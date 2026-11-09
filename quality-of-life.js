@@ -29,13 +29,14 @@
  el('roster-dialog-close').onclick=close;
  function injuryLabel(p,c){
   if(c.sport==='NFL')return /injur|pup|physically/i.test(p.rosterStatus||'')?'Injury inclusion':'';
+  if(c.sport==='MLB')return p.injuryInclusion?'Injury inclusion: '+p.injuryInclusion:'';
   if(typeof NBA_POSITION_INFO==='undefined')return '';const role=NBA_POSITION_INFO.roles?.find(r=>r.id===p.id),review=NBA_POSITION_INFO.teamReviews?.find(t=>t.team===p.team),injury=review?.injured?.find(a=>a.id===role?.espnId);return injury?'Injury listing: '+injury.status:'';
  }
  function preview(){
   const c=context(),players=[...c.players].sort((a,b)=>a.name.localeCompare(b.name));open(scopeTitle(c)+' · Players',el('preview-player-pool'));
   const body=el('roster-dialog-content'),intro=node('p',(c.saved?'Players in this ranking':'Current player pool')+' · Verified '+c.verified+'. Alphabetical order.','dialog-note'),label=node('label','Find a player','pool-search-label'),input=node('input');input.type='search';input.id='pool-player-search';input.placeholder='Search name, team or position';input.autocomplete='off';label.append(input);const count=node('p',undefined,'dialog-note'),list=node('ul',undefined,'pool-player-list');count.setAttribute('role','status');body.append(intro,label,count,list);
   const draw=()=>{const query=normalized(input.value),shown=players.filter(p=>normalized([p.name,p.team,p.position,p.rosterPosition,p.number].join(' ')).includes(query));count.textContent=shown.length+' of '+players.length+' players';list.replaceChildren();if(!shown.length){list.append(node('li','No players match that search.','pool-empty'));return;}
-   for(const p of shown){const row=node('li',undefined,'pool-player-row'),photo=node('span',undefined,'pool-player-photo');photo.append(makePortrait(p,true));const identity=node('span',undefined,'pool-player-identity');identity.append(node('strong',p.name),node('small',p.team));const details=node('span',(p.rosterPosition||p.position)+(p.number?' · #'+p.number:''),'pool-player-details'),injury=injuryLabel(p,c);if(injury)details.append(node('small',injury,'pool-injury'));row.append(photo,identity,details);list.append(row);}
+   for(const p of shown){const row=node('li',undefined,'pool-player-row'),photo=node('span',undefined,'pool-player-photo');photo.append(makePortrait(p,true));const identity=node('span',undefined,'pool-player-identity');identity.append(node('strong',p.name),node('small',p.team));const details=node('span',(c.league&&c.sport==='MLB'?c.pos:(p.rosterPosition||p.position))+(p.number?' · #'+p.number:''),'pool-player-details'),injury=injuryLabel(p,c);if(injury)details.append(node('small',injury,'pool-injury'));row.append(photo,identity,details);list.append(row);}
   };input.oninput=draw;draw();input.focus({preventScroll:true});
  }
  function reports(){if(!reportPromise)reportPromise=fetch(new URL('assets/roster-changes.json',document.baseURI),{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Change summary unavailable');return r.json();}).then(d=>{if(d.version!==1||!d.reports)throw Error('Invalid change summary');return d.reports;}).catch(e=>{reportPromise=null;throw e;});return reportPromise;}
@@ -47,7 +48,8 @@
  }
  async function changes(event){
   event?.preventDefault();const c=context(),ticket=open(scopeTitle(c)+' · '+(c.league?'Pool changes':'Roster changes'),el('roster-changes-link')),body=el('roster-dialog-content');body.append(node('p','Loading roster changes…','dialog-note'));
-  try{const data=await reports();if(ticket!==request||!dialog.open)return;body.replaceChildren();const report=data[[c.sport,ALL_TEAM_INFO[c.team].code,c.pos].join('.')];if(!report){body.append(node('p','This category uses an archived roster. Weekly changes are tracked for the current categories.','dialog-note'));return;}
+  try{if(c.sport==='MLB'){if(ticket!==request||!dialog.open)return;body.replaceChildren();body.append(node('p','2026 season snapshot. Each team uses its final 28-man roster or its furthest-round postseason roster, plus documented injury inclusions. This historical snapshot does not follow offseason transactions.','dialog-note'));body.append(node('p','See Roster sources for dates, injury additions and position-pool rules.','dialog-note'));const link=node('a','MLB roster sources ↗');link.href='MLB-SOURCES.md';body.append(link);return;}
+   const data=await reports();if(ticket!==request||!dialog.open)return;body.replaceChildren();const report=data[[c.sport,ALL_TEAM_INFO[c.team].code,c.pos].join('.')];if(!report){body.append(node('p','This category uses an archived roster. Weekly changes are tracked for the current categories.','dialog-note'));return;}
    body.append(node('p','Latest verified '+(c.league?'player pool':c.sport==='NFL'?'active roster':'team roster')+' · '+report.verified,'dialog-note'));
    if(!c.league&&c.sport==='NFL')body.append(node('p','This tracks the active roster. Players moving to injury or reserve lists can appear under Removed.','dialog-note'));
    if(c.saved&&c.verified!==report.verified)body.append(node('p','Your saved ranking is kept as it was. This summary describes the latest verified players.','dialog-note'));

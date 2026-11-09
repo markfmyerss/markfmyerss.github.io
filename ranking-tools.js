@@ -36,7 +36,7 @@
   content.append(node('p','Your saved rankings on this browser, across both sports.','dialog-note'));
   if(!rows.length){content.append(node('p','Your rankings will appear here after you start sorting.','rankings-empty'));const start=button('Choose players →',close);content.append(start);return;}
   const filters=node('div',undefined,'dashboard-filters'),sportLabel=node('label','Sport'),sport=node('select'),statusLabel=node('label','Status'),status=node('select'),searchLabel=node('label','Find a ranking','dashboard-search'),search=node('input');
-  sport.id='dashboard-sport';for(const value of ['All sports','NFL','NBA'])sport.add(new Option(value,value));
+  sport.id='dashboard-sport';for(const value of ['All sports','NFL','NBA','MLB'])sport.add(new Option(value,value));
   status.id='dashboard-status';for(const [value,label]of [['all','All rankings'],['progress','In progress'],['done','Complete']])status.add(new Option(label,value));
   search.id='dashboard-search';search.type='search';search.placeholder='Team or position';search.autocomplete='off';sportLabel.append(sport);statusLabel.append(status);searchLabel.append(search);filters.append(sportLabel,statusLabel,searchLabel);
   const count=node('p',undefined,'dialog-note'),list=node('ul',undefined,'saved-ranking-list');count.setAttribute('role','status');content.append(filters,count,list);

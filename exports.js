@@ -67,7 +67,7 @@
  function logoUrl(team){
   const info=ALL_TEAM_INFO[team];
   if(info?.scope==='league')return new URL(info.logo,document.baseURI).href;
-  if(info?.league==='NBA')return new URL(info.logo,document.baseURI).href;
+  if(info?.league==='NBA'||info?.league==='MLB')return new URL(info.logo,document.baseURI).href;
   const code=info?.code;
   if(!code)return null;
   const official={LAR:'LA',WSH:'WAS'}[code]||code;
@@ -137,7 +137,7 @@
   text(ctx,'MY FAVORITES',titleX,top+12,titleWidth,12,brandInk,600);
   text(ctx,league?info.league+' · '+result.pos+' FAVORITES':result.team,titleX,top+(wide?43:56),titleWidth,wide?33:44,ink,700);
   const scope=p.players.length<result.players.length?'Top '+p.players.length+' of '+result.players.length:'All '+p.players.length+' players';
-  text(ctx,(league?'Across all '+(info.league==='NBA'?'30':'32')+' teams':result.pos==='ALL'?'All positions':result.pos)+' · '+scope,titleX,top+(wide?65:84),titleWidth,wide?13:16,'#b4c0ce',500);
+  text(ctx,(league?'Across all '+(info.league==='NFL'?'32':'30')+' teams':result.pos==='ALL'?'All positions':result.pos)+' · '+scope,titleX,top+(wide?65:84),titleWidth,wide?13:16,'#b4c0ce',500);
   let missingPhotos=0;
   p.players.forEach((player,i)=>{
    const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2,podium=featured&&!wide;
@@ -160,7 +160,7 @@
    const max=podium?b.width-28:b.x+b.width-tx-(featured?16:8);
    const nameFont=featured?(podium?24:26):Math.min(24,Math.max(10,b.height*(league?0.48:0.66)));
    text(ctx,player.name,tx,podium?b.y+b.height-34:featured||league?mid-1:mid+nameFont*.33,max,nameFont,ink,600);
-   if(featured||league)text(ctx,(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(player.rosterPosition||player.position)+' · #'+player.number,tx,podium?b.y+b.height-14:mid+(league?Math.max(14,8/outputRatio):18),max,league&&!featured?Math.min(12,b.height*.26):podium?13:12,'#b4c0ce',500);
+   if(featured||league)text(ctx,(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(league&&info.league==='MLB'?result.pos:(player.rosterPosition||player.position))+' · #'+player.number,tx,podium?b.y+b.height-14:mid+(league?Math.max(14,8/outputRatio):18),max,league&&!featured?Math.min(12,b.height*.26):podium?13:12,'#b4c0ce',500);
   });
   ctx.fillStyle='#ffffff18';ctx.fillRect(pad,p.H-p.footer+(league?10/outputRatio:10),p.W-2*pad,1);
   text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-(league?30/outputRatio:30),p.W-2*pad-260,league?Math.max(14,12/outputRatio):14,brandInk,600);
@@ -186,7 +186,7 @@
  }
  function filename(result,options,image){
   const code=ALL_TEAM_INFO[result.team].code.toLowerCase(),scope=options.scope==='all'?'all':'top-'+options.scope;
-  return (ALL_TEAM_INFO[result.team].scope==='league'?(ALL_TEAM_INFO[result.team].league.toLowerCase()+'-position-favorites-'):(ALL_TEAM_INFO[result.team].league==='NBA'?'nba-favorites-':'nfl-favorites-'))+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
+  return (ALL_TEAM_INFO[result.team].scope==='league'?(ALL_TEAM_INFO[result.team].league.toLowerCase()+'-position-favorites-'):(leagueFor(result.team).toLowerCase()+'-favorites-'))+code+'-'+result.pos.toLowerCase()+'-'+scope+'-'+options.size+(image?'.'+image.extension:'.zip');
  }
  function releasePreview(){if(previewUrl?.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;preview=null;$('export-preview-image').removeAttribute('src');$('export-preview-image').hidden=true;}
  function controls(){

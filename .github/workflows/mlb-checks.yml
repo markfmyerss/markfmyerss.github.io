@@ -1,0 +1,33 @@
+name: MLB expansion checks
+on:
+  push:
+    paths: ['mlb-data.js', 'app.js', 'exports.js', 'index.html', 'league-style.css', 'league-style.js', 'quality-of-life.js', 'ranking-tools.js', 'mlb-check.cjs', 'mlb-browser-check.cjs', '.github/workflows/mlb-checks.yml']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  data-and-state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check app.js && node --check exports.js && node --check quality-of-life.js
+      - run: node mlb-check.cjs
+  browser:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node mlb-browser-check.cjs
+      - run: node nba-mobile-comparison-check.cjs
+      - run: node ranking-tools-browser-check.cjs
+      - run: node league-style-check.cjs
+      - run: node design-check.cjs
