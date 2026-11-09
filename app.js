@@ -398,7 +398,7 @@ function selectConference(conference){
 }
 function selectDivision(division){
  write(divisionSelectionKey($('team').value),$('team').value);
- const conference=conferenceFor($('team').value),teams=teamsFor(activeSport).filter(team=>conferenceFor(team)===conference&&divisionFor(team)===division);if(!teams.length)return;
+ const conference=conferenceFor($('team').value),teams=teamsFor(activeSport).filter(team=>(activeSport!=='MLB'||conferenceFor(team)===conference)&&divisionFor(team)===division);if(!teams.length)return;
  const previous=read(divisionSelectionKey(teams[0]))||read(prefixFor(activeSport)+'-last-team:'+division);
  $('team').value=teams.includes(previous)?previous:teams[0];selectTeam();
 }
