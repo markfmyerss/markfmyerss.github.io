@@ -19,7 +19,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- mlb-data.js assets/mlb MLB-SOURCES.md
+          git add -- mlb-data.js assets/mlb MLB-SOURCES.md assets/roster-snapshots
           if ! git diff --cached --quiet; then
             git commit -m "Add verified 2026 MLB historical rosters, injury inclusions and official imagery"
             git push origin HEAD:mlb-expansion
