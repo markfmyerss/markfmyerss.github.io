@@ -60,3 +60,7 @@ Portraits and logos come from official MLB static assets, identified by MLB pers
 ## Team-card secondary positions
 
 Primary position plus substantial secondary roles. Infield: 20 starts and 15% of position starts, or 10 current starts plus 25 prior-season starts. Outfield: 25 starts and 25% of outfield starts. DH: 25 starts and 25% of position starts. Injured players without current starts use established prior-season roles. Ohtani is the sole two-way exception.
+
+## Injured pitcher pools
+
+Protected injured starters: 15 starts in 2026 or 20 in 2025, plus documented notable aces Hunter Greene, Corbin Burnes, Pablo López, Spencer Schwellenbach and Shane Bieber. Protected injured relievers: 45 games or 5 saves in 2026, plus established high-profile bullpen arms. Remaining places use 2026 usage. Both pitching pools cap at 75.
