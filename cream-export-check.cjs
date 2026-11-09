@@ -5,7 +5,8 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
  // Contrast is tested with jersey/logo fallbacks so it cannot depend on external image servers.
  await page.route('**/*',r=>r.request().resourceType()==='image'?r.abort():r.continue());await page.goto(root);await page.evaluate(()=>document.fonts.ready);
  const report=await page.evaluate(async()=>{
-  const original=CanvasRenderingContext2D.prototype.fillText;
+  const original=CanvasRenderingContext2D.prototype.fillText,originalStroke=CanvasRenderingContext2D.prototype.stroke;
+  CanvasRenderingContext2D.prototype.stroke=function(...args){(this.canvas._strokeColors??=[]).push(this.strokeStyle);return originalStroke.apply(this,args);};
   CanvasRenderingContext2D.prototype.fillText=function(value,x,y,max){
    if(/^\d+$/.test(String(value))){const m=this.measureText(String(value)),width=Math.min(m.width,max??m.width),start=this.textAlign==='center'?x-width/2:this.textAlign==='right'?x-width:x,t=this.getTransform();(this.canvas._numberDraws??=[]).push({text:String(value),color:this.fillStyle,x:Math.min(this.canvas.width-1,Math.max(0,Math.floor((start+width+1.5)*t.a+t.e))),y:Math.min(this.canvas.height-1,Math.max(0,Math.floor((y-(m.actualBoundingBoxAscent||12)/2)*t.d+t.f)))});}
    return original.call(this,value,x,y,max);
@@ -19,9 +20,10 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    if(canvas._numberDraws.length<result.players.length)throw Error(team+' rank labels missing');
    for(const n of canvas._numberDraws){const fg=lum(rgb(n.color)),bg=lum(at(n.x,n.y).slice(0,3)),contrast=(Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05);least=Math.min(least,contrast);if(contrast<7)throw Error(team+' number '+n.text+' contrast '+contrast);}
    const b=ResultsExport.plan(result,{size:'1x1',scope:'all'}).boxes[0],accent=at(Math.floor(b.x+5),Math.floor(b.y+b.height/2)).slice(0,3),expected=rgb(ALL_TEAM_INFO[team].colors.primary);
-   if(accent.some((n,i)=>Math.abs(n-expected[i])>1))throw Error(team+' primary accent changed: '+accent+' expected '+expected);
+   if(accent.some(n=>n<210))throw Error(team+' standalone rank-side stripe remains: '+accent);
+   if((canvas._strokeColors||[]).filter(c=>c.toLowerCase()===ALL_TEAM_INFO[team].colors.primary.toLowerCase()).length<result.players.length)throw Error(team+' primary-color card outlines missing');
    out.push({team,count:image.players.length});
-  }}finally{CanvasRenderingContext2D.prototype.fillText=original;HTMLCanvasElement.prototype.toBlob=toBlob;}
+  }}finally{CanvasRenderingContext2D.prototype.fillText=original;CanvasRenderingContext2D.prototype.stroke=originalStroke;HTMLCanvasElement.prototype.toBlob=toBlob;}
   return {teams:out.length,leastContrast:least};
  });
  assert.equal(report.teams,92);assert(report.leastContrast>=7);
@@ -45,5 +47,5 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
  for(const r of formats){assert.equal(r.pages,1);assert(r.logo);if(r.scope)assert.equal(r.count,Math.min(Number(r.scope),await real.evaluate(team=>rosterFor(team).length,r.team)));else{assert.equal(r.count,await real.evaluate(team=>rosterFor(team).length,r.team));assert(['image/png','image/jpeg','image/webp'].includes(r.mime));}}
  const sample=await real.evaluate(async()=>{const r=await ResultsExport.createImage({team:'Baltimore Orioles',pos:'ALL',players:MLB_ROSTERS['Baltimore Orioles']},{size:'1x1',type:'png',scope:'all'});return await new Promise(resolve=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.readAsDataURL(r.blob);});});
  console.log('CREAM_EXPORT_SAMPLE '+engine.name()+' '+sample.split(',')[1]);
- await real.close();await page.close();console.log('PASS '+engine.name()+': all 92 team exports use cream, exact primary-color accents and number contrast >=7:1 (minimum '+report.leastContrast.toFixed(2)+'); all nine sizes/three formats and Top 10/25 preserve complete rankings across MLB/NBA/NFL');
+ await real.close();await page.close();console.log('PASS '+engine.name()+': all 92 team exports use cream, primary-color card outlines without rank-side stripes and number contrast >=7:1 (minimum '+report.leastContrast.toFixed(2)+'); all nine sizes/three formats and Top 10/25 preserve complete rankings across MLB/NBA/NFL');
  }finally{await browser.close();}}}finally{await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exit(1)});

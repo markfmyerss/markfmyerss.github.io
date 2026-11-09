@@ -142,8 +142,7 @@
   let missingPhotos=0;
   p.players.forEach((player,i)=>{
    const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2,podium=featured&&!wide;
-   rect(ctx,b.x,b.y,b.width,b.height,featured?18:8,featured&&i===0?blend(colors.primary,'#fffdf8',.9):'#fffdf8',featured&&i===0?colors.primary:'#ded8cc');
-   rect(ctx,b.x+4,b.y+Math.min(8,b.height*.2),3,Math.max(4,b.height-Math.min(16,b.height*.4)),1.5,colors.primary);
+   rect(ctx,b.x,b.y,b.width,b.height,featured?18:8,featured&&i===0?blend(colors.primary,'#fffdf8',.9):'#fffdf8',colors.primary);
    const rankWidth=league?Math.max(32/outputRatio,featured?(wide?32:38):(b.height<30?24:30)):featured?(wide?32:38):(b.height<30?24:30);
    const photoSize=podium?Math.min(96,b.height-68):featured?Math.min(52,b.height-12):Math.max(12,Math.min(40,b.height-6));
    const photoX=podium?b.x+(b.width-photoSize)/2:b.x+rankWidth+(featured?12:6);
