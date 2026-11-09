@@ -1,157 +1,5 @@
 // Verified 2026 MLB snapshot with substantial team roles and primary-only league pools.
 const MLB_TEAM_INFO = {
-  "Athletics": {
-    "name": "Athletics",
-    "code": "ATH",
-    "nickname": "Athletics",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "AL",
-    "division": "West",
-    "mlbId": 133,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-09-27",
-    "snapshotRound": "Final 28-man roster",
-    "baseRosterCount": 28,
-    "injuryAdditions": [
-      "Brent Rooker",
-      "Gage Jump",
-      "J.T. Ginn",
-      "Jacob Wilson",
-      "Justin Sterner",
-      "Luis Severino",
-      "Mark Leiter Jr.",
-      "Max Muncy",
-      "Nick Kurtz",
-      "Tyler Soderstrom"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/ATH.svg",
-    "colors": {
-      "primary": "#003831",
-      "accent": "#EFB21E",
-      "highlight": "#EFB21E",
-      "ink": "#101014"
-    }
-  },
-  "Houston Astros": {
-    "name": "Houston Astros",
-    "code": "HOU",
-    "nickname": "Astros",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "AL",
-    "division": "West",
-    "mlbId": 117,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-09-30",
-    "snapshotRound": "Wild Card Series",
-    "baseRosterCount": 26,
-    "injuryAdditions": [
-      "Carlos Correa",
-      "Jake Meyers",
-      "Mike Burrows"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=active&season=2026&date=2026-09-30&hydrate=person",
-    "logo": "assets/mlb/logos/HOU.svg",
-    "colors": {
-      "primary": "#002D62",
-      "accent": "#EB6E1F",
-      "highlight": "#EB6E1F",
-      "ink": "#101014"
-    }
-  },
-  "Los Angeles Angels": {
-    "name": "Los Angeles Angels",
-    "code": "LAA",
-    "nickname": "Angels",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "AL",
-    "division": "West",
-    "mlbId": 108,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-09-27",
-    "snapshotRound": "Final 28-man roster",
-    "baseRosterCount": 28,
-    "injuryAdditions": [
-      "Ben Joyce",
-      "George Klassen",
-      "Jack Kochanowicz",
-      "Nolan Schanuel",
-      "Samy Natera Jr.",
-      "Yoán Moncada"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/LAA.svg",
-    "colors": {
-      "primary": "#BA0021",
-      "accent": "#003263",
-      "highlight": "#003263",
-      "ink": "#101014"
-    }
-  },
-  "Seattle Mariners": {
-    "name": "Seattle Mariners",
-    "code": "SEA",
-    "nickname": "Mariners",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "AL",
-    "division": "West",
-    "mlbId": 136,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-09-27",
-    "snapshotRound": "Final 28-man roster",
-    "baseRosterCount": 28,
-    "injuryAdditions": [
-      "Andrés Muñoz",
-      "Brendan Donovan",
-      "Colt Emerson",
-      "Emerson Hancock",
-      "Logan Evans",
-      "Luke Raley",
-      "Matt Brash"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/SEA.svg",
-    "colors": {
-      "primary": "#0C2C56",
-      "accent": "#005C5C",
-      "highlight": "#005C5C",
-      "ink": "#101014"
-    }
-  },
-  "Texas Rangers": {
-    "name": "Texas Rangers",
-    "code": "TEX",
-    "nickname": "Rangers",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "AL",
-    "division": "West",
-    "mlbId": 140,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-09-27",
-    "snapshotRound": "Final 28-man roster",
-    "baseRosterCount": 28,
-    "injuryAdditions": [
-      "Cole Winn",
-      "Jack Leiter",
-      "Jalen Beeks",
-      "Joc Pederson",
-      "Josh Jung",
-      "Kyle Higashioka"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/TEX.svg",
-    "colors": {
-      "primary": "#003278",
-      "accent": "#C0111F",
-      "highlight": "#C0111F",
-      "ink": "#101014"
-    }
-  },
   "Baltimore Orioles": {
     "name": "Baltimore Orioles",
     "code": "BAL",
@@ -442,152 +290,155 @@ const MLB_TEAM_INFO = {
       "ink": "#101014"
     }
   },
-  "Arizona Diamondbacks": {
-    "name": "Arizona Diamondbacks",
-    "code": "AZ",
-    "nickname": "D-backs",
+  "Athletics": {
+    "name": "Athletics",
+    "code": "ATH",
+    "nickname": "Athletics",
     "singular": "player",
     "league": "MLB",
-    "conference": "NL",
+    "conference": "AL",
     "division": "West",
-    "mlbId": 109,
+    "mlbId": 133,
     "verified": "November 9, 2026",
     "snapshotDate": "2026-09-27",
     "snapshotRound": "Final 28-man roster",
     "baseRosterCount": 28,
     "injuryAdditions": [
-      "Corbin Burnes",
-      "Ryan Thompson"
+      "Brent Rooker",
+      "Gage Jump",
+      "J.T. Ginn",
+      "Jacob Wilson",
+      "Justin Sterner",
+      "Luis Severino",
+      "Mark Leiter Jr.",
+      "Max Muncy",
+      "Nick Kurtz",
+      "Tyler Soderstrom"
     ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/AZ.svg",
+    "source": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/ATH.svg",
     "colors": {
-      "primary": "#AA182C",
-      "accent": "#E3D4AD",
-      "highlight": "#E3D4AD",
+      "primary": "#003831",
+      "accent": "#EFB21E",
+      "highlight": "#EFB21E",
       "ink": "#101014"
     }
   },
-  "Colorado Rockies": {
-    "name": "Colorado Rockies",
-    "code": "COL",
-    "nickname": "Rockies",
+  "Houston Astros": {
+    "name": "Houston Astros",
+    "code": "HOU",
+    "nickname": "Astros",
     "singular": "player",
     "league": "MLB",
-    "conference": "NL",
+    "conference": "AL",
     "division": "West",
-    "mlbId": 115,
+    "mlbId": 117,
     "verified": "November 9, 2026",
-    "snapshotDate": "2026-09-27",
-    "snapshotRound": "Final 28-man roster",
-    "baseRosterCount": 28,
-    "injuryAdditions": [
-      "Chase Dollander",
-      "Willi Castro"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/COL.svg",
-    "colors": {
-      "primary": "#33006F",
-      "accent": "#C4CED4",
-      "highlight": "#C4CED4",
-      "ink": "#101014"
-    }
-  },
-  "Los Angeles Dodgers": {
-    "name": "Los Angeles Dodgers",
-    "code": "LAD",
-    "nickname": "Dodgers",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "NL",
-    "division": "West",
-    "mlbId": 119,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-10-15",
-    "snapshotRound": "League Championship Series",
+    "snapshotDate": "2026-09-30",
+    "snapshotRound": "Wild Card Series",
     "baseRosterCount": 26,
     "injuryAdditions": [
-      "Ben Casparius",
-      "Eric Lauer",
-      "Will Klein"
+      "Carlos Correa",
+      "Jake Meyers",
+      "Mike Burrows"
     ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=active&season=2026&date=2026-10-15&hydrate=person",
-    "logo": "assets/mlb/logos/LAD.svg",
+    "source": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=active&season=2026&date=2026-09-30&hydrate=person",
+    "logo": "assets/mlb/logos/HOU.svg",
     "colors": {
-      "primary": "#005A9C",
-      "accent": "#EF3E42",
-      "highlight": "#EF3E42",
+      "primary": "#002D62",
+      "accent": "#EB6E1F",
+      "highlight": "#EB6E1F",
       "ink": "#101014"
     }
   },
-  "San Diego Padres": {
-    "name": "San Diego Padres",
-    "code": "SD",
-    "nickname": "Padres",
+  "Los Angeles Angels": {
+    "name": "Los Angeles Angels",
+    "code": "LAA",
+    "nickname": "Angels",
     "singular": "player",
     "league": "MLB",
-    "conference": "NL",
+    "conference": "AL",
     "division": "West",
-    "mlbId": 135,
-    "verified": "November 9, 2026",
-    "snapshotDate": "2026-10-07",
-    "snapshotRound": "Division Series",
-    "baseRosterCount": 26,
-    "injuryAdditions": [
-      "Casey Mize",
-      "Lucas Giolito",
-      "Luis Rengifo",
-      "Ramón Laureano"
-    ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=active&season=2026&date=2026-10-07&hydrate=person",
-    "logo": "assets/mlb/logos/SD.svg",
-    "colors": {
-      "primary": "#2F241C",
-      "accent": "#FFC425",
-      "highlight": "#FFC425",
-      "ink": "#101014"
-    }
-  },
-  "San Francisco Giants": {
-    "name": "San Francisco Giants",
-    "code": "SF",
-    "nickname": "Giants",
-    "singular": "player",
-    "league": "MLB",
-    "conference": "NL",
-    "division": "West",
-    "mlbId": 137,
+    "mlbId": 108,
     "verified": "November 9, 2026",
     "snapshotDate": "2026-09-27",
     "snapshotRound": "Final 28-man roster",
     "baseRosterCount": 28,
     "injuryAdditions": [
-      "Adrian Houser",
-      "Blade Tidwell",
-      "Bryce Eldridge",
-      "Carson Whisenhunt",
-      "Casey Schmitt",
-      "Harrison Bader",
-      "Hayden Birdsong",
-      "JT Brubaker",
-      "José Buttó",
-      "Jung Hoo Lee",
-      "Keaton Winn",
-      "Logan Webb",
-      "Matt Chapman",
-      "Matt Gage",
-      "Rafael Devers",
-      "Randy Rodríguez",
-      "Trevor McDonald",
-      "Willy Adames"
+      "Ben Joyce",
+      "George Klassen",
+      "Jack Kochanowicz",
+      "Nolan Schanuel",
+      "Samy Natera Jr.",
+      "Yoán Moncada"
     ],
-    "source": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
-    "logo": "assets/mlb/logos/SF.svg",
+    "source": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/LAA.svg",
     "colors": {
-      "primary": "#FD5A1E",
-      "accent": "#27251F",
-      "highlight": "#27251F",
+      "primary": "#BA0021",
+      "accent": "#003263",
+      "highlight": "#003263",
+      "ink": "#101014"
+    }
+  },
+  "Seattle Mariners": {
+    "name": "Seattle Mariners",
+    "code": "SEA",
+    "nickname": "Mariners",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "AL",
+    "division": "West",
+    "mlbId": 136,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-09-27",
+    "snapshotRound": "Final 28-man roster",
+    "baseRosterCount": 28,
+    "injuryAdditions": [
+      "Andrés Muñoz",
+      "Brendan Donovan",
+      "Colt Emerson",
+      "Emerson Hancock",
+      "Logan Evans",
+      "Luke Raley",
+      "Matt Brash"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/SEA.svg",
+    "colors": {
+      "primary": "#0C2C56",
+      "accent": "#005C5C",
+      "highlight": "#005C5C",
+      "ink": "#101014"
+    }
+  },
+  "Texas Rangers": {
+    "name": "Texas Rangers",
+    "code": "TEX",
+    "nickname": "Rangers",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "AL",
+    "division": "West",
+    "mlbId": 140,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-09-27",
+    "snapshotRound": "Final 28-man roster",
+    "baseRosterCount": 28,
+    "injuryAdditions": [
+      "Cole Winn",
+      "Jack Leiter",
+      "Jalen Beeks",
+      "Joc Pederson",
+      "Josh Jung",
+      "Kyle Higashioka"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/TEX.svg",
+    "colors": {
+      "primary": "#003278",
+      "accent": "#C0111F",
+      "highlight": "#C0111F",
       "ink": "#101014"
     }
   },
@@ -866,6 +717,155 @@ const MLB_TEAM_INFO = {
       "primary": "#BE0A14",
       "accent": "#0C2340",
       "highlight": "#0C2340",
+      "ink": "#101014"
+    }
+  },
+  "Arizona Diamondbacks": {
+    "name": "Arizona Diamondbacks",
+    "code": "AZ",
+    "nickname": "D-backs",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "NL",
+    "division": "West",
+    "mlbId": 109,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-09-27",
+    "snapshotRound": "Final 28-man roster",
+    "baseRosterCount": 28,
+    "injuryAdditions": [
+      "Corbin Burnes",
+      "Ryan Thompson"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/AZ.svg",
+    "colors": {
+      "primary": "#AA182C",
+      "accent": "#E3D4AD",
+      "highlight": "#E3D4AD",
+      "ink": "#101014"
+    }
+  },
+  "Colorado Rockies": {
+    "name": "Colorado Rockies",
+    "code": "COL",
+    "nickname": "Rockies",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "NL",
+    "division": "West",
+    "mlbId": 115,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-09-27",
+    "snapshotRound": "Final 28-man roster",
+    "baseRosterCount": 28,
+    "injuryAdditions": [
+      "Chase Dollander",
+      "Willi Castro"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/COL.svg",
+    "colors": {
+      "primary": "#33006F",
+      "accent": "#C4CED4",
+      "highlight": "#C4CED4",
+      "ink": "#101014"
+    }
+  },
+  "Los Angeles Dodgers": {
+    "name": "Los Angeles Dodgers",
+    "code": "LAD",
+    "nickname": "Dodgers",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "NL",
+    "division": "West",
+    "mlbId": 119,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-10-15",
+    "snapshotRound": "League Championship Series",
+    "baseRosterCount": 26,
+    "injuryAdditions": [
+      "Ben Casparius",
+      "Eric Lauer",
+      "Will Klein"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=active&season=2026&date=2026-10-15&hydrate=person",
+    "logo": "assets/mlb/logos/LAD.svg",
+    "colors": {
+      "primary": "#005A9C",
+      "accent": "#EF3E42",
+      "highlight": "#EF3E42",
+      "ink": "#101014"
+    }
+  },
+  "San Diego Padres": {
+    "name": "San Diego Padres",
+    "code": "SD",
+    "nickname": "Padres",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "NL",
+    "division": "West",
+    "mlbId": 135,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-10-07",
+    "snapshotRound": "Division Series",
+    "baseRosterCount": 26,
+    "injuryAdditions": [
+      "Casey Mize",
+      "Lucas Giolito",
+      "Luis Rengifo",
+      "Ramón Laureano"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=active&season=2026&date=2026-10-07&hydrate=person",
+    "logo": "assets/mlb/logos/SD.svg",
+    "colors": {
+      "primary": "#2F241C",
+      "accent": "#FFC425",
+      "highlight": "#FFC425",
+      "ink": "#101014"
+    }
+  },
+  "San Francisco Giants": {
+    "name": "San Francisco Giants",
+    "code": "SF",
+    "nickname": "Giants",
+    "singular": "player",
+    "league": "MLB",
+    "conference": "NL",
+    "division": "West",
+    "mlbId": 137,
+    "verified": "November 9, 2026",
+    "snapshotDate": "2026-09-27",
+    "snapshotRound": "Final 28-man roster",
+    "baseRosterCount": 28,
+    "injuryAdditions": [
+      "Adrian Houser",
+      "Blade Tidwell",
+      "Bryce Eldridge",
+      "Carson Whisenhunt",
+      "Casey Schmitt",
+      "Harrison Bader",
+      "Hayden Birdsong",
+      "JT Brubaker",
+      "José Buttó",
+      "Jung Hoo Lee",
+      "Keaton Winn",
+      "Logan Webb",
+      "Matt Chapman",
+      "Matt Gage",
+      "Rafael Devers",
+      "Randy Rodríguez",
+      "Trevor McDonald",
+      "Willy Adames"
+    ],
+    "source": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=active&season=2026&date=2026-09-27&hydrate=person",
+    "logo": "assets/mlb/logos/SF.svg",
+    "colors": {
+      "primary": "#FD5A1E",
+      "accent": "#27251F",
+      "highlight": "#27251F",
       "ink": "#101014"
     }
   }
@@ -20542,18 +20542,17 @@ const MLB_HEADSHOTS = {
 };
 const MLB_POSITION_PLAYERS = [
   {
-    "id": "MLB-476594",
-    "mlbId": 476594,
-    "name": "Robert Stock",
-    "number": "89",
-    "position": "SP",
+    "id": "MLB-445276",
+    "mlbId": 445276,
+    "name": "Kenley Jansen",
+    "number": "74",
+    "position": "RP",
     "positions": [
-      "SP"
+      "RP"
     ],
-    "rosterPosition": "SP",
-    "team": "New York Mets",
-    "profile": "https://www.mlb.com/player/robert-stock-476594",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
+    "rosterPosition": "RP",
+    "team": "Detroit Tigers",
+    "profile": "https://www.mlb.com/player/kenley-jansen-445276"
   },
   {
     "id": "MLB-514888",
@@ -20596,6 +20595,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/freddie-freeman-518692"
   },
   {
+    "id": "MLB-519242",
+    "mlbId": 519242,
+    "name": "Chris Sale",
+    "number": "51",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Atlanta Braves",
+    "profile": "https://www.mlb.com/player/chris-sale-519242"
+  },
+  {
     "id": "MLB-521692",
     "mlbId": 521692,
     "name": "Salvador Perez",
@@ -20607,6 +20619,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "DH",
     "team": "Kansas City Royals",
     "profile": "https://www.mlb.com/player/salvador-perez-521692"
+  },
+  {
+    "id": "MLB-543243",
+    "mlbId": 543243,
+    "name": "Sonny Gray",
+    "number": "54",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Boston Red Sox",
+    "profile": "https://www.mlb.com/player/sonny-gray-543243"
   },
   {
     "id": "MLB-543309",
@@ -20754,18 +20779,17 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
-    "id": "MLB-571946",
-    "mlbId": 571946,
-    "name": "Shelby Miller",
-    "number": "77",
+    "id": "MLB-571927",
+    "mlbId": 571927,
+    "name": "Steven Matz",
+    "number": "32",
     "position": "RP",
     "positions": [
       "RP"
     ],
     "rosterPosition": "RP",
-    "team": "Chicago Cubs",
-    "profile": "https://www.mlb.com/player/shelby-miller-571946",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "team": "Tampa Bay Rays",
+    "profile": "https://www.mlb.com/player/steven-matz-571927"
   },
   {
     "id": "MLB-571970",
@@ -20847,6 +20871,19 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
   },
   {
+    "id": "MLB-592662",
+    "mlbId": 592662,
+    "name": "Robbie Ray",
+    "number": "38",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "San Diego Padres",
+    "profile": "https://www.mlb.com/player/robbie-ray-592662"
+  },
+  {
     "id": "MLB-592663",
     "mlbId": 592663,
     "name": "J.T. Realmuto",
@@ -20925,6 +20962,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "SP",
     "team": "Arizona Diamondbacks",
     "profile": "https://www.mlb.com/player/eduardo-rodriguez-593958"
+  },
+  {
+    "id": "MLB-594798",
+    "mlbId": 594798,
+    "name": "Jacob deGrom",
+    "number": "48",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Texas Rangers",
+    "profile": "https://www.mlb.com/player/jacob-degrom-594798"
   },
   {
     "id": "MLB-596019",
@@ -21084,32 +21134,17 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/nick-martinez-607259"
   },
   {
-    "id": "MLB-607455",
-    "mlbId": 607455,
-    "name": "Anthony Banda",
-    "number": "43",
-    "position": "RP",
+    "id": "MLB-607625",
+    "mlbId": 607625,
+    "name": "Seth Lugo",
+    "number": "67",
+    "position": "SP",
     "positions": [
-      "RP"
+      "SP"
     ],
-    "rosterPosition": "RP",
-    "team": "Minnesota Twins",
-    "profile": "https://www.mlb.com/player/anthony-banda-607455",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-608032",
-    "mlbId": 608032,
-    "name": "Carlos Estévez",
-    "number": "53",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
+    "rosterPosition": "SP",
     "team": "Kansas City Royals",
-    "profile": "https://www.mlb.com/player/carlos-estevez-608032",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "profile": "https://www.mlb.com/player/seth-lugo-607625"
   },
   {
     "id": "MLB-608070",
@@ -21178,6 +21213,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/michael-wacha-608379"
   },
   {
+    "id": "MLB-608718",
+    "mlbId": 608718,
+    "name": "Brent Suter",
+    "number": "39",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Atlanta Braves",
+    "profile": "https://www.mlb.com/player/brent-suter-608718"
+  },
+  {
     "id": "MLB-609280",
     "mlbId": 609280,
     "name": "Miguel Andujar",
@@ -21218,18 +21266,17 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
-    "id": "MLB-621107",
-    "mlbId": 621107,
-    "name": "Zach Eflin",
-    "number": "24",
-    "position": "SP",
+    "id": "MLB-621112",
+    "mlbId": 621112,
+    "name": "Paul Blackburn",
+    "number": "58",
+    "position": "RP",
     "positions": [
-      "SP"
+      "RP"
     ],
-    "rosterPosition": "SP",
-    "team": "Baltimore Orioles",
-    "profile": "https://www.mlb.com/player/zach-eflin-621107",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "rosterPosition": "RP",
+    "team": "New York Yankees",
+    "profile": "https://www.mlb.com/player/paul-blackburn-621112"
   },
   {
     "id": "MLB-621244",
@@ -21273,6 +21320,32 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/matt-olson-621566"
   },
   {
+    "id": "MLB-622554",
+    "mlbId": 622554,
+    "name": "Seranthony Domínguez",
+    "number": "58",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Seattle Mariners",
+    "profile": "https://www.mlb.com/player/seranthony-dominguez-622554"
+  },
+  {
+    "id": "MLB-622608",
+    "mlbId": 622608,
+    "name": "Antonio Senzatela",
+    "number": "49",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Milwaukee Brewers",
+    "profile": "https://www.mlb.com/player/antonio-senzatela-622608"
+  },
+  {
     "id": "MLB-622663",
     "mlbId": 622663,
     "name": "Luis Severino",
@@ -21311,6 +21384,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "C",
     "team": "Los Angeles Angels",
     "profile": "https://www.mlb.com/player/tyler-heineman-623168"
+  },
+  {
+    "id": "MLB-623352",
+    "mlbId": 623352,
+    "name": "Josh Hader",
+    "number": "71",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Houston Astros",
+    "profile": "https://www.mlb.com/player/josh-hader-623352"
   },
   {
     "id": "MLB-623454",
@@ -21406,6 +21492,19 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
+    "id": "MLB-641302",
+    "mlbId": 641302,
+    "name": "Tyler Alexander",
+    "number": "13",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Texas Rangers",
+    "profile": "https://www.mlb.com/player/tyler-alexander-641302"
+  },
+  {
     "id": "MLB-641329",
     "mlbId": 641329,
     "name": "Bryan Baker",
@@ -21458,20 +21557,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/j-p-crawford-641487"
   },
   {
-    "id": "MLB-641745",
-    "mlbId": 641745,
-    "name": "Brad Keller",
-    "number": "40",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Philadelphia Phillies",
-    "profile": "https://www.mlb.com/player/brad-keller-641745",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-641778",
     "mlbId": 641778,
     "name": "Eric Lauer",
@@ -21513,6 +21598,19 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
+    "id": "MLB-641941",
+    "mlbId": 641941,
+    "name": "Emilio Pagán",
+    "number": "15",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Cincinnati Reds",
+    "profile": "https://www.mlb.com/player/emilio-pagan-641941"
+  },
+  {
     "id": "MLB-642201",
     "mlbId": 642201,
     "name": "Eli White",
@@ -21538,6 +21636,32 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "3B",
     "team": "Seattle Mariners",
     "profile": "https://www.mlb.com/player/weston-wilson-642215"
+  },
+  {
+    "id": "MLB-642397",
+    "mlbId": 642397,
+    "name": "Gregory Soto",
+    "number": "31",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Pittsburgh Pirates",
+    "profile": "https://www.mlb.com/player/gregory-soto-642397"
+  },
+  {
+    "id": "MLB-642547",
+    "mlbId": 642547,
+    "name": "Freddy Peralta",
+    "number": "51",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Tampa Bay Rays",
+    "profile": "https://www.mlb.com/player/freddy-peralta-642547"
   },
   {
     "id": "MLB-642715",
@@ -21580,20 +21704,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/mauricio-dubon-643289"
   },
   {
-    "id": "MLB-643410",
-    "mlbId": 643410,
-    "name": "Mark Leiter Jr.",
-    "number": "38",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Athletics",
-    "profile": "https://www.mlb.com/player/mark-leiter-jr-643410",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-643446",
     "mlbId": 643446,
     "name": "Jeff McNeil",
@@ -21605,6 +21715,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "2B",
     "team": "Athletics",
     "profile": "https://www.mlb.com/player/jeff-mcneil-643446"
+  },
+  {
+    "id": "MLB-643511",
+    "mlbId": 643511,
+    "name": "Tyler Rogers",
+    "number": "71",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Toronto Blue Jays",
+    "profile": "https://www.mlb.com/player/tyler-rogers-643511"
   },
   {
     "id": "MLB-645261",
@@ -21714,6 +21837,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/yandy-diaz-650490"
   },
   {
+    "id": "MLB-650556",
+    "mlbId": 650556,
+    "name": "Bryan Abreu",
+    "number": "52",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Houston Astros",
+    "profile": "https://www.mlb.com/player/bryan-abreu-650556"
+  },
+  {
     "id": "MLB-650633",
     "mlbId": 650633,
     "name": "Michael King",
@@ -21780,18 +21916,17 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/andruw-monasterio-655316"
   },
   {
-    "id": "MLB-656222",
-    "mlbId": 656222,
-    "name": "Jalen Beeks",
-    "number": "68",
+    "id": "MLB-656271",
+    "mlbId": 656271,
+    "name": "Brock Burke",
+    "number": "49",
     "position": "RP",
     "positions": [
       "RP"
     ],
     "rosterPosition": "RP",
-    "team": "Texas Rangers",
-    "profile": "https://www.mlb.com/player/jalen-beeks-656222",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "team": "Cincinnati Reds",
+    "profile": "https://www.mlb.com/player/brock-burke-656271"
   },
   {
     "id": "MLB-656302",
@@ -21822,6 +21957,19 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
+    "id": "MLB-656492",
+    "mlbId": 656492,
+    "name": "Foster Griffin",
+    "number": "22",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Cleveland Guardians",
+    "profile": "https://www.mlb.com/player/foster-griffin-656492"
+  },
+  {
     "id": "MLB-656546",
     "mlbId": 656546,
     "name": "Jeff Hoffman",
@@ -21848,6 +21996,19 @@ const MLB_POSITION_PLAYERS = [
     "team": "Pittsburgh Pirates",
     "profile": "https://www.mlb.com/player/mitch-keller-656605",
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+  },
+  {
+    "id": "MLB-656638",
+    "mlbId": 656638,
+    "name": "Alex Lange",
+    "number": "56",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Kansas City Royals",
+    "profile": "https://www.mlb.com/player/alex-lange-656638"
   },
   {
     "id": "MLB-656641",
@@ -21889,20 +22050,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/trevor-megill-656730"
   },
   {
-    "id": "MLB-656731",
-    "mlbId": 656731,
-    "name": "Tylor Megill",
-    "number": "58",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "New York Mets",
-    "profile": "https://www.mlb.com/player/tylor-megill-656731",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-656775",
     "mlbId": 656775,
     "name": "Cedric Mullins",
@@ -21916,6 +22063,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/cedric-mullins-656775"
   },
   {
+    "id": "MLB-656794",
+    "mlbId": 656794,
+    "name": "Sean Newcomb",
+    "number": "15",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Chicago White Sox",
+    "profile": "https://www.mlb.com/player/sean-newcomb-656794"
+  },
+  {
     "id": "MLB-656811",
     "mlbId": 656811,
     "name": "Ryan O'Hearn",
@@ -21927,6 +22087,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "RF",
     "team": "Pittsburgh Pirates",
     "profile": "https://www.mlb.com/player/ryan-o-hearn-656811"
+  },
+  {
+    "id": "MLB-656876",
+    "mlbId": 656876,
+    "name": "Drew Rasmussen",
+    "number": "57",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Tampa Bay Rays",
+    "profile": "https://www.mlb.com/player/drew-rasmussen-656876"
   },
   {
     "id": "MLB-656941",
@@ -21969,6 +22142,19 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
+    "id": "MLB-657097",
+    "mlbId": 657097,
+    "name": "Jacob Webb",
+    "number": "71",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Chicago Cubs",
+    "profile": "https://www.mlb.com/player/jacob-webb-657097"
+  },
+  {
     "id": "MLB-657277",
     "mlbId": 657277,
     "name": "Logan Webb",
@@ -21981,34 +22167,6 @@ const MLB_POSITION_PLAYERS = [
     "team": "San Francisco Giants",
     "profile": "https://www.mlb.com/player/logan-webb-657277",
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-657424",
-    "mlbId": 657424,
-    "name": "Matt Gage",
-    "number": "93",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/matt-gage-657424",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-657585",
-    "mlbId": 657585,
-    "name": "Reed Garrett",
-    "number": "75",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "New York Mets",
-    "profile": "https://www.mlb.com/player/reed-garrett-657585",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-657656",
@@ -22145,20 +22303,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/lars-nootbaar-663457"
   },
   {
-    "id": "MLB-663485",
-    "mlbId": 663485,
-    "name": "Cole Sands",
-    "number": "44",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Minnesota Twins",
-    "profile": "https://www.mlb.com/player/cole-sands-663485",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-663494",
     "mlbId": 663494,
     "name": "Bryan Torres",
@@ -22183,6 +22327,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "2B",
     "team": "Chicago Cubs",
     "profile": "https://www.mlb.com/player/nico-hoerner-663538"
+  },
+  {
+    "id": "MLB-663542",
+    "mlbId": 663542,
+    "name": "Bryan Hudson",
+    "number": "60",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Chicago White Sox",
+    "profile": "https://www.mlb.com/player/bryan-hudson-663542"
   },
   {
     "id": "MLB-663554",
@@ -22334,6 +22491,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/cal-raleigh-663728"
   },
   {
+    "id": "MLB-663738",
+    "mlbId": 663738,
+    "name": "Daniel Lynch IV",
+    "number": "41",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Kansas City Royals",
+    "profile": "https://www.mlb.com/player/daniel-lynch-iv-663738"
+  },
+  {
     "id": "MLB-663757",
     "mlbId": 663757,
     "name": "Trent Grisham",
@@ -22465,34 +22635,6 @@ const MLB_POSITION_PLAYERS = [
     "team": "Miami Marlins",
     "profile": "https://www.mlb.com/player/pete-fairbanks-664126",
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-664141",
-    "mlbId": 664141,
-    "name": "JT Brubaker",
-    "number": "34",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/jt-brubaker-664141",
-    "injuryInclusion": "Injured 10-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-664208",
-    "mlbId": 664208,
-    "name": "Phil Maton",
-    "number": "88",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Chicago Cubs",
-    "profile": "https://www.mlb.com/player/phil-maton-664208",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-664285",
@@ -22665,6 +22807,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/jazz-chisholm-jr-665862"
   },
   {
+    "id": "MLB-665871",
+    "mlbId": 665871,
+    "name": "Javier Assad",
+    "number": "72",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Chicago Cubs",
+    "profile": "https://www.mlb.com/player/javier-assad-665871"
+  },
+  {
     "id": "MLB-665877",
     "mlbId": 665877,
     "name": "José Fermín",
@@ -22743,20 +22898,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/josh-lowe-666139"
   },
   {
-    "id": "MLB-666142",
-    "mlbId": 666142,
-    "name": "Cole Ragans",
-    "number": "55",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Kansas City Royals",
-    "profile": "https://www.mlb.com/player/cole-ragans-666142",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-666152",
     "mlbId": 666152,
     "name": "David Hamilton",
@@ -22782,6 +22923,19 @@ const MLB_POSITION_PLAYERS = [
     "team": "Tampa Bay Rays",
     "profile": "https://www.mlb.com/player/gavin-lux-666158",
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+  },
+  {
+    "id": "MLB-666171",
+    "mlbId": 666171,
+    "name": "Ryan Zeferjahn",
+    "number": "56",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Chicago Cubs",
+    "profile": "https://www.mlb.com/player/ryan-zeferjahn-666171"
   },
   {
     "id": "MLB-666176",
@@ -22834,20 +22988,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "LF",
     "team": "Houston Astros",
     "profile": "https://www.mlb.com/player/taylor-trammell-666211"
-  },
-  {
-    "id": "MLB-666214",
-    "mlbId": 666214,
-    "name": "Joey Wentz",
-    "number": "33",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Atlanta Braves",
-    "profile": "https://www.mlb.com/player/joey-wentz-666214",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-666374",
@@ -23116,6 +23256,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/brandon-marsh-669016"
   },
   {
+    "id": "MLB-669022",
+    "mlbId": 669022,
+    "name": "MacKenzie Gore",
+    "number": "1",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Texas Rangers",
+    "profile": "https://www.mlb.com/player/mackenzie-gore-669022"
+  },
+  {
     "id": "MLB-669065",
     "mlbId": 669065,
     "name": "Kyle Stowers",
@@ -23142,6 +23295,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/shea-langeliers-669127"
   },
   {
+    "id": "MLB-669199",
+    "mlbId": 669199,
+    "name": "Lake Bachar",
+    "number": "71",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Pittsburgh Pirates",
+    "profile": "https://www.mlb.com/player/lake-bachar-669199"
+  },
+  {
     "id": "MLB-669203",
     "mlbId": 669203,
     "name": "Corbin Burnes",
@@ -23154,20 +23320,6 @@ const MLB_POSITION_PLAYERS = [
     "team": "Arizona Diamondbacks",
     "profile": "https://www.mlb.com/player/corbin-burnes-669203",
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-669211",
-    "mlbId": 669211,
-    "name": "Keegan Akin",
-    "number": "45",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Baltimore Orioles",
-    "profile": "https://www.mlb.com/player/keegan-akin-669211",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-669224",
@@ -23220,6 +23372,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "SP",
     "team": "Seattle Mariners",
     "profile": "https://www.mlb.com/player/logan-gilbert-669302"
+  },
+  {
+    "id": "MLB-669330",
+    "mlbId": 669330,
+    "name": "Tyler Wells",
+    "number": "68",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Tampa Bay Rays",
+    "profile": "https://www.mlb.com/player/tyler-wells-669330"
   },
   {
     "id": "MLB-669358",
@@ -23288,6 +23453,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/jake-burger-669394"
   },
   {
+    "id": "MLB-669432",
+    "mlbId": 669432,
+    "name": "Trevor Rogers",
+    "number": "28",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Baltimore Orioles",
+    "profile": "https://www.mlb.com/player/trevor-rogers-669432"
+  },
+  {
     "id": "MLB-669456",
     "mlbId": 669456,
     "name": "Shane Bieber",
@@ -23314,20 +23492,6 @@ const MLB_POSITION_PLAYERS = [
     "team": "San Francisco Giants",
     "profile": "https://www.mlb.com/player/casey-schmitt-669477",
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-669622",
-    "mlbId": 669622,
-    "name": "Anthony Bender",
-    "number": "37",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Miami Marlins",
-    "profile": "https://www.mlb.com/player/anthony-bender-669622",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-669707",
@@ -23397,32 +23561,17 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
-    "id": "MLB-670062",
-    "mlbId": 670062,
-    "name": "Julian Garcia",
-    "number": "57",
+    "id": "MLB-670245",
+    "mlbId": 670245,
+    "name": "Ryan Watson",
+    "number": "56",
     "position": "RP",
     "positions": [
       "RP"
     ],
     "rosterPosition": "RP",
-    "team": "Cincinnati Reds",
-    "profile": "https://www.mlb.com/player/julian-garcia-670062",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-670102",
-    "mlbId": 670102,
-    "name": "Bowden Francis",
-    "number": "44",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Toronto Blue Jays",
-    "profile": "https://www.mlb.com/player/bowden-francis-670102",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "team": "Los Angeles Angels",
+    "profile": "https://www.mlb.com/player/ryan-watson-670245"
   },
   {
     "id": "MLB-670280",
@@ -23436,6 +23585,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "RP",
     "team": "New York Yankees",
     "profile": "https://www.mlb.com/player/david-bednar-670280"
+  },
+  {
+    "id": "MLB-670329",
+    "mlbId": 670329,
+    "name": "Rico Garcia",
+    "number": "50",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Baltimore Orioles",
+    "profile": "https://www.mlb.com/player/rico-garcia-670329"
   },
   {
     "id": "MLB-670541",
@@ -23477,18 +23639,30 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/taylor-walls-670764"
   },
   {
-    "id": "MLB-670955",
-    "mlbId": 670955,
-    "name": "Edwin Uceta",
-    "number": "63",
+    "id": "MLB-670970",
+    "mlbId": 670970,
+    "name": "Adrian Morejon",
+    "number": "50",
     "position": "RP",
     "positions": [
       "RP"
     ],
     "rosterPosition": "RP",
-    "team": "Tampa Bay Rays",
-    "profile": "https://www.mlb.com/player/edwin-uceta-670955",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "team": "San Diego Padres",
+    "profile": "https://www.mlb.com/player/adrian-morejon-670970"
+  },
+  {
+    "id": "MLB-670990",
+    "mlbId": 670990,
+    "name": "Yohan Ramírez",
+    "number": "49",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Pittsburgh Pirates",
+    "profile": "https://www.mlb.com/player/yohan-ramirez-670990"
   },
   {
     "id": "MLB-671056",
@@ -23502,6 +23676,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "DH",
     "team": "St. Louis Cardinals",
     "profile": "https://www.mlb.com/player/ivan-herrera-671056"
+  },
+  {
+    "id": "MLB-671096",
+    "mlbId": 671096,
+    "name": "Andrew Abbott",
+    "number": "41",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Cincinnati Reds",
+    "profile": "https://www.mlb.com/player/andrew-abbott-671096"
   },
   {
     "id": "MLB-671277",
@@ -23647,20 +23834,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/maikel-garcia-672580"
   },
   {
-    "id": "MLB-672582",
-    "mlbId": 672582,
-    "name": "Angel Zerpa",
-    "number": "61",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Milwaukee Brewers",
-    "profile": "https://www.mlb.com/player/angel-zerpa-672582",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-672640",
     "mlbId": 672640,
     "name": "Otto Lopez",
@@ -23780,20 +23953,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/seiya-suzuki-673548"
   },
   {
-    "id": "MLB-673929",
-    "mlbId": 673929,
-    "name": "Jordan Leasure",
-    "number": "49",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Chicago White Sox",
-    "profile": "https://www.mlb.com/player/jordan-leasure-673929",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-673962",
     "mlbId": 673962,
     "name": "Josh Jung",
@@ -23864,20 +24023,6 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
   },
   {
-    "id": "MLB-676130",
-    "mlbId": 676130,
-    "name": "José Buttó",
-    "number": "70",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/jose-butto-676130",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-676356",
     "mlbId": 676356,
     "name": "Jonny DeLuca",
@@ -23930,48 +24075,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/alec-burleson-676475"
   },
   {
-    "id": "MLB-676508",
-    "mlbId": 676508,
-    "name": "Ben Casparius",
-    "number": "78",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Los Angeles Dodgers",
-    "profile": "https://www.mlb.com/player/ben-casparius-676508",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-676571",
-    "mlbId": 676571,
-    "name": "PJ Poulin",
-    "number": "50",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Washington Nationals",
-    "profile": "https://www.mlb.com/player/pj-poulin-676571",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-676604",
-    "mlbId": 676604,
-    "name": "Tyler Zuber",
-    "number": "55",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Miami Marlins",
-    "profile": "https://www.mlb.com/player/tyler-zuber-676604",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-676609",
     "mlbId": 676609,
     "name": "José Caballero",
@@ -23996,20 +24099,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "RP",
     "team": "St. Louis Cardinals",
     "profile": "https://www.mlb.com/player/riley-o-brien-676617"
-  },
-  {
-    "id": "MLB-676684",
-    "mlbId": 676684,
-    "name": "Will Vest",
-    "number": "19",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Detroit Tigers",
-    "profile": "https://www.mlb.com/player/will-vest-676684",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-676694",
@@ -24040,32 +24129,17 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 7-Day at the 2026 snapshot"
   },
   {
-    "id": "MLB-676755",
-    "mlbId": 676755,
-    "name": "Isaac Mattson",
-    "number": "72",
+    "id": "MLB-676879",
+    "mlbId": 676879,
+    "name": "Aaron Ashby",
+    "number": "26",
     "position": "RP",
     "positions": [
       "RP"
     ],
     "rosterPosition": "RP",
-    "team": "Pittsburgh Pirates",
-    "profile": "https://www.mlb.com/player/isaac-mattson-676755",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-676775",
-    "mlbId": 676775,
-    "name": "Keaton Winn",
-    "number": "67",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/keaton-winn-676775",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "team": "Milwaukee Brewers",
+    "profile": "https://www.mlb.com/player/aaron-ashby-676879"
   },
   {
     "id": "MLB-676914",
@@ -24081,18 +24155,17 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/davis-schneider-676914"
   },
   {
-    "id": "MLB-676962",
-    "mlbId": 676962,
-    "name": "Ben Brown",
-    "number": "32",
-    "position": "RP",
+    "id": "MLB-676917",
+    "mlbId": 676917,
+    "name": "Cade Cavalli",
+    "number": "24",
+    "position": "SP",
     "positions": [
-      "RP"
+      "SP"
     ],
-    "rosterPosition": "RP",
-    "team": "Chicago Cubs",
-    "profile": "https://www.mlb.com/player/ben-brown-676962",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "rosterPosition": "SP",
+    "team": "Washington Nationals",
+    "profile": "https://www.mlb.com/player/cade-cavalli-676917"
   },
   {
     "id": "MLB-676974",
@@ -24107,20 +24180,6 @@ const MLB_POSITION_PLAYERS = [
     "team": "Miami Marlins",
     "profile": "https://www.mlb.com/player/max-meyer-676974",
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-677053",
-    "mlbId": 677053,
-    "name": "Andrew Nardi",
-    "number": "43",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Miami Marlins",
-    "profile": "https://www.mlb.com/player/andrew-nardi-677053",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-677587",
@@ -24242,20 +24301,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/jack-perkins-678022"
   },
   {
-    "id": "MLB-678024",
-    "mlbId": 678024,
-    "name": "Mike Vasil",
-    "number": "61",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Chicago White Sox",
-    "profile": "https://www.mlb.com/player/mike-vasil-678024",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-678246",
     "mlbId": 678246,
     "name": "Miguel Vargas",
@@ -24309,20 +24354,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/ezequiel-tovar-678662"
   },
   {
-    "id": "MLB-678692",
-    "mlbId": 678692,
-    "name": "Ronny Henriquez",
-    "number": "32",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Miami Marlins",
-    "profile": "https://www.mlb.com/player/ronny-henriquez-678692",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-678882",
     "mlbId": 678882,
     "name": "Ceddanne Rafaela",
@@ -24347,20 +24378,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "1B",
     "team": "Detroit Tigers",
     "profile": "https://www.mlb.com/player/spencer-torkelson-679529"
-  },
-  {
-    "id": "MLB-679883",
-    "mlbId": 679883,
-    "name": "Luinder Avila",
-    "number": "58",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Kansas City Royals",
-    "profile": "https://www.mlb.com/player/luinder-avila-679883",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-680574",
@@ -24430,18 +24447,17 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/adrian-del-castillo-680728"
   },
   {
-    "id": "MLB-680730",
-    "mlbId": 680730,
-    "name": "Mitchell Parker",
-    "number": "70",
-    "position": "RP",
+    "id": "MLB-680732",
+    "mlbId": 680732,
+    "name": "Sean Burke",
+    "number": "59",
+    "position": "SP",
     "positions": [
-      "RP"
+      "SP"
     ],
-    "rosterPosition": "RP",
-    "team": "Washington Nationals",
-    "profile": "https://www.mlb.com/player/mitchell-parker-680730",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "rosterPosition": "SP",
+    "team": "Chicago White Sox",
+    "profile": "https://www.mlb.com/player/sean-burke-680732"
   },
   {
     "id": "MLB-680757",
@@ -24632,20 +24648,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/heriberto-hernandez-681715"
   },
   {
-    "id": "MLB-681857",
-    "mlbId": 681857,
-    "name": "Reese Olson",
-    "number": "45",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Detroit Tigers",
-    "profile": "https://www.mlb.com/player/reese-olson-681857",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-682254",
     "mlbId": 682254,
     "name": "Mason Montgomery",
@@ -24804,20 +24806,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/nasim-nunez-683083"
   },
   {
-    "id": "MLB-683232",
-    "mlbId": 683232,
-    "name": "Nick Mears",
-    "number": "31",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Kansas City Royals",
-    "profile": "https://www.mlb.com/player/nick-mears-683232",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-683357",
     "mlbId": 683357,
     "name": "Owen Caissie",
@@ -24923,20 +24911,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/isaac-collins-686555"
   },
   {
-    "id": "MLB-686580",
-    "mlbId": 686580,
-    "name": "Justin Slaten",
-    "number": "63",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Boston Red Sox",
-    "profile": "https://www.mlb.com/player/justin-slaten-686580",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-686681",
     "mlbId": 686681,
     "name": "Michael Massey",
@@ -24988,20 +24962,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "C",
     "team": "St. Louis Cardinals",
     "profile": "https://www.mlb.com/player/pedro-pages-686780"
-  },
-  {
-    "id": "MLB-686790",
-    "mlbId": 686790,
-    "name": "Trevor McDonald",
-    "number": "72",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/trevor-mcdonald-686790",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-686797",
@@ -25097,6 +25057,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/zach-neto-687263"
   },
   {
+    "id": "MLB-687330",
+    "mlbId": 687330,
+    "name": "Kevin Kelly",
+    "number": "49",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Tampa Bay Rays",
+    "profile": "https://www.mlb.com/player/kevin-kelly-687330"
+  },
+  {
     "id": "MLB-687377",
     "mlbId": 687377,
     "name": "Orlando Ribalta",
@@ -25109,6 +25082,19 @@ const MLB_POSITION_PLAYERS = [
     "team": "Washington Nationals",
     "profile": "https://www.mlb.com/player/orlando-ribalta-687377",
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
+  },
+  {
+    "id": "MLB-687396",
+    "mlbId": 687396,
+    "name": "Brent Headrick",
+    "number": "47",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "New York Yankees",
+    "profile": "https://www.mlb.com/player/brent-headrick-687396"
   },
   {
     "id": "MLB-687401",
@@ -25176,32 +25162,17 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/troy-johnston-687859"
   },
   {
-    "id": "MLB-687931",
-    "mlbId": 687931,
-    "name": "Carson Whisenhunt",
-    "number": "88",
-    "position": "SP",
+    "id": "MLB-688642",
+    "mlbId": 688642,
+    "name": "Zach Agnos",
+    "number": "36",
+    "position": "RP",
     "positions": [
-      "SP"
+      "RP"
     ],
-    "rosterPosition": "SP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/carson-whisenhunt-687931",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-688138",
-    "mlbId": 688138,
-    "name": "Logan Evans",
-    "number": "23",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Seattle Mariners",
-    "profile": "https://www.mlb.com/player/logan-evans-688138",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "rosterPosition": "RP",
+    "team": "Colorado Rockies",
+    "profile": "https://www.mlb.com/player/zach-agnos-688642"
   },
   {
     "id": "MLB-689414",
@@ -25228,20 +25199,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "RP",
     "team": "Los Angeles Angels",
     "profile": "https://www.mlb.com/player/ben-joyce-690829",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
-    "id": "MLB-690928",
-    "mlbId": 690928,
-    "name": "Hunter Dobbins",
-    "number": "40",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "St. Louis Cardinals",
-    "profile": "https://www.mlb.com/player/hunter-dobbins-690928",
     "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
   },
   {
@@ -25457,20 +25414,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/grant-taylor-691799"
   },
   {
-    "id": "MLB-691946",
-    "mlbId": 691946,
-    "name": "George Klassen",
-    "number": "58",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Los Angeles Angels",
-    "profile": "https://www.mlb.com/player/george-klassen-691946",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-693304",
     "mlbId": 693304,
     "name": "Nick Gonzales",
@@ -25497,6 +25440,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/dillon-dingler-693307"
   },
   {
+    "id": "MLB-693433",
+    "mlbId": 693433,
+    "name": "Bryan Woo",
+    "number": "22",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "Seattle Mariners",
+    "profile": "https://www.mlb.com/player/bryan-woo-693433"
+  },
+  {
     "id": "MLB-693645",
     "mlbId": 693645,
     "name": "Cam Schlittler",
@@ -25508,6 +25464,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "SP",
     "team": "New York Yankees",
     "profile": "https://www.mlb.com/player/cam-schlittler-693645"
+  },
+  {
+    "id": "MLB-693686",
+    "mlbId": 693686,
+    "name": "Spencer Miles",
+    "number": "62",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Toronto Blue Jays",
+    "profile": "https://www.mlb.com/player/spencer-miles-693686"
   },
   {
     "id": "MLB-693855",
@@ -25589,20 +25558,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/cole-carrigg-694249"
   },
   {
-    "id": "MLB-694361",
-    "mlbId": 694361,
-    "name": "Will Klein",
-    "number": "61",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Los Angeles Dodgers",
-    "profile": "https://www.mlb.com/player/will-klein-694361",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-694384",
     "mlbId": 694384,
     "name": "Nolan Schanuel",
@@ -25656,20 +25611,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/jacob-misiorowski-694819"
   },
   {
-    "id": "MLB-694918",
-    "mlbId": 694918,
-    "name": "Blade Tidwell",
-    "number": "46",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/blade-tidwell-694918",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-694973",
     "mlbId": 694973,
     "name": "Paul Skenes",
@@ -25694,6 +25635,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "RP",
     "team": "San Diego Padres",
     "profile": "https://www.mlb.com/player/mason-miller-695243"
+  },
+  {
+    "id": "MLB-695418",
+    "mlbId": 695418,
+    "name": "Brad Lord",
+    "number": "41",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Washington Nationals",
+    "profile": "https://www.mlb.com/player/brad-lord-695418"
   },
   {
     "id": "MLB-695505",
@@ -25828,20 +25782,6 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/jacob-young-696285"
   },
   {
-    "id": "MLB-696519",
-    "mlbId": 696519,
-    "name": "Samy Natera Jr.",
-    "number": "52",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "Los Angeles Angels",
-    "profile": "https://www.mlb.com/player/samy-natera-jr-696519",
-    "injuryInclusion": "Injured 15-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-699013",
     "mlbId": 699013,
     "name": "Esmerlyn Valdez",
@@ -25869,6 +25809,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/hector-rodriguez-699302"
   },
   {
+    "id": "MLB-700241",
+    "mlbId": 700241,
+    "name": "Michael McGreevy",
+    "number": "36",
+    "position": "SP",
+    "positions": [
+      "SP"
+    ],
+    "rosterPosition": "SP",
+    "team": "St. Louis Cardinals",
+    "profile": "https://www.mlb.com/player/michael-mcgreevy-700241"
+  },
+  {
     "id": "MLB-700242",
     "mlbId": 700242,
     "name": "Trey Sweeney",
@@ -25894,6 +25847,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "DH",
     "team": "New York Yankees",
     "profile": "https://www.mlb.com/player/ben-rice-700250"
+  },
+  {
+    "id": "MLB-700669",
+    "mlbId": 700669,
+    "name": "Gordon Graceffo",
+    "number": "44",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "St. Louis Cardinals",
+    "profile": "https://www.mlb.com/player/gordon-graceffo-700669"
   },
   {
     "id": "MLB-701358",
@@ -25933,20 +25899,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "CF",
     "team": "San Diego Padres",
     "profile": "https://www.mlb.com/player/jackson-merrill-701538"
-  },
-  {
-    "id": "MLB-701581",
-    "mlbId": 701581,
-    "name": "David Festa",
-    "number": "58",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Minnesota Twins",
-    "profile": "https://www.mlb.com/player/david-festa-701581",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-701675",
@@ -26015,6 +25967,19 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/noah-cameron-702070"
   },
   {
+    "id": "MLB-702193",
+    "mlbId": 702193,
+    "name": "Andrew Morris",
+    "number": "78",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Minnesota Twins",
+    "profile": "https://www.mlb.com/player/andrew-morris-702193"
+  },
+  {
     "id": "MLB-702222",
     "mlbId": 702222,
     "name": "Justin Crawford",
@@ -26052,20 +26017,6 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "3B",
     "team": "Boston Red Sox",
     "profile": "https://www.mlb.com/player/caleb-durbin-702332"
-  },
-  {
-    "id": "MLB-702474",
-    "mlbId": 702474,
-    "name": "Mike Paredes",
-    "number": "53",
-    "position": "SP",
-    "positions": [
-      "SP"
-    ],
-    "rosterPosition": "SP",
-    "team": "Minnesota Twins",
-    "profile": "https://www.mlb.com/player/mike-paredes-702474",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
     "id": "MLB-702616",
@@ -26108,18 +26059,17 @@ const MLB_POSITION_PLAYERS = [
     "profile": "https://www.mlb.com/player/parker-messick-800048"
   },
   {
-    "id": "MLB-801403",
-    "mlbId": 801403,
-    "name": "Chase Dollander",
-    "number": "32",
+    "id": "MLB-800311",
+    "mlbId": 800311,
+    "name": "Didier Fuentes",
+    "number": "72",
     "position": "RP",
     "positions": [
       "RP"
     ],
     "rosterPosition": "RP",
-    "team": "Colorado Rockies",
-    "profile": "https://www.mlb.com/player/chase-dollander-801403",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
+    "team": "Atlanta Braves",
+    "profile": "https://www.mlb.com/player/didier-fuentes-800311"
   },
   {
     "id": "MLB-802139",
@@ -26159,6 +26109,19 @@ const MLB_POSITION_PLAYERS = [
     "rosterPosition": "LF",
     "team": "Chicago White Sox",
     "profile": "https://www.mlb.com/player/sam-antonacci-803011"
+  },
+  {
+    "id": "MLB-805123",
+    "mlbId": 805123,
+    "name": "AJ Blubaugh",
+    "number": "69",
+    "position": "RP",
+    "positions": [
+      "RP"
+    ],
+    "rosterPosition": "RP",
+    "team": "Houston Astros",
+    "profile": "https://www.mlb.com/player/aj-blubaugh-805123"
   },
   {
     "id": "MLB-805300",
@@ -26255,20 +26218,6 @@ const MLB_POSITION_PLAYERS = [
     "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
   },
   {
-    "id": "MLB-806185",
-    "mlbId": 806185,
-    "name": "Hayden Birdsong",
-    "number": "60",
-    "position": "RP",
-    "positions": [
-      "RP"
-    ],
-    "rosterPosition": "RP",
-    "team": "San Francisco Giants",
-    "profile": "https://www.mlb.com/player/hayden-birdsong-806185",
-    "injuryInclusion": "Injured 60-Day at the 2026 snapshot"
-  },
-  {
     "id": "MLB-807712",
     "mlbId": 807712,
     "name": "Luke Keaschall",
@@ -26357,7 +26306,8 @@ const MLB_POSITION_INFO = {
     "SP": "100 innings and 15 starts; up to 75, including protected injured regulars.",
     "RP": "40 innings or 10 saves; up to 75, including protected injured regulars. Usage order: outs plus six per save.",
     "primary": "Most 2026 starts by position; 2025 starts then official roster position for injured players with no 2026 position starts. Pitchers use starting/relief appearance majority. Shohei Ohtani is the sole exception and appears in both DH and SP. Team cards retain multiple played positions.",
-    "teamPositions": "Primary position plus substantial secondary roles. Infield: 20 starts and 15% of position starts, or 10 current starts plus 25 prior-season starts. Outfield: 25 starts and 25% of outfield starts. DH: 25 starts and 25% of position starts. Injured players without current starts use established prior-season roles. Ohtani is the sole two-way exception."
+    "teamPositions": "Primary position plus substantial secondary roles. Infield: 20 starts and 15% of position starts, or 10 current starts plus 25 prior-season starts. Outfield: 25 starts and 25% of outfield starts. DH: 25 starts and 25% of position starts. Injured players without current starts use established prior-season roles. Ohtani is the sole two-way exception.",
+    "pitcherInjuries": "Protected injured starters: 15 starts in 2026 or 20 in 2025, plus documented notable aces Hunter Greene, Corbin Burnes, Pablo López, Spencer Schwellenbach and Shane Bieber. Protected injured relievers: 45 games or 5 saves in 2026, plus established high-profile bullpen arms. Remaining places use 2026 usage. Both pitching pools cap at 75."
   }
 };
 const MLB_KNOWN_IDS = {
