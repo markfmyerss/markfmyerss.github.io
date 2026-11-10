@@ -148,6 +148,11 @@
   const ink=contrastInk(card);
   return {paper,ink,pageInk,muted:quietInk(ink,card),pageMuted:quietInk(pageInk,paper),card,first:blend(card,toward,.12),outline:blend(paper,pageInk,.38),photo:blend(card,toward,.06),divider:blend(pageInk,paper,.65)};
  }
+ function rankingDateLabel(result){
+  const value=result.rankedAt??result.updatedAt;
+  const date=typeof value==='number'&&value>0?new Date(value):typeof value==='string'&&value?new Date(value):null;
+  return date&&Number.isFinite(date.getTime())?new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric'}).format(date):'Date unavailable';
+ }
  async function createImage(result,options,index=0){
   if(!result?.players?.length||!ALL_TEAM_INFO[result.team])throw Error('Finish a ranking first.');
   if(index!==0)throw Error('The whole ranking fits in one image.');
@@ -233,7 +238,7 @@
   });
   ctx.fillStyle=palette.divider;ctx.fillRect(pad,p.H-p.footer+(league?10/outputRatio:10),p.W-2*pad,1);
   text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-(league?30/outputRatio:30),p.W-2*pad-260,league?Math.max(14,12/outputRatio):14,brandInk,600);
-  text(ctx,p.players.length+' FAVORITES',p.W-pad,p.H-(league?30/outputRatio:30),220,league?Math.max(14,12/outputRatio):14,brandInk,700,'right');
+  text(ctx,rankingDateLabel(result),p.W-pad,p.H-(league?30/outputRatio:30),220,league?Math.max(14,12/outputRatio):14,brandInk,700,'right');
   text(ctx,'Fan-made · Personal preferences · Images belong to their respective rights holders',pad,p.H-(league?10/outputRatio:10),p.W-pad*2,league?Math.max(10,8/outputRatio):10,palette.pageMuted,400);
   const blob=await new Promise((resolve,reject)=>{try{canvas.toBlob(b=>b?resolve(b):reject(Error('Could not create the image.')),type.mime,.94);}catch(e){reject(e);}});
   const actual=Object.values(TYPES).find(t=>t.mime===blob.type);if(!actual)throw Error('Unsupported image format.');
@@ -273,8 +278,8 @@
  }
  function changed(){revision++;busy=false;pageIndex=0;releasePreview();$('export-status').textContent=current?(mobile?'Choose a size and range, then create your image.':'Choose a size, file format and range, then preview.'):'';controls();}
  function setResults(result){
-  const next=result?JSON.stringify([result.team,result.pos,result.players.map(p=>[p.id,p.name,p.team,p.number,p.position,p.rosterPosition,p.headshotUrl||''])]):'';
-  if(next===fingerprint)return;fingerprint=next;current=result?{team:result.team,pos:result.pos,players:result.players.map(p=>({...p}))}:null;updateMode();changed();
+  const next=result?JSON.stringify([result.team,result.pos,result.rankedAt??result.updatedAt??null,result.players.map(p=>[p.id,p.name,p.team,p.number,p.position,p.rosterPosition,p.headshotUrl||''])]):'';
+  if(next===fingerprint)return;fingerprint=next;current=result?{team:result.team,pos:result.pos,rankedAt:result.rankedAt??result.updatedAt??null,players:result.players.map(p=>({...p}))}:null;updateMode();changed();
  }
  async function showPreview(index){
   if(!current||busy)return;

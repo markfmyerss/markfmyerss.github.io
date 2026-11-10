@@ -336,7 +336,7 @@ function renderView() {
   $('shared-notice').hidden=!sharedRanking;$('undo-result').hidden=!!sharedRanking;$('again').hidden=!!sharedRanking;
   $('rank-yours').textContent=state?.done?'View your ranking':'Rank these players';
   if(sharedRanking)$('results-title').textContent=isLeaguePool(result.team)?'Shared '+rankingTitle(result)+' favorites':'Shared '+ALL_TEAM_INFO[result.team].nickname+' favorites';
-  globalThis.ResultsExport?.setResults(result?.done?{team:result.team,pos:result.pos,players:result.sorted}:null);
+  globalThis.ResultsExport?.setResults(result?.done?{team:result.team,pos:result.pos,rankedAt:result.updatedAt??null,players:result.sorted}:null);
   if(!result)return;
   if(result.done){
     renderTopThree(result);
