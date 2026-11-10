@@ -193,7 +193,10 @@
   if(!league){
    let accent=colors.accent||brandInk;
    for(let amount=.25;contrastRatio(accent,paper)<3&&amount<=1;amount+=.25)accent=blend(colors.accent||brandInk,brandInk,amount);
-   rect(ctx,titleX,top+(wide?53:68),Math.min(titleWidth,wide?56:72),2,1,accent);
+   const headerBottom=Math.max(top+badge,top+subtitleBottom),dividerY=(headerBottom+p.header)/2;
+   ctx.save();ctx.globalAlpha=.55;
+   rect(ctx,pad,dividerY,p.W-2*pad,1.5,.75,accent);
+   ctx.restore();
   }
   text(ctx,subtitle,titleX,top+subtitleOffset,titleWidth,wide?13:16,palette.pageMuted,500);
   let missingPhotos=0;
