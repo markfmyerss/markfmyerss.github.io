@@ -1,6 +1,6 @@
 // Verify crawler-visible metadata and its real static image; JavaScript is unnecessary for previews.
 const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path');
-const origin='https://markfmyerss.github.io/',image=origin+'assets/link-preview-v2.png';
+const origin='https://markfmyerss.github.io/',image=origin+'assets/link-preview-v3.png';
 for(const file of ['index.html','nfl-favorites-sorter/index.html']){
  const html=fs.readFileSync(file,'utf8'),head=html.split('</head>')[0],tags=new Map();
  for(const match of head.matchAll(/<meta\b([^>]*)>/gi)){

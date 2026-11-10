@@ -1,0 +1,20 @@
+name: Check sharing preview
+on:
+  push:
+    branches: [main, refresh-three-sport-preview]
+    paths: ['index.html', 'nfl-favorites-sorter/index.html', 'assets/link-preview-v3.png', 'social-preview-check.cjs', 'scripts/verify-link-preview-live.cjs', '.github/workflows/check-link-preview.yml']
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node social-preview-check.cjs
+      - name: Verify public metadata and PNG after publication
+        if: github.ref == 'refs/heads/main'
+        run: node scripts/verify-link-preview-live.cjs
