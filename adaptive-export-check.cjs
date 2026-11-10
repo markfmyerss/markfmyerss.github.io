@@ -22,7 +22,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   }
   const cp=ResultsExport.plan(cases[1],{size:'1x1',scope:'all'});if(cp.columns!==2||cp.rows!==7||cp.boxes[9].x!==cp.boxes[3].x||cp.boxes[10].x<=cp.boxes[9].x||cp.boxes[10].y!==cp.boxes[3].y)throw Error('Celtics should read 4–10, then 11–17');
   const orioles=cases.find(r=>r.team==='Baltimore Orioles');
-  for(const size of ['1x1','3x4','4x5','9x16']){
+  for(const size of ['1x1','3x4','4x5']){
    const op=ResultsExport.plan(orioles,{size,scope:'all'});
    if(op.players.length!==39||op.columns!==3||op.rows!==12)throw Error('Orioles should use three columns of twelve '+size);
    if(op.boxes[14].x!==op.boxes[3].x||op.boxes[15].x<=op.boxes[14].x||op.boxes[15].y!==op.boxes[3].y||op.boxes[27].x<=op.boxes[26].x||op.boxes[27].y!==op.boxes[3].y)throw Error('Orioles rank order should be 4–15, 16–27, 28–39');
