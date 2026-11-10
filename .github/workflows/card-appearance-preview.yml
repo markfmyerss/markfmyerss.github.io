@@ -17,3 +17,6 @@ jobs:
           node-version: '22'
       - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
       - run: node card-appearance-preview-check.cjs
+      - name: Verify published preview
+        if: github.ref == 'refs/heads/main'
+        run: node scripts/verify-card-appearance-preview-live.cjs
