@@ -10,7 +10,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   const pool=Object.keys(ALL_TEAM_INFO).find(t=>isLeaguePool(t)&&ALL_TEAM_INFO[t].league==='NFL');cases.push({team:pool,pos:'ALL',players:rosterFor(pool).slice(0,140)});
   let layouts=0,images=0;const counts=[1,2,3,4,5,6,10,17,25,40,53,75,140];
   for(const count of counts)for(const size of sizeIds)for(const scope of ['all','10','25']){
-   const players=Array.from({length:count},(_,i)=>({...celtics[i%celtics.length],id:'layout-'+i})),p=ResultsExport.plan({team:'Boston Celtics',pos:'ALL',players},{size,scope});
+   const players=Array.from({length:count},(_,i)=>({...celtics[i%celtics.length],id:'layout-'+i})),p=ResultsExport.plan({team:count>80?pool:'Boston Celtics',pos:'ALL',players},{size,scope});
    if(p.players.length!==Math.min(count,scope==='all'?count:Number(scope))||p.pages!==1||p.boxes.length!==p.players.length)throw Error('Missing players');
    for(const [i,b] of p.boxes.entries()){
     if(b.x<0||b.y<p.header||b.x+b.width>p.W+.1||b.y+b.height>p.H-p.footer+.1||b.width<=0||b.height<=0)throw Error('Bounds '+count+' '+size);
