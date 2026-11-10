@@ -167,7 +167,8 @@
   ctx.font='600 12px "DM Sans",system-ui,-apple-system,sans-serif';
   const labelTop=12-ctx.measureText('MY FAVORITES').actualBoundingBoxAscent;
   ctx.font='500 '+(wide?13:16)+'px "DM Sans",system-ui,-apple-system,sans-serif';
-  const subtitleBottom=(wide?65:84)+ctx.measureText(subtitle).actualBoundingBoxDescent;
+  const subtitleOffset=(wide?65:84)+(league?0:2);
+  const subtitleBottom=subtitleOffset+ctx.measureText(subtitle).actualBoundingBoxDescent;
   const top=(p.header-labelTop-subtitleBottom)/2;
   const [logo,photos]=await Promise.all([loadLogo(result.team),loadPhotos(p.players,league)]),outputRatio=canvas.width/p.W;
   const badgeFill=info.league==='MLB'&&['CWS','PIT','COL'].includes(info.code)&&logo?(info.code==='PIT'?colors.accent:colors.primary):blend(colors.primary,'#fffdf8',.94);
@@ -182,7 +183,12 @@
   const titleX=pad+badge+22,titleWidth=p.W-pad-titleX;
   text(ctx,'MY FAVORITES',titleX,top+12,titleWidth,12,brandInk,600);
   text(ctx,league?info.league+' · '+result.pos+' FAVORITES':result.team,titleX,top+(wide?43:56),titleWidth,wide?33:44,brandInk,700);
-  text(ctx,subtitle,titleX,top+(wide?65:84),titleWidth,wide?13:16,palette.pageMuted,500);
+  if(!league){
+   let accent=colors.accent||brandInk;
+   for(let amount=.25;contrastRatio(accent,paper)<3&&amount<=1;amount+=.25)accent=blend(colors.accent||brandInk,brandInk,amount);
+   rect(ctx,titleX,top+(wide?53:68),Math.min(titleWidth,wide?56:72),2,1,accent);
+  }
+  text(ctx,subtitle,titleX,top+subtitleOffset,titleWidth,wide?13:16,palette.pageMuted,500);
   let missingPhotos=0;
   p.players.forEach((player,i)=>{
    const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2,podium=featured&&!wide,spaciousPodium=podium&&b.spacious,m=b.metrics||rowMetrics(b.width,b.height,league);
