@@ -1,0 +1,17 @@
+name: Primary team images and header spacing
+on:
+  push:
+    paths: ['exports.js', 'index.html', 'cream-export-check.cjs', 'scripts/verify-primary-images-live.cjs', '.github/workflows/primary-images.yml']
+permissions:
+  contents: read
+jobs:
+  publication:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/verify-primary-images-live.cjs
