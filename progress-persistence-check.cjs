@@ -43,9 +43,9 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   for(const sport of Object.keys(SPORTS))for(const team of teamsFor(sport)){
    selectSport(sport);selectRankingMode('teams');$('team').value=team;$('position').value='ALL';selectTeam();const players=rosterFor(team);state={team,pos:'ALL',players,sorted:players,stack:[],history:[],comparisons:100,done:true};render();
    for(const appearance of ['light','dim','black']){
-    document.documentElement.dataset.appearance=appearance;
+    document.querySelector('[data-appearance-choice="'+appearance+'"]').click();
     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
-    for(const selector of ['#export-preview','#share-link','#share-ranking','#copy','.rank-num','.podium-place'])for(const e of document.querySelectorAll(selector)){const fg=rgb(getComputedStyle(e).color),bg=background(e);if(ratio(fg,bg)<4.5)throw Error(team+' '+appearance+' unreadable '+selector+' '+ratio(fg,bg)+' foreground '+fg+' background '+bg);}
+    for(const selector of ['#export-preview','#share-link','#share-ranking','#copy','.rank-num','.podium-place'])for(const e of document.querySelectorAll(selector)){const fg=rgb(getComputedStyle(e).color),bg=background(e);if(ratio(fg,bg)<4.5)throw Error(team+' '+appearance+' unreadable '+selector+' '+ratio(fg,bg)+' foreground '+fg+' background '+bg+' mode '+document.documentElement.dataset.appearance+' bodySurface '+getComputedStyle(document.body).getPropertyValue('--league-ui-surface')+' panelSurface '+getComputedStyle(document.getElementById('results')).getPropertyValue('--league-ui-surface')+' panelBackground '+getComputedStyle(document.getElementById('results')).backgroundColor);}
     count++;
    }
   }return count;
