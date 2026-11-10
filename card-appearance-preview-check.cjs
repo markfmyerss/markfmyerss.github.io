@@ -22,8 +22,8 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    await page.locator('#preview-player-pool').click();await check('.pool-player-photo');await page.locator('#roster-dialog-close').click();
   }
  }
- await page.evaluate(()=>{selectSport('NBA');selectRankingMode('teams');start();});await page.setViewportSize({width:390,height:1100});
- for(const mode of ['light','dim','black']){await page.locator('[data-appearance-choice='+mode+']').click();await check('.player,.portrait');if(engine.name()==='chromium')console.log('CARD_APPEARANCE_SAMPLE '+mode+' '+(await page.screenshot()).toString('base64'));}
+ await page.evaluate(()=>{selectSport('NBA');selectRankingMode('teams');state=null;start();});await page.setViewportSize({width:390,height:1100});
+ for(const mode of ['light','dim','black']){await page.locator('[data-appearance-choice='+mode+']').click();await check('.player,.portrait');if(engine.name()==='chromium'){await page.evaluate(()=>document.querySelector('.match').scrollIntoView({block:'center'}));console.log('CARD_APPEARANCE_SAMPLE '+mode+' '+(await page.screenshot()).toString('base64'));}}
  await page.locator('[data-card-trial=off]').click();assert.equal(await page.locator('html').getAttribute('data-card-preview'),'off');assert.notEqual(await page.locator('.portrait').first().evaluate(e=>getComputedStyle(e).backgroundImage),'none');
  await page.locator('[data-card-trial=on]').click();await check('.player,.portrait');
  await page.locator('#left').click();const saved=await page.evaluate(()=>JSON.stringify(state));await page.reload();assert.equal(await page.evaluate(()=>JSON.stringify(state)),saved);await check('.player,.portrait');
