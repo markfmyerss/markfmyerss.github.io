@@ -41,10 +41,11 @@
 
   const wide=W/H>=1.25,pad=wide?42:48,gutter=wide?14:16,header=wide?112:172,footer=league?Math.max(wide?58:72,56/(size.width/W)):wide?58:72;
   const featured=Math.min(3,players.length),rest=players.slice(featured),boxes=[];
-  const base=wide?82:Math.max(154,Math.min(210,H*.15));
+  const spacious=!wide&&players.length>3&&players.length<=6;
+  const base=spacious?Math.max(154,(H-header-footer-18)*.42):wide?82:Math.max(154,Math.min(210,H*.15));
   const featureWidth=(W-2*pad-gutter*(featured-1))/Math.max(1,featured);
   const y=header+base+18;
-  for(let i=0;i<featured;i++)boxes.push({x:pad+i*(featureWidth+gutter),y:header,width:featureWidth,height:base,featured:true});
+  for(let i=0;i<featured;i++)boxes.push({x:pad+i*(featureWidth+gutter),y:header,width:featureWidth,height:base,featured:true,spacious});
   const available=Math.max(1,H-footer-y),longest=Math.max(12,...rest.map(p=>p.name.length));
   let best={score:-1,columns:1,rows:Math.max(1,rest.length),width:W-2*pad,rowHeight:available};
   for(let columns=1;columns<=Math.min(6,Math.max(1,rest.length));columns++){
@@ -163,12 +164,12 @@
   text(ctx,(league?'Across all '+(info.league==='NFL'?'32':'30')+' teams':result.pos==='ALL'?'All positions':result.pos)+' · '+scope,titleX,top+(wide?65:84),titleWidth,wide?13:16,muted,500);
   let missingPhotos=0;
   p.players.forEach((player,i)=>{
-   const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2,podium=featured&&!wide,m=b.metrics||rowMetrics(b.width,b.height,league);
+   const b=p.boxes[i],featured=b.featured,rank=i+1,mid=b.y+b.height/2,podium=featured&&!wide,spaciousPodium=podium&&b.spacious,m=b.metrics||rowMetrics(b.width,b.height,league);
    rect(ctx,b.x,b.y,b.width,b.height,featured?18:m.roomy?18:8,featured&&i===0?blend(colors.primary,'#fffdf8',.9):'#fffdf8',colors.primary);
    const rankWidth=league?Math.max(32/outputRatio,featured?(wide?32:38):m.rankWidth):featured?(wide?32:38):m.rankWidth;
-   const photoSize=podium?Math.min(96,b.height-68):featured?Math.min(52,b.height-12):m.photoSize;
+   const photoSize=spaciousPodium?Math.min(180,b.height-100,b.width*.6):podium?Math.min(96,b.height-68):featured?Math.min(52,b.height-12):m.photoSize;
    const photoX=podium?b.x+(b.width-photoSize)/2:b.x+rankWidth+(featured?12:m.roomy?12:6);
-   const photoY=podium?b.y+12:mid-photoSize/2,photoMid=photoY+photoSize/2;
+   const photoY=spaciousPodium?b.y+(b.height-photoSize-78)/2:podium?b.y+12:mid-photoSize/2,photoMid=photoY+photoSize/2;
    text(ctx,String(rank),b.x+(featured?14:8),podium?b.y+29:mid+(featured?10:m.rankFont*.33),rankWidth-8,featured?(podium?22:28):m.rankFont,brandInk,700);
    ctx.save();ctx.beginPath();ctx.arc(photoX+photoSize/2,photoMid,photoSize/2,0,Math.PI*2);ctx.clip();
    ctx.fillStyle=photoBackdrop(photos[i],blend(colors.primary,paper,.85));ctx.fillRect(photoX,photoY,photoSize,photoSize);
@@ -189,9 +190,9 @@
    ctx.restore();
    const tx=podium?b.x+14:photoX+photoSize+(featured?14:m.gap);
    const max=podium?b.width-28:b.x+b.width-tx-(featured?16:8);
-   const nameFont=featured?(podium?24:26):m.nameFont;
-   text(ctx,player.name,tx,podium?b.y+b.height-34:featured||league||m.roomy?mid-1:mid+nameFont*.33,max,nameFont,ink,600);
-   if(featured||league||m.roomy)text(ctx,(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(league&&info.league==='MLB'?result.pos:(player.rosterPosition||player.position))+' · #'+player.number,tx,podium?b.y+b.height-14:mid+(!featured&&m.roomy?Math.max(22,m.nameFont*.7):league?Math.max(14,8/outputRatio):18),max,!featured&&m.roomy?Math.min(25,m.nameFont*.42):league&&!featured?Math.min(12,b.height*.26):podium?13:12,muted,500);
+   const nameFont=featured?(spaciousPodium?32:podium?24:26):m.nameFont;
+   text(ctx,player.name,tx,spaciousPodium?photoY+photoSize+42:podium?b.y+b.height-34:featured||league||m.roomy?mid-1:mid+nameFont*.33,max,nameFont,ink,600);
+   if(featured||league||m.roomy)text(ctx,(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(league&&info.league==='MLB'?result.pos:(player.rosterPosition||player.position))+' · #'+player.number,tx,spaciousPodium?photoY+photoSize+64:podium?b.y+b.height-14:mid+(!featured&&m.roomy?Math.max(22,m.nameFont*.7):league?Math.max(14,8/outputRatio):18),max,!featured&&m.roomy?Math.min(25,m.nameFont*.42):league&&!featured?Math.min(12,b.height*.26):podium?13:12,muted,500);
   });
   ctx.fillStyle='#d9d2c5';ctx.fillRect(pad,p.H-p.footer+(league?10/outputRatio:10),p.W-2*pad,1);
   text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-(league?30/outputRatio:30),p.W-2*pad-260,league?Math.max(14,12/outputRatio):14,brandInk,600);
