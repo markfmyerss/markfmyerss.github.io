@@ -1,14 +1,14 @@
 /* Approved league styles: NFL field/scoreboard details and NBA court geometry. */
-html body[data-sport]{
+html body[data-sport],html body[data-sport] .panel{
  --league-ui-bg:#0b1625;--league-ui-surface:#14263a;--league-ui-soft:#1c3047;--league-ui-ink:#f5f7fb;--league-ui-muted:#b9c6d5;--league-ui-line:#304359;
  background:var(--league-ui-bg);color:var(--league-ui-ink);font-family:'DM Sans',system-ui,sans-serif;
 }
-html body[data-sport=NFL]{--league-primary:#013369;--league-red:#d50a0a;--league-link:#83b4eb;--league-ui-hero:#062c55;--league-ui-radius:9px;--league-ui-heading:'Barlow Condensed','Arial Narrow',sans-serif}
-html body[data-sport=NBA]{--league-primary:#1d428a;--league-red:#c8102e;--league-link:#9dbbf8;--league-ui-hero:#18366f;--league-ui-radius:24px;--league-ui-heading:'Archivo Black','DM Sans',sans-serif;--league-ui-bg:#101725;--league-ui-surface:#192437;--league-ui-soft:#243149;--league-ui-line:#34425c}
-html[data-appearance=light] body[data-sport]{--league-ui-bg:#f1f4f7;--league-ui-surface:#fff;--league-ui-soft:#e9eef4;--league-ui-ink:#142a43;--league-ui-muted:#596b7e;--league-ui-line:#d3dde7;--league-link:var(--league-primary)}
-html[data-appearance=light] body[data-sport=NBA]{--league-ui-bg:#f5f2ec;--league-ui-surface:#fffdfa;--league-ui-soft:#ece8e0;--league-ui-ink:#162a4d;--league-ui-muted:#666b77;--league-ui-line:#dcd8d1;--league-ui-hero:#fffdfa}
-html[data-appearance=black] body[data-sport]{--league-ui-bg:#000;--league-ui-surface:#080c12;--league-ui-soft:#151b24;--league-ui-ink:#f5f7fb;--league-ui-muted:#b9c6d5;--league-ui-line:#2a3544;--league-ui-hero:#06182e}
-html[data-appearance=black] body[data-sport=NBA]{--league-ui-hero:#0b1730;--league-ui-surface:#090d15;--league-ui-soft:#151c2a;--league-ui-line:#2c3548}
+html body[data-sport=NFL],html body[data-sport=NFL] .panel{--league-primary:#013369;--league-red:#d50a0a;--league-link:#83b4eb;--league-ui-hero:#062c55;--league-ui-radius:9px;--league-ui-heading:'Barlow Condensed','Arial Narrow',sans-serif}
+html body[data-sport=NBA],html body[data-sport=NBA] .panel{--league-primary:#1d428a;--league-red:#c8102e;--league-link:#9dbbf8;--league-ui-hero:#18366f;--league-ui-radius:24px;--league-ui-heading:'Archivo Black','DM Sans',sans-serif;--league-ui-bg:#101725;--league-ui-surface:#192437;--league-ui-soft:#243149;--league-ui-line:#34425c}
+html[data-appearance=light] body[data-sport],html[data-appearance=light] body[data-sport] .panel{--league-ui-bg:#f1f4f7;--league-ui-surface:#fff;--league-ui-soft:#e9eef4;--league-ui-ink:#142a43;--league-ui-muted:#596b7e;--league-ui-line:#d3dde7;--league-link:var(--league-primary)}
+html[data-appearance=light] body[data-sport=NBA],html[data-appearance=light] body[data-sport=NBA] .panel{--league-ui-bg:#f5f2ec;--league-ui-surface:#fffdfa;--league-ui-soft:#ece8e0;--league-ui-ink:#162a4d;--league-ui-muted:#666b77;--league-ui-line:#dcd8d1;--league-ui-hero:#fffdfa}
+html[data-appearance=black] body[data-sport],html[data-appearance=black] body[data-sport] .panel{--league-ui-bg:#000;--league-ui-surface:#080c12;--league-ui-soft:#151b24;--league-ui-ink:#f5f7fb;--league-ui-muted:#b9c6d5;--league-ui-line:#2a3544;--league-ui-hero:#06182e}
+html[data-appearance=black] body[data-sport=NBA],html[data-appearance=black] body[data-sport=NBA] .panel{--league-ui-hero:#0b1730;--league-ui-surface:#090d15;--league-ui-soft:#151c2a;--league-ui-line:#2c3548}
 html body[data-sport] main{max-width:1180px;padding-top:24px}
 html body[data-sport] header{isolation:isolate;overflow:hidden;padding:28px 32px 28px;margin-bottom:24px;background:var(--league-ui-hero);border:1px solid #ffffff18;border-radius:var(--league-ui-radius);color:#fff}
 html body[data-sport=NFL] header{border-left:7px solid var(--league-red);box-shadow:0 7px 0 color-mix(in srgb,var(--league-primary) 12%,transparent)}
@@ -127,9 +127,9 @@ html body[data-sport] .pick-label{display:flex;align-items:center;justify-conten
 }
 
 /* MLB: diamond details, warm paper in Light, and the league's navy/red accents. */
-html body[data-sport=MLB]{--league-primary:#002d72;--league-red:#d50032;--league-link:#9dbdf0;--league-ui-hero:#102c52;--league-ui-radius:14px;--league-ui-heading:'Barlow Condensed','DM Sans',sans-serif}
-html[data-appearance=light] body[data-sport=MLB]{--league-ui-bg:#f5f2eb;--league-ui-surface:#fffdf8;--league-ui-soft:#ece8df;--league-ui-ink:#172b49;--league-ui-muted:#606b7a;--league-ui-line:#d9d5cb;--league-ui-hero:#102c52}
-html[data-appearance=black] body[data-sport=MLB]{--league-ui-hero:#071a33}
+html body[data-sport=MLB],html body[data-sport=MLB] .panel{--league-primary:#002d72;--league-red:#d50032;--league-link:#9dbdf0;--league-ui-hero:#102c52;--league-ui-radius:14px;--league-ui-heading:'Barlow Condensed','DM Sans',sans-serif}
+html[data-appearance=light] body[data-sport=MLB],html[data-appearance=light] body[data-sport=MLB] .panel{--league-ui-bg:#f5f2eb;--league-ui-surface:#fffdf8;--league-ui-soft:#ece8df;--league-ui-ink:#172b49;--league-ui-muted:#606b7a;--league-ui-line:#d9d5cb;--league-ui-hero:#102c52}
+html[data-appearance=black] body[data-sport=MLB],html[data-appearance=black] body[data-sport=MLB] .panel{--league-ui-hero:#071a33}
 html body[data-sport=MLB] header{border-bottom:5px solid var(--league-red)}
 html body[data-sport=MLB] header h1{font-size:clamp(2.9rem,8vw,6.6rem)}
 html body[data-sport=MLB] .league-wordmark{font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:.08em}
@@ -160,3 +160,5 @@ html body[data-sport=MLB] .pool-player-photo img{display:block;min-width:0;min-h
 /* Rank labels must follow appearance instead of inheriting a potentially dark team highlight. */
 html body[data-sport] .rank-num,html body[data-sport] .podium-place{color:#f5f7fb}
 html[data-appearance=light] body[data-sport] .rank-num,html[data-appearance=light] body[data-sport] .podium-place{color:#142a43}
+
+/* Resolve appearance tokens on panels as well as body so Safari refreshes their inherited palette when appearance changes. */
