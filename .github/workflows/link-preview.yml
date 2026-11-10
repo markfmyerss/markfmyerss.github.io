@@ -1,27 +1,25 @@
 name: Render link preview
 on:
   push:
-    paths:
-      - 'assets/link-preview.html'
-      - 'scripts/render-link-preview.cjs'
-      - '.github/workflows/link-preview.yml'
+    paths: ['assets/link-preview.html', 'scripts/render-link-preview.cjs', '.github/workflows/link-preview.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   render:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-save --package-lock=false @playwright/test
-      - run: npx playwright install --with-deps chromium
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
       - run: node scripts/render-link-preview.cjs
       - uses: actions/upload-artifact@v4
         with:
           name: link-preview
-          path: qa/link-preview-v2.png
+          path: qa/link-preview-v3.png
           retention-days: 7
