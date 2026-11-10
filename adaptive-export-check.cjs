@@ -7,6 +7,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   if(ordered.some(p=>!p))throw Error('Celtics fixture differs from published roster');
   const qbs=rosterFor('Baltimore Ravens').filter(p=>p.position==='QB');if(qbs.length!==4)throw Error('Expected four Ravens quarterbacks, found '+qbs.length);
   const cases=[{team:'Baltimore Ravens',pos:'QB',players:qbs},{team:'Boston Celtics',pos:'ALL',players:ordered},{team:'Baltimore Orioles',pos:'ALL',players:rosterFor('Baltimore Orioles')},{team:'Baltimore Ravens',pos:'ALL',players:rosterFor('Baltimore Ravens')}];
+  const longFeatured=cases[2].players.find(p=>p.name==='Christian Encarnacion-Strand');cases.push({...cases[2],players:[longFeatured,...cases[2].players.filter(p=>p.id!==longFeatured.id)]});
   const pool=Object.keys(ALL_TEAM_INFO).find(t=>isLeaguePool(t)&&ALL_TEAM_INFO[t].league==='NFL');cases.push({team:pool,pos:'ALL',players:rosterFor(pool).slice(0,140)});
   let layouts=0,images=0;const counts=[1,2,3,4,5,6,10,17,25,39,40,53,75,140];
   for(const count of counts)for(const size of sizeIds)for(const scope of ['all','10','25']){
