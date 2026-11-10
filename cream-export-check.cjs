@@ -20,7 +20,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    const paper=at(0,0),primary=rgb(ALL_TEAM_INFO[team].colors.primary);if(paper[3]!==255||paper.slice(0,3).some((n,i)=>Math.abs(n-primary[i])>1))throw Error(team+' background does not match primary color: '+paper);
    if(canvas._numberDraws.length<result.players.length)throw Error(team+' rank labels missing');
    for(const n of canvas._numberDraws){const fg=lum(rgb(n.color)),bg=lum(at(n.x,n.y).slice(0,3)),contrast=(Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05);least=Math.min(least,contrast);if(contrast<7)throw Error(team+' number '+n.text+' contrast '+contrast);}
-   const plan=ResultsExport.plan(result,{size,scope:'all'}),b=plan.boxes[0],left=at(Math.floor(b.x+5),Math.floor(b.y+b.height/2)),right=at(Math.floor(b.x+b.width-5),Math.floor(b.y+b.height/2));
+   const plan=ResultsExport.plan(result,{size,scope:'all'}),b=plan.boxes[0],scale=canvas.width/plan.W,left=at(Math.floor((b.x+5)*scale),Math.floor((b.y+b.height/2)*scale)),right=at(Math.floor((b.x+b.width-5)*scale),Math.floor((b.y+b.height/2)*scale));
    if(left.some((n,i)=>Math.abs(n-right[i])>1))throw Error(team+' standalone rank-side stripe remains');
    for(const n of canvas._textDraws){const fg=lum(rgb(n.color)),bg=lum(at(n.x,n.y).slice(0,3)),contrast=(Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05);if(contrast<4.5)throw Error(team+' text '+n.text+' contrast '+contrast);}
    const label=canvas._textDraws.find(n=>n.text==='MY FAVORITES'),subtitle=canvas._textDraws.find(n=>/ · (?:All \d+ players|Top \d+ of \d+)$/.test(n.text));
