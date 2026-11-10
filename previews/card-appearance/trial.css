@@ -1,0 +1,14 @@
+/* Optional trial: neutral player surfaces follow appearance, while team buttons retain their colors. */
+html[data-card-preview=on] body[data-sport]{--player-card-surface:#192437}
+html[data-card-preview=on][data-appearance=light] body[data-sport]{--player-card-surface:#fffdf8}
+html[data-card-preview=on][data-appearance=black] body[data-sport]{--player-card-surface:#000}
+html[data-card-preview=on] body[data-sport] :is(.player,.portrait,.podium-card,.podium-photo,.rank-thumb,.pool-player-photo),
+html[data-card-preview=on] body[data-sport] .player:hover,
+html[data-card-preview=on] body[data-sport] .podium-card:first-child{background:var(--player-card-surface)}
+html[data-card-preview=on] body[data-sport] .portrait:after{background:none}
+.card-preview-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 20px;padding:14px 16px;border:1px solid var(--league-ui-line);border-radius:12px;background:var(--league-ui-surface);color:var(--league-ui-ink);font:500 .8rem/1.5 'DM Sans',sans-serif}
+.card-preview-banner strong{display:block;font-size:.9rem}.card-preview-banner p{margin:3px 0 0;font-size:.75rem}
+.card-preview-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+html body[data-sport] .card-preview-controls button{padding:8px 11px;min-height:36px;background:var(--league-ui-soft);color:var(--league-ui-ink);border:1px solid var(--league-ui-line);font:600 .75rem 'DM Sans',sans-serif;border-radius:8px}
+html body[data-sport] .card-preview-controls button[aria-pressed=true]{background:var(--league-primary);color:#fff;border-color:var(--league-primary)}
+.card-preview-controls a{font-size:.75rem}

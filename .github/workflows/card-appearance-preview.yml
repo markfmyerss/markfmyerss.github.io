@@ -1,0 +1,19 @@
+name: Player card appearance trial
+on:
+  push:
+    paths: ['previews/card-appearance/**', 'card-appearance-preview-check.cjs', '.github/workflows/card-appearance-preview.yml']
+permissions:
+  contents: read
+jobs:
+  trial:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node card-appearance-preview-check.cjs
