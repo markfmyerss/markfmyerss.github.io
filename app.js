@@ -61,9 +61,17 @@ function unpackLeagueState(s,players=s.players){
  const copy={...s,players,stack:s.stack.map(frame=>{const f={...frame};for(const k of ['items','left','right','out'])if(Array.isArray(f[k]))f[k]=list(f[k]);return f;})};
  if(s.sorted)copy.sorted=list(s.sorted);delete copy.encoding;return copy;
 }
-const savedStateJSON=s=>JSON.stringify(isLeaguePool(s.team)||leagueFor(s.team)==='MLB'?packLeagueState(s):s);
-const parseSavedState=value=>{const s=JSON.parse(value);return s?.encoding?unpackLeagueState(s):s;};
-function clearRanking(team,pos){remove(keyFor(team,pos));if(isLeaguePool(team))remove(keyFor(team,pos)+':progress');}
+function compactUndoHistory(history,players){
+ if(!Array.isArray(history)||!Array.isArray(players))return [];
+ return history.flatMap(entry=>{try{
+  const parsed=JSON.parse(entry),previous=unpackLeagueState(parsed,players);
+  if(parsed.encoding==='league-indices-v1'&&!parsed.players&&Array.isArray(parsed.history)&&!parsed.history.length)return [entry];
+  return [JSON.stringify(packLeagueState({...previous,players,history:[]},true))];
+ }catch{return [];}});
+}
+const savedStateJSON=s=>JSON.stringify(packLeagueState({...s,history:compactUndoHistory(s.history,s.players)}));
+const parseSavedState=value=>{let s=JSON.parse(value);if(s?.encoding)s=unpackLeagueState(s);if(s&&Array.isArray(s.players))s.history=compactUndoHistory(s.history,s.players);return s;};
+function clearRanking(team,pos){const key=keyFor(team,pos);remove(key);if(isLeaguePool(team))remove(key+':progress');unsavedRankings.delete(key);rankingSaveFailed=unsavedRankings.size>0;if(!rankingSaveFailed)$('storage-note').hidden=true;}
 function selectRankingMode(mode){
  if(!['teams','positions'].includes(mode)||mode===rankingMode)return;
  clearSharedLink();save();rememberSelection();rankingMode=mode;write(prefixFor(activeSport)+'-ranking-mode',mode);populateSport();
@@ -93,6 +101,8 @@ const normalizedName = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').to
 const headshotAliases = new Map([[normalizedName('Vega Ioane'), normalizedName('Olaivavega Ioane')]]);
 // Official team/NFL portrait URLs are stored separately so existing saved players get photos too.
 let state = null;
+let rankingSaveFailed=false;
+const unsavedRankings=new Set();
 let sharedRanking = null;
 let sharedRequest = 0;
 const memory = new Map();
@@ -164,7 +174,33 @@ function renderRosterHistory(){
  $('previous-rankings').hidden=!!sharedRanking||!available.length;$('roster-history').replaceChildren();
  for(const row of available)$('roster-history').add(new Option(row.verified+' · '+row.players+' players'+(row.done?' · Complete':Number.isInteger(row.comparisons)?' · '+row.comparisons+' picks saved':''),row.stamp));
 }
-function save() { if(state){write(keyFor(state.team,state.pos),savedStateJSON(state));if(isLeaguePool(state.team))write(keyFor(state.team,state.pos)+':progress',JSON.stringify({done:state.done,comparisons:state.comparisons}));} }
+function save() {
+ if(!state)return true;
+ state.history=compactUndoHistory(state.history,state.players);
+ const key=keyFor(state.team,state.pos),history=state.history,limits=[...new Set([history.length,Math.min(20,history.length),Math.min(5,history.length),0])];
+ let retried=false;
+ for(const limit of limits){
+  const candidate=limit===history.length?state:{...state,history:limit?history.slice(-limit):[]};
+  if(write(key,savedStateJSON(candidate))){
+   state.history=candidate.history;
+   if(limit<history.length)globalThis.RankingTools?.announce('Your ranking was saved with a shorter undo history because browser storage is nearly full.');
+   const wasUnsaved=rankingSaveFailed;unsavedRankings.delete(key);rankingSaveFailed=unsavedRankings.size>0;
+   if((retried||wasUnsaved)&&!rankingSaveFailed){$('storage-note').hidden=true;$('storage-note').textContent='Browser storage is unavailable. Your picks will last for this visit only.';}
+   if(isLeaguePool(state.team)){
+    const progress=JSON.stringify({done:state.done,comparisons:state.comparisons});memory.set(key+':progress',progress);
+    try{localStorage.setItem(key+':progress',progress);}catch{}
+   }
+   return true;
+  }
+  retried=true;
+ }
+ // Keep the full current result for this visit even when durable storage is blocked.
+ memory.set(key,savedStateJSON(state));unsavedRankings.add(key);rankingSaveFailed=true;
+ $('storage-note').textContent='Your latest picks could not be saved to this browser. Keep this page open. Refreshing could restore an older checkpoint. When finished, copy your ranking link as a backup.';
+ $('storage-note').hidden=false;
+ $('save-note').textContent='Latest picks are not saved. Keep this page open.';
+ return false;
+}
 function makeFallback(p, small=false) {
   const d=document.createElement('span'); d.className=small?'fallback small':'fallback';
   const n=document.createElement('span'); n.className='jersey-number'; n.textContent=p.number||'—'; d.append(n);
@@ -202,7 +238,7 @@ function applyTheme() {
   document.body.dataset.sport=activeSport;
   $('lede').innerHTML=league?'Choose a position. Pick your favorites across the league.<br>Your progress saves separately for each position.':'Choose your team. Pick the player you like more.<br>Build a ranking that’s entirely yours.';
   $('intro-kicker').textContent=league?'YOUR POSITION. YOUR ORDER.':'YOUR TEAM. YOUR ORDER.';
-  $('save-note').textContent='Saved automatically on this browser. Switch '+(league?'positions':'teams')+' whenever you like.';
+  $('save-note').textContent=(state&&unsavedRankings.has(keyFor(state.team,state.pos)))?'Latest picks are not saved. Keep this page open.':'Saved automatically on this browser. Switch '+(league?'positions':'teams')+' whenever you like.';
   $('first-step').innerHTML=league?'<b>01</b> Choose a position':'<b>01</b> Pick a team';
   $('league-summary').textContent=activeSport+' · '+(league?'BY POSITION':(activeSport==='MLB'?conferenceFor(team)+' ':'')+divisionFor(team).toUpperCase());
   for(const b of $('sport-picker').children)b.setAttribute('aria-pressed',String(b.dataset.sport===activeSport));
@@ -269,7 +305,7 @@ function renderTopThree(result=state) {
 
 function rememberUndo() {
  state.history=state.history||[];
- state.history.push(isLeaguePool(state.team)||leagueFor(state.team)==='MLB'?JSON.stringify(packLeagueState({...state,history:[]},true)):JSON.stringify({...state,history:[]}));
+ state.history.push(JSON.stringify(packLeagueState({...state,history:[]},true)));
  if(state.history.length>(isLeaguePool(state.team)?40:100))state.history.shift();
 }
 const includedPlayers=s=>s.players.filter(p=>!(s.excluded||[]).includes(p.id));
@@ -564,5 +600,6 @@ async function shareRankingLink(){
 $('latest-roster').onclick=useLatestRoster;$('open-previous-ranking').onclick=openPreviousRanking;
 $('share-link').onclick=shareRankingLink;$('rank-yours').onclick=viewOwnRanking;
 globalThis.addEventListener?.('hashchange',openSharedRanking);
+globalThis.addEventListener?.('beforeunload',event=>{if(rankingSaveFailed){event.preventDefault();event.returnValue='';}});
 if(state&&!state.done)mergeNext();else render();
 openSharedRanking();

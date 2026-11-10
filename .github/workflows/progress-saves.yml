@@ -1,0 +1,32 @@
+name: Durable progress and readable results
+on:
+  push:
+    paths: ['app.js', 'league-style.css', 'index.html', 'progress-persistence-check.cjs', 'scripts/verify-ranking-saves-live.cjs', '.github/workflows/progress-saves.yml']
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests.cjs
+      - run: node nba-tests.cjs
+      - run: node mlb-check.cjs
+      - run: npm install --no-save --package-lock=false @playwright/test@1.64.1
+      - run: node progress-persistence-check.cjs
+  publication:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/verify-ranking-saves-live.cjs
