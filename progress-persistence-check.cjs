@@ -36,7 +36,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
  await blocked.evaluate(()=>{Storage.prototype.setItem=window.realSetItem;save();render();});assert(await blocked.locator('#storage-note').isHidden());const picks=await blocked.evaluate(()=>state.comparisons);await blocked.reload();assert.equal(await blocked.evaluate(()=>state.comparisons),picks);await blocked.close();
  console.log('PASS '+engine.name()+': blocked saves show an honest warning and prevent silent refresh loss; recovery persists current picks');
  const contrast=await setup(browser,true);
- const checked=await contrast.evaluate(()=>{
+ const checked=await contrast.evaluate(async()=>{
   const rgb=s=>(s.match(/[\d.]+/g)||[]).slice(0,3).map(Number),lum=c=>c.map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0),ratio=(a,b)=>(Math.max(lum(a),lum(b))+.05)/(Math.min(lum(a),lum(b))+.05);
   const background=e=>{for(let p=e;p;p=p.parentElement){const bg=getComputedStyle(p).backgroundColor;if(!bg.startsWith('rgba')&&bg!=='transparent')return rgb(bg);if(bg.startsWith('rgba')&&Number((bg.match(/[\d.]+/g)||[])[3])===1)return rgb(bg);}throw Error('No opaque background');};
   let count=0;
@@ -44,6 +44,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    selectSport(sport);selectRankingMode('teams');$('team').value=team;$('position').value='ALL';selectTeam();const players=rosterFor(team);state={team,pos:'ALL',players,sorted:players,stack:[],history:[],comparisons:100,done:true};render();
    for(const appearance of ['light','dim','black']){
     document.documentElement.dataset.appearance=appearance;
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     for(const selector of ['#export-preview','#share-link','#share-ranking','#copy','.rank-num','.podium-place'])for(const e of document.querySelectorAll(selector)){const fg=rgb(getComputedStyle(e).color),bg=background(e);if(ratio(fg,bg)<4.5)throw Error(team+' '+appearance+' unreadable '+selector+' '+ratio(fg,bg)+' foreground '+fg+' background '+bg);}
     count++;
    }
