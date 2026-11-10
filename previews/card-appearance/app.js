@@ -58,7 +58,8 @@ function unpackLeagueState(s,players=s.players){
  if(s.encoding!=='league-indices-v1')return s;
  if(!Array.isArray(players)||players.length>1000)throw Error('Invalid position ranking');
  const list=items=>items.map(i=>{if(!Number.isInteger(i)||i<0||i>=players.length)throw Error('Invalid saved player');return players[i];});
- const copy={...s,players,stack:s.stack.map(frame=>{const f={...frame};for(const k of ['items','left','right','out'])if(Array.isArray(f[k]))f[k]=list(f[k]);return f;})};
+ const copy={team:s.team,pos:s.pos,players,...s};copy.players=players;
+ copy.stack=s.stack.map(frame=>{const f={...frame};for(const k of ['items','left','right','out'])if(Array.isArray(f[k]))f[k]=list(f[k]);return f;});
  if(s.sorted)copy.sorted=list(s.sorted);delete copy.encoding;return copy;
 }
 function compactUndoHistory(history,players){
