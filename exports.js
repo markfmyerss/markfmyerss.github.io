@@ -262,10 +262,13 @@
    const showMeta=featured||league||m.roomy;
    const metaY=spaciousPodium?photoY+photoSize+64:podium?b.y+b.height-14:mid+(!featured&&m.roomy?Math.max(22,m.nameFont*.7):league?Math.max(14,8/outputRatio):18);
    const metaFont=Math.max(Math.max(8,Math.ceil(8/outputRatio)),Math.floor(!featured&&m.roomy?Math.min(25,m.nameFont*.42):league&&!featured?Math.min(12,b.height*.26):podium?13:12));
+   const metaLabel=(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(league&&info.league==='MLB'?result.pos:(player.rosterPosition||player.position))+' · #'+player.number;
+   ctx.font='500 '+metaFont+'px "DM Sans",system-ui,-apple-system,sans-serif';
+   const metaAscent=ctx.measureText(metaLabel).actualBoundingBoxAscent;
    const nameTop=podium?photoY+photoSize+1:b.y+(m.roomy?8:4);
-   const nameBottom=showMeta?metaY-metaFont*.75-2:b.y+b.height-4;
+   const nameBottom=showMeta?metaY-metaAscent-3:b.y+b.height-4;
    playerName(ctx,player.name,tx,nameTop,nameBottom,max,nameFont,ink);
-   if(showMeta)text(ctx,(league?(ALL_TEAM_INFO[player.team]?.code||player.team)+' · ':'')+(league&&info.league==='MLB'?result.pos:(player.rosterPosition||player.position))+' · #'+player.number,tx,metaY,max,metaFont,muted,500);
+   if(showMeta)text(ctx,metaLabel,tx,metaY,max,metaFont,muted,500);
   });
   ctx.fillStyle=palette.divider;ctx.fillRect(pad,p.H-p.footer+(league?10/outputRatio:10),p.W-2*pad,1);
   text(ctx,'Fan Favorites · built by @markfm18',pad,p.H-(league?30/outputRatio:30),p.W-2*pad-260,league?Math.max(14,12/outputRatio):14,brandInk,600);
