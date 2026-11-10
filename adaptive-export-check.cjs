@@ -29,15 +29,19 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   }
   const qb=ResultsExport.plan(cases[0],{size:'1x1',scope:'all'}).boxes[3];if(qb.metrics.nameFont<60||qb.metrics.photoSize<180)throw Error('Fourth QB still undersized');
   for(const result of cases)for(const size of sizeIds){
-   const drawn=[],original=CanvasRenderingContext2D.prototype.fillText;
-   CanvasRenderingContext2D.prototype.fillText=function(value,x,y,max){if(result.players.some(p=>p.name===value)){
+   const drawn=[],records=[],original=CanvasRenderingContext2D.prototype.fillText;let pending='',parts=[];
+   CanvasRenderingContext2D.prototype.fillText=function(value,x,y,max){const expected=result.players[drawn.length]?.name,next=pending?pending+' '+value:String(value);if(expected&&(next===expected||expected.startsWith(next+' '))){
     if(this.measureText(value).width>max+.5)throw Error('Name does not fit '+value+' '+size);
     const m=this.measureText(value),plan=ResultsExport.plan(result,{size,scope:'all'}),b=plan.boxes[drawn.length];
     if(y-m.actualBoundingBoxAscent<b.y-1||y+m.actualBoundingBoxDescent>b.y+b.height+1)throw Error('Name outside row '+value+' '+size);
-    drawn.push(value);
-   }return original.call(this,value,x,y,max);};
+    parts.push({text:String(value),font:parseFloat(this.font.split(' ')[1]),top:y-m.actualBoundingBoxAscent,bottom:y+m.actualBoundingBoxDescent,x,y});
+    pending=next;if(pending===expected){drawn.push(expected);records.push({name:expected,parts});parts=[];pending='';}
+   }if(String(value).includes(' · #')&&records.length){const last=records[records.length-1],bottom=Math.max(...last.parts.map(p=>p.bottom)),metaTop=y-this.measureText(value).actualBoundingBoxAscent;if(bottom>metaTop-1)throw Error('Name touches metadata '+last.name+' '+size);}
+   return original.call(this,value,x,y,max);};
    let image;try{image=await ResultsExport.createImage(result,{size,type:'png',scope:'all'});}finally{CanvasRenderingContext2D.prototype.fillText=original;}
    if(image.pages!==1||JSON.stringify(image.players)!==JSON.stringify(result.players.map(p=>p.id))||JSON.stringify(drawn)!==JSON.stringify(result.players.map(p=>p.name)))throw Error('Incomplete or reordered export');
+   for(const record of records)if(record.parts.length>2)throw Error('More than two name lines');
+   if(result.team==='Baltimore Orioles'&&size==='1x1'){const long=records.find(r=>r.name==='Christian Encarnacion-Strand');if(!long||long.parts.length!==2||long.parts.some(p=>p.font<18))throw Error('Long Orioles name should wrap at a readable size');const grid=ResultsExport.plan(result,{size,scope:'all'}).boxes.slice(3);if(grid.some(b=>Math.abs(b.height-grid[0].height)>.1||Math.abs(b.width-grid[0].width)>.1))throw Error('Wrapping changed grid symmetry');}
    images++;
   }
   return {layouts,images,celticsColumns:cp.columns,qbName:qb.metrics.nameFont,qbPhoto:qb.metrics.photoSize};

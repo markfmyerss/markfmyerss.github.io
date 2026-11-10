@@ -20,7 +20,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
  const output=await page.evaluate(async()=>{
   selectRankingMode('positions');const groups=selectablePositions(activeSport,true),pos=groups.sort((a,b)=>rankingRoster(leagueTeam(activeSport),b).length-rankingRoster(leagueTeam(activeSport),a).length)[0];document.getElementById('position').value=pos;selectTeam();const team=document.getElementById('team').value,players=rankingRoster(team,pos);state={team,pos,players,sorted:[...players].reverse(),done:true,history:[],stack:[],comparisons:0};save();render();const result={team,pos,players:state.sorted},rows=[];
   for(const size of ResultsExport.SIZES){
-   const names=[],original=CanvasRenderingContext2D.prototype.fillText,known=new Set(players.map(p=>p.name));CanvasRenderingContext2D.prototype.fillText=function(v,...args){if(known.has(v))names.push(v);return original.call(this,v,...args);};
+   const names=[],original=CanvasRenderingContext2D.prototype.fillText;let pending='';CanvasRenderingContext2D.prototype.fillText=function(v,...args){const expected=players[names.length]?.name,next=pending?pending+' '+v:String(v);if(expected&&(next===expected||expected.startsWith(next+' '))){pending=next;if(pending===expected){names.push(expected);pending='';}}return original.call(this,v,...args);};
    let image;try{image=await ResultsExport.createImage(result,{size:size.id,type:'png',scope:'all'});}finally{CanvasRenderingContext2D.prototype.fillText=original;}
    if(JSON.stringify(names)!==JSON.stringify(result.players.map(p=>p.name)))throw Error('Missing names '+size.id);
    if(JSON.stringify(image.players)!==JSON.stringify(result.players.map(p=>p.id)))throw Error('Wrong ranking order');

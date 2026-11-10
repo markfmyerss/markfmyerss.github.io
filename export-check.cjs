@@ -57,12 +57,13 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
    const [team,players]=Object.entries(ROSTERS).sort((a,b)=>b[1].length-a[1].length)[0];
    const result={team,pos:'ALL',players:[...players].reverse()},log=[];
    for(const size of ResultsExport.SIZES)for(const type of Object.keys(ResultsExport.TYPES)){
-    const options={size:size.id,type,scope:'all'},drawn=[],credits=[],original=CanvasRenderingContext2D.prototype.fillText;
+    const options={size:size.id,type,scope:'all'},drawn=[],credits=[],original=CanvasRenderingContext2D.prototype.fillText;let pending='';
     CanvasRenderingContext2D.prototype.fillText=function(value,x,y,max){
-     if(result.players.some(p=>p.name===value)){
+     const expected=result.players[drawn.length]?.name,next=pending?pending+' '+value:String(value);
+     if(expected&&(next===expected||expected.startsWith(next+' '))){
       if(!this.font.includes('DM Sans')||this.font.includes('Barlow'))throw Error('Export player names must use smooth DM Sans typography');
       if(this.measureText(value).width>max+.5)throw Error('Name does not fit '+value+' '+size.id);
-      drawn.push(value);
+      pending=next;if(pending===expected){drawn.push(expected);pending='';}
      }
      if(value==='Fan Favorites · built by @markfm18')credits.push(value);
      return original.call(this,value,x,y,max);
@@ -109,8 +110,8 @@ const {chromium}=require('@playwright/test'),http=require('node:http'),fs=requir
   await fallback.goto(url);
   const blocked=await fallback.evaluate(async()=>{
    const result={team:'Baltimore Ravens',pos:'ALL',players:ROSTERS['Baltimore Ravens']};
-   const drawn=[],original=CanvasRenderingContext2D.prototype.fillText;
-   CanvasRenderingContext2D.prototype.fillText=function(value,...args){if(result.players.some(p=>p.name===value))drawn.push(value);return original.call(this,value,...args);};
+   const drawn=[],original=CanvasRenderingContext2D.prototype.fillText;let pending='';
+   CanvasRenderingContext2D.prototype.fillText=function(value,...args){const expected=result.players[drawn.length]?.name,next=pending?pending+' '+value:String(value);if(expected&&(next===expected||expected.startsWith(next+' '))){pending=next;if(pending===expected){drawn.push(expected);pending='';}}return original.call(this,value,...args);};
    let image;try{image=await ResultsExport.createImage(result,{size:'link',type:'png',scope:'all'});}finally{CanvasRenderingContext2D.prototype.fillText=original;}
    return {missing:image.missingPhotos,count:result.players.length,drawn,expected:result.players.map(p=>p.name),pages:image.pages,logoIncluded:image.logoIncluded};
   });

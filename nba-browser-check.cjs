@@ -57,8 +57,8 @@ const {chromium,webkit}=require('@playwright/test'),http=require('node:http'),fs
     for(const [team,players] of Object.entries(NBA_ROSTERS)){
      const result={team,pos:'ALL',players:[...players].reverse()};
      for(const size of ResultsExport.SIZES){
-      const options={size:size.id,type:'png',scope:'all'},names=[],original=CanvasRenderingContext2D.prototype.fillText;
-      CanvasRenderingContext2D.prototype.fillText=function(value,...args){if(players.some(p=>p.name===value))names.push(value);return original.call(this,value,...args);};
+      const options={size:size.id,type:'png',scope:'all'},names=[],original=CanvasRenderingContext2D.prototype.fillText;let pending='';
+      CanvasRenderingContext2D.prototype.fillText=function(value,...args){const expected=players[names.length]?.name,next=pending?pending+' '+value:String(value);if(expected&&(next===expected||expected.startsWith(next+' '))){pending=next;if(pending===expected){names.push(expected);pending='';}}return original.call(this,value,...args);};
       let image;try{image=await ResultsExport.createImage(result,options);}finally{CanvasRenderingContext2D.prototype.fillText=original;}
       if(image.missingPhotos!==result.players.filter(p=>!NBA_HEADSHOTS[p.id]?.url).length)throw Error('Unexpected missing NBA photos '+team);
       if(!image.logoIncluded||image.pages!==1)throw Error('NBA logo or pagination '+team);
