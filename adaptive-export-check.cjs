@@ -8,7 +8,7 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
   const qbs=rosterFor('Baltimore Ravens').filter(p=>p.position==='QB');if(qbs.length!==4)throw Error('Expected four Ravens quarterbacks, found '+qbs.length);
   const cases=[{team:'Baltimore Ravens',pos:'QB',players:qbs},{team:'Boston Celtics',pos:'ALL',players:ordered},{team:'Baltimore Orioles',pos:'ALL',players:rosterFor('Baltimore Orioles')},{team:'Baltimore Ravens',pos:'ALL',players:rosterFor('Baltimore Ravens')}];
   const pool=Object.keys(ALL_TEAM_INFO).find(t=>isLeaguePool(t)&&ALL_TEAM_INFO[t].league==='NFL');cases.push({team:pool,pos:'ALL',players:rosterFor(pool).slice(0,140)});
-  let layouts=0,images=0;const counts=[1,2,3,4,5,6,10,17,25,40,53,75,140];
+  let layouts=0,images=0;const counts=[1,2,3,4,5,6,10,17,25,39,40,53,75,140];
   for(const count of counts)for(const size of sizeIds)for(const scope of ['all','10','25']){
    const players=Array.from({length:count},(_,i)=>({...celtics[i%celtics.length],id:'layout-'+i})),p=ResultsExport.plan({team:count>80?pool:'Boston Celtics',pos:'ALL',players},{size,scope});
    if(p.players.length!==Math.min(count,scope==='all'?count:Number(scope))||p.pages!==1||p.boxes.length!==p.players.length)throw Error('Missing players');
@@ -21,6 +21,12 @@ try{for(const engine of [chromium,webkit]){const browser=await engine.launch();t
    layouts++;
   }
   const cp=ResultsExport.plan(cases[1],{size:'1x1',scope:'all'});if(cp.columns!==2||cp.rows!==7||cp.boxes[9].x!==cp.boxes[3].x||cp.boxes[10].x<=cp.boxes[9].x||cp.boxes[10].y!==cp.boxes[3].y)throw Error('Celtics should read 4–10, then 11–17');
+  const orioles=cases.find(r=>r.team==='Baltimore Orioles');
+  for(const size of ['1x1','3x4','4x5','9x16']){
+   const op=ResultsExport.plan(orioles,{size,scope:'all'});
+   if(op.players.length!==39||op.columns!==3||op.rows!==12)throw Error('Orioles should use three columns of twelve '+size);
+   if(op.boxes[14].x!==op.boxes[3].x||op.boxes[15].x<=op.boxes[14].x||op.boxes[15].y!==op.boxes[3].y||op.boxes[27].x<=op.boxes[26].x||op.boxes[27].y!==op.boxes[3].y)throw Error('Orioles rank order should be 4–15, 16–27, 28–39');
+  }
   const qb=ResultsExport.plan(cases[0],{size:'1x1',scope:'all'}).boxes[3];if(qb.metrics.nameFont<60||qb.metrics.photoSize<180)throw Error('Fourth QB still undersized');
   for(const result of cases)for(const size of sizeIds){
    const drawn=[],original=CanvasRenderingContext2D.prototype.fillText;

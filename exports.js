@@ -54,6 +54,13 @@
    const score=Math.min(m.nameFont,textWidth/(longest*.54));
    if(score>best.score)best={score,columns,rows,width,rowHeight};
   }
+  // Prefer three complete columns for medium-sized team lists when names stay readable.
+  if(!league&&rest.length>=30&&rest.length<=60&&rest.length%3===0){
+   const columns=3,rows=rest.length/columns,width=(W-2*pad-gutter*(columns-1))/columns,rowHeight=available/rows;
+   const m=rowMetrics(width,rowHeight-4,false),textWidth=width-m.photoSize-m.rankWidth-m.gap-22;
+   const score=Math.min(m.nameFont,textWidth/(longest*.54));
+   if(score*(size.width/W)>=14)best={score,columns,rows,width,rowHeight};
+  }
   rest.forEach((p,i)=>{
    const column=Math.floor(i/best.rows),row=i%best.rows;
    boxes.push({x:pad+column*(best.width+gutter),y:y+row*best.rowHeight,width:best.width,height:best.rowHeight-4,featured:false,metrics:rowMetrics(best.width,best.rowHeight-4,league)});
