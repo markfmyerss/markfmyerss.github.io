@@ -1,0 +1,20 @@
+name: Weekly refresh compatibility
+on:
+  push:
+    branches: [fix-weekly-auto-publish, main]
+    paths: ['weekly-rosters-check.cjs', '.github/workflows/weekly-rosters.yml', '.github/workflows/weekly-refresh-compatibility.yml']
+permissions:
+  contents: read
+jobs:
+  compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/publish-rosters.cjs
+      - run: node weekly-rosters-check.cjs
+      - run: node position-rankings-check.cjs
+      - run: node roster-changes-check.cjs

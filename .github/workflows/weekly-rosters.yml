@@ -8,9 +8,17 @@ on:
       dry_run:
         description: 'Validate a refresh without publishing'
         type: boolean
-        default: true
+        default: false
   push:
-    branches: [weekly-roster-updates]
+    branches: [main, weekly-roster-updates]
+    paths:
+      - '.github/workflows/weekly-rosters.yml'
+      - 'weekly-rosters-check.cjs'
+      - 'scripts/refresh-rosters.cjs'
+      - 'scripts/refresh-position-pools.cjs'
+      - 'scripts/refresh-nba-position-pools.cjs'
+      - 'scripts/roster-tools.cjs'
+      - 'scripts/publish-rosters.cjs'
 permissions:
   contents: read
 concurrency:
@@ -90,7 +98,7 @@ jobs:
           retention-days: 7
   publish:
     needs: validate
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run))
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run))
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
