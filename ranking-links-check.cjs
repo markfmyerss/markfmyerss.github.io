@@ -18,7 +18,7 @@ const sender=boot();sender.e('team').value='Baltimore Ravens';sender.run('select
 const receiver=boot();receiver.run('start();choose("right")');const ownKey=receiver.run('keyFor(state.team,state.pos)'),own=receiver.storage.get(ownKey);
 receiver.c.location={hash,pathname:'/',search:''};receiver.c.history={replaceState(){receiver.c.location.hash='';}};
 receiver.run('openSharedRanking()');assert.ok(receiver.run('!!sharedRanking'));assert.equal(receiver.storage.get(ownKey),own);assert.equal(receiver.e('undo-result').hidden,true);assert.equal(receiver.e('reset').disabled,true);
-receiver.run('choose("left");undo();reset();start()');assert.equal(receiver.storage.get(ownKey),own);receiver.run('viewOwnRanking()');assert.equal(receiver.run('JSON.stringify(state)'),own);assert.equal(receiver.c.location.hash,'');
+receiver.run('choose("left");undo();reset();start()');assert.equal(receiver.storage.get(ownKey),own);receiver.run('viewOwnRanking()');assert.equal(receiver.run('JSON.stringify(state)'),receiver.run('JSON.stringify(parseSavedState('+JSON.stringify(own)+'))'));assert.equal(receiver.c.location.hash,'');
 const parts=hash.split('.');const bad=[hash.replace('v1','v2'),hash.replace('.NFL.','.__proto__.'),hash.replace('.BAL.','.XXX.'),hash.slice(0,-1),hash+'.extra','#ranking='+('x'.repeat(1100))];
 const duplicate=[...parts];duplicate[5]=btoa(String.fromCharCode(...Array(53).fill(0))).replace(/\\+/g,'-').replace(/\\//g,'_').replace(/=+$/,'');bad.push(duplicate.join('.'));
 for(const value of bad)assert.throws(()=>receiver.run('decodeRankingLink('+JSON.stringify(value)+')'));

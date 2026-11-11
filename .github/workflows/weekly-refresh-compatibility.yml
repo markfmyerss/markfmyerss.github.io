@@ -18,3 +18,5 @@ jobs:
       - run: node weekly-rosters-check.cjs
       - run: node position-rankings-check.cjs
       - run: node roster-changes-check.cjs
+      - run: node ranking-links-check.cjs
+      - run: node scripts/diagnose-nba-depth.cjs
