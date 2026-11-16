@@ -16,3 +16,6 @@ for(const sport of ['NFL','NBA'])R.validateLeague(data,sport);
 const serialized=R.serialize(data,{test:true});assert.ok(serialized.includes('ROSTER_KNOWN_IDS'));assert.ok(serialized.includes('Object.assign(ROSTERS,'));
 console.log('PASS all 440 archive keys validate; archive writes are immutable/idempotent; same-name NFL identities remain distinct; malformed sources and placeholder portraits are rejected');
 }finally{fs.rmSync(dir,{recursive:true,force:true});}
+
+// Official club rosters use ED and EDGE for the same edge-rusher role.
+{const table='<table><caption>Active</caption><tr><td><a href="/team/players-roster/edge-player/"><span class="nfl-o-roster__player-name">Edge Player</span></a></td><td>27</td><td>ED</td></tr></table>';const [player]=T.parseNFL(table,{source:'https://club.example/team/players-roster/'},'Club');assert.equal(player.rosterPosition,'ED');assert.deepEqual(player.positions,['LB']);assert.equal(require('./scripts/refresh-position-pools.cjs').roleFor(player,{roles:[]},[],{depthchart:[]}),'EDGE');}

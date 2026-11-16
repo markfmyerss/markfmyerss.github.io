@@ -19,6 +19,9 @@ on:
       - 'scripts/refresh-nba-position-pools.cjs'
       - 'scripts/roster-tools.cjs'
       - 'scripts/publish-rosters.cjs'
+      - 'position-rankings-browser-check.cjs'
+      - 'nba-browser-check.cjs'
+      - 'weekly-rosters-browser-check.cjs'
 permissions:
   contents: read
 concurrency:
@@ -72,7 +75,7 @@ jobs:
       - name: Check static link previews
         run: node social-preview-check.cjs
       - name: Export reviewable first-run candidate
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref != 'refs/heads/main'
         run: node scripts/export-roster-candidate.cjs
       - uses: actions/upload-artifact@v4
         with:
